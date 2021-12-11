@@ -1,0 +1,380 @@
+%CMF
+# %PSECTS Section
+# For each object file, details of its psects are enumerated here.
+# The begining of the section is indicated by %PSECTS.  The first
+# line indicates the name of the first object file, e.g.
+#    $foo.obj
+# Each line that follows describes a psect in that object file, until
+# the next object file.  The lines that describe a psect have the
+# format:
+#    <psect name> <class name> <space> <link address> <load addresses> <length> <delta>
+# All addresses and the length are given in unqualified hexadecimal
+# in delta units.  Any other numeric values are decimal.
+%PSECTS
+$C:\Users\User\AppData\Local\Temp\s3ig.o
+end_init CODE 0 0 0 1 2
+config CONFIG 4 2007 2007 1 2
+$dist/default/production\Cooler_Control.X.production.o
+cinit CODE 0 3F9 3F9 6 2
+text1 CODE 0 337 337 C2 2
+text2 CODE 0 1F3 1F3 A0 2
+text3 CODE 0 293 293 A4 2
+text4 CODE 0 13D 13D 22 2
+text5 CODE 0 15F 15F 94 2
+text6 CODE 0 11C 11C 21 2
+text7 CODE 0 10B 10B 11 2
+maintext CODE 0 107 107 4 2
+cstackBANK0 BANK0 1 20 20 1C 1
+bssBANK0 BANK0 1 3C 3C 3 1
+config CONFIG 4 2007 2007 1 2
+# %UNUSED Section
+# This section enumerates the unused ranges of each CLASS. Each entry
+# is described on a single line as follows:
+#    <class name> <range> <delta>
+# Addresses given in the range are in hexadecimal and units of delta.
+%UNUSED
+RAM 3F-5D 1
+BANK0 3F-5D 1
+CONST 1-106 2
+ENTRY 1-106 2
+IDLOC 2000-2003 2
+STACK 3F-5D 1
+CODE 1-106 2
+SFR0 0-1F 1
+SFR1 80-DD 1
+EEDATA 2100-217F 2
+STRCODE 1-106 2
+STRING 1-106 2
+# %LINETAB Section
+# This section enumerates the file/line to address mappings.
+# The beginning of the section is indicated by %LINETAB.
+# The first line indicates the name of the first object file, e.g.
+#   $foo.obj
+# Each line that follows describes a single mapping until the next
+# object file.  Mappings have the following format:
+#    <address> <psect name> <class name> ><line number>:<file name>
+# The address is absolute and given given in unqualified hex 
+# in delta units of the psect. All mappings within an object file
+# are in ascending order of addresses.
+# All other numeric values are in decimal.
+%LINETAB
+$dist/default/production\Cooler_Control.X.production.o
+3F9 cinit CODE >341:C:\Users\User\AppData\Local\Temp\s3ig.s
+3F9 cinit CODE >344:C:\Users\User\AppData\Local\Temp\s3ig.s
+3F9 cinit CODE >358:C:\Users\User\AppData\Local\Temp\s3ig.s
+3FA cinit CODE >359:C:\Users\User\AppData\Local\Temp\s3ig.s
+3FB cinit CODE >360:C:\Users\User\AppData\Local\Temp\s3ig.s
+3FC cinit CODE >361:C:\Users\User\AppData\Local\Temp\s3ig.s
+3FD cinit CODE >367:C:\Users\User\AppData\Local\Temp\s3ig.s
+3FD cinit CODE >369:C:\Users\User\AppData\Local\Temp\s3ig.s
+3FE cinit CODE >370:C:\Users\User\AppData\Local\Temp\s3ig.s
+10B text7 CODE >7:D:\Projekt\TalkoS\Cooler_Control\Cooler_Control.X\Defines_And _Prototypes.c
+10B text7 CODE >10:D:\Projekt\TalkoS\Cooler_Control\Cooler_Control.X\Defines_And _Prototypes.c
+10D text7 CODE >11:D:\Projekt\TalkoS\Cooler_Control\Cooler_Control.X\Defines_And _Prototypes.c
+10F text7 CODE >14:D:\Projekt\TalkoS\Cooler_Control\Cooler_Control.X\Defines_And _Prototypes.c
+111 text7 CODE >15:D:\Projekt\TalkoS\Cooler_Control\Cooler_Control.X\Defines_And _Prototypes.c
+113 text7 CODE >18:D:\Projekt\TalkoS\Cooler_Control\Cooler_Control.X\Defines_And _Prototypes.c
+114 text7 CODE >19:D:\Projekt\TalkoS\Cooler_Control\Cooler_Control.X\Defines_And _Prototypes.c
+115 text7 CODE >20:D:\Projekt\TalkoS\Cooler_Control\Cooler_Control.X\Defines_And _Prototypes.c
+116 text7 CODE >21:D:\Projekt\TalkoS\Cooler_Control\Cooler_Control.X\Defines_And _Prototypes.c
+118 text7 CODE >22:D:\Projekt\TalkoS\Cooler_Control\Cooler_Control.X\Defines_And _Prototypes.c
+119 text7 CODE >23:D:\Projekt\TalkoS\Cooler_Control\Cooler_Control.X\Defines_And _Prototypes.c
+11B text7 CODE >25:D:\Projekt\TalkoS\Cooler_Control\Cooler_Control.X\Defines_And _Prototypes.c
+11C text6 CODE >27:D:\Projekt\TalkoS\Cooler_Control\Cooler_Control.X\Defines_And _Prototypes.c
+11E text6 CODE >29:D:\Projekt\TalkoS\Cooler_Control\Cooler_Control.X\Defines_And _Prototypes.c
+11F text6 CODE >31:D:\Projekt\TalkoS\Cooler_Control\Cooler_Control.X\Defines_And _Prototypes.c
+11F text6 CODE >32:D:\Projekt\TalkoS\Cooler_Control\Cooler_Control.X\Defines_And _Prototypes.c
+121 text6 CODE >33:D:\Projekt\TalkoS\Cooler_Control\Cooler_Control.X\Defines_And _Prototypes.c
+122 text6 CODE >34:D:\Projekt\TalkoS\Cooler_Control\Cooler_Control.X\Defines_And _Prototypes.c
+122 text6 CODE >35:D:\Projekt\TalkoS\Cooler_Control\Cooler_Control.X\Defines_And _Prototypes.c
+124 text6 CODE >36:D:\Projekt\TalkoS\Cooler_Control\Cooler_Control.X\Defines_And _Prototypes.c
+125 text6 CODE >39:D:\Projekt\TalkoS\Cooler_Control\Cooler_Control.X\Defines_And _Prototypes.c
+135 text6 CODE >40:D:\Projekt\TalkoS\Cooler_Control\Cooler_Control.X\Defines_And _Prototypes.c
+136 text6 CODE >41:D:\Projekt\TalkoS\Cooler_Control\Cooler_Control.X\Defines_And _Prototypes.c
+138 text6 CODE >42:D:\Projekt\TalkoS\Cooler_Control\Cooler_Control.X\Defines_And _Prototypes.c
+13C text6 CODE >57:D:\Projekt\TalkoS\Cooler_Control\Cooler_Control.X\Defines_And _Prototypes.c
+15F text5 CODE >4:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\flge.c
+15F text5 CODE >7:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\flge.c
+172 text5 CODE >8:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\flge.c
+17A text5 CODE >9:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\flge.c
+18C text5 CODE >10:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\flge.c
+194 text5 CODE >12:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\flge.c
+196 text5 CODE >13:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\flge.c
+1BA text5 CODE >14:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\flge.c
+1BC text5 CODE >15:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\flge.c
+1E0 text5 CODE >16:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\flge.c
+1E2 text5 CODE >17:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\flge.c
+1E4 text5 CODE >18:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\flge.c
+13D text4 CODE >15:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\Umul16.c
+13D text4 CODE >43:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\Umul16.c
+140 text4 CODE >45:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\Umul16.c
+142 text4 CODE >46:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\Umul16.c
+148 text4 CODE >47:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\Umul16.c
+14F text4 CODE >48:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\Umul16.c
+156 text4 CODE >49:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\Umul16.c
+15A text4 CODE >52:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\Umul16.c
+15E text4 CODE >53:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\Umul16.c
+293 text3 CODE >10:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
+295 text3 CODE >15:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
+299 text3 CODE >16:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
+2A8 text3 CODE >17:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
+2A9 text3 CODE >19:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
+2B1 text3 CODE >20:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
+2B1 text3 CODE >21:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
+2B7 text3 CODE >22:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
+2C0 text3 CODE >23:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
+2C4 text3 CODE >24:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
+2C8 text3 CODE >25:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
+2CC text3 CODE >26:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
+2D5 text3 CODE >24:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
+2D6 text3 CODE >29:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
+2DA text3 CODE >30:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
+2E8 text3 CODE >31:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
+2F1 text3 CODE >28:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
+2F1 text3 CODE >32:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
+2F6 text3 CODE >33:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
+2FA text3 CODE >34:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
+2FC text3 CODE >35:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
+305 text3 CODE >33:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
+307 text3 CODE >37:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
+309 text3 CODE >38:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
+311 text3 CODE >39:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
+313 text3 CODE >40:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
+329 text3 CODE >41:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
+32D text3 CODE >42:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
+32E text3 CODE >43:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
+336 text3 CODE >44:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
+1F3 text2 CODE >60:D:\Projekt\TalkoS\Cooler_Control\Cooler_Control.X\Defines_And _Prototypes.c
+1F3 text2 CODE >63:D:\Projekt\TalkoS\Cooler_Control\Cooler_Control.X\Defines_And _Prototypes.c
+1F5 text2 CODE >65:D:\Projekt\TalkoS\Cooler_Control\Cooler_Control.X\Defines_And _Prototypes.c
+1FC text2 CODE >66:D:\Projekt\TalkoS\Cooler_Control\Cooler_Control.X\Defines_And _Prototypes.c
+215 text2 CODE >68:D:\Projekt\TalkoS\Cooler_Control\Cooler_Control.X\Defines_And _Prototypes.c
+24E text2 CODE >70:D:\Projekt\TalkoS\Cooler_Control\Cooler_Control.X\Defines_And _Prototypes.c
+250 text2 CODE >71:D:\Projekt\TalkoS\Cooler_Control\Cooler_Control.X\Defines_And _Prototypes.c
+252 text2 CODE >72:D:\Projekt\TalkoS\Cooler_Control\Cooler_Control.X\Defines_And _Prototypes.c
+253 text2 CODE >73:D:\Projekt\TalkoS\Cooler_Control\Cooler_Control.X\Defines_And _Prototypes.c
+28D text2 CODE >75:D:\Projekt\TalkoS\Cooler_Control\Cooler_Control.X\Defines_And _Prototypes.c
+28F text2 CODE >76:D:\Projekt\TalkoS\Cooler_Control\Cooler_Control.X\Defines_And _Prototypes.c
+290 text2 CODE >79:D:\Projekt\TalkoS\Cooler_Control\Cooler_Control.X\Defines_And _Prototypes.c
+292 text2 CODE >80:D:\Projekt\TalkoS\Cooler_Control\Cooler_Control.X\Defines_And _Prototypes.c
+337 text1 CODE >83:D:\Projekt\TalkoS\Cooler_Control\Cooler_Control.X\Defines_And _Prototypes.c
+337 text1 CODE >86:D:\Projekt\TalkoS\Cooler_Control\Cooler_Control.X\Defines_And _Prototypes.c
+339 text1 CODE >88:D:\Projekt\TalkoS\Cooler_Control\Cooler_Control.X\Defines_And _Prototypes.c
+340 text1 CODE >90:D:\Projekt\TalkoS\Cooler_Control\Cooler_Control.X\Defines_And _Prototypes.c
+344 text1 CODE >92:D:\Projekt\TalkoS\Cooler_Control\Cooler_Control.X\Defines_And _Prototypes.c
+37F text1 CODE >94:D:\Projekt\TalkoS\Cooler_Control\Cooler_Control.X\Defines_And _Prototypes.c
+39C text1 CODE >93:D:\Projekt\TalkoS\Cooler_Control\Cooler_Control.X\Defines_And _Prototypes.c
+39F text1 CODE >94:D:\Projekt\TalkoS\Cooler_Control\Cooler_Control.X\Defines_And _Prototypes.c
+3BC text1 CODE >96:D:\Projekt\TalkoS\Cooler_Control\Cooler_Control.X\Defines_And _Prototypes.c
+3D9 text1 CODE >98:D:\Projekt\TalkoS\Cooler_Control\Cooler_Control.X\Defines_And _Prototypes.c
+3F6 text1 CODE >99:D:\Projekt\TalkoS\Cooler_Control\Cooler_Control.X\Defines_And _Prototypes.c
+107 maintext CODE >28:D:\Projekt\TalkoS\Cooler_Control\Cooler_Control.X\main.c
+107 maintext CODE >30:D:\Projekt\TalkoS\Cooler_Control\Cooler_Control.X\main.c
+108 maintext CODE >34:D:\Projekt\TalkoS\Cooler_Control\Cooler_Control.X\main.c
+109 maintext CODE >35:D:\Projekt\TalkoS\Cooler_Control\Cooler_Control.X\main.c
+# %SYMTAB Section
+# An enumeration of all symbols in the program.
+# The beginning of the section is indicated by %SYMTAB.
+# Each line describes a single symbol as follows:
+#    <label> <value> [-]<load-adj> <class> <space> <psect> <file-name>
+# The value and load-adj are both in unqualified hexadecimal.
+# All other numeric values are in decimal.  The load-adj is the
+# quantity one needs to add to the symbol value in order to obtain the load
+# address of the symbol.  This value may be signed. If the symbol
+# was defined in a psect then <psect> will be "-". File-name
+# is the name of the object file in which the symbol was defined.
+%SYMTAB
+___latbits 0 0 ABS 0 - dist/default/production\Cooler_Control.X.production.o
+__Hspace_0 7FE 0 ABS 0 - -
+__Hspace_1 7FE 0 ABS 0 - -
+__Hspace_2 0 0 ABS 0 - -
+__Hspace_3 0 0 ABS 0 - -
+__Hspace_4 400F 0 ABS 0 - -
+__Heeprom_data 0 0 EEDATA 3 eeprom_data -
+_GO F9 0 ABS 0 - dist/default/production\Cooler_Control.X.production.o
+__Hstrings 7FE 0 ABS 0 strings -
+_ADFM FF 0 ABS 0 - dist/default/production\Cooler_Control.X.production.o
+_ADON F8 0 ABS 0 - dist/default/production\Cooler_Control.X.production.o
+_CHS0 FA 0 ABS 0 - dist/default/production\Cooler_Control.X.production.o
+_CHS1 FB 0 ABS 0 - dist/default/production\Cooler_Control.X.production.o
+_VCFG FE 0 ABS 0 - dist/default/production\Cooler_Control.X.production.o
+___sp 0 0 STACK 2 stack C:\Users\User\AppData\Local\Temp\s3ig.o
+_main 20E 0 CODE 0 maintext dist/default/production\Cooler_Control.X.production.o
+btemp 5E 0 ABS 0 - dist/default/production\Cooler_Control.X.production.o
+start 0 0 CODE 0 init C:\Users\User\AppData\Local\Temp\s3ig.o
+__end_of_Temperature_Control 7F2 0 CODE 0 text1 dist/default/production\Cooler_Control.X.production.o
+System_Start_Control@Pwr_Good 3E 0 BANK0 1 bssBANK0 dist/default/production\Cooler_Control.X.production.o
+__size_of_main 0 0 ABS 0 - dist/default/production\Cooler_Control.X.production.o
+?___wmul 20 0 BANK0 1 cstackBANK0 dist/default/production\Cooler_Control.X.production.o
+__Hpowerup 0 0 CODE 0 powerup -
+__size_of_Get_Voltage 0 0 ABS 0 - dist/default/production\Cooler_Control.X.production.o
+intlevel0 0 0 ENTRY 0 functab C:\Users\User\AppData\Local\Temp\s3ig.o
+intlevel1 0 0 ENTRY 0 functab C:\Users\User\AppData\Local\Temp\s3ig.o
+intlevel2 0 0 ENTRY 0 functab C:\Users\User\AppData\Local\Temp\s3ig.o
+intlevel3 0 0 ENTRY 0 functab C:\Users\User\AppData\Local\Temp\s3ig.o
+intlevel4 0 0 ENTRY 0 functab C:\Users\User\AppData\Local\Temp\s3ig.o
+intlevel5 0 0 ENTRY 0 functab C:\Users\User\AppData\Local\Temp\s3ig.o
+_Init_uC 216 0 CODE 0 text7 dist/default/production\Cooler_Control.X.production.o
+wtemp0 5E 0 ABS 0 - dist/default/production\Cooler_Control.X.production.o
+__Hfunctab 0 0 ENTRY 0 functab -
+__Hclrtext 7FE 0 ABS 0 clrtext -
+_TRISIO0 428 0 ABS 0 - dist/default/production\Cooler_Control.X.production.o
+_TRISIO1 429 0 ABS 0 - dist/default/production\Cooler_Control.X.production.o
+_TRISIO2 42A 0 ABS 0 - dist/default/production\Cooler_Control.X.production.o
+_TRISIO5 42D 0 ABS 0 - dist/default/production\Cooler_Control.X.production.o
+___wmul@multiplicand 22 0 BANK0 1 cstackBANK0 dist/default/production\Cooler_Control.X.production.o
+_ADRESH 1E 0 ABS 0 - dist/default/production\Cooler_Control.X.production.o
+_ADRESL 9E 0 ABS 0 - dist/default/production\Cooler_Control.X.production.o
+__end_of___flge 3E6 0 CODE 0 text5 dist/default/production\Cooler_Control.X.production.o
+__end_of___wmul 2BE 0 CODE 0 text4 dist/default/production\Cooler_Control.X.production.o
+__Lmaintext 7FE 0 ABS 0 maintext -
+___stackhi 0 0 ABS 0 - C:\Users\User\AppData\Local\Temp\s3ig.o
+___stacklo 0 0 ABS 0 - C:\Users\User\AppData\Local\Temp\s3ig.o
+Get_Voltage@Chanel_Number 22 0 BANK0 1 cstackBANK0 dist/default/production\Cooler_Control.X.production.o
+start_initialization 7F2 0 CODE 0 cinit dist/default/production\Cooler_Control.X.production.o
+__pcstackBANK0 20 0 BANK0 1 cstackBANK0 dist/default/production\Cooler_Control.X.production.o
+___int_sp 0 0 STACK 2 stack C:\Users\User\AppData\Local\Temp\s3ig.o
+__Hbank0 7FE 0 ABS 0 bank0 -
+__Hbank1 7FE 0 BANK1 1 bank1 -
+__Hcinit 7FE 0 CODE 0 cinit -
+__Hstack 0 0 STACK 2 stack -
+__size_of___xxtofl 0 0 ABS 0 - dist/default/production\Cooler_Control.X.production.o
+__Hmaintext 7FE 0 ABS 0 maintext -
+___xxtofl@arg 2A 0 BANK0 1 cstackBANK0 dist/default/production\Cooler_Control.X.production.o
+___xxtofl@exp 29 0 BANK0 1 cstackBANK0 dist/default/production\Cooler_Control.X.production.o
+___xxtofl@val 20 0 BANK0 1 cstackBANK0 dist/default/production\Cooler_Control.X.production.o
+__Hcommon 7FE 0 ABS 0 common -
+__Hconfig 4010 0 CONFIG 4 config -
+__Lbank0 7FE 0 ABS 0 bank0 -
+__Lbank1 7FE 0 BANK1 1 bank1 -
+__Lcinit 7F2 0 CODE 0 cinit -
+__Lstack 0 0 STACK 2 stack -
+_Get_Voltage 238 0 CODE 0 text6 dist/default/production\Cooler_Control.X.production.o
+__Habs1 7FE 0 ABS 0 abs1 -
+__Hcode 7FE 0 ABS 0 code -
+__Hinit 0 0 CODE 0 init -
+__Hsfr0 7FE 0 ABS 0 sfr0 -
+__Hsfr1 7FE 0 ABS 0 sfr1 -
+__Htext 7FE 0 ABS 0 text -
+__Labs1 7FE 0 ABS 0 abs1 -
+__Lcode 7FE 0 ABS 0 code -
+__Linit 0 0 CODE 0 init -
+__Lsfr0 7FE 0 ABS 0 sfr0 -
+__Lsfr1 7FE 0 ABS 0 sfr1 -
+__Ltext 7FE 0 ABS 0 text -
+__size_of_System_Start_Control 0 0 ABS 0 - dist/default/production\Cooler_Control.X.production.o
+___flge 2BE 0 CODE 0 text5 dist/default/production\Cooler_Control.X.production.o
+___wmul 27A 0 CODE 0 text4 dist/default/production\Cooler_Control.X.production.o
+__LcstackBANK0 7FE 0 ABS 0 cstackBANK0 -
+__HcstackCOMMON 7FE 0 ABS 0 cstackCOMMON -
+_GP2 2A 0 ABS 0 - dist/default/production\Cooler_Control.X.production.o
+_GP5 2D 0 ABS 0 - dist/default/production\Cooler_Control.X.production.o
+__S0 3FF 0 ABS 0 - -
+__S1 3F 0 ABS 0 - -
+__S2 0 0 ABS 0 - -
+__S3 0 0 ABS 0 - -
+__end_of_System_Start_Control 526 0 CODE 0 text2 dist/default/production\Cooler_Control.X.production.o
+___xxtofl 526 0 CODE 0 text3 dist/default/production\Cooler_Control.X.production.o
+__Hosccal 7FE 0 CODE 0 osccal -
+_ADC_Result 3C 0 BANK0 1 bssBANK0 dist/default/production\Cooler_Control.X.production.o
+__Lintentry 0 0 CODE 0 intentry -
+reset_vec 0 0 CODE 0 reset_vec C:\Users\User\AppData\Local\Temp\s3ig.o
+__end_of___xxtofl 66E 0 CODE 0 text3 dist/default/production\Cooler_Control.X.production.o
+__size_of___flge 0 0 ABS 0 - dist/default/production\Cooler_Control.X.production.o
+__size_of___wmul 0 0 ABS 0 - dist/default/production\Cooler_Control.X.production.o
+__LbssBANK0 7FE 0 ABS 0 bssBANK0 -
+__size_of_Init_uC 0 0 ABS 0 - dist/default/production\Cooler_Control.X.production.o
+__pmaintext 20E 0 CODE 0 maintext dist/default/production\Cooler_Control.X.production.o
+__Lcommon 7FE 0 ABS 0 common -
+__Lconfig 0 0 CONFIG 4 config -
+___wmul@multiplier 20 0 BANK0 1 cstackBANK0 dist/default/production\Cooler_Control.X.production.o
+___osccal_val 7FE 0 CODE 0 osccal C:\Users\User\AppData\Local\Temp\s3ig.o
+__Lspace_0 0 0 ABS 0 - -
+__Lspace_1 0 0 ABS 0 - -
+__Lspace_2 0 0 ABS 0 - -
+__Lspace_3 0 0 ABS 0 - -
+__Lspace_4 0 0 ABS 0 - -
+__HcstackBANK0 7FE 0 ABS 0 cstackBANK0 -
+___flge@ff1 2E 0 BANK0 1 cstackBANK0 dist/default/production\Cooler_Control.X.production.o
+___flge@ff2 32 0 BANK0 1 cstackBANK0 dist/default/production\Cooler_Control.X.production.o
+__Lend_init 0 0 CODE 0 end_init -
+__LcstackCOMMON 7FE 0 ABS 0 cstackCOMMON -
+end_of_initialization 7FA 0 CODE 0 cinit dist/default/production\Cooler_Control.X.production.o
+__Hintentry 0 0 CODE 0 intentry -
+__Losccal 7FE 0 CODE 0 osccal -
+__Lstrings 7FE 0 ABS 0 strings -
+__Hreset_vec 0 0 CODE 0 reset_vec -
+__HbssBANK0 7FE 0 ABS 0 bssBANK0 -
+__size_of_Temperature_Control 0 0 ABS 0 - dist/default/production\Cooler_Control.X.production.o
+__ptext1 66E 0 CODE 0 text1 dist/default/production\Cooler_Control.X.production.o
+__ptext2 3E6 0 CODE 0 text2 dist/default/production\Cooler_Control.X.production.o
+__ptext3 526 0 CODE 0 text3 dist/default/production\Cooler_Control.X.production.o
+__ptext4 27A 0 CODE 0 text4 dist/default/production\Cooler_Control.X.production.o
+__ptext5 2BE 0 CODE 0 text5 dist/default/production\Cooler_Control.X.production.o
+__ptext6 238 0 CODE 0 text6 dist/default/production\Cooler_Control.X.production.o
+__ptext7 216 0 CODE 0 text7 dist/default/production\Cooler_Control.X.production.o
+__end_of_Init_uC 238 0 CODE 0 text7 dist/default/production\Cooler_Control.X.production.o
+__Lpowerup 0 0 CODE 0 powerup -
+?___xxtofl 20 0 BANK0 1 cstackBANK0 dist/default/production\Cooler_Control.X.production.o
+__Leeprom_data 0 0 EEDATA 3 eeprom_data -
+__Lreset_vec 0 0 CODE 0 reset_vec -
+__end_of__initialization 7FA 0 CODE 0 cinit dist/default/production\Cooler_Control.X.production.o
+__Lfunctab 0 0 ENTRY 0 functab -
+__end_of_Get_Voltage 27A 0 CODE 0 text6 dist/default/production\Cooler_Control.X.production.o
+__Lclrtext 7FE 0 ABS 0 clrtext -
+_Temperature_Control 66E 0 CODE 0 text1 dist/default/production\Cooler_Control.X.production.o
+__pcstackCOMMON 0 0 COMMON 1 cstackCOMMON dist/default/production\Cooler_Control.X.production.o
+__Hend_init 2 0 CODE 0 end_init -
+__end_of_main 216 0 CODE 0 maintext dist/default/production\Cooler_Control.X.production.o
+_ANSEL 9F 0 ABS 0 - dist/default/production\Cooler_Control.X.production.o
+__Hram 7FE 0 ABS 0 ram -
+__Lram 7FE 0 ABS 0 ram -
+_System_Start_Control 3E6 0 CODE 0 text2 dist/default/production\Cooler_Control.X.production.o
+__initialization 7F2 0 CODE 0 cinit dist/default/production\Cooler_Control.X.production.o
+___xxtofl@sign 28 0 BANK0 1 cstackBANK0 dist/default/production\Cooler_Control.X.production.o
+__pbssBANK0 3C 0 BANK0 1 bssBANK0 dist/default/production\Cooler_Control.X.production.o
+___wmul@product 24 0 BANK0 1 cstackBANK0 dist/default/production\Cooler_Control.X.production.o
+# %SPLITSTAB Section
+# This section enumerates all the psect splits performed by the assembler.
+# The beginning of the section is indicated by %SPLITSTAB.
+# Each line is a record a particular split, where the parent psect is on
+# the left and the child on the right.  Note that a child psect is always
+# split form the top of the parent psect. All splits from a given parent
+# are listed in the order in which they occurred.
+%SPLITSTAB
+# %DABS Section
+# This section contains a table of all usuage of the assember
+# directive DABS in the program. Each line has the following format:
+#   <name> <space> <address> <size>
+# If the DABS was originally labelled then that shall be <name>,
+# otherwise name will be "-".  The <space> number is in decimal.
+# <address> and <size> are in byte units as unqaulified hexadecimal
+%DABS
+- 1 5E 2
+# %SEGMENTS Section
+# This sections enumerates the segments of the program.  Each segment
+# is described on a single line as follows:
+#    <name> <space> <link address> <file address> <size> <delta>
+# Addresses and size are in unqualified hexadecimal.  The link address
+# and size are in units of delta. The file address is in units of bytes.
+# All other numeric quantities are in decimal.
+%SEGMENTS
+cinit 0 3F9 7F2 6 2
+text1 0 337 66E C2 2
+text2 0 1F3 3E6 A0 2
+text3 0 293 526 A4 2
+text4 0 13D 27A 22 2
+text5 0 15F 2BE 94 2
+text6 0 11C 238 21 2
+text7 0 10B 216 11 2
+maintext 0 107 20E 4 2
+cstackBANK0 1 20 20 1F 1
+reset_vec 0 0 0 1 2
+# %NOTES Section
+# This section contains data of all the note-psects.  The beginning of the section
+# is indicated by %NOTES. The first line indicates the name and decimal
+# byte-length of the first note-psect, e.g.
+#   $codecov_info_hdr 16
+# Each line that follows contains the byte-data of the psect in hexadecimal as a
+# space-separated list. These lines are limited to 16 bytes of data.
+%NOTES
