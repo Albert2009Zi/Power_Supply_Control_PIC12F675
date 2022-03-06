@@ -1,0 +1,535 @@
+Version 3.2 HI-TECH Software Intermediate Code
+"14 C:\Program Files\Microchip\Project\SingleChipPlayer\ufat\ufat.c
+[v _diskOffset `ul 1 s ]
+"15 C:\Program Files\Microchip\Project\SingleChipPlayer\ufat\ufat.c
+[v _secPerClus `uc 1 s ]
+"16 C:\Program Files\Microchip\Project\SingleChipPlayer\ufat\ufat.c
+[v _rootDirEntries `us 1 s ]
+"17 C:\Program Files\Microchip\Project\SingleChipPlayer\ufat\ufat.c
+[v _sectorsPerFat `us 1 s ]
+"18 C:\Program Files\Microchip\Project\SingleChipPlayer\ufat\ufat.c
+[v _fatSec `us 1 s ]
+"19 C:\Program Files\Microchip\Project\SingleChipPlayer\ufat\ufat.c
+[v _rootSec `us 1 s ]
+"20 C:\Program Files\Microchip\Project\SingleChipPlayer\ufat\ufat.c
+[v _dataSec `us 1 s ]
+"21 C:\Program Files\Microchip\Project\SingleChipPlayer\ufat\ufat.c
+[v _curClus `us 1 s ]
+"28 C:\Program Files\Microchip\Project\SingleChipPlayer\ufat\ufat.h
+[v _ufatExtRead `(uc 0 ef4`ul`us`uc`*uc ]
+"31 C:\Program Files\Microchip\Project\SingleChipPlayer\ufat\ufat.h
+[v _ufatMount `(uc 0 ef ]
+[; ;ufat.h: 4: typedef unsigned char u8;
+[; ;ufat.h: 5: typedef unsigned short u16;
+[; ;ufat.h: 6: typedef unsigned long u32;
+[; ;ufat.h: 7: typedef unsigned char bool;
+[; ;ufat.h: 28: bool ufatExtRead(u32 sector, u16 offset, u8 len, u8* buf);
+[; ;ufat.h: 30: void ufatInit(void);
+[; ;ufat.h: 31: bool ufatMount(void);
+[; ;ufat.h: 32: bool ufatGetNthFile(u16 n, char* name, u32* sz, u8* flags, u16* id);
+[; ;ufat.h: 33: bool ufatOpen(u16 id);
+[; ;ufat.h: 34: bool ufatGetNextSectorRange(u32* first, u32* len);
+"14 C:\Program Files\Microchip\Project\SingleChipPlayer\ufat\ufat.c
+[i _diskOffset
+-> -> -> 0 `i `l `ul
+]
+[; ;ufat.c: 14: static u32 diskOffset = 0;
+[; ;ufat.c: 15: static u8 secPerClus;
+[; ;ufat.c: 16: static u16 rootDirEntries;
+[; ;ufat.c: 17: static u16 sectorsPerFat;
+[; ;ufat.c: 18: static u16 fatSec;
+[; ;ufat.c: 19: static u16 rootSec;
+[; ;ufat.c: 20: static u16 dataSec;
+"21
+[i _curClus
+-> -> 65535 `ui `us
+]
+[; ;ufat.c: 21: static u16 curClus = 0xffff;
+"24
+[v _ufatParsePartitionTable `(uc 1 sf ]
+{
+[; ;ufat.c: 24: static bool ufatParsePartitionTable(void){
+[e :U _ufatParsePartitionTable ]
+[f ]
+"26
+[v _record `uc -> 16 `i a ]
+"27
+[v _offset `us 1 a ]
+[; ;ufat.c: 26: char record[16];
+[; ;ufat.c: 27: u16 offset;
+[; ;ufat.c: 29: if(diskOffset) return 0;
+"29
+[e $ ! != _diskOffset -> -> 0 `i `ul 2  ]
+[e ) -> -> 0 `i `uc ]
+[e $UE 1  ]
+[e :U 2 ]
+[; ;ufat.c: 31: for(offset = 0x1BE; offset < 0x1FE; offset += 16){
+"31
+{
+[e = _offset -> -> 446 `i `us ]
+[e $ < -> _offset `ui -> -> 510 `i `ui 3  ]
+[e $U 4  ]
+[e :U 3 ]
+{
+[; ;ufat.c: 33: if(!ufatExtRead(0, offset, 16, record)) return 0;
+"33
+[e $ ! ! != -> ( _ufatExtRead (4 , , , -> -> -> 0 `i `l `ul _offset -> -> 16 `i `uc &U _record `i -> -> -> 0 `i `uc `i 6  ]
+[e ) -> -> 0 `i `uc ]
+[e $UE 1  ]
+[e :U 6 ]
+[; ;ufat.c: 34: if(record[4] != 1 && record[4] != 4 && record[4] != 6 && record[4] != 0x0B && record[4] != 0x0C && record[4] != 0x0E) continue;
+"34
+[e $ ! && && && && && != -> *U + &U _record * -> -> -> 4 `i `ui `ux -> -> # *U &U _record `ui `ux `i -> 1 `i != -> *U + &U _record * -> -> -> 4 `i `ui `ux -> -> # *U &U _record `ui `ux `i -> 4 `i != -> *U + &U _record * -> -> -> 4 `i `ui `ux -> -> # *U &U _record `ui `ux `i -> 6 `i != -> *U + &U _record * -> -> -> 4 `i `ui `ux -> -> # *U &U _record `ui `ux `i -> 11 `i != -> *U + &U _record * -> -> -> 4 `i `ui `ux -> -> # *U &U _record `ui `ux `i -> 12 `i != -> *U + &U _record * -> -> -> 4 `i `ui `ux -> -> # *U &U _record `ui `ux `i -> 14 `i 7  ]
+[e $U 5  ]
+[e :U 7 ]
+[; ;ufat.c: 37: diskOffset = record[11];
+"37
+[e = _diskOffset -> *U + &U _record * -> -> -> 11 `i `ui `ux -> -> # *U &U _record `ui `ux `ul ]
+[; ;ufat.c: 38: diskOffset = (diskOffset << 8) | record[10];
+"38
+[e = _diskOffset | << _diskOffset -> 8 `i -> *U + &U _record * -> -> -> 10 `i `ui `ux -> -> # *U &U _record `ui `ux `ul ]
+[; ;ufat.c: 39: diskOffset = (diskOffset << 8) | record[9];
+"39
+[e = _diskOffset | << _diskOffset -> 8 `i -> *U + &U _record * -> -> -> 9 `i `ui `ux -> -> # *U &U _record `ui `ux `ul ]
+[; ;ufat.c: 40: diskOffset = (diskOffset << 8) | record[8];
+"40
+[e = _diskOffset | << _diskOffset -> 8 `i -> *U + &U _record * -> -> -> 8 `i `ui `ux -> -> # *U &U _record `ui `ux `ul ]
+[; ;ufat.c: 41: if(ufatMount()) return 1;
+"41
+[e $ ! != -> ( _ufatMount ..  `i -> -> -> 0 `i `uc `i 8  ]
+[e ) -> -> 1 `i `uc ]
+[e $UE 1  ]
+[e :U 8 ]
+"42
+}
+"31
+[e :U 5 ]
+[e =+ _offset -> -> 16 `i `us ]
+[e $ < -> _offset `ui -> -> 510 `i `ui 3  ]
+[e :U 4 ]
+"42
+}
+[; ;ufat.c: 42: }
+[; ;ufat.c: 44: return 0;
+"44
+[e ) -> -> 0 `i `uc ]
+[e $UE 1  ]
+[; ;ufat.c: 45: }
+"45
+[e :UE 1 ]
+}
+"47
+[v _ufatGetU16 `(us 1 sf2`*Cuc`uc ]
+{
+[; ;ufat.c: 47: static u16 ufatGetU16(const char* v, u8 idx){
+[e :U _ufatGetU16 ]
+[v _v `*Cuc 1 r1 ]
+[v _idx `uc 1 r2 ]
+[f ]
+[; ;ufat.c: 49: v += idx;
+"49
+[e =+ _v * -> _idx `ux -> -> # *U _v `ui `ux ]
+[; ;ufat.c: 50: return (((u16)v[1]) << 8) | ((u16)v[0]);
+"50
+[e ) -> | << -> -> *U + _v * -> -> 1 `i `x -> -> # *U _v `i `x `us `ui -> 8 `i -> -> *U + _v * -> -> 0 `i `x -> -> # *U _v `i `x `us `ui `us ]
+[e $UE 9  ]
+[; ;ufat.c: 51: }
+"51
+[e :UE 9 ]
+}
+"53
+[v _ufatGetU32 `(ul 1 sf2`*Cuc`uc ]
+{
+[; ;ufat.c: 53: static u32 ufatGetU32(const char* v, u8 idx){
+[e :U _ufatGetU32 ]
+[v _v `*Cuc 1 r1 ]
+[v _idx `uc 1 r2 ]
+[f ]
+[; ;ufat.c: 55: v += idx;
+"55
+[e =+ _v * -> _idx `ux -> -> # *U _v `ui `ux ]
+[; ;ufat.c: 56: return (((u32)v[3]) << 24) | (((u32)v[2]) << 16) | (((u32)v[1]) << 8) | ((u32)v[0]);
+"56
+[e ) | | | << -> *U + _v * -> -> 3 `i `x -> -> # *U _v `i `x `ul -> 24 `i << -> *U + _v * -> -> 2 `i `x -> -> # *U _v `i `x `ul -> 16 `i << -> *U + _v * -> -> 1 `i `x -> -> # *U _v `i `x `ul -> 8 `i -> *U + _v * -> -> 0 `i `x -> -> # *U _v `i `x `ul ]
+[e $UE 10  ]
+[; ;ufat.c: 57: }
+"57
+[e :UE 10 ]
+}
+"59
+[v _ufatInit `(v 1 ef ]
+{
+[; ;ufat.c: 59: void ufatInit(void){
+[e :U _ufatInit ]
+[f ]
+[; ;ufat.c: 61: diskOffset = 0;
+"61
+[e = _diskOffset -> -> -> 0 `i `l `ul ]
+[; ;ufat.c: 62: }
+"62
+[e :UE 11 ]
+}
+"64
+[v _ufatMount `(uc 1 ef ]
+{
+[; ;ufat.c: 64: bool ufatMount(void){
+[e :U _ufatMount ]
+[f ]
+"66
+[v _buf `uc -> 13 `i a ]
+[; ;ufat.c: 66: char buf[13];
+[; ;ufat.c: 68: if(!ufatExtRead(diskOffset, 0x36, 4, buf)) return 0;
+"68
+[e $ ! ! != -> ( _ufatExtRead (4 , , , _diskOffset -> -> 54 `i `us -> -> 4 `i `uc &U _buf `i -> -> -> 0 `i `uc `i 13  ]
+[e ) -> -> 0 `i `uc ]
+[e $UE 12  ]
+[e :U 13 ]
+[; ;ufat.c: 69: if(buf[0] !='F' || buf[1] !='A' || buf[2] != 'T' || buf[3] != '1'){
+"69
+[e $ ! || || || != -> *U + &U _buf * -> -> -> 0 `i `ui `ux -> -> # *U &U _buf `ui `ux `ui -> 70 `ui != -> *U + &U _buf * -> -> -> 1 `i `ui `ux -> -> # *U &U _buf `ui `ux `ui -> 65 `ui != -> *U + &U _buf * -> -> -> 2 `i `ui `ux -> -> # *U &U _buf `ui `ux `ui -> 84 `ui != -> *U + &U _buf * -> -> -> 3 `i `ui `ux -> -> # *U &U _buf `ui `ux `ui -> 49 `ui 14  ]
+{
+[; ;ufat.c: 71: return ufatParsePartitionTable();
+"71
+[e ) ( _ufatParsePartitionTable ..  ]
+[e $UE 12  ]
+"72
+}
+[e :U 14 ]
+[; ;ufat.c: 72: }
+[; ;ufat.c: 74: if(!ufatExtRead(diskOffset, 0x0B, 13, buf)) return 0;
+"74
+[e $ ! ! != -> ( _ufatExtRead (4 , , , _diskOffset -> -> 11 `i `us -> -> 13 `i `uc &U _buf `i -> -> -> 0 `i `uc `i 15  ]
+[e ) -> -> 0 `i `uc ]
+[e $UE 12  ]
+[e :U 15 ]
+[; ;ufat.c: 75: if(ufatGetU16(buf, 0x0B - 0x0B) != 512) return 0;
+"75
+[e $ ! != -> ( _ufatGetU16 (2 , -> &U _buf `*Cuc -> - -> 11 `i -> 11 `i `uc `ui -> -> 512 `i `ui 16  ]
+[e ) -> -> 0 `i `uc ]
+[e $UE 12  ]
+[e :U 16 ]
+[; ;ufat.c: 76: secPerClus = buf[0x0D - 0x0B];
+"76
+[e = _secPerClus *U + &U _buf * -> -> - -> 13 `i -> 11 `i `ui `ux -> -> # *U &U _buf `ui `ux ]
+[; ;ufat.c: 77: fatSec = ufatGetU16(buf, 0x0E - 0x0B);
+"77
+[e = _fatSec ( _ufatGetU16 (2 , -> &U _buf `*Cuc -> - -> 14 `i -> 11 `i `uc ]
+[; ;ufat.c: 78: rootDirEntries = ufatGetU16(buf, 0x11 - 0x0B);
+"78
+[e = _rootDirEntries ( _ufatGetU16 (2 , -> &U _buf `*Cuc -> - -> 17 `i -> 11 `i `uc ]
+[; ;ufat.c: 79: sectorsPerFat = ufatGetU16(buf, 0x16 - 0x0B);
+"79
+[e = _sectorsPerFat ( _ufatGetU16 (2 , -> &U _buf `*Cuc -> - -> 22 `i -> 11 `i `uc ]
+[; ;ufat.c: 81: rootSec = fatSec + sectorsPerFat * (u16)(buf[0x10 - 0x0B]);
+"81
+[e = _rootSec -> + -> _fatSec `ui * -> _sectorsPerFat `ui -> -> *U + &U _buf * -> -> - -> 16 `i -> 11 `i `ui `ux -> -> # *U &U _buf `ui `ux `us `ui `us ]
+[; ;ufat.c: 82: dataSec = rootSec + (((u32)rootDirEntries) * 32 + 512 - 1) / 512;
+"82
+[e = _dataSec -> + -> _rootSec `ul / - + * -> _rootDirEntries `ul -> -> -> 32 `i `l `ul -> -> -> 512 `i `l `ul -> -> -> 1 `i `l `ul -> -> -> 512 `i `l `ul `us ]
+[; ;ufat.c: 84: return 1;
+"84
+[e ) -> -> 1 `i `uc ]
+[e $UE 12  ]
+[; ;ufat.c: 85: }
+"85
+[e :UE 12 ]
+}
+"87
+[v _ufatGetNthFile `(uc 1 ef5`us`*uc`*ul`*uc`*us ]
+{
+[; ;ufat.c: 87: bool ufatGetNthFile(u16 n, char* name, u32* sz, u8* flags, u16* id){
+[e :U _ufatGetNthFile ]
+[v _n `us 1 r1 ]
+[v _name `*uc 1 r2 ]
+[v _sz `*ul 1 r3 ]
+[v _flags `*uc 1 r4 ]
+[v _id `*us 1 r5 ]
+[f ]
+"89
+[v _i `us 1 a ]
+"90
+[v _sec `ul 1 a ]
+[; ;ufat.c: 89: u16 i;
+[; ;ufat.c: 90: u32 sec = diskOffset + rootSec;
+[e = _sec + _diskOffset -> _rootSec `ul ]
+"91
+[v _offset `us 1 a ]
+[; ;ufat.c: 91: u16 offset = 0;
+[e = _offset -> -> 0 `i `us ]
+"92
+[v _buf `uc -> 4 `i a ]
+[; ;ufat.c: 92: u8 buf[4];
+[; ;ufat.c: 94: for(i = 0; i < rootDirEntries; i++){
+"94
+{
+[e = _i -> -> 0 `i `us ]
+[e $U 21  ]
+[e :U 18 ]
+{
+[; ;ufat.c: 96: if(!ufatExtRead(sec, offset, 1, buf)) return 0;
+"96
+[e $ ! ! != -> ( _ufatExtRead (4 , , , _sec _offset -> -> 1 `i `uc &U _buf `i -> -> -> 0 `i `uc `i 22  ]
+[e ) -> -> 0 `i `uc ]
+[e $UE 17  ]
+[e :U 22 ]
+[; ;ufat.c: 97: if(buf[0] == 0) break;
+"97
+[e $ ! == -> *U + &U _buf * -> -> -> 0 `i `ui `ux -> -> # *U &U _buf `ui `ux `i -> 0 `i 23  ]
+[e $U 19  ]
+[e :U 23 ]
+[; ;ufat.c: 98: if(buf[0] != 0xE5 && buf[0] != 0x2E){
+"98
+[e $ ! && != -> *U + &U _buf * -> -> -> 0 `i `ui `ux -> -> # *U &U _buf `ui `ux `i -> 229 `i != -> *U + &U _buf * -> -> -> 0 `i `ui `ux -> -> # *U &U _buf `ui `ux `i -> 46 `i 24  ]
+{
+[; ;ufat.c: 100: if(!n--){
+"100
+[e $ ! ! != -> -- _n -> -> 1 `i `us `ui -> -> -> 0 `i `us `ui 25  ]
+{
+[; ;ufat.c: 102: if(name){
+"102
+[e $ ! != _name -> -> 0 `i `*uc 26  ]
+{
+[; ;ufat.c: 104: name[0] = (buf[0] == 0x05) ? 0xE5 : buf[0];
+"104
+[e = *U + _name * -> -> 0 `i `x -> -> # *U _name `i `x -> ? == -> *U + &U _buf * -> -> -> 0 `i `ui `ux -> -> # *U &U _buf `ui `ux `i -> 5 `i : -> 229 `i -> *U + &U _buf * -> -> -> 0 `i `ui `ux -> -> # *U &U _buf `ui `ux `i `uc ]
+[; ;ufat.c: 105: if(!ufatExtRead(sec, offset + 1, 10, name + 1)) return 0;
+"105
+[e $ ! ! != -> ( _ufatExtRead (4 , , , _sec -> + -> _offset `ui -> -> 1 `i `ui `us -> -> 10 `i `uc + _name * -> -> 1 `i `x -> -> # *U _name `i `x `i -> -> -> 0 `i `uc `i 27  ]
+[e ) -> -> 0 `i `uc ]
+[e $UE 17  ]
+[e :U 27 ]
+"106
+}
+[e :U 26 ]
+[; ;ufat.c: 106: }
+[; ;ufat.c: 108: if(flags){
+"108
+[e $ ! != _flags -> -> 0 `i `*uc 28  ]
+{
+[; ;ufat.c: 110: if(!ufatExtRead(sec, offset + 0x0B, 1, flags)) return 0;
+"110
+[e $ ! ! != -> ( _ufatExtRead (4 , , , _sec -> + -> _offset `ui -> -> 11 `i `ui `us -> -> 1 `i `uc _flags `i -> -> -> 0 `i `uc `i 29  ]
+[e ) -> -> 0 `i `uc ]
+[e $UE 17  ]
+[e :U 29 ]
+"111
+}
+[e :U 28 ]
+[; ;ufat.c: 111: }
+[; ;ufat.c: 113: if(id){
+"113
+[e $ ! != _id -> -> 0 `i `*us 30  ]
+{
+[; ;ufat.c: 115: if(!ufatExtRead(sec, offset + 0x1A, 2, buf)) return 0;
+"115
+[e $ ! ! != -> ( _ufatExtRead (4 , , , _sec -> + -> _offset `ui -> -> 26 `i `ui `us -> -> 2 `i `uc &U _buf `i -> -> -> 0 `i `uc `i 31  ]
+[e ) -> -> 0 `i `uc ]
+[e $UE 17  ]
+[e :U 31 ]
+[; ;ufat.c: 116: *id = ufatGetU16(buf, 0);
+"116
+[e = *U _id ( _ufatGetU16 (2 , -> &U _buf `*Cuc -> -> 0 `i `uc ]
+"117
+}
+[e :U 30 ]
+[; ;ufat.c: 117: }
+[; ;ufat.c: 119: if(sz){
+"119
+[e $ ! != _sz -> -> 0 `i `*ul 32  ]
+{
+[; ;ufat.c: 121: if(!ufatExtRead(sec, offset + 0x1C, 4, buf)) return 0;
+"121
+[e $ ! ! != -> ( _ufatExtRead (4 , , , _sec -> + -> _offset `ui -> -> 28 `i `ui `us -> -> 4 `i `uc &U _buf `i -> -> -> 0 `i `uc `i 33  ]
+[e ) -> -> 0 `i `uc ]
+[e $UE 17  ]
+[e :U 33 ]
+[; ;ufat.c: 122: *sz = ufatGetU32(buf, 0);
+"122
+[e = *U _sz ( _ufatGetU32 (2 , -> &U _buf `*Cuc -> -> 0 `i `uc ]
+"123
+}
+[e :U 32 ]
+[; ;ufat.c: 123: }
+[; ;ufat.c: 125: return 1;
+"125
+[e ) -> -> 1 `i `uc ]
+[e $UE 17  ]
+"126
+}
+[e :U 25 ]
+"127
+}
+[e :U 24 ]
+[; ;ufat.c: 126: }
+[; ;ufat.c: 127: }
+[; ;ufat.c: 128: offset += 32;
+"128
+[e =+ _offset -> -> 32 `i `us ]
+[; ;ufat.c: 129: if(offset == 512){
+"129
+[e $ ! == -> _offset `ui -> -> 512 `i `ui 34  ]
+{
+[; ;ufat.c: 130: offset = 0;
+"130
+[e = _offset -> -> 0 `i `us ]
+[; ;ufat.c: 131: sec++;
+"131
+[e ++ _sec -> -> -> 1 `i `l `ul ]
+"132
+}
+[e :U 34 ]
+"133
+}
+"94
+[e ++ _i -> -> 1 `i `us ]
+[e :U 21 ]
+[e $ < -> _i `ui -> _rootDirEntries `ui 18  ]
+[e :U 19 ]
+"133
+}
+[; ;ufat.c: 132: }
+[; ;ufat.c: 133: }
+[; ;ufat.c: 136: return 0;
+"136
+[e ) -> -> 0 `i `uc ]
+[e $UE 17  ]
+[; ;ufat.c: 137: }
+"137
+[e :UE 17 ]
+}
+"139
+[v _ufatOpen `(uc 1 ef1`us ]
+{
+[; ;ufat.c: 139: bool ufatOpen(u16 id){
+[e :U _ufatOpen ]
+[v _id `us 1 r1 ]
+[f ]
+[; ;ufat.c: 141: curClus = id;
+"141
+[e = _curClus _id ]
+[; ;ufat.c: 142: return 1;
+"142
+[e ) -> -> 1 `i `uc ]
+[e $UE 35  ]
+[; ;ufat.c: 143: }
+"143
+[e :UE 35 ]
+}
+"145
+[v _ufatGetNextClus `(us 1 ef1`us ]
+{
+[; ;ufat.c: 145: u16 ufatGetNextClus(u16 clus){
+[e :U _ufatGetNextClus ]
+[v _clus `us 1 r1 ]
+[f ]
+"147
+[v _buf `uc -> 2 `i a ]
+"148
+[v _sec `ul 1 a ]
+[; ;ufat.c: 147: char buf[2];
+[; ;ufat.c: 148: u32 sec = diskOffset + fatSec;
+[e = _sec + _diskOffset -> _fatSec `ul ]
+"149
+[v _offset `us 1 a ]
+[; ;ufat.c: 149: u16 offset;
+[; ;ufat.c: 151: sec += clus / (512 / 2);
+"151
+[e =+ _sec -> / -> _clus `ui -> / -> 512 `i -> 2 `i `ui `ul ]
+[; ;ufat.c: 152: offset = (clus % (512 / 2)) * 2;
+"152
+[e = _offset -> * % -> _clus `ui -> / -> 512 `i -> 2 `i `ui -> -> 2 `i `ui `us ]
+[; ;ufat.c: 154: if(!ufatExtRead(sec, offset, 2, buf)) return 0xffff;
+"154
+[e $ ! ! != -> ( _ufatExtRead (4 , , , _sec _offset -> -> 2 `i `uc &U _buf `i -> -> -> 0 `i `uc `i 37  ]
+[e ) -> -> 65535 `ui `us ]
+[e $UE 36  ]
+[e :U 37 ]
+[; ;ufat.c: 156: clus = ufatGetU16(buf, 0);
+"156
+[e = _clus ( _ufatGetU16 (2 , -> &U _buf `*Cuc -> -> 0 `i `uc ]
+[; ;ufat.c: 157: if(clus >= 0xfff8) return 0xffff;
+"157
+[e $ ! >= -> _clus `ui -> 65528 `ui 38  ]
+[e ) -> -> 65535 `ui `us ]
+[e $UE 36  ]
+[e :U 38 ]
+[; ;ufat.c: 159: return clus;
+"159
+[e ) _clus ]
+[e $UE 36  ]
+[; ;ufat.c: 160: }
+"160
+[e :UE 36 ]
+}
+"161
+[v _ufatGetNextSectorRange `(uc 1 ef2`*ul`*ul ]
+{
+[; ;ufat.c: 161: bool ufatGetNextSectorRange(u32* first, u32* len){
+[e :U _ufatGetNextSectorRange ]
+[v _first `*ul 1 r1 ]
+[v _len `*ul 1 r2 ]
+[f ]
+"163
+[v _next `us 1 a ]
+[; ;ufat.c: 163: u16 next = curClus, prev;
+[e = _next _curClus ]
+[v _prev `us 1 a ]
+"164
+[v _t `ul 1 a ]
+[; ;ufat.c: 164: u32 t;
+[; ;ufat.c: 167: if(curClus == 0xffff) return 0;
+"167
+[e $ ! == -> _curClus `ui -> 65535 `ui 40  ]
+[e ) -> -> 0 `i `uc ]
+[e $UE 39  ]
+[e :U 40 ]
+[; ;ufat.c: 169: do{
+"169
+[e :U 43 ]
+{
+[; ;ufat.c: 171: prev = next;
+"171
+[e = _prev _next ]
+[; ;ufat.c: 172: next = ufatGetNextClus(prev);
+"172
+[e = _next ( _ufatGetNextClus (1 _prev ]
+"173
+}
+[; ;ufat.c: 173: }while(next == prev + 1 && next != 0xffff);
+[e $ && == -> _next `ui + -> _prev `ui -> -> 1 `i `ui != -> _next `ui -> 65535 `ui 43  ]
+[e :U 42 ]
+[; ;ufat.c: 178: t = prev + 1 - curClus;
+"178
+[e = _t -> - + -> _prev `ui -> -> 1 `i `ui -> _curClus `ui `ul ]
+[; ;ufat.c: 179: t *= secPerClus;
+"179
+[e =* _t -> _secPerClus `ul ]
+[; ;ufat.c: 180: *len = t;
+"180
+[e = *U _len _t ]
+[; ;ufat.c: 182: t = (curClus - 2);
+"182
+[e = _t -> - -> _curClus `ui -> -> 2 `i `ui `ul ]
+[; ;ufat.c: 183: t *= secPerClus;
+"183
+[e =* _t -> _secPerClus `ul ]
+[; ;ufat.c: 184: t += dataSec;
+"184
+[e =+ _t -> _dataSec `ul ]
+[; ;ufat.c: 185: t += diskOffset;
+"185
+[e =+ _t _diskOffset ]
+[; ;ufat.c: 186: *first = t;
+"186
+[e = *U _first _t ]
+[; ;ufat.c: 188: curClus = next;
+"188
+[e = _curClus _next ]
+[; ;ufat.c: 190: return 1;
+"190
+[e ) -> -> 1 `i `uc ]
+[e $UE 39  ]
+[; ;ufat.c: 191: }
+"191
+[e :UE 39 ]
+}

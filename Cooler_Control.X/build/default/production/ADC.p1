@@ -1,16 +1,25 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"1762 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\pic\include\proc\pic12f675.h
+"564 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\pic\include\proc\pic12f675.h
+[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\pic\include\proc\pic12f675.h: 564: extern volatile unsigned char CMCON __attribute__((address(0x019)));
+[v _CMCON `Vuc ~T0 @X0 0 e@25 ]
+"797
+[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\pic\include\proc\pic12f675.h: 797: extern volatile unsigned char TRISIO __attribute__((address(0x085)));
+[v _TRISIO `Vuc ~T0 @X0 0 e@133 ]
+"218
+[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\pic\include\proc\pic12f675.h: 218: extern volatile unsigned char GPIO __attribute__((address(0x005)));
+[v _GPIO `Vuc ~T0 @X0 0 e@5 ]
+"1762
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\pic\include\proc\pic12f675.h: 1762: extern volatile __bit TRISIO5 __attribute__((address(0x42D)));
 [v _TRISIO5 `Vb ~T0 @X0 0 e@1069 ]
 "1600
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\pic\include\proc\pic12f675.h: 1600: extern volatile __bit GP5 __attribute__((address(0x2D)));
 [v _GP5 `Vb ~T0 @X0 0 e@45 ]
-"1753
-[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\pic\include\proc\pic12f675.h: 1753: extern volatile __bit TRISIO2 __attribute__((address(0x42A)));
-[v _TRISIO2 `Vb ~T0 @X0 0 e@1066 ]
-"1591
-[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\pic\include\proc\pic12f675.h: 1591: extern volatile __bit GP2 __attribute__((address(0x2A)));
-[v _GP2 `Vb ~T0 @X0 0 e@42 ]
+"1759
+[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\pic\include\proc\pic12f675.h: 1759: extern volatile __bit TRISIO4 __attribute__((address(0x42C)));
+[v _TRISIO4 `Vb ~T0 @X0 0 e@1068 ]
+"1597
+[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\pic\include\proc\pic12f675.h: 1597: extern volatile __bit GP4 __attribute__((address(0x2C)));
+[v _GP4 `Vb ~T0 @X0 0 e@44 ]
 "1498
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\pic\include\proc\pic12f675.h: 1498: extern volatile __bit ADON __attribute__((address(0xF8)));
 [v _ADON `Vb ~T0 @X0 0 e@248 ]
@@ -35,19 +44,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1534
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\pic\include\proc\pic12f675.h: 1534: extern volatile __bit CHS0 __attribute__((address(0xFA)));
 [v _CHS0 `Vb ~T0 @X0 0 e@250 ]
-"1576
-[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\pic\include\proc\pic12f675.h: 1576: extern volatile __bit GO __attribute__((address(0xF9)));
-[v _GO `Vb ~T0 @X0 0 e@249 ]
-[v F537 `(v ~T0 @X0 1 tf1`ul ]
-"92 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\pic\include\pic.h
-[v __delay `JF537 ~T0 @X0 0 e ]
-[p i __delay ]
-"623 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\pic\include\proc\pic12f675.h
-[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\pic\include\proc\pic12f675.h: 623: extern volatile unsigned char ADRESH __attribute__((address(0x01E)));
-[v _ADRESH `Vuc ~T0 @X0 0 e@30 ]
-"1384
-[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\pic\include\proc\pic12f675.h: 1384: extern volatile unsigned char ADRESL __attribute__((address(0x09E)));
-[v _ADRESL `Vuc ~T0 @X0 0 e@158 ]
+"1492
+[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\pic\include\proc\pic12f675.h: 1492: extern volatile __bit ADIE __attribute__((address(0x466)));
+[v _ADIE `Vb ~T0 @X0 0 e@1126 ]
+"1573
+[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\pic\include\proc\pic12f675.h: 1573: extern volatile __bit GIE __attribute__((address(0x5F)));
+[v _GIE `Vb ~T0 @X0 0 e@95 ]
 "54 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\pic\include\proc\pic12f675.h
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\pic\include\proc\pic12f675.h: 54: __asm("INDF equ 00h");
 [; <" INDF equ 00h ;# ">
@@ -144,257 +146,66 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1406
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\pic\include\proc\pic12f675.h: 1406: __asm("ANSEL equ 09Fh");
 [; <" ANSEL equ 09Fh ;# ">
-"5 Defines_And _Prototypes.c
-[; ;Defines_And _Prototypes.c: 5: volatile uint16_t ADC_Result = 0;
-[v _ADC_Result `Vui ~T0 @X0 1 e ]
-[i _ADC_Result
--> -> 0 `i `ui
-]
-"7
-[; ;Defines_And _Prototypes.c: 7: void Init_uC()
+"4 ADC.c
+[; ;ADC.c: 4: void Init_uC()
 [v _Init_uC `(v ~T0 @X0 1 ef ]
-"8
-[; ;Defines_And _Prototypes.c: 8: {
+"5
+[; ;ADC.c: 5: {
 {
 [e :U _Init_uC ]
 [f ]
+"6
+[; ;ADC.c: 6:  CMCON = 0x07;
+[e = _CMCON -> -> 7 `i `uc ]
+"9
+[; ;ADC.c: 9:     TRISIO = 0;
+[e = _TRISIO -> -> 0 `i `uc ]
 "10
-[; ;Defines_And _Prototypes.c: 10:     TRISIO5 = 0;
+[; ;ADC.c: 10:     GPIO = 0;
+[e = _GPIO -> -> 0 `i `uc ]
+"13
+[; ;ADC.c: 13:     TRISIO5 = 0;
 [e = _TRISIO5 -> -> 0 `i `b ]
-"11
-[; ;Defines_And _Prototypes.c: 11:     GP5 = 1;
-[e = _GP5 -> -> 1 `i `b ]
 "14
-[; ;Defines_And _Prototypes.c: 14:     TRISIO2 = 0;
-[e = _TRISIO2 -> -> 0 `i `b ]
-"15
-[; ;Defines_And _Prototypes.c: 15:     GP2 = 0;
-[e = _GP2 -> -> 0 `i `b ]
-"18
-[; ;Defines_And _Prototypes.c: 18:     ADON = 1;
-[e = _ADON -> -> 1 `i `b ]
-"19
-[; ;Defines_And _Prototypes.c: 19:     ADFM = 1;
-[e = _ADFM -> -> 1 `i `b ]
-"20
-[; ;Defines_And _Prototypes.c: 20:     VCFG = 0;
-[e = _VCFG -> -> 0 `i `b ]
-"21
-[; ;Defines_And _Prototypes.c: 21:     TRISIO0 = 1;
-[e = _TRISIO0 -> -> 1 `i `b ]
-"22
-[; ;Defines_And _Prototypes.c: 22:     TRISIO1 = 1;
-[e = _TRISIO1 -> -> 1 `i `b ]
-"23
-[; ;Defines_And _Prototypes.c: 23:     ANSEL = 0b01010011;
-[e = _ANSEL -> -> 83 `i `uc ]
-"25
-[; ;Defines_And _Prototypes.c: 25: }
-[e :UE 81 ]
-}
-"27
-[; ;Defines_And _Prototypes.c: 27: void Get_Voltage (uint8_t Chanel_Number)
-[v _Get_Voltage `(v ~T0 @X0 1 ef1`uc ]
-"28
-[; ;Defines_And _Prototypes.c: 28: {
-{
-[e :U _Get_Voltage ]
-"27
-[; ;Defines_And _Prototypes.c: 27: void Get_Voltage (uint8_t Chanel_Number)
-[v _Chanel_Number `uc ~T0 @X0 1 r1 ]
-"28
-[; ;Defines_And _Prototypes.c: 28: {
-[f ]
-"29
-[; ;Defines_And _Prototypes.c: 29:     switch(Chanel_Number)
-[e $U 84  ]
-"30
-[; ;Defines_And _Prototypes.c: 30:     {
-{
-"31
-[; ;Defines_And _Prototypes.c: 31:             case 0:
-[e :U 85 ]
-"32
-[; ;Defines_And _Prototypes.c: 32:               CHS1 = 0; CHS0 = 0;
-[e = _CHS1 -> -> 0 `i `b ]
-[e = _CHS0 -> -> 0 `i `b ]
-"33
-[; ;Defines_And _Prototypes.c: 33:               break;
-[e $U 83  ]
-"34
-[; ;Defines_And _Prototypes.c: 34:             case 1:
-[e :U 86 ]
-"35
-[; ;Defines_And _Prototypes.c: 35:               CHS1 = 0; CHS0 = 1;
-[e = _CHS1 -> -> 0 `i `b ]
-[e = _CHS0 -> -> 1 `i `b ]
-"36
-[; ;Defines_And _Prototypes.c: 36:               break;
-[e $U 83  ]
-"37
-[; ;Defines_And _Prototypes.c: 37:            default:
-[e :U 87 ]
-"38
-[; ;Defines_And _Prototypes.c: 38:               break;
-[e $U 83  ]
-"39
-[; ;Defines_And _Prototypes.c: 39:     }
-}
-[e $U 83  ]
-[e :U 84 ]
-[e [\ -> _Chanel_Number `i , $ -> 0 `i 85
- , $ -> 1 `i 86
- 87 ]
-[e :U 83 ]
-"40
-[; ;Defines_And _Prototypes.c: 40:     GO = 1;
-[e = _GO -> -> 1 `i `b ]
-"41
-[; ;Defines_And _Prototypes.c: 41:     while(GO);
-[e $U 88  ]
-[e :U 89 ]
-[e :U 88 ]
-[e $ _GO 89  ]
-[e :U 90 ]
-"42
-[; ;Defines_And _Prototypes.c: 42:     _delay((unsigned long)((8)*(4000000/4000000.0)));
-[e ( __delay (1 -> * -> -> 8 `i `d / -> -> 4000000 `l `d .4000000.0 `ul ]
-"57
-[; ;Defines_And _Prototypes.c: 57: }
-[e :UE 82 ]
-}
-"60
-[; ;Defines_And _Prototypes.c: 60: uint8_t System_Start_Control()
-[v _System_Start_Control `(uc ~T0 @X0 1 ef ]
-"61
-[; ;Defines_And _Prototypes.c: 61: {
-{
-[e :U _System_Start_Control ]
-[f ]
-"62
-[; ;Defines_And _Prototypes.c: 62:     static uint8_t Pwr_Good = 0;
-[v F584 `uc ~T0 @X0 1 s Pwr_Good ]
-[i F584
--> -> 0 `i `uc
-]
-"63
-[; ;Defines_And _Prototypes.c: 63:     Get_Voltage(1);
-[e ( _Get_Voltage (1 -> -> 1 `i `uc ]
-"65
-[; ;Defines_And _Prototypes.c: 65:     ADC_Result = (uint16_t)(ADRESH << 8) + ADRESL;
-[e = _ADC_Result + -> << -> _ADRESH `i -> 8 `i `ui -> _ADRESL `ui ]
-"66
-[; ;Defines_And _Prototypes.c: 66:     ADC_Result = (ADC_Result*5)/1024;
-[e = _ADC_Result / * _ADC_Result -> -> 5 `i `ui -> -> 1024 `i `ui ]
-"68
-[; ;Defines_And _Prototypes.c: 68:        if (((float)ADC_Result > 0.5) && ((float)ADC_Result < 5.0))
-[e $ ! && > -> -> _ADC_Result `f `d .0.5 < -> -> _ADC_Result `f `d .5.0 92  ]
-"69
-[; ;Defines_And _Prototypes.c: 69:        {
-{
-"70
-[; ;Defines_And _Prototypes.c: 70:          GP5 = 0;
-[e = _GP5 -> -> 0 `i `b ]
-"71
-[; ;Defines_And _Prototypes.c: 71:          Pwr_Good = 1;
-[e = F584 -> -> 1 `i `uc ]
-"72
-[; ;Defines_And _Prototypes.c: 72:        }
-}
-[e $U 93  ]
-"73
-[; ;Defines_And _Prototypes.c: 73:        else if (((float)ADC_Result <= 0.5) || ((float)ADC_Result >= 5.0))
-[e :U 92 ]
-[e $ ! || <= -> -> _ADC_Result `f `d .0.5 >= -> -> _ADC_Result `f `d .5.0 94  ]
-"74
-[; ;Defines_And _Prototypes.c: 74:        {
-{
-"75
-[; ;Defines_And _Prototypes.c: 75:          GP5 = 1;
+[; ;ADC.c: 14:     GP5 = 1;
 [e = _GP5 -> -> 1 `i `b ]
-"76
-[; ;Defines_And _Prototypes.c: 76:          Pwr_Good = 0;
-[e = F584 -> -> 0 `i `uc ]
-"77
-[; ;Defines_And _Prototypes.c: 77:        }
-}
-[e :U 94 ]
-[e :U 93 ]
-"79
-[; ;Defines_And _Prototypes.c: 79:     return Pwr_Good;
-[e ) F584 ]
-[e $UE 91  ]
-"80
-[; ;Defines_And _Prototypes.c: 80: }
-[e :UE 91 ]
-}
-"83
-[; ;Defines_And _Prototypes.c: 83:  void Temperature_Control()
-[v _Temperature_Control `(v ~T0 @X0 1 ef ]
-"84
-[; ;Defines_And _Prototypes.c: 84:  {
-{
-[e :U _Temperature_Control ]
-[f ]
-"86
-[; ;Defines_And _Prototypes.c: 86:     Get_Voltage(0);
-[e ( _Get_Voltage (1 -> -> 0 `i `uc ]
-"88
-[; ;Defines_And _Prototypes.c: 88:     ADC_Result = (uint16_t)(ADRESH << 8) + ADRESL;
-[e = _ADC_Result + -> << -> _ADRESH `i -> 8 `i `ui -> _ADRESL `ui ]
-"90
-[; ;Defines_And _Prototypes.c: 90:      if (System_Start_Control() != 0)
-[e $ ! != -> ( _System_Start_Control ..  `i -> 0 `i 96  ]
-"91
-[; ;Defines_And _Prototypes.c: 91:      {
-{
-"92
-[; ;Defines_And _Prototypes.c: 92:          if (((float)ADC_Result >= 45.5f) && ((float)ADC_Result < 60.5f))
-[e $ ! && >= -> _ADC_Result `f -> .45.5 `f < -> _ADC_Result `f -> .60.5 `f 97  ]
-"93
-[; ;Defines_And _Prototypes.c: 93:          {GP2 = 1;}
-{
-[e = _GP2 -> -> 1 `i `b ]
-}
-[e $U 98  ]
-"94
-[; ;Defines_And _Prototypes.c: 94:          else if (((float)ADC_Result >= 60.0f) && ((float)ADC_Result < 75.5f))
-[e :U 97 ]
-[e $ ! && >= -> _ADC_Result `f -> .60.0 `f < -> _ADC_Result `f -> .75.5 `f 99  ]
-"95
-[; ;Defines_And _Prototypes.c: 95:          {GP2 = 1;}
-{
-[e = _GP2 -> -> 1 `i `b ]
-}
-[e $U 100  ]
-"96
-[; ;Defines_And _Prototypes.c: 96:          else if ((float)ADC_Result >= 75.5f)
-[e :U 99 ]
-[e $ ! >= -> _ADC_Result `f -> .75.5 `f 101  ]
-"97
-[; ;Defines_And _Prototypes.c: 97:          {GP2 = 1;}
-{
-[e = _GP2 -> -> 1 `i `b ]
-}
-[e $U 102  ]
-"98
-[; ;Defines_And _Prototypes.c: 98:          else if ((float)ADC_Result < 45.5f)
-[e :U 101 ]
-[e $ ! < -> _ADC_Result `f -> .45.5 `f 103  ]
-"99
-[; ;Defines_And _Prototypes.c: 99:          {GP2 = 0;}
-{
-[e = _GP2 -> -> 0 `i `b ]
-}
-[e :U 103 ]
-[e :U 102 ]
-[e :U 100 ]
-[e :U 98 ]
-"100
-[; ;Defines_And _Prototypes.c: 100:      }
-}
-[e :U 96 ]
-"102
-[; ;Defines_And _Prototypes.c: 102:  }
-[e :UE 95 ]
+"17
+[; ;ADC.c: 17:     TRISIO4 = 0;
+[e = _TRISIO4 -> -> 0 `i `b ]
+"18
+[; ;ADC.c: 18:     GP4 = 0;
+[e = _GP4 -> -> 0 `i `b ]
+"22
+[; ;ADC.c: 22:     ADON = 1;
+[e = _ADON -> -> 1 `i `b ]
+"23
+[; ;ADC.c: 23:     ADFM = 1;
+[e = _ADFM -> -> 1 `i `b ]
+"24
+[; ;ADC.c: 24:     VCFG = 0;
+[e = _VCFG -> -> 0 `i `b ]
+"25
+[; ;ADC.c: 25:     TRISIO0 = 1;
+[e = _TRISIO0 -> -> 1 `i `b ]
+"26
+[; ;ADC.c: 26:     TRISIO1 = 1;
+[e = _TRISIO1 -> -> 1 `i `b ]
+"28
+[; ;ADC.c: 28:     ANSEL = 0b00110011;
+[e = _ANSEL -> -> 51 `i `uc ]
+"30
+[; ;ADC.c: 30:     CHS1 = 0;
+[e = _CHS1 -> -> 0 `i `b ]
+"31
+[; ;ADC.c: 31:     CHS0 = 1;
+[e = _CHS0 -> -> 1 `i `b ]
+"32
+[; ;ADC.c: 32:     ADIE = 1;
+[e = _ADIE -> -> 1 `i `b ]
+"33
+[; ;ADC.c: 33:     GIE = 1;
+[e = _GIE -> -> 1 `i `b ]
+"34
+[; ;ADC.c: 34: }
+[e :UE 81 ]
 }

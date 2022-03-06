@@ -1,4 +1,4 @@
-# 1 "Defines_And _Prototypes.c"
+# 1 "timer0.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,9 +6,12 @@
 # 1 "<built-in>" 2
 # 1 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "Defines_And _Prototypes.c" 2
-# 1 "./Defines_And_Prototypes.h" 1
-# 15 "./Defines_And_Prototypes.h"
+# 1 "timer0.c" 2
+# 1 "./timer0.h" 1
+# 11 "./timer0.h"
+void InitTimer0(void);
+# 1 "timer0.c" 2
+
 # 1 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -1010,252 +1013,13 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 28 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\\pic\\include\\xc.h" 2 3
-# 15 "./Defines_And_Prototypes.h" 2
+# 2 "timer0.c" 2
 
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdint.h" 1 3
-# 13 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdint.h" 3
-typedef signed char int8_t;
 
-
-
-
-
-
-typedef signed int int16_t;
-
-
-
-
-
-
-
-typedef __int24 int24_t;
-
-
-
-
-
-
-
-typedef signed long int int32_t;
-# 52 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdint.h" 3
-typedef unsigned char uint8_t;
-
-
-
-
-
-typedef unsigned int uint16_t;
-
-
-
-
-
-
-typedef __uint24 uint24_t;
-
-
-
-
-
-
-typedef unsigned long int uint32_t;
-# 88 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdint.h" 3
-typedef signed char int_least8_t;
-
-
-
-
-
-
-
-typedef signed int int_least16_t;
-# 109 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdint.h" 3
-typedef __int24 int_least24_t;
-# 118 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdint.h" 3
-typedef signed long int int_least32_t;
-# 136 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdint.h" 3
-typedef unsigned char uint_least8_t;
-
-
-
-
-
-
-typedef unsigned int uint_least16_t;
-# 154 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdint.h" 3
-typedef __uint24 uint_least24_t;
-
-
-
-
-
-
-
-typedef unsigned long int uint_least32_t;
-# 181 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdint.h" 3
-typedef signed char int_fast8_t;
-
-
-
-
-
-
-typedef signed int int_fast16_t;
-# 200 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdint.h" 3
-typedef __int24 int_fast24_t;
-
-
-
-
-
-
-
-typedef signed long int int_fast32_t;
-# 224 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdint.h" 3
-typedef unsigned char uint_fast8_t;
-
-
-
-
-
-typedef unsigned int uint_fast16_t;
-# 240 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdint.h" 3
-typedef __uint24 uint_fast24_t;
-
-
-
-
-
-
-typedef unsigned long int uint_fast32_t;
-# 268 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdint.h" 3
-typedef int32_t intmax_t;
-# 282 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdint.h" 3
-typedef uint32_t uintmax_t;
-
-
-
-
-
-
-typedef int16_t intptr_t;
-
-
-
-
-typedef uint16_t uintptr_t;
-# 16 "./Defines_And_Prototypes.h" 2
-# 35 "./Defines_And_Prototypes.h"
-    void Init_uC(void);
-
-
-
-
-
-
-    uint8_t System_Start_Control(void);
-
-
-
-
-    void Temperature_Control(void);
-
-
-
-    void Buzzer(void);
-
-
-
-
-void Get_Voltage (uint8_t Chanel_Number);
-# 1 "Defines_And _Prototypes.c" 2
-
-
-
-
-volatile uint16_t ADC_Result = 0;
-
-void Init_uC()
+void InitTimer0(void)
 {
 
-    TRISIO5 = 0;
-    GP5 = 1;
+ OPTION_REG &= 0xC0;
 
-
-    TRISIO2 = 0;
-    GP2 = 0;
-
-
-    ADON = 1;
-    ADFM = 1;
-    VCFG = 0;
-    TRISIO0 = 1;
-    TRISIO1 = 1;
-    ANSEL = 0b01010011;
-
+ T0IE = 1;
 }
-
-void Get_Voltage (uint8_t Chanel_Number)
-{
-    switch(Chanel_Number)
-    {
-            case 0:
-              CHS1 = 0; CHS0 = 0;
-              break;
-            case 1:
-              CHS1 = 0; CHS0 = 1;
-              break;
-           default:
-              break;
-    }
-    GO = 1;
-    while(GO);
-    _delay((unsigned long)((8)*(4000000/4000000.0)));
-# 57 "Defines_And _Prototypes.c"
-}
-
-
-uint8_t System_Start_Control()
-{
-    static uint8_t Pwr_Good = 0;
-    Get_Voltage(1);
-
-    ADC_Result = (uint16_t)(ADRESH << 8) + ADRESL;
-    ADC_Result = (ADC_Result*5)/1024;
-
-       if (((float)ADC_Result > 0.5) && ((float)ADC_Result < 5.0))
-       {
-         GP5 = 0;
-         Pwr_Good = 1;
-       }
-       else if (((float)ADC_Result <= 0.5) || ((float)ADC_Result >= 5.0))
-       {
-         GP5 = 1;
-         Pwr_Good = 0;
-       }
-
-    return Pwr_Good;
-}
-
-
- void Temperature_Control()
- {
-
-    Get_Voltage(0);
-
-    ADC_Result = (uint16_t)(ADRESH << 8) + ADRESL;
-
-     if (System_Start_Control() != 0)
-     {
-         if (((float)ADC_Result >= 45.5f) && ((float)ADC_Result < 60.5f))
-         {GP2 = 1;}
-         else if (((float)ADC_Result >= 60.0f) && ((float)ADC_Result < 75.5f))
-         {GP2 = 1;}
-         else if ((float)ADC_Result >= 75.5f)
-         {GP2 = 1;}
-         else if ((float)ADC_Result < 45.5f)
-         {GP2 = 0;}
-     }
-
- }

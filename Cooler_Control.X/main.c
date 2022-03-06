@@ -1,38 +1,19 @@
-/**                                                  
- *  ==============================================================================
- *  PROJECT NAME: Cooler Control Hobby Project
- *  ==============================================================================
- * 
- *  @Filename           :   main.c 
- *  @Date               :   19.11.2021
- *  @Reference          :   No reference
- *  @HW Compatibility   :   Microchip PIC12F675, 8bit, 8 Pin
- *  @Code reference     :   No reference
- *  @Specification      :   Technical Task from Alex Talko
- *  @SW Owner           :   Albert Ziatdinov/Alex Talko, Open Non-commercial use 
- *                          only  
- *  @Author             :   Albert Ziatdinov
- * 
- * ================================================================================
- * System clock is configured to 4MHz
- * ================================================================================
- *
- *
- */
+#include <xc.h>
+#include "interrupt.h"
+#include "ADC.h"
+#include "timer0.h"
 
-#include "Defines_And_Prototypes.h"
-#include "Configuration.h"
+// Config word
+__CONFIG(FOSC_INTRCIO & WDTE_OFF & PWRTE_ON & MCLRE_OFF & BOREN_ON & CP_OFF & CPD_OFF);
 
-
-
-void main(void) 
-{
-   Init_uC();
-   
-    while (1) 
-    {
-        System_Start_Control();
-        Temperature_Control();
-    }
-  
+// Main function
+void main()
+{	
+	InitTimer0();
+    Init_uC();
+    ei();
+	while(1)
+	{     
+	}
 }
+

@@ -3,121 +3,110 @@
 [d edition pro ]
 [d chip 12F675 ]
 [d frameptr 0 ]
-"4 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\flge.c
-[v ___flge __flge `(b  1 e 0 0 ]
+"4 D:\Projekt\TalkoS\Cooler_Control\Cooler_Control.X\ADC.c
+[v _Init_uC Init_uC `(v  1 e 1 0 ]
 "10 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcadd.c
 [v ___fladd __fladd `(d  1 e 4 0 ]
-"15 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\Umul16.c
-[v ___wmul __wmul `(ui  1 e 2 0 ]
 "4 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\Umul8_16.c
 [v __Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
-"10 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
-[v ___xxtofl __xxtofl `(d  1 e 4 0 ]
 "6 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\pic\__eeprom.c
 [v ___eecpymem __eecpymem `(v  1 e 1 0 ]
 "39
 [v ___memcpyee __memcpyee `(v  1 e 1 0 ]
-"7 D:\Projekt\TalkoS\Cooler_Control\Cooler_Control.X\Defines_And _Prototypes.c
-[v _Init_uC Init_uC `(v  1 e 1 0 ]
-"27
-[v _Get_Voltage Get_Voltage `(v  1 e 1 0 ]
-"60
-[v _System_Start_Control System_Start_Control `(uc  1 e 1 0 ]
-"83
-[v _Temperature_Control Temperature_Control `(v  1 e 1 0 ]
-"28 D:\Projekt\TalkoS\Cooler_Control\Cooler_Control.X\main.c
+"9 D:\Projekt\TalkoS\Cooler_Control\Cooler_Control.X\interrupt.c
+[v _ISR ISR `II(v  1 e 1 0 ]
+"10 D:\Projekt\TalkoS\Cooler_Control\Cooler_Control.X\main.c
 [v _main main `(v  1 e 1 0 ]
-"623 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\pic\include\proc\pic12f675.h
+"4 D:\Projekt\TalkoS\Cooler_Control\Cooler_Control.X\timer0.c
+[v _InitTimer0 InitTimer0 `(v  1 e 1 0 ]
+"72 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\pic\include\proc\pic12f675.h
+[v _TMR0 TMR0 `VEuc  1 e 1 @1 ]
+"218
+[v _GPIO GPIO `VEuc  1 e 1 @5 ]
+[s S66 . 1 `uc 1 GPIF 1 0 :1:0 
+`uc 1 INTF 1 0 :1:1 
+`uc 1 T0IF 1 0 :1:2 
+`uc 1 GPIE 1 0 :1:3 
+`uc 1 INTE 1 0 :1:4 
+`uc 1 T0IE 1 0 :1:5 
+`uc 1 PEIE 1 0 :1:6 
+`uc 1 GIE 1 0 :1:7 
+]
+"349
+[s S75 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 TMR0IF 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 TMR0IE 1 0 :1:5 
+]
+[u S80 . 1 `S66 1 . 1 0 `S75 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES80  1 e 1 @11 ]
+"564
+[v _CMCON CMCON `VEuc  1 e 1 @25 ]
+"623
 [v _ADRESH ADRESH `VEuc  1 e 1 @30 ]
+"727
+[v _OPTION_REG OPTION_REG `VEuc  1 e 1 @129 ]
+"797
+[v _TRISIO TRISIO `VEuc  1 e 1 @133 ]
 "1384
 [v _ADRESL ADRESL `VEuc  1 e 1 @158 ]
 "1404
 [v _ANSEL ANSEL `VEuc  1 e 1 @159 ]
 "1489
 [v _ADFM ADFM `VEb  1 e 0 @255 ]
+"1492
+[v _ADIE ADIE `VEb  1 e 0 @1126 ]
+"1495
+[v _ADIF ADIF `VEb  1 e 0 @102 ]
 "1498
 [v _ADON ADON `VEb  1 e 0 @248 ]
 "1534
 [v _CHS0 CHS0 `VEb  1 e 0 @250 ]
 "1537
 [v _CHS1 CHS1 `VEb  1 e 0 @251 ]
+"1573
+[v _GIE GIE `VEb  1 e 0 @95 ]
 "1576
 [v _GO GO `VEb  1 e 0 @249 ]
-"1591
-[v _GP2 GP2 `VEb  1 e 0 @42 ]
+"1597
+[v _GP4 GP4 `VEb  1 e 0 @44 ]
 "1600
 [v _GP5 GP5 `VEb  1 e 0 @45 ]
+"1702
+[v _T0IE T0IE `VEb  1 e 0 @93 ]
+"1705
+[v _T0IF T0IF `VEb  1 e 0 @90 ]
 "1747
 [v _TRISIO0 TRISIO0 `VEb  1 e 0 @1064 ]
 "1750
 [v _TRISIO1 TRISIO1 `VEb  1 e 0 @1065 ]
-"1753
-[v _TRISIO2 TRISIO2 `VEb  1 e 0 @1066 ]
+"1759
+[v _TRISIO4 TRISIO4 `VEb  1 e 0 @1068 ]
 "1762
 [v _TRISIO5 TRISIO5 `VEb  1 e 0 @1069 ]
 "1765
 [v _VCFG VCFG `VEb  1 e 0 @254 ]
-"5 D:\Projekt\TalkoS\Cooler_Control\Cooler_Control.X\Defines_And _Prototypes.c
-[v _ADC_Result ADC_Result `VEui  1 e 2 0 ]
-"28 D:\Projekt\TalkoS\Cooler_Control\Cooler_Control.X\main.c
+"6 D:\Projekt\TalkoS\Cooler_Control\Cooler_Control.X\interrupt.c
+[v _PWM_Value PWM_Value `uc  1 e 1 0 ]
+"7
+[v _ADC_Value ADC_Value `i  1 e 2 0 ]
+"10 D:\Projekt\TalkoS\Cooler_Control\Cooler_Control.X\main.c
 [v _main main `(v  1 e 1 0 ]
 {
-"38
+"18
 } 0
-"83 D:\Projekt\TalkoS\Cooler_Control\Cooler_Control.X\Defines_And _Prototypes.c
-[v _Temperature_Control Temperature_Control `(v  1 e 1 0 ]
-{
-"102
-} 0
-"60
-[v _System_Start_Control System_Start_Control `(uc  1 e 1 0 ]
-{
-"62
-[v System_Start_Control@Pwr_Good Pwr_Good `uc  1 s 1 Pwr_Good ]
-"80
-} 0
-"10 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
-[v ___xxtofl __xxtofl `(d  1 e 4 0 ]
-{
-[v ___xxtofl@sign sign `uc  1 a 1 wreg ]
-"13
-[v ___xxtofl@arg arg `ul  1 a 4 10 ]
-"12
-[v ___xxtofl@exp exp `uc  1 a 1 9 ]
-"10
-[v ___xxtofl@sign sign `uc  1 a 1 wreg ]
-[v ___xxtofl@val val `l  1 p 4 0 ]
-"15
-[v ___xxtofl@sign sign `uc  1 a 1 8 ]
-"44
-} 0
-"15 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\Umul16.c
-[v ___wmul __wmul `(ui  1 e 2 0 ]
-{
-"17
-[v ___wmul@product product `ui  1 a 2 4 ]
-"15
-[v ___wmul@multiplier multiplier `ui  1 p 2 0 ]
-[v ___wmul@multiplicand multiplicand `ui  1 p 2 2 ]
-"53
-} 0
-"4 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\flge.c
-[v ___flge __flge `(b  1 e 0 0 ]
-{
-[v ___flge@ff1 ff1 `d  1 p 4 14 ]
-[v ___flge@ff2 ff2 `d  1 p 4 18 ]
-"19
-} 0
-"27 D:\Projekt\TalkoS\Cooler_Control\Cooler_Control.X\Defines_And _Prototypes.c
-[v _Get_Voltage Get_Voltage `(v  1 e 1 0 ]
-{
-[v Get_Voltage@Chanel_Number Chanel_Number `uc  1 a 1 wreg ]
-[v Get_Voltage@Chanel_Number Chanel_Number `uc  1 a 1 wreg ]
-[v Get_Voltage@Chanel_Number Chanel_Number `uc  1 a 1 2 ]
-"57
-} 0
-"7
+"4 D:\Projekt\TalkoS\Cooler_Control\Cooler_Control.X\ADC.c
 [v _Init_uC Init_uC `(v  1 e 1 0 ]
 {
-"25
+"34
+} 0
+"4 D:\Projekt\TalkoS\Cooler_Control\Cooler_Control.X\timer0.c
+[v _InitTimer0 InitTimer0 `(v  1 e 1 0 ]
+{
+"10
+} 0
+"9 D:\Projekt\TalkoS\Cooler_Control\Cooler_Control.X\interrupt.c
+[v _ISR ISR `II(v  1 e 1 0 ]
+{
+"59
 } 0
