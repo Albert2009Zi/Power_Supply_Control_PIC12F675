@@ -5,7 +5,7 @@ Linker command line:
 -W-3 --edf=C:\Program Files\Microchip\xc8\v2.31\pic\dat\en_msgs.txt -cn \
   -h+dist/default/production\Cooler_Control.X.production.sym \
   --cmf=dist/default/production\Cooler_Control.X.production.cmf -z -Q12F675 \
-  -oC:\Users\User\AppData\Local\Temp\sen0.2 --defsym=__MPLAB_BUILD=1 \
+  -oC:\Users\User\AppData\Local\Temp\s1no.2 --defsym=__MPLAB_BUILD=1 \
   -Mdist/default/production/Cooler_Control.X.production.map -E1 \
   -ver=XC8 Compiler --acfsm=1493 -ASTACK=028h-05Dh -pstack=STACK \
   -ACODE=00h-03FEh -ASTRCODE=00h-03FEh -ASTRING=00h-0FFhx3,0300h-03FEh \
@@ -16,7 +16,7 @@ Linker command line:
   -peeprom_data=EEDATA -DEEDATA=2 -DCODE=2 -DSTRCODE=2 -DSTRING=2 -DCONST=2 \
   -DENTRY=2 -preset_vec=00h,intentry=04h,init,end_init -ppowerup=CODE \
   -pcinit=CODE -pfunctab=ENTRY -posccal=03FFh -k \
-  C:\Users\User\AppData\Local\Temp\sen0.o \
+  C:\Users\User\AppData\Local\Temp\s1no.o \
   dist/default/production\Cooler_Control.X.production.o 
 
 Object code version is 3.11
@@ -26,16 +26,16 @@ Machine type is 12F675
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\User\AppData\Local\Temp\sen0.o
+C:\Users\User\AppData\Local\Temp\s1no.o
                 end_init                              D        D        1        8       0
                 reset_vec                             0        0        1        0       0
 dist/default/production\Cooler_Control.X.production.o
                 cinit                                 E        E        6        8       0
                 intentry                              4        4        9        8       0
-                text3                                14       14       4D        8       0
-                text2                                7F       7F        8        8       0
-                text1                                61       61       1E        8       0
-                maintext                             87       87        5        8       0
+                text3                                14       14       32        8       0
+                text2                                64       64        8        8       0
+                text1                                46       46       1E        8       0
+                maintext                             6C       6C        5        8       0
                 cstackBANK0                          20       20        5       20       1
                 bssBANK0                             25       25        3       20       1
 
@@ -47,10 +47,10 @@ TOTAL           Name                               Link     Load   Length     Sp
                 cinit                                 E        E        6         0
                 intentry                              4        4        9         0
                 reset_vec                             0        0        1         0
-                text3                                14       14       4D         0
-                text2                                7F       7F        8         0
-                text1                                61       61       1E         0
-                maintext                             87       87        5         0
+                text3                                14       14       32         0
+                text2                                64       64        8         0
+                text1                                46       46       1E         0
+                maintext                             6C       6C        5         0
 
         CLASS   STRCODE        
 
@@ -88,7 +88,7 @@ TOTAL           Name                               Link     Load   Length     Sp
 SEGMENTS        Name                           Load    Length   Top    Selector   Space  Class     Delta
 
                 reset_vec                      000000  000001  000001         0       0  CODE        2
-                intentry                       000004  000088  00008C         8       0  CODE        2
+                intentry                       000004  00006D  000071         8       0  CODE        2
                 cstackBANK0                    000020  000008  000028        20       1  BANK0       1
 
 
@@ -97,22 +97,22 @@ UNUSED ADDRESS RANGES
         Name                Unused          Largest block    Delta
         BANK0            028-05D            36           1
         CODE             001-003             3           2
-                         08C-3FE           373
+                         071-3FE           38E
         CONFIG           2007-2007             1           2
         CONST            001-003             3           2
-                         08C-3FE           100
+                         071-3FE           100
         EEDATA           2100-217F            80           2
         ENTRY            001-003             3           2
-                         08C-3FE           100
+                         071-3FE           100
         IDLOC            2000-2003             4           2
         RAM              028-05D            36           1
         SFR0             000-01F            20           1
         SFR1             080-0DD            5E           1
         STACK            028-05D            36           1
         STRCODE          001-003             3           2
-                         08C-3FE           373
+                         071-3FE           38E
         STRING           001-003             3           2
-                         08C-3FE           100
+                         071-3FE           100
 
                                   Symbol Table
 
@@ -134,13 +134,10 @@ _GP5                     (abs)        02D
 _GPIO                    (abs)        005
 _INTCONbits              (abs)        00B
 _ISR                     text3        014
-_InitTimer0              text2        07F
-_Init_uC                 text1        061
+_InitTimer0              text2        064
+_Init_uC                 text1        046
 _OPTION_REG              (abs)        081
-_PWM_Value               bssBANK0     027
 _T0IE                    (abs)        05D
-_T0IF                    (abs)        05A
-_TMR0                    (abs)        001
 _TRISIO                  (abs)        085
 _TRISIO0                 (abs)        428
 _TRISIO1                 (abs)        429
@@ -205,7 +202,7 @@ __Lspace_3               (abs)        000
 __Lstack                 stack        000
 __Lstrings               strings      7FE
 __Ltext                  text         7FE
-__S0                     (abs)        08C
+__S0                     (abs)        071
 __S1                     (abs)        028
 __S2                     (abs)        000
 __S3                     (abs)        000
@@ -215,25 +212,25 @@ ___osccal_val            osccal       3FF
 ___sp                    stack        000
 ___stackhi               (abs)        000
 ___stacklo               (abs)        000
-__end_of_ISR             text3        061
-__end_of_InitTimer0      text2        087
-__end_of_Init_uC         text1        07F
+__end_of_ISR             text3        046
+__end_of_InitTimer0      text2        06C
+__end_of_Init_uC         text1        064
 __end_of__initialization cinit        012
-__end_of_main            maintext     08C
+__end_of_main            maintext     071
 __initialization         cinit        00E
 __pbssBANK0              bssBANK0     025
 __pcstackBANK0           cstackBANK0  020
 __pcstackCOMMON          cstackCOMMON 000
 __pintentry              intentry     004
-__pmaintext              maintext     087
-__ptext1                 text1        061
-__ptext2                 text2        07F
+__pmaintext              maintext     06C
+__ptext1                 text1        046
+__ptext2                 text2        064
 __ptext3                 text3        014
 __size_of_ISR            (abs)        000
 __size_of_InitTimer0     (abs)        000
 __size_of_Init_uC        (abs)        000
 __size_of_main           (abs)        000
-_main                    maintext     087
+_main                    maintext     06C
 btemp                    (abs)        05E
 end_of_initialization    cinit        012
 interrupt_function       intentry     004
@@ -353,7 +350,7 @@ Total ram usage:        1 bytes
  Return value:  Size  Location     Type
                   1    wreg      void 
  Registers used:
-		wreg, status,2, status,0, btemp+1
+		wreg, btemp+1
  Tracked objects:
 		On entry : 
 		On exit  : 
@@ -377,14 +374,14 @@ MODULE INFORMATION
 
 Module		Function		Class		Link	Load	Size
 timer0.c
-		_InitTimer0    		CODE           	007F	0000	8
+		_InitTimer0    		CODE           	0064	0000	8
 
 timer0.c estimated size: 8
 
 interrupt.c
-		_ISR           		CODE           	0014	0000	77
+		_ISR           		CODE           	0014	0000	50
 
-interrupt.c estimated size: 77
+interrupt.c estimated size: 50
 
 shared
 		__initialization		CODE           	000E	0000	4
@@ -392,12 +389,12 @@ shared
 shared estimated size: 4
 
 ADC.c
-		_Init_uC       		CODE           	0061	0000	30
+		_Init_uC       		CODE           	0046	0000	30
 
 ADC.c estimated size: 30
 
 main.c
-		_main          		CODE           	0087	0000	5
+		_main          		CODE           	006C	0000	5
 
 main.c estimated size: 5
 

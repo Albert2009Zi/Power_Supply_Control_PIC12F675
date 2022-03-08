@@ -16,8 +16,10 @@ void __interrupt() ISR(void)
     ADC_Value = (int) ((ADRESH<<8)+ADRESL); // ADC result
     
     if (ADC_Value > 470)
-          {GP5 = 0;}
-    else  {GP5 = 1;}              
+          {GP5 = 0;
+           GP4 = 1;}
+    else  {GP5 = 1;
+           GP4 = 0;}              
     
 //    if (GP5)
 //    {
@@ -39,17 +41,17 @@ void __interrupt() ISR(void)
 //   
 //    }
     
-    if(GP5 == 0)
-    {
-    PWM_Value = 127;    
-    TMR0 = PWM_Value;
-	if(T0IF)  //If Timer0 Interrupt
-	{
-        if (PWM_Value == 0)
-        {GP4 = 0;}
-        else if (PWM_Value != 0)                
-		{GP4 = ~GP4;} // Toggle GP4 pin
-		T0IF = 0;   // Clear the interrupt
-	}
-    }
+//    if(GP5 == 0)
+//    {
+//    PWM_Value = 127;    
+//    TMR0 = PWM_Value;
+//	if(T0IF)  //If Timer0 Interrupt
+//	{
+//        if (PWM_Value == 0)
+//        {GP4 = 0;}
+//        else if (PWM_Value != 0)                
+//		{GP4 = ~GP4;} // Toggle GP4 pin
+//		T0IF = 0;   // Clear the interrupt
+//	}
+//    }
 }

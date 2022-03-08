@@ -1031,24 +1031,9 @@ void __attribute__((picinterrupt(("")))) ISR(void)
     ADC_Value = (int) ((ADRESH<<8)+ADRESL);
 
     if (ADC_Value > 470)
-          {GP5 = 0;}
-    else {GP5 = 1;}
-# 42 "interrupt.c"
-    if(GP5 == 0)
-    {
-    PWM_Value = 127;
-    TMR0 = PWM_Value;
- if(T0IF)
- {
-        if (PWM_Value == 0)
-        {GP4 = 0;}
-        else if (PWM_Value != 0)
-  {GP4 = ~GP4;}
-  T0IF = 0;
- }
-    }
-
-
-
-
+          {GP5 = 0;
+           GP4 = 1;}
+    else {GP5 = 1;
+           GP4 = 0;}
+# 57 "interrupt.c"
 }
