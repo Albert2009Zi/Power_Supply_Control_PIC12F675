@@ -16,10 +16,8 @@ void __interrupt() ISR(void)
     ADC_Value = (int) ((ADRESH<<8)+ADRESL); // ADC result
     
     if (ADC_Value > 470)
-          {GP5 = 0;
-           GP4 = 1;}
-    else  {GP5 = 1;
-           GP4 = 0;}              
+          {GP5 = 0;}
+    else  {GP5 = 1;}              
     
 //    if (GP5)
 //    {

@@ -1037,5 +1037,7 @@ void main()
     (INTCONbits.GIE = 1);
  while(1)
  {
+        if (GP5 == 0)
+        {GP4 = 1;}
  }
 }

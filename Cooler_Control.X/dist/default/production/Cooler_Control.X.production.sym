@@ -1,7 +1,7 @@
 _GO F9 0 ABS 0
 _GP4 2C 0 ABS 0
 _GP5 2D 0 ABS 0
-__S0 71 0 ABS 0
+__S0 75 0 ABS 0
 __S1 28 0 ABS 0
 __S2 0 0 ABS 0
 __S3 0 0 ABS 0
@@ -19,7 +19,7 @@ _VCFG FE 0 ABS 0
 _ADFM FF 0 ABS 0
 _ADON F8 0 ABS 0
 _GPIO 5 0 ABS 0
-_main 6C 0 CODE 0
+_main 62 0 CODE 0
 ___sp 0 0 STACK 2
 btemp 5E 0 ABS 0
 start D 0 CODE 0
@@ -33,7 +33,7 @@ interrupt_function 4 0 CODE 0
 ___osccal_val 3FF 0 CODE 0
 __Hram 7FE 0 ABS 0
 __Lram 7FE 0 ABS 0
-__end_of_ISR 46 0 CODE 0
+__end_of_ISR 44 0 CODE 0
 __Hfunctab 0 0 ENTRY 0
 __Lfunctab 0 0 ENTRY 0
 _OPTION_REG 81 0 ABS 0
@@ -55,14 +55,14 @@ ___stackhi 0 0 ABS 0
 _ADC_Value 25 0 BANK0 1
 __Hcode 7FE 0 ABS 0
 __Lcode 7FE 0 ABS 0
-__end_of_InitTimer0 6C 0 CODE 0
+__end_of_InitTimer0 75 0 CODE 0
 __HcstackBANK0 7FE 0 ABS 0
 __LcstackBANK0 7FE 0 ABS 0
 __pcstackBANK0 20 0 BANK0 1
 saved_w 5E 0 ABS 0
 __Hinit D 0 CODE 0
 __Linit D 0 CODE 0
-__end_of_main 71 0 CODE 0
+__end_of_main 6D 0 CODE 0
 __Htext 7FE 0 ABS 0
 __Ltext 7FE 0 ABS 0
 end_of_initialization 12 0 CODE 0
@@ -72,10 +72,10 @@ _TRISIO0 428 0 ABS 0
 _TRISIO1 429 0 ABS 0
 _TRISIO4 42C 0 ABS 0
 _TRISIO5 42D 0 ABS 0
-_InitTimer0 64 0 CODE 0
+_InitTimer0 6D 0 CODE 0
 __Hstrings 7FE 0 ABS 0
 __Lstrings 7FE 0 ABS 0
-__end_of_Init_uC 64 0 CODE 0
+__end_of_Init_uC 62 0 CODE 0
 __Hbank0 7FE 0 ABS 0
 __Lbank0 7FE 0 ABS 0
 __Hbank1 7FE 0 BANK1 1
@@ -83,12 +83,12 @@ __Lbank1 7FE 0 BANK1 1
 ___latbits 0 0 ABS 0
 __Hpowerup 0 0 CODE 0
 __Lpowerup 0 0 CODE 0
-__ptext1 46 0 CODE 0
-__ptext2 64 0 CODE 0
+__ptext1 44 0 CODE 0
+__ptext2 6D 0 CODE 0
 __ptext3 14 0 CODE 0
 __Hclrtext 7FE 0 ABS 0
 __Lclrtext 7FE 0 ABS 0
-_Init_uC 46 0 CODE 0
+_Init_uC 44 0 CODE 0
 __end_of__initialization 12 0 CODE 0
 __Hstack 0 0 STACK 2
 __Lstack 0 0 STACK 2
@@ -126,15 +126,15 @@ __pcstackCOMMON 0 0 COMMON 1
 start_initialization E 0 CODE 0
 __Hmaintext 7FE 0 ABS 0
 __Lmaintext 7FE 0 ABS 0
-__pmaintext 6C 0 CODE 0
+__pmaintext 62 0 CODE 0
 __initialization E 0 CODE 0
 %segments
 reset_vec 0 1 CODE 0 0
-intentry 8 E1 CODE 8 0
+intentry 8 E9 CODE 8 0
 cstackBANK0 20 27 BANK0 20 1
 %locals
 dist/default/production\Cooler_Control.X.production.o
-C:\Users\User\AppData\Local\Temp\s1no.s
+C:\Users\User\AppData\Local\Temp\s94c.s
 477 E 0 CODE 0
 480 E 0 CODE 0
 494 E 0 CODE 0
@@ -145,37 +145,37 @@ C:\Users\User\AppData\Local\Temp\s1no.s
 505 12 0 CODE 0
 506 13 0 CODE 0
 main.c
-10 6C 0 CODE 0
-12 6C 0 CODE 0
-13 6D 0 CODE 0
-14 6E 0 CODE 0
-15 6F 0 CODE 0
-17 6F 0 CODE 0
+10 62 0 CODE 0
+12 62 0 CODE 0
+13 63 0 CODE 0
+14 64 0 CODE 0
+17 65 0 CODE 0
+18 6A 0 CODE 0
 ADC.c
-4 46 0 CODE 0
-6 46 0 CODE 0
-9 49 0 CODE 0
-10 4B 0 CODE 0
-13 4D 0 CODE 0
-14 4F 0 CODE 0
-17 51 0 CODE 0
-18 53 0 CODE 0
-22 55 0 CODE 0
-23 56 0 CODE 0
-24 57 0 CODE 0
-25 58 0 CODE 0
-26 5A 0 CODE 0
-28 5B 0 CODE 0
-30 5D 0 CODE 0
-31 5F 0 CODE 0
-32 60 0 CODE 0
-33 62 0 CODE 0
-34 63 0 CODE 0
+4 44 0 CODE 0
+6 44 0 CODE 0
+9 47 0 CODE 0
+10 49 0 CODE 0
+13 4B 0 CODE 0
+14 4D 0 CODE 0
+17 4F 0 CODE 0
+18 51 0 CODE 0
+22 53 0 CODE 0
+23 54 0 CODE 0
+24 55 0 CODE 0
+25 56 0 CODE 0
+26 58 0 CODE 0
+28 59 0 CODE 0
+30 5B 0 CODE 0
+31 5D 0 CODE 0
+32 5E 0 CODE 0
+33 60 0 CODE 0
+34 61 0 CODE 0
 timer0.c
-4 64 0 CODE 0
-7 64 0 CODE 0
-9 6A 0 CODE 0
-10 6B 0 CODE 0
+4 6D 0 CODE 0
+7 6D 0 CODE 0
+9 73 0 CODE 0
+10 74 0 CODE 0
 interrupt.c
 9 14 0 CODE 0
 11 14 0 CODE 0
@@ -185,8 +185,6 @@ interrupt.c
 16 22 0 CODE 0
 18 29 0 CODE 0
 19 36 0 CODE 0
-20 38 0 CODE 0
-21 3A 0 CODE 0
-22 3C 0 CODE 0
-57 3D 0 CODE 0
+20 39 0 CODE 0
+55 3B 0 CODE 0
 9 4 0 CODE 0

@@ -13,7 +13,9 @@ void main()
     Init_uC();
     ei();
 	while(1)
-	{     
+	{ 
+        if (GP5 == 0)
+        {GP4 = 1;}
 	}
 }
 

@@ -1031,9 +1031,7 @@ void __attribute__((picinterrupt(("")))) ISR(void)
     ADC_Value = (int) ((ADRESH<<8)+ADRESL);
 
     if (ADC_Value > 470)
-          {GP5 = 0;
-           GP4 = 1;}
-    else {GP5 = 1;
-           GP4 = 0;}
-# 57 "interrupt.c"
+          {GP5 = 0;}
+    else {GP5 = 1;}
+# 55 "interrupt.c"
 }
