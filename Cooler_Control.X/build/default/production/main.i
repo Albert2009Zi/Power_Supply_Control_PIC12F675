@@ -1018,6 +1018,8 @@ void __attribute__((picinterrupt(("")))) ISR(void);
 # 1 "./ADC.h" 1
 # 11 "./ADC.h"
 void Init_uC(void);
+
+void measurements (void);
 # 3 "main.c" 2
 
 # 1 "./timer0.h" 1
@@ -1027,7 +1029,25 @@ void InitTimer0(void);
 
 
 
-__asm("GLOBAL nosup@@$_$_" "CONFIG" "\nnosup@@$_$_" "CONFIG" " SET 0");
+
+
+
+#pragma config FOSC = INTRCIO
+#pragma config WDTE = OFF
+#pragma config PWRTE = OFF
+#pragma config MCLRE = ON
+#pragma config BOREN = ON
+#pragma config CP = OFF
+#pragma config CPD = OFF
+
+
+
+
+
+
+
+unsigned char PWM_Value = 0;
+int ADC_Value = 0;
 
 
 void main()
@@ -1037,7 +1057,6 @@ void main()
     (INTCONbits.GIE = 1);
  while(1)
  {
-        if (GP5 == 0)
-        {GP4 = 1;}
+        measurements();
  }
 }

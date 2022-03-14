@@ -10,6 +10,8 @@
 # 1 "./ADC.h" 1
 # 11 "./ADC.h"
 void Init_uC(void);
+
+void measurements (void);
 # 1 "ADC.c" 2
 
 # 1 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\\pic\\include\\xc.h" 1 3
@@ -1016,9 +1018,17 @@ extern __bank0 __bit __timeout;
 # 2 "ADC.c" 2
 
 
+
+
+extern unsigned char PWM_Value;
+extern int ADC_Value;
+int Button_Value = 0;
+
+
 void Init_uC()
 {
  CMCON = 0x07;
+    VRCON = 0x00;
 
 
     TRISIO = 0;
@@ -1026,7 +1036,7 @@ void Init_uC()
 
 
     TRISIO5 = 0;
-    GP5 = 1;
+    GP5 = 0;
 
 
     TRISIO4 = 0;
@@ -1044,6 +1054,22 @@ void Init_uC()
 
     CHS1 = 0;
     CHS0 = 1;
-    ADIE = 1;
     GIE = 1;
+}
+
+
+void measurements (void)
+{
+    _delay((unsigned long)((10)*(4000000/4000.0)));
+    GO = 1;
+    while(!ADIF);
+    _delay((unsigned long)((10)*(4000000/4000.0)));
+    Button_Value = (int) ((ADRESH<<8)+ADRESL);
+
+    if (Button_Value < 460)
+          {GP5 = 1;
+           PWM_Value = 0;}
+    else {GP5 = 0;
+           PWM_Value = 127;}
+# 85 "ADC.c"
 }

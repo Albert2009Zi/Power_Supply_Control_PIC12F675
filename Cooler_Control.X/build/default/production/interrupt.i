@@ -1018,20 +1018,17 @@ extern __bank0 __bit __timeout;
 
 
 
-unsigned char PWM_Value = 0;
-int ADC_Value = 0;
+extern unsigned char PWM_Value;
 
 void __attribute__((picinterrupt(("")))) ISR(void)
 {
-    _delay((unsigned long)((10)*(4000000/4000000.0)));
-    GO = 1;
-    while(!ADIF);
-    _delay((unsigned long)((10)*(4000000/4000000.0)));
-
-    ADC_Value = (int) ((ADRESH<<8)+ADRESL);
-
-    if (ADC_Value > 470)
-          {GP5 = 0;}
-    else {GP5 = 1;}
-# 55 "interrupt.c"
+      TMR0 = PWM_Value;
+   if(T0IF)
+    {
+        if (PWM_Value == 0)
+        {GP4 = 0;}
+        else if (PWM_Value != 0)
+  {GP4 = ~GP4;}
+  T0IF = 0;
+    }
 }

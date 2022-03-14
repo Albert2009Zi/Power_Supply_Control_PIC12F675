@@ -10,5 +10,7 @@
 
 void Init_uC(void);
 
+void measurements (void);
+
 #endif	/* ADC_H */
 
