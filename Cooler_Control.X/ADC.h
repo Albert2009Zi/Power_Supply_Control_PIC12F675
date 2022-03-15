@@ -8,9 +8,11 @@
 #ifndef ADC_H
 #define	ADC_H
 
-void Init_uC(void);
+void init_uC(void);
 
-void measurements (void);
+void buttonEvent (void);
+
+unsigned char thermoControl (void);
 
 #endif	/* ADC_H */
 

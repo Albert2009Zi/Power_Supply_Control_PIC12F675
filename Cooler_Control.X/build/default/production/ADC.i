@@ -9,9 +9,11 @@
 # 1 "ADC.c" 2
 # 1 "./ADC.h" 1
 # 11 "./ADC.h"
-void Init_uC(void);
+void init_uC(void);
 
-void measurements (void);
+void buttonEvent (void);
+
+unsigned char thermoControl (void);
 # 1 "ADC.c" 2
 
 # 1 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\\pic\\include\\xc.h" 1 3
@@ -1022,10 +1024,8 @@ extern __bank0 __bit __timeout;
 
 extern unsigned char PWM_Value;
 extern int ADC_Value;
-int Button_Value = 0;
 
-
-void Init_uC()
+void init_uC()
 {
  CMCON = 0x07;
     VRCON = 0x00;
@@ -1049,27 +1049,50 @@ void Init_uC()
     VCFG = 0;
     TRISIO0 = 1;
     TRISIO1 = 1;
+    GP1 = 0;
 
-    ANSEL = 0b00110011;
+    ANSEL = 0b00110001;
 
     CHS1 = 0;
-    CHS0 = 1;
+    CHS0 = 0;
     GIE = 1;
 }
 
 
-void measurements (void)
+void buttonEvent (void)
 {
-    _delay((unsigned long)((10)*(4000000/4000.0)));
-    GO = 1;
-    while(!ADIF);
-    _delay((unsigned long)((10)*(4000000/4000.0)));
-    Button_Value = (int) ((ADRESH<<8)+ADRESL);
+        if (GP1)
+              {GP5 = 0;
+               PWM_Value = thermoControl();}
+        else {GP5 = 1;
+               PWM_Value = 0;}
+}
 
-    if (Button_Value < 460)
-          {GP5 = 1;
-           PWM_Value = 0;}
-    else {GP5 = 0;
-           PWM_Value = 127;}
-# 85 "ADC.c"
+unsigned char thermoControl (void)
+{
+       _delay((unsigned long)((10)*(4000000/4000.0)));
+       GO = 1;
+       while(!ADIF);
+       _delay((unsigned long)((10)*(4000000/4000.0)));
+
+       ADC_Value = (int) ((ADRESH<<8)+ADRESL);
+
+             if (ADC_Value < 460)
+                       {
+                        PWM_Value = 0;
+                       }
+             else if ((ADC_Value >= 460) && (ADC_Value < 614))
+                       {
+                        PWM_Value = 127;
+                       }
+             else if ((ADC_Value >= 614) && (ADC_Value < 737))
+                       {
+                        PWM_Value = 185;
+                       }
+             else if ((ADC_Value >= 737) && (ADC_Value < 1023))
+                       {
+                        PWM_Value = 230;
+                       }
+
+       return PWM_Value;
 }

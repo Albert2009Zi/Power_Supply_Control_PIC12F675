@@ -1016,8 +1016,6 @@ extern __bank0 __bit __timeout;
 # 2 "interrupt.c" 2
 
 
-
-
 extern unsigned char PWM_Value;
 
 void __attribute__((picinterrupt(("")))) ISR(void)

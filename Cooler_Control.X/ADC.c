@@ -5,10 +5,8 @@
 
 extern unsigned char PWM_Value;
 extern int ADC_Value;
-int Button_Value = 0;
 
-
-void Init_uC()
+void init_uC()
 {    
 	CMCON  = 0x07;		   /* Shut down the Comparator                        */
     VRCON  = 0x00;         /* Shut down Comparator reference Voltage          */
@@ -32,56 +30,52 @@ void Init_uC()
     VCFG    = 0;           /* Sets Vref = Vdd                                 */
     TRISIO0 = 1;           /* Sets GP0 (Pin 7) as input. Temperature control  */
     TRISIO1 = 1;           /* Sets GP1 (Pin 6) as input. Button control       */
+    GP1     = 0;
     
-    ANSEL   = 0b00110011;  /* Sets Tosc = 4us (RC Generator)                  **
-                            * and GP0,GP1 as analog                           */  
+    ANSEL   = 0b00110001;  /* Sets Tosc = 4us (RC Generator)                  **
+                                                       */  
     CHS1 = 0;
-    CHS0 = 1;              /* Enable ADC channel 1 (AN1) "Power ON button"    */ 
+    CHS0 = 0;              /* Enable ADC channel 1 (AN1) "Power ON button"    */ 
     GIE  = 1;			   /* Enable global interrupts                        */
 }
 
 
-void measurements (void)
-{
-    __delay_ms(10);
-    GO = 1;
-    while(!ADIF);  // make ADC Measurement
-    __delay_ms(10);    
-    Button_Value = (int) ((ADRESH<<8)+ADRESL); // ADC result
-    
-    if (Button_Value < 460)
-          {GP5    = 1;
-           PWM_Value = 0;}
-    else  {GP5    = 0;
-           PWM_Value = 127;}
-                
-    
-//    if ((Button_Value >= 460) && (ADIF))
-//    {  CHS0 = 1;      //Temperature control channel on
-//
-//       
-//       __delay_us(20); 
-//       GO   = 1;
-//       while(!ADIF);  // make ADC Measurement
-//       __delay_us(20);
-//    
-//       ADC_Value = (int) ((ADRESH<<8)+ADRESL); // ADC result
-//    
-//             if (ADC_Value < 460)
-//                       {PWM_Value = 0;
-//                         TRISIO4 = 1;}
-//             else if ((ADC_Value >= 460) && (ADC_Value < 614))
-//                       {PWM_Value = 127;
-//                        TRISIO4 = 0;}
-//             else if ((ADC_Value >= 614) && (ADC_Value < 737))
-//                       {PWM_Value = 185;
-//                        TRISIO4 = 0;}
-//             else if ((ADC_Value >= 737) && (ADC_Value < 1023))
-//                       {PWM_Value = 230;
-//                        TRISIO4 = 0;}
-//        CHS0 = 0;
-//    }
+void buttonEvent (void)
+{    
+        if (GP1)
+              {GP5       = 0;
+               PWM_Value = thermoControl();}
+        else  {GP5       = 1;
+               PWM_Value = 0;}
+}
 
+unsigned char thermoControl (void)
+{
+       __delay_ms(10); 
+       GO   = 1;
+       while(!ADIF);  // make ADC Measurement
+       __delay_ms(10);
+    
+       ADC_Value = (int) ((ADRESH<<8)+ADRESL); // ADC result
+    
+             if (ADC_Value < 460)
+                       {
+                        PWM_Value = 0;
+                       }
+             else if ((ADC_Value >= 460) && (ADC_Value < 614))
+                       {
+                        PWM_Value = 127;
+                       }
+             else if ((ADC_Value >= 614) && (ADC_Value < 737))
+                       {
+                        PWM_Value = 185;
+                       }
+             else if ((ADC_Value >= 737) && (ADC_Value < 1023))
+                       {
+                        PWM_Value = 230;
+                       }
+       
+       return PWM_Value;   
 }
 
 

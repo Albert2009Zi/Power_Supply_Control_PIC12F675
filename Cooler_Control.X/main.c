@@ -20,19 +20,19 @@
 __CONFIG(FOSC_INTRCIO & WDTE_OFF & PWRTE_ON & MCLRE_OFF & BOREN_ON & CP_OFF & CPD_OFF);
 
 #endif
-
+    
 unsigned char  PWM_Value = 0;
 int  ADC_Value = 0;
 
 // Main function
 void main()
 {	
-	InitTimer0();
-    Init_uC();
+	initTimer0();
+    init_uC();
     ei();
 	while(1)
 	{ 
-        measurements();
+       buttonEvent();
 	}
 }
 

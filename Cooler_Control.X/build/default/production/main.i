@@ -1017,14 +1017,16 @@ void __attribute__((picinterrupt(("")))) ISR(void);
 
 # 1 "./ADC.h" 1
 # 11 "./ADC.h"
-void Init_uC(void);
+void init_uC(void);
 
-void measurements (void);
+void buttonEvent (void);
+
+unsigned char thermoControl (void);
 # 3 "main.c" 2
 
 # 1 "./timer0.h" 1
 # 11 "./timer0.h"
-void InitTimer0(void);
+void initTimer0(void);
 # 4 "main.c" 2
 
 
@@ -1052,11 +1054,11 @@ int ADC_Value = 0;
 
 void main()
 {
- InitTimer0();
-    Init_uC();
+ initTimer0();
+    init_uC();
     (INTCONbits.GIE = 1);
  while(1)
  {
-        measurements();
+       buttonEvent();
  }
 }

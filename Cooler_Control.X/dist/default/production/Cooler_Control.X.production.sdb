@@ -3,10 +3,12 @@
 [d edition pro ]
 [d chip 12F675 ]
 [d frameptr 0 ]
-"11 D:\Projekt\TalkoS\Cooler_Control\Cooler_Control.X\ADC.c
-[v _Init_uC Init_uC `(v  1 e 1 0 ]
-"44
-[v _measurements measurements `(v  1 e 1 0 ]
+"9 D:\Projekt\TalkoS\Cooler_Control\Cooler_Control.X\ADC.c
+[v _init_uC init_uC `(v  1 e 1 0 ]
+"43
+[v _buttonEvent buttonEvent `(v  1 e 1 0 ]
+"52
+[v _thermoControl thermoControl `(uc  1 e 1 0 ]
 "10 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcadd.c
 [v ___fladd __fladd `(d  1 e 4 0 ]
 "4 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\Umul8_16.c
@@ -15,19 +17,17 @@
 [v ___eecpymem __eecpymem `(v  1 e 1 0 ]
 "39
 [v ___memcpyee __memcpyee `(v  1 e 1 0 ]
-"8 D:\Projekt\TalkoS\Cooler_Control\Cooler_Control.X\interrupt.c
+"6 D:\Projekt\TalkoS\Cooler_Control\Cooler_Control.X\interrupt.c
 [v _ISR ISR `II(v  1 e 1 0 ]
 "28 D:\Projekt\TalkoS\Cooler_Control\Cooler_Control.X\main.c
 [v _main main `(v  1 e 1 0 ]
 "4 D:\Projekt\TalkoS\Cooler_Control\Cooler_Control.X\timer0.c
-[v _InitTimer0 InitTimer0 `(v  1 e 1 0 ]
-"8 D:\Projekt\TalkoS\Cooler_Control\Cooler_Control.X\ADC.c
-[v _Button_Value Button_Value `i  1 e 2 0 ]
+[v _initTimer0 initTimer0 `(v  1 e 1 0 ]
 "72 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\pic\include\proc\pic12f675.h
 [v _TMR0 TMR0 `VEuc  1 e 1 @1 ]
 "218
 [v _GPIO GPIO `VEuc  1 e 1 @5 ]
-[s S67 . 1 `uc 1 GPIF 1 0 :1:0 
+[s S73 . 1 `uc 1 GPIF 1 0 :1:0 
 `uc 1 INTF 1 0 :1:1 
 `uc 1 T0IF 1 0 :1:2 
 `uc 1 GPIE 1 0 :1:3 
@@ -37,13 +37,13 @@
 `uc 1 GIE 1 0 :1:7 
 ]
 "349
-[s S76 . 1 `uc 1 . 1 0 :2:0 
+[s S82 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 TMR0IF 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 TMR0IE 1 0 :1:5 
 ]
-[u S81 . 1 `S67 1 . 1 0 `S76 1 . 1 0 ]
-[v _INTCONbits INTCONbits `VES81  1 e 1 @11 ]
+[u S87 . 1 `S73 1 . 1 0 `S82 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES87  1 e 1 @11 ]
 "564
 [v _CMCON CMCON `VEuc  1 e 1 @25 ]
 "623
@@ -72,6 +72,8 @@
 [v _GIE GIE `VEb  1 e 0 @95 ]
 "1576
 [v _GO GO `VEb  1 e 0 @249 ]
+"1588
+[v _GP1 GP1 `VEb  1 e 0 @41 ]
 "1597
 [v _GP4 GP4 `VEb  1 e 0 @44 ]
 "1600
@@ -92,28 +94,35 @@
 [v _VCFG VCFG `VEb  1 e 0 @254 ]
 "24 D:\Projekt\TalkoS\Cooler_Control\Cooler_Control.X\main.c
 [v _PWM_Value PWM_Value `uc  1 e 1 0 ]
+"25
+[v _ADC_Value ADC_Value `i  1 e 2 0 ]
 "28
 [v _main main `(v  1 e 1 0 ]
 {
 "37
 } 0
-"44 D:\Projekt\TalkoS\Cooler_Control\Cooler_Control.X\ADC.c
-[v _measurements measurements `(v  1 e 1 0 ]
+"9 D:\Projekt\TalkoS\Cooler_Control\Cooler_Control.X\ADC.c
+[v _init_uC init_uC `(v  1 e 1 0 ]
 {
-"85
-} 0
-"11
-[v _Init_uC Init_uC `(v  1 e 1 0 ]
-{
-"41
+"40
 } 0
 "4 D:\Projekt\TalkoS\Cooler_Control\Cooler_Control.X\timer0.c
-[v _InitTimer0 InitTimer0 `(v  1 e 1 0 ]
+[v _initTimer0 initTimer0 `(v  1 e 1 0 ]
 {
-"10
+"9
 } 0
-"8 D:\Projekt\TalkoS\Cooler_Control\Cooler_Control.X\interrupt.c
+"43 D:\Projekt\TalkoS\Cooler_Control\Cooler_Control.X\ADC.c
+[v _buttonEvent buttonEvent `(v  1 e 1 0 ]
+{
+"50
+} 0
+"52
+[v _thermoControl thermoControl `(uc  1 e 1 0 ]
+{
+"79
+} 0
+"6 D:\Projekt\TalkoS\Cooler_Control\Cooler_Control.X\interrupt.c
 [v _ISR ISR `II(v  1 e 1 0 ]
 {
-"19
+"17
 } 0

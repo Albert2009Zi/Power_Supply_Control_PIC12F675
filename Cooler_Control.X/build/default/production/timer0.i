@@ -9,7 +9,7 @@
 # 1 "timer0.c" 2
 # 1 "./timer0.h" 1
 # 11 "./timer0.h"
-void InitTimer0(void);
+void initTimer0(void);
 # 1 "timer0.c" 2
 
 # 1 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\\pic\\include\\xc.h" 1 3
@@ -1016,10 +1016,9 @@ extern __bank0 __bit __timeout;
 # 2 "timer0.c" 2
 
 
-void InitTimer0(void)
+void initTimer0(void)
 {
 
  OPTION_REG &= 0xC0;
-
  T0IE = 1;
 }

@@ -102,20 +102,20 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\pic\include\proc\pic12f675.h: 1406: __asm("ANSEL equ 09Fh");
 [; <" ANSEL equ 09Fh ;# ">
 "4 timer0.c
-[; ;timer0.c: 4: void InitTimer0(void)
-[v _InitTimer0 `(v ~T0 @X0 1 ef ]
+[; ;timer0.c: 4: void initTimer0(void)
+[v _initTimer0 `(v ~T0 @X0 1 ef ]
 "5
 [; ;timer0.c: 5: {
 {
-[e :U _InitTimer0 ]
+[e :U _initTimer0 ]
 [f ]
 "7
 [; ;timer0.c: 7:  OPTION_REG &= 0xC0;
 [e =& _OPTION_REG -> -> 192 `i `Vuc ]
-"9
-[; ;timer0.c: 9:  T0IE = 1;
+"8
+[; ;timer0.c: 8:  T0IE = 1;
 [e = _T0IE -> -> 1 `i `b ]
-"10
-[; ;timer0.c: 10: }
+"9
+[; ;timer0.c: 9: }
 [e :UE 81 ]
 }

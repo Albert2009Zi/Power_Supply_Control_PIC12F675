@@ -1,8 +1,6 @@
 #include "interrupt.h"
 #include <xc.h>
 
-#define _XTAL_FREQ   4000000 
-
 extern unsigned char PWM_Value;
 
 void __interrupt() ISR(void)
