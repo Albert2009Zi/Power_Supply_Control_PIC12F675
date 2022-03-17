@@ -1063,7 +1063,8 @@ void buttonEvent (void)
 {
         if (GP1)
               {GP5 = 0;
-               PWM_Value = thermoControl();}
+
+               PWM_Value = 127;}
         else {GP5 = 1;
                PWM_Value = 0;}
 }
