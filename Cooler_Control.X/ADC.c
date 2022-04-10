@@ -1,3 +1,4 @@
+
 #include "ADC.h"
 #include <xc.h>
 
@@ -43,11 +44,11 @@ void init_uC()
 void buttonEvent (void)
 {    
         if (GP1)
-              {GP5       = 0;
+              {GP5       = 1;
                //PWM_Value = thermoControl();
-               PWM_Value = 127;}
-        else  {GP5       = 1;
                PWM_Value = 0;}
+        else  {GP5       = 0;
+               PWM_Value = 36;}
 }
 
 unsigned char thermoControl (void)

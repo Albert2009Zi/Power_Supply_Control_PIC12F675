@@ -7,6 +7,7 @@
 # 1 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
 # 1 "ADC.c" 2
+
 # 1 "./ADC.h" 1
 # 11 "./ADC.h"
 void init_uC(void);
@@ -14,7 +15,7 @@ void init_uC(void);
 void buttonEvent (void);
 
 unsigned char thermoControl (void);
-# 1 "ADC.c" 2
+# 2 "ADC.c" 2
 
 # 1 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\\pic\\include\\xc.h" 3
@@ -1017,7 +1018,7 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 28 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\\pic\\include\\xc.h" 2 3
-# 2 "ADC.c" 2
+# 3 "ADC.c" 2
 
 
 
@@ -1062,11 +1063,11 @@ void init_uC()
 void buttonEvent (void)
 {
         if (GP1)
-              {GP5 = 0;
+              {GP5 = 1;
 
-               PWM_Value = 127;}
-        else {GP5 = 1;
                PWM_Value = 0;}
+        else {GP5 = 0;
+               PWM_Value = 36;}
 }
 
 unsigned char thermoControl (void)

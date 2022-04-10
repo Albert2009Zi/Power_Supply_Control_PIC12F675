@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.31 build 20201012212115 
-                                                                                               Thu Mar 17 20:41:59 2022
+                                                                                               Sun Apr 10 17:00:31 2022
 
 Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1 
      1                           	processor	12F675
@@ -370,7 +370,7 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
    356  0012                     __ptext1:	
    357 ;; *************** function _init_uC *****************
    358 ;; Defined at:
-   359 ;;		line 9 in file "ADC.c"
+   359 ;;		line 10 in file "ADC.c"
    360 ;; Parameters:    Size  Location     Type
    361 ;;		None
    362 ;; Auto vars:     Size  Location     Type
@@ -406,88 +406,88 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
    392                           ; Regs used in _init_uC: [wreg+status,2]
    393                           
    394                           
-   395                           ;ADC.c: 11:  CMCON = 0x07;
+   395                           ;ADC.c: 12:  CMCON = 0x07;
    396  0012  3007               	movlw	7
    397  0013  1283               	bcf	3,5	;RP0=0, select bank0
    398  0014  0099               	movwf	25	;volatile
    399  0015                     l793:
    400                           
-   401                           ;ADC.c: 12:     VRCON = 0x00;
+   401                           ;ADC.c: 13:     VRCON = 0x00;
    402  0015  1683               	bsf	3,5	;RP0=1, select bank1
    403  0016  0199               	clrf	25	;volatile
    404  0017                     l795:
    405                           
-   406                           ;ADC.c: 15:     TRISIO = 0;
+   406                           ;ADC.c: 16:     TRISIO = 0;
    407  0017  0185               	clrf	5	;volatile
    408  0018                     l797:
    409                           
-   410                           ;ADC.c: 16:     GPIO = 0;
+   410                           ;ADC.c: 17:     GPIO = 0;
    411  0018  1283               	bcf	3,5	;RP0=0, select bank0
    412  0019  0185               	clrf	5	;volatile
    413  001A                     l799:
    414                           
-   415                           ;ADC.c: 19:     TRISIO5 = 0;
+   415                           ;ADC.c: 20:     TRISIO5 = 0;
    416  001A  1683               	bsf	3,5	;RP0=1, select bank1
    417  001B  1285               	bcf	5,5	;volatile
    418  001C                     l801:
    419                           
-   420                           ;ADC.c: 20:     GP5 = 0;
+   420                           ;ADC.c: 21:     GP5 = 0;
    421  001C  1283               	bcf	3,5	;RP0=0, select bank0
    422  001D  1285               	bcf	5,5	;volatile
    423  001E                     l803:
    424                           
-   425                           ;ADC.c: 23:     TRISIO4 = 0;
+   425                           ;ADC.c: 24:     TRISIO4 = 0;
    426  001E  1683               	bsf	3,5	;RP0=1, select bank1
    427  001F  1205               	bcf	5,4	;volatile
    428  0020                     l805:
    429                           
-   430                           ;ADC.c: 24:     GP4 = 0;
+   430                           ;ADC.c: 25:     GP4 = 0;
    431  0020  1283               	bcf	3,5	;RP0=0, select bank0
    432  0021  1205               	bcf	5,4	;volatile
    433  0022                     l807:
    434                           
-   435                           ;ADC.c: 28:     ADON = 1;
+   435                           ;ADC.c: 29:     ADON = 1;
    436  0022  141F               	bsf	31,0	;volatile
    437  0023                     l809:
    438                           
-   439                           ;ADC.c: 29:     ADFM = 1;
+   439                           ;ADC.c: 30:     ADFM = 1;
    440  0023  179F               	bsf	31,7	;volatile
    441  0024                     l811:
    442                           
-   443                           ;ADC.c: 30:     VCFG = 0;
+   443                           ;ADC.c: 31:     VCFG = 0;
    444  0024  131F               	bcf	31,6	;volatile
    445  0025                     l813:
    446                           
-   447                           ;ADC.c: 31:     TRISIO0 = 1;
+   447                           ;ADC.c: 32:     TRISIO0 = 1;
    448  0025  1683               	bsf	3,5	;RP0=1, select bank1
    449  0026  1405               	bsf	5,0	;volatile
    450  0027                     l815:
    451                           
-   452                           ;ADC.c: 32:     TRISIO1 = 1;
+   452                           ;ADC.c: 33:     TRISIO1 = 1;
    453  0027  1485               	bsf	5,1	;volatile
    454  0028                     l817:
    455                           
-   456                           ;ADC.c: 33:     GP1 = 0;
+   456                           ;ADC.c: 34:     GP1 = 0;
    457  0028  1283               	bcf	3,5	;RP0=0, select bank0
    458  0029  1085               	bcf	5,1	;volatile
    459  002A                     l819:
    460                           
-   461                           ;ADC.c: 35:     ANSEL = 0b00110001;
+   461                           ;ADC.c: 36:     ANSEL = 0b00110001;
    462  002A  3031               	movlw	49
    463  002B  1683               	bsf	3,5	;RP0=1, select bank1
    464  002C  009F               	movwf	31	;volatile
    465  002D                     l821:
    466                           
-   467                           ;ADC.c: 37:     CHS1 = 0;
+   467                           ;ADC.c: 38:     CHS1 = 0;
    468  002D  1283               	bcf	3,5	;RP0=0, select bank0
    469  002E  119F               	bcf	31,3	;volatile
    470  002F                     l823:
    471                           
-   472                           ;ADC.c: 38:     CHS0 = 0;
+   472                           ;ADC.c: 39:     CHS0 = 0;
    473  002F  111F               	bcf	31,2	;volatile
    474  0030                     l825:
    475                           
-   476                           ;ADC.c: 39:     GIE = 1;
+   476                           ;ADC.c: 40:     GIE = 1;
    477  0030  178B               	bsf	11,7	;volatile
    478  0031                     l53:
    479  0031  0008               	return
@@ -552,7 +552,7 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
    538  004E                     __ptext3:	
    539 ;; *************** function _buttonEvent *****************
    540 ;; Defined at:
-   541 ;;		line 43 in file "ADC.c"
+   541 ;;		line 44 in file "ADC.c"
    542 ;; Parameters:    Size  Location     Type
    543 ;;		None
    544 ;; Auto vars:     Size  Location     Type
@@ -588,34 +588,34 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
    574                           ; Regs used in _buttonEvent: [wreg+status,2]
    575                           
    576                           
-   577                           ;ADC.c: 45:         if (GP1)
+   577                           ;ADC.c: 46:         if (GP1)
    578  004E  1283               	bcf	3,5	;RP0=0, select bank0
    579  004F  1C85               	btfss	5,1	;volatile
    580  0050  2852               	goto	u41
    581  0051  2853               	goto	u40
    582  0052                     u41:
-   583  0052  2859               	goto	l56
+   583  0052  2856               	goto	l56
    584  0053                     u40:
    585  0053                     l829:
    586                           
-   587                           ;ADC.c: 46:               {GP5 = 0;
-   588  0053  1285               	bcf	5,5	;volatile
+   587                           ;ADC.c: 47:               {GP5 = 1;
+   588  0053  1685               	bsf	5,5	;volatile
    589  0054                     l831:
    590                           
-   591                           ;ADC.c: 48:                PWM_Value = 127;}
-   592  0054  307F               	movlw	127
-   593  0055  00A5               	movwf	??_buttonEvent
-   594  0056  0825               	movf	??_buttonEvent,w
-   595  0057  00A2               	movwf	_PWM_Value
-   596  0058  285B               	goto	l58
-   597  0059                     l56:	
-   598                           ;ADC.c: 49:         else {GP5 = 1;
+   591                           ;ADC.c: 49:                PWM_Value = 0;}
+   592  0054  01A2               	clrf	_PWM_Value
+   593  0055  285B               	goto	l58
+   594  0056                     l56:	
+   595                           ;ADC.c: 50:         else {GP5 = 0;
+   596                           
+   597  0056  1285               	bcf	5,5	;volatile
+   598  0057                     l833:
    599                           
-   600  0059  1685               	bsf	5,5	;volatile
-   601  005A                     l833:
-   602                           
-   603                           ;ADC.c: 50:                PWM_Value = 0;}
-   604  005A  01A2               	clrf	_PWM_Value
+   600                           ;ADC.c: 51:                PWM_Value = 36;}
+   601  0057  3024               	movlw	36
+   602  0058  00A5               	movwf	??_buttonEvent
+   603  0059  0825               	movf	??_buttonEvent,w
+   604  005A  00A2               	movwf	_PWM_Value
    605  005B                     l58:
    606  005B  0008               	return
    607  005C                     __end_of_buttonEvent:
@@ -838,15 +838,15 @@ DATA                 0      0       6       6        0.0%
 
 
 Microchip Technology PIC Macro Assembler V2.31 build 20201012212115 
-Symbol Table                                                                                   Thu Mar 17 20:41:59 2022
+Symbol Table                                                                                   Sun Apr 10 17:00:31 2022
 
-                     l53 0031                       l56 0059                       l58 005B  
+                     l53 0031                       l56 0056                       l58 005B  
                      l95 0063                       _GO 00F9                       u40 0053  
                      u41 0052                      l112 0067                      l801 001C  
                     l811 0024                      l803 001E                      l821 002D  
                     l813 0025                      l805 0020                      l831 0054  
                     l823 002F                      l815 0027                      l807 0022  
-                    l833 005A                      l825 0030                      l817 0028  
+                    l833 0057                      l825 0030                      l817 0028  
                     l809 0023                      l827 004E                      l835 005C  
                     l819 002A                      l829 0053                      l837 0062  
                     l791 0012                      l793 0015                      l795 0017  

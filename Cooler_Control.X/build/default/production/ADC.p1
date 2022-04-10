@@ -53,8 +53,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1573
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\pic\include\proc\pic12f675.h: 1573: extern volatile __bit GIE __attribute__((address(0x5F)));
 [v _GIE `Vb ~T0 @X0 0 e@95 ]
-"6 ADC.c
-[; ;ADC.c: 6: extern unsigned char PWM_Value;
+"7 ADC.c
+[; ;ADC.c: 7: extern unsigned char PWM_Value;
 [v _PWM_Value `uc ~T0 @X0 0 e ]
 [v F540 `(v ~T0 @X0 1 tf1`ul ]
 "92 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\pic\include\pic.h
@@ -66,8 +66,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1495
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\pic\include\proc\pic12f675.h: 1495: extern volatile __bit ADIF __attribute__((address(0x66)));
 [v _ADIF `Vb ~T0 @X0 0 e@102 ]
-"7 ADC.c
-[; ;ADC.c: 7: extern int ADC_Value;
+"8 ADC.c
+[; ;ADC.c: 8: extern int ADC_Value;
 [v _ADC_Value `i ~T0 @X0 0 e ]
 "623 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\pic\include\proc\pic12f675.h
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\pic\include\proc\pic12f675.h: 623: extern volatile unsigned char ADRESH __attribute__((address(0x01E)));
@@ -171,196 +171,196 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1406
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\pic\include\proc\pic12f675.h: 1406: __asm("ANSEL equ 09Fh");
 [; <" ANSEL equ 09Fh ;# ">
-"9 ADC.c
-[; ;ADC.c: 9: void init_uC()
+"10 ADC.c
+[; ;ADC.c: 10: void init_uC()
 [v _init_uC `(v ~T0 @X0 1 ef ]
-"10
-[; ;ADC.c: 10: {
+"11
+[; ;ADC.c: 11: {
 {
 [e :U _init_uC ]
 [f ]
-"11
-[; ;ADC.c: 11:  CMCON = 0x07;
-[e = _CMCON -> -> 7 `i `uc ]
 "12
-[; ;ADC.c: 12:     VRCON = 0x00;
+[; ;ADC.c: 12:  CMCON = 0x07;
+[e = _CMCON -> -> 7 `i `uc ]
+"13
+[; ;ADC.c: 13:     VRCON = 0x00;
 [e = _VRCON -> -> 0 `i `uc ]
-"15
-[; ;ADC.c: 15:     TRISIO = 0;
-[e = _TRISIO -> -> 0 `i `uc ]
 "16
-[; ;ADC.c: 16:     GPIO = 0;
+[; ;ADC.c: 16:     TRISIO = 0;
+[e = _TRISIO -> -> 0 `i `uc ]
+"17
+[; ;ADC.c: 17:     GPIO = 0;
 [e = _GPIO -> -> 0 `i `uc ]
-"19
-[; ;ADC.c: 19:     TRISIO5 = 0;
-[e = _TRISIO5 -> -> 0 `i `b ]
 "20
-[; ;ADC.c: 20:     GP5 = 0;
+[; ;ADC.c: 20:     TRISIO5 = 0;
+[e = _TRISIO5 -> -> 0 `i `b ]
+"21
+[; ;ADC.c: 21:     GP5 = 0;
 [e = _GP5 -> -> 0 `i `b ]
-"23
-[; ;ADC.c: 23:     TRISIO4 = 0;
-[e = _TRISIO4 -> -> 0 `i `b ]
 "24
-[; ;ADC.c: 24:     GP4 = 0;
+[; ;ADC.c: 24:     TRISIO4 = 0;
+[e = _TRISIO4 -> -> 0 `i `b ]
+"25
+[; ;ADC.c: 25:     GP4 = 0;
 [e = _GP4 -> -> 0 `i `b ]
-"28
-[; ;ADC.c: 28:     ADON = 1;
-[e = _ADON -> -> 1 `i `b ]
 "29
-[; ;ADC.c: 29:     ADFM = 1;
-[e = _ADFM -> -> 1 `i `b ]
+[; ;ADC.c: 29:     ADON = 1;
+[e = _ADON -> -> 1 `i `b ]
 "30
-[; ;ADC.c: 30:     VCFG = 0;
-[e = _VCFG -> -> 0 `i `b ]
+[; ;ADC.c: 30:     ADFM = 1;
+[e = _ADFM -> -> 1 `i `b ]
 "31
-[; ;ADC.c: 31:     TRISIO0 = 1;
-[e = _TRISIO0 -> -> 1 `i `b ]
+[; ;ADC.c: 31:     VCFG = 0;
+[e = _VCFG -> -> 0 `i `b ]
 "32
-[; ;ADC.c: 32:     TRISIO1 = 1;
-[e = _TRISIO1 -> -> 1 `i `b ]
+[; ;ADC.c: 32:     TRISIO0 = 1;
+[e = _TRISIO0 -> -> 1 `i `b ]
 "33
-[; ;ADC.c: 33:     GP1 = 0;
+[; ;ADC.c: 33:     TRISIO1 = 1;
+[e = _TRISIO1 -> -> 1 `i `b ]
+"34
+[; ;ADC.c: 34:     GP1 = 0;
 [e = _GP1 -> -> 0 `i `b ]
-"35
-[; ;ADC.c: 35:     ANSEL = 0b00110001;
+"36
+[; ;ADC.c: 36:     ANSEL = 0b00110001;
 [e = _ANSEL -> -> 49 `i `uc ]
-"37
-[; ;ADC.c: 37:     CHS1 = 0;
-[e = _CHS1 -> -> 0 `i `b ]
 "38
-[; ;ADC.c: 38:     CHS0 = 0;
-[e = _CHS0 -> -> 0 `i `b ]
+[; ;ADC.c: 38:     CHS1 = 0;
+[e = _CHS1 -> -> 0 `i `b ]
 "39
-[; ;ADC.c: 39:     GIE = 1;
-[e = _GIE -> -> 1 `i `b ]
+[; ;ADC.c: 39:     CHS0 = 0;
+[e = _CHS0 -> -> 0 `i `b ]
 "40
-[; ;ADC.c: 40: }
+[; ;ADC.c: 40:     GIE = 1;
+[e = _GIE -> -> 1 `i `b ]
+"41
+[; ;ADC.c: 41: }
 [e :UE 81 ]
 }
-"43
-[; ;ADC.c: 43: void buttonEvent (void)
-[v _buttonEvent `(v ~T0 @X0 1 ef ]
 "44
-[; ;ADC.c: 44: {
+[; ;ADC.c: 44: void buttonEvent (void)
+[v _buttonEvent `(v ~T0 @X0 1 ef ]
+"45
+[; ;ADC.c: 45: {
 {
 [e :U _buttonEvent ]
 [f ]
-"45
-[; ;ADC.c: 45:         if (GP1)
-[e $ ! _GP1 83  ]
 "46
-[; ;ADC.c: 46:               {GP5 = 0;
-{
-[e = _GP5 -> -> 0 `i `b ]
-"48
-[; ;ADC.c: 48:                PWM_Value = 127;}
-[e = _PWM_Value -> -> 127 `i `uc ]
-}
-[e $U 84  ]
-"49
-[; ;ADC.c: 49:         else {GP5 = 1;
-[e :U 83 ]
+[; ;ADC.c: 46:         if (GP1)
+[e $ ! _GP1 83  ]
+"47
+[; ;ADC.c: 47:               {GP5 = 1;
 {
 [e = _GP5 -> -> 1 `i `b ]
-"50
-[; ;ADC.c: 50:                PWM_Value = 0;}
+"49
+[; ;ADC.c: 49:                PWM_Value = 0;}
 [e = _PWM_Value -> -> 0 `i `uc ]
 }
-[e :U 84 ]
+[e $U 84  ]
+"50
+[; ;ADC.c: 50:         else {GP5 = 0;
+[e :U 83 ]
+{
+[e = _GP5 -> -> 0 `i `b ]
 "51
-[; ;ADC.c: 51: }
+[; ;ADC.c: 51:                PWM_Value = 36;}
+[e = _PWM_Value -> -> 36 `i `uc ]
+}
+[e :U 84 ]
+"52
+[; ;ADC.c: 52: }
 [e :UE 82 ]
 }
-"53
-[; ;ADC.c: 53: unsigned char thermoControl (void)
-[v _thermoControl `(uc ~T0 @X0 1 ef ]
 "54
-[; ;ADC.c: 54: {
+[; ;ADC.c: 54: unsigned char thermoControl (void)
+[v _thermoControl `(uc ~T0 @X0 1 ef ]
+"55
+[; ;ADC.c: 55: {
 {
 [e :U _thermoControl ]
 [f ]
-"55
-[; ;ADC.c: 55:        _delay((unsigned long)((10)*(4000000/4000.0)));
-[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
 "56
-[; ;ADC.c: 56:        GO = 1;
-[e = _GO -> -> 1 `i `b ]
+[; ;ADC.c: 56:        _delay((unsigned long)((10)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
 "57
-[; ;ADC.c: 57:        while(!ADIF);
+[; ;ADC.c: 57:        GO = 1;
+[e = _GO -> -> 1 `i `b ]
+"58
+[; ;ADC.c: 58:        while(!ADIF);
 [e $U 86  ]
 [e :U 87 ]
 [e :U 86 ]
 [e $ ! _ADIF 87  ]
 [e :U 88 ]
-"58
-[; ;ADC.c: 58:        _delay((unsigned long)((10)*(4000000/4000.0)));
+"59
+[; ;ADC.c: 59:        _delay((unsigned long)((10)*(4000000/4000.0)));
 [e ( __delay (1 -> * -> -> 10 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"60
-[; ;ADC.c: 60:        ADC_Value = (int) ((ADRESH<<8)+ADRESL);
+"61
+[; ;ADC.c: 61:        ADC_Value = (int) ((ADRESH<<8)+ADRESL);
 [e = _ADC_Value + << -> _ADRESH `i -> 8 `i -> _ADRESL `i ]
-"62
-[; ;ADC.c: 62:              if (ADC_Value < 460)
-[e $ ! < _ADC_Value -> 460 `i 89  ]
 "63
-[; ;ADC.c: 63:                        {
-{
+[; ;ADC.c: 63:              if (ADC_Value < 460)
+[e $ ! < _ADC_Value -> 460 `i 89  ]
 "64
-[; ;ADC.c: 64:                         PWM_Value = 0;
-[e = _PWM_Value -> -> 0 `i `uc ]
+[; ;ADC.c: 64:                        {
+{
 "65
-[; ;ADC.c: 65:                        }
+[; ;ADC.c: 65:                         PWM_Value = 0;
+[e = _PWM_Value -> -> 0 `i `uc ]
+"66
+[; ;ADC.c: 66:                        }
 }
 [e $U 90  ]
-"66
-[; ;ADC.c: 66:              else if ((ADC_Value >= 460) && (ADC_Value < 614))
+"67
+[; ;ADC.c: 67:              else if ((ADC_Value >= 460) && (ADC_Value < 614))
 [e :U 89 ]
 [e $ ! && >= _ADC_Value -> 460 `i < _ADC_Value -> 614 `i 91  ]
-"67
-[; ;ADC.c: 67:                        {
-{
 "68
-[; ;ADC.c: 68:                         PWM_Value = 127;
-[e = _PWM_Value -> -> 127 `i `uc ]
+[; ;ADC.c: 68:                        {
+{
 "69
-[; ;ADC.c: 69:                        }
+[; ;ADC.c: 69:                         PWM_Value = 127;
+[e = _PWM_Value -> -> 127 `i `uc ]
+"70
+[; ;ADC.c: 70:                        }
 }
 [e $U 92  ]
-"70
-[; ;ADC.c: 70:              else if ((ADC_Value >= 614) && (ADC_Value < 737))
+"71
+[; ;ADC.c: 71:              else if ((ADC_Value >= 614) && (ADC_Value < 737))
 [e :U 91 ]
 [e $ ! && >= _ADC_Value -> 614 `i < _ADC_Value -> 737 `i 93  ]
-"71
-[; ;ADC.c: 71:                        {
-{
 "72
-[; ;ADC.c: 72:                         PWM_Value = 185;
-[e = _PWM_Value -> -> 185 `i `uc ]
+[; ;ADC.c: 72:                        {
+{
 "73
-[; ;ADC.c: 73:                        }
+[; ;ADC.c: 73:                         PWM_Value = 185;
+[e = _PWM_Value -> -> 185 `i `uc ]
+"74
+[; ;ADC.c: 74:                        }
 }
 [e $U 94  ]
-"74
-[; ;ADC.c: 74:              else if ((ADC_Value >= 737) && (ADC_Value < 1023))
+"75
+[; ;ADC.c: 75:              else if ((ADC_Value >= 737) && (ADC_Value < 1023))
 [e :U 93 ]
 [e $ ! && >= _ADC_Value -> 737 `i < _ADC_Value -> 1023 `i 95  ]
-"75
-[; ;ADC.c: 75:                        {
-{
 "76
-[; ;ADC.c: 76:                         PWM_Value = 230;
-[e = _PWM_Value -> -> 230 `i `uc ]
+[; ;ADC.c: 76:                        {
+{
 "77
-[; ;ADC.c: 77:                        }
+[; ;ADC.c: 77:                         PWM_Value = 230;
+[e = _PWM_Value -> -> 230 `i `uc ]
+"78
+[; ;ADC.c: 78:                        }
 }
 [e :U 95 ]
 [e :U 94 ]
 [e :U 92 ]
 [e :U 90 ]
-"79
-[; ;ADC.c: 79:        return PWM_Value;
+"80
+[; ;ADC.c: 80:        return PWM_Value;
 [e ) _PWM_Value ]
 [e $UE 85  ]
-"80
-[; ;ADC.c: 80: }
+"81
+[; ;ADC.c: 81: }
 [e :UE 85 ]
 }
