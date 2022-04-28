@@ -1016,17 +1016,23 @@ extern __bank0 __bit __timeout;
 # 2 "interrupt.c" 2
 
 
-extern unsigned char PWM_Value;
+extern unsigned int PWM_Value;
+unsigned int pulsePerTakt = 0;
 
 void __attribute__((picinterrupt(("")))) ISR(void)
 {
-      TMR0 = PWM_Value;
+      TMR0 = 200;
+      pulsePerTakt++;
    if(T0IF)
     {
-        if (PWM_Value == 0)
-        {GP4 = 0;}
-        else if (PWM_Value != 0)
-  {GP4 = ~GP4;}
+        if (pulsePerTakt < PWM_Value)
+         {GP4 = 1;}
+        else
+   {GP4 = 0;}
   T0IF = 0;
     }
+      if (pulsePerTakt > 100)
+       {
+         pulsePerTakt = 0;
+       }
 }

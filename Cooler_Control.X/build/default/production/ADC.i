@@ -14,7 +14,7 @@ void init_uC(void);
 
 void buttonEvent (void);
 
-unsigned char thermoControl (void);
+unsigned int thermoControl (void);
 # 2 "ADC.c" 2
 
 # 1 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\\pic\\include\\xc.h" 1 3
@@ -1023,7 +1023,7 @@ extern __bank0 __bit __timeout;
 
 
 
-extern unsigned char PWM_Value;
+extern unsigned int PWM_Value;
 extern int ADC_Value;
 
 void init_uC()
@@ -1037,7 +1037,7 @@ void init_uC()
 
 
     TRISIO5 = 0;
-    GP5 = 0;
+    GP5 = 1;
 
 
     TRISIO4 = 0;
@@ -1063,14 +1063,19 @@ void init_uC()
 void buttonEvent (void)
 {
         if (GP1)
-              {GP5 = 1;
+                      {
+                       GP5 = 0;
+                       PWM_Value = thermoControl();
 
-               PWM_Value = 0;}
-        else {GP5 = 0;
-               PWM_Value = 36;}
+                      }
+        else if (!GP1)
+                      {
+                       GP5 = 1;
+                       PWM_Value = 0;
+                      }
 }
 
-unsigned char thermoControl (void)
+unsigned int thermoControl (void)
 {
        _delay((unsigned long)((10)*(4000000/4000.0)));
        GO = 1;
@@ -1079,21 +1084,25 @@ unsigned char thermoControl (void)
 
        ADC_Value = (int) ((ADRESH<<8)+ADRESL);
 
-             if (ADC_Value < 460)
+             if (ADC_Value < 180)
                        {
-                        PWM_Value = 0;
+                        PWM_Value = 10;
+                       }
+             else if ((ADC_Value >= 180) && (ADC_Value < 460))
+                       {
+                        PWM_Value = 25;
                        }
              else if ((ADC_Value >= 460) && (ADC_Value < 614))
                        {
-                        PWM_Value = 127;
+                        PWM_Value = 50;
                        }
              else if ((ADC_Value >= 614) && (ADC_Value < 737))
                        {
-                        PWM_Value = 185;
+                        PWM_Value = 75;
                        }
              else if ((ADC_Value >= 737) && (ADC_Value < 1023))
                        {
-                        PWM_Value = 230;
+                        PWM_Value = 95;
                        }
 
        return PWM_Value;

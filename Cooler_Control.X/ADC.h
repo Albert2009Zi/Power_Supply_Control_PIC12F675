@@ -12,7 +12,7 @@ void init_uC(void);
 
 void buttonEvent (void);
 
-unsigned char thermoControl (void);
+unsigned int thermoControl (void);
 
 #endif	/* ADC_H */
 

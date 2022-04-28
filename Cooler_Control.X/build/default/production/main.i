@@ -1021,7 +1021,7 @@ void init_uC(void);
 
 void buttonEvent (void);
 
-unsigned char thermoControl (void);
+unsigned int thermoControl (void);
 # 3 "main.c" 2
 
 # 1 "./timer0.h" 1
@@ -1048,7 +1048,7 @@ void initTimer0(void);
 
 
 
-unsigned char PWM_Value = 0;
+unsigned int PWM_Value = 0;
 int ADC_Value = 0;
 
 

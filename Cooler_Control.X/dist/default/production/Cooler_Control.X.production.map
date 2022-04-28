@@ -5,9 +5,9 @@ Linker command line:
 -W-3 --edf=C:\Program Files\Microchip\xc8\v2.31\pic\dat\en_msgs.txt -cn \
   -h+dist/default/production\Cooler_Control.X.production.sym \
   --cmf=dist/default/production\Cooler_Control.X.production.cmf -z -Q12F675 \
-  -oC:\Users\User\AppData\Local\Temp\s624.2 --defsym=__MPLAB_BUILD=1 \
+  -oC:\Users\User\AppData\Local\Temp\s8dg.2 --defsym=__MPLAB_BUILD=1 \
   -Mdist/default/production/Cooler_Control.X.production.map -E1 \
-  -ver=XC8 Compiler --acfsm=1493 -ASTACK=026h-05Dh -pstack=STACK \
+  -ver=XC8 Compiler --acfsm=1493 -ASTACK=02Ch-05Dh -pstack=STACK \
   -ACODE=00h-03FEh -ASTRCODE=00h-03FEh -ASTRING=00h-0FFhx3,0300h-03FEh \
   -ACONST=00h-0FFhx3,0300h-03FEh -AENTRY=00h-0FFhx3,0300h-03FEh \
   -ABANK0=020h-05Dh -ARAM=020h-05Dh -AABS1=020h-05Fh -ACOMMON=05Eh-05Fh \
@@ -16,7 +16,7 @@ Linker command line:
   -peeprom_data=EEDATA -DEEDATA=2 -DCODE=2 -DSTRCODE=2 -DSTRING=2 -DCONST=2 \
   -DENTRY=2 -preset_vec=00h,intentry=04h,init,end_init -ppowerup=CODE \
   -pcinit=CODE -pfunctab=ENTRY -posccal=03FFh -k \
-  C:\Users\User\AppData\Local\Temp\s624.o \
+  C:\Users\User\AppData\Local\Temp\s8dg.o \
   dist/default/production\Cooler_Control.X.production.o 
 
 Object code version is 3.11
@@ -26,35 +26,37 @@ Machine type is 12F675
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\User\AppData\Local\Temp\s624.o
+C:\Users\User\AppData\Local\Temp\s8dg.o
                 end_init                              B        B        1        8       0
                 reset_vec                             0        0        1        0       0
                 config                             2007     2007        1        0       4
 dist/default/production\Cooler_Control.X.production.o
-                cinit                                 C        C        6        8       0
+                cinit                                 C        C        9        8       0
                 intentry                              4        4        7        8       0
                 config                             2007     2007        1        0       4
-                text4                                32       32       1C        8       0
-                text3                                4E       4E        E        8       0
-                text2                                5C       5C        8        8       0
-                text1                                12       12       20        8       0
-                maintext                             64       64        6        8       0
-                cstackBANK0                          23       23        3       20       1
-                bssBANK0                             20       20        3       20       1
+                text5                                D6       D6       2C        8       0
+                text4                                15       15       C1        8       0
+                text3                               122      122       15        8       0
+                text2                               137      137        8        8       0
+                text1                               102      102       20        8       0
+                maintext                            13F      13F        6        8       0
+                cstackBANK0                          26       26        6       20       1
+                bssBANK0                             20       20        6       20       1
 
 TOTAL           Name                               Link     Load   Length     Space
         CLASS   STACK          
 
         CLASS   CODE           
                 end_init                              B        B        1         0
-                cinit                                 C        C        6         0
+                cinit                                 C        C        9         0
                 intentry                              4        4        7         0
                 reset_vec                             0        0        1         0
-                text4                                32       32       1C         0
-                text3                                4E       4E        E         0
-                text2                                5C       5C        8         0
-                text1                                12       12       20         0
-                maintext                             64       64        6         0
+                text5                                D6       D6       2C         0
+                text4                                15       15       C1         0
+                text3                               122      122       15         0
+                text2                               137      137        8         0
+                text1                               102      102       20         0
+                maintext                            13F      13F        6         0
 
         CLASS   STRCODE        
 
@@ -65,8 +67,8 @@ TOTAL           Name                               Link     Load   Length     Sp
         CLASS   ENTRY          
 
         CLASS   BANK0          
-                cstackBANK0                          23       23        3         1
-                bssBANK0                             20       20        3         1
+                cstackBANK0                          26       26        6         1
+                bssBANK0                             20       20        6         1
 
         CLASS   RAM            
 
@@ -93,34 +95,35 @@ TOTAL           Name                               Link     Load   Length     Sp
 SEGMENTS        Name                           Load    Length   Top    Selector   Space  Class     Delta
 
                 reset_vec                      000000  000001  000001         0       0  CODE        2
-                intentry                       000004  000066  00006A         8       0  CODE        2
-                bssBANK0                       000020  000006  000026        20       1  BANK0       1
+                intentry                       000004  000141  000145         8       0  CODE        2
+                bssBANK0                       000020  00000C  00002C        20       1  BANK0       1
 
 
 UNUSED ADDRESS RANGES
 
         Name                Unused          Largest block    Delta
-        BANK0            0026-005D             38           1
+        BANK0            002C-005D             32           1
         CODE             0001-0003              3           2
-                         006A-03FE            395
+                         0145-03FE            2BA
         CONST            0001-0003              3           2
-                         006A-03FE            100
+                         0145-03FE            100
         EEDATA           2100-217F             80           2
         ENTRY            0001-0003              3           2
-                         006A-03FE            100
+                         0145-03FE            100
         IDLOC            2000-2003              4           2
-        RAM              0026-005D             38           1
+        RAM              002C-005D             32           1
         SFR0             0000-001F             20           1
         SFR1             0080-00DD             5E           1
-        STACK            0026-005D             38           1
+        STACK            002C-005D             32           1
         STRCODE          0001-0003              3           2
-                         006A-03FE            395
+                         0145-03FE            2BA
         STRING           0001-0003              3           2
-                         006A-03FE            100
+                         0145-03FE            100
 
                                   Symbol Table
 
-_ADC_Value               bssBANK0     0020
+?_thermoControl          cstackBANK0  0028
+_ADC_Value               bssBANK0     0022
 _ADFM                    (abs)        00FF
 _ADIF                    (abs)        0066
 _ADON                    (abs)        00F8
@@ -137,9 +140,9 @@ _GP4                     (abs)        002C
 _GP5                     (abs)        002D
 _GPIO                    (abs)        0005
 _INTCONbits              (abs)        000B
-_ISR                     text4        0032
+_ISR                     text5        00D6
 _OPTION_REG              (abs)        0081
-_PWM_Value               bssBANK0     0022
+_PWM_Value               bssBANK0     0024
 _T0IE                    (abs)        005D
 _T0IF                    (abs)        005A
 _TMR0                    (abs)        0001
@@ -154,7 +157,7 @@ __Habs1                  abs1         07FE
 __Hbank0                 bank0        07FE
 __Hbank1                 bank1        07FE
 __HbssBANK0              bssBANK0     07FE
-__Hcinit                 cinit        0012
+__Hcinit                 cinit        0015
 __Hclrtext               clrtext      07FE
 __Hcode                  code         07FE
 __Hcommon                common       07FE
@@ -212,8 +215,8 @@ __Lspace_4               (abs)        0000
 __Lstack                 stack        0000
 __Lstrings               strings      07FE
 __Ltext                  text         07FE
-__S0                     (abs)        006A
-__S1                     (abs)        0026
+__S0                     (abs)        0145
+__S1                     (abs)        002C
 __S2                     (abs)        0000
 __S3                     (abs)        0000
 ___int_sp                stack        0000
@@ -222,33 +225,38 @@ ___osccal_val            osccal       03FF
 ___sp                    stack        0000
 ___stackhi               (abs)        0000
 ___stacklo               (abs)        0000
-__end_of_ISR             text4        004E
-__end_of__initialization cinit        0010
-__end_of_buttonEvent     text3        005C
-__end_of_initTimer0      text2        0064
-__end_of_init_uC         text1        0032
-__end_of_main            maintext     006A
+__end_of_ISR             text5        0102
+__end_of__initialization cinit        0013
+__end_of_buttonEvent     text3        0137
+__end_of_initTimer0      text2        013F
+__end_of_init_uC         text1        0122
+__end_of_main            maintext     0145
+__end_of_thermoControl   text4        00D6
 __initialization         cinit        000C
 __pbssBANK0              bssBANK0     0020
-__pcstackBANK0           cstackBANK0  0023
+__pcstackBANK0           cstackBANK0  0026
 __pcstackCOMMON          cstackCOMMON 0000
 __pintentry              intentry     0004
-__pmaintext              maintext     0064
-__ptext1                 text1        0012
-__ptext2                 text2        005C
-__ptext3                 text3        004E
-__ptext4                 text4        0032
+__pmaintext              maintext     013F
+__ptext1                 text1        0102
+__ptext2                 text2        0137
+__ptext3                 text3        0122
+__ptext4                 text4        0015
+__ptext5                 text5        00D6
 __size_of_ISR            (abs)        0000
 __size_of_buttonEvent    (abs)        0000
 __size_of_initTimer0     (abs)        0000
 __size_of_init_uC        (abs)        0000
 __size_of_main           (abs)        0000
-_buttonEvent             text3        004E
-_initTimer0              text2        005C
-_init_uC                 text1        0012
-_main                    maintext     0064
+__size_of_thermoControl  (abs)        0000
+_buttonEvent             text3        0122
+_initTimer0              text2        0137
+_init_uC                 text1        0102
+_main                    maintext     013F
+_pulsePerTakt            bssBANK0     0020
+_thermoControl           text4        0015
 btemp                    (abs)        005E
-end_of_initialization    cinit        0010
+end_of_initialization    cinit        0013
 interrupt_function       intentry     0004
 intlevel0                functab      0000
 intlevel1                functab      0000
@@ -275,7 +283,7 @@ FUNCTION INFORMATION:
  Return value:  Size  Location     Type
                   1    wreg      void 
  Registers used:
-		wreg, status,2, status,0, pclath, cstack
+		wreg, status,2, status,0, btemp+1, pclath, cstack
  Tracked objects:
 		On entry : 
 		On exit  : 
@@ -286,7 +294,7 @@ FUNCTION INFORMATION:
       Temps:          0       0
       Totals:         0       0
 Total ram usage:        0 bytes
- Hardware stack levels required when called:    2
+ Hardware stack levels required when called:    3
  This function calls:
 		_buttonEvent
 		_initTimer0
@@ -366,7 +374,7 @@ Total ram usage:        1 bytes
  Return value:  Size  Location     Type
                   1    wreg      void 
  Registers used:
-		wreg, status,2
+		wreg, status,2, btemp+1, pclath, cstack
  Tracked objects:
 		On entry : 
 		On exit  : 
@@ -374,21 +382,51 @@ Total ram usage:        1 bytes
  Data sizes:     COMMON   BANK0
       Params:         0       0
       Locals:         0       0
-      Temps:          0       1
-      Totals:         0       1
-Total ram usage:        1 bytes
+      Temps:          0       0
+      Totals:         0       0
+Total ram usage:        0 bytes
  Hardware stack levels used:    1
- Hardware stack levels required when called:    1
+ Hardware stack levels required when called:    2
  This function calls:
-		Nothing
+		_thermoControl
  This function is called by:
 		_main
  This function uses a non-reentrant model
 
 
+ *************** function _thermoControl *****************
+ Defined at:
+		line 59 in file "ADC.c"
+ Parameters:    Size  Location     Type
+		None
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+                  2    2[BANK0 ] unsigned int 
+ Registers used:
+		wreg, btemp+1
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMMON   BANK0
+      Params:         0       2
+      Locals:         0       0
+      Temps:          0       2
+      Totals:         0       4
+Total ram usage:        4 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    1
+ This function calls:
+		Nothing
+ This function is called by:
+		_buttonEvent
+ This function uses a non-reentrant model
+
+
  *************** function _ISR *****************
  Defined at:
-		line 6 in file "interrupt.c"
+		line 7 in file "interrupt.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -396,7 +434,7 @@ Total ram usage:        1 bytes
  Return value:  Size  Location     Type
                   1    wreg      void 
  Registers used:
-		wreg, status,2, status,0
+		wreg, status,2
  Tracked objects:
 		On entry : 
 		On exit  : 
@@ -420,28 +458,29 @@ MODULE INFORMATION
 
 Module		Function		Class		Link	Load	Size
 timer0.c
-		_initTimer0    		CODE           	005C	0000	8
+		_initTimer0    		CODE           	0137	0000	8
 
 timer0.c estimated size: 8
 
 interrupt.c
-		_ISR           		CODE           	0032	0000	28
+		_ISR           		CODE           	00D6	0000	44
 
-interrupt.c estimated size: 28
+interrupt.c estimated size: 44
 
 shared
-		__initialization		CODE           	000C	0000	4
+		__initialization		CODE           	000C	0000	7
 
-shared estimated size: 4
+shared estimated size: 7
 
 ADC.c
-		_buttonEvent   		CODE           	004E	0000	14
-		_init_uC       		CODE           	0012	0000	32
+		_buttonEvent   		CODE           	0122	0000	21
+		_init_uC       		CODE           	0102	0000	32
+		_thermoControl 		CODE           	0015	0000	193
 
-ADC.c estimated size: 46
+ADC.c estimated size: 246
 
 main.c
-		_main          		CODE           	0064	0000	6
+		_main          		CODE           	013F	0000	6
 
 main.c estimated size: 6
 

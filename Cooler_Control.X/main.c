@@ -21,7 +21,7 @@ __CONFIG(FOSC_INTRCIO & WDTE_OFF & PWRTE_ON & MCLRE_OFF & BOREN_ON & CP_OFF & CP
 
 #endif
     
-unsigned char  PWM_Value = 0;
+unsigned int  PWM_Value = 0;
 int  ADC_Value = 0;
 
 // Main function
