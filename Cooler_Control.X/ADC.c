@@ -4,11 +4,10 @@
 
 #define _XTAL_FREQ   4000000 
 
-extern unsigned int PWM_Value;
-extern int ADC_Value;
+extern unsigned int pwmValue;
+extern int adcValue;
 
-void init_uC()
-{    
+void Init_uC(){    
 	CMCON  = 0x07;		   /* Shut down the Comparator                        */
     VRCON  = 0x00;         /* Shut down Comparator reference Voltage          */
     
@@ -27,66 +26,92 @@ void init_uC()
     
     /*Sets Pin4 of chip as ADC input  */
     ADON    = 1;           /* ADC is ON                                       */
-    ADFM    = 1;           /* ADC results is right justified                  */
-    VCFG    = 0;           /* Sets Vref = Vdd                                 */
+    
+    VCFG    = 1;           /* Sets Vref = Vpin6                                 */
     TRISIO0 = 1;           /* Sets GP0 (Pin 7) as input. Temperature control  */
     TRISIO1 = 1;           /* Sets GP1 (Pin 6) as input. Button control       */
     GP1     = 0;
     
     ANSEL   = 0b00110001;  /* Sets Tosc = 4us (RC Generator)                  **
                                                        */  
-    CHS1 = 0;
-    CHS0 = 0;              /* Enable ADC channel 1 (AN1) "Power ON button"    */ 
+                
     GIE  = 1;			   /* Enable global interrupts                        */
 }
 
 
-void buttonEvent (void)
-{    
-        if       (GP1)     /* Power switch ON                                 */
-                      {
-                       GP5       = 0;
-                       PWM_Value = thermoControl();
+void ButtonEvent (void){    
+        if  ((InVoltageControl() >= 475) && (InVoltageControl() <= 540)){    /* Power switch ON                                 */
+                      
+                       GP5      = 0;
+                       pwmValue = ThermoControl();
                        /*PWM_Value = 100;*/
                       }
-        else if (!GP1)     /* Power switch OFF                                */
-                      {
-                       GP5       = 1;
-                       PWM_Value = 0;
+        else if (InVoltageControl() < 475) {
+                      /* dva korotkih odin dlinniy */
+                      GP5      = 1;
+                      pwmValue = 0;
+        }
+                
+        else if (InVoltageControl() > 540){     /* Power switch OFF                                */
+                       /* dva korotkih dva dlinnyh */
+                       GP5      = 1;
+                       pwmValue = 0;
                       }
-}
+ }
 
-unsigned int thermoControl (void)
-{
+unsigned int ThermoControl (void){
+    
+       ADCON0 = 0x00;   
+       ADFM = 1;               /* ADC results is right justified                            */
+       ADON = 1;               /* ADC channel 0 (AN0) "Thermal control" by default, ADC is ON    */ 
+    
        __delay_ms(10); 
        GO   = 1;
        while(!ADIF);  // make ADC Measurement
        __delay_ms(10);
     
-       ADC_Value = (int) ((ADRESH<<8)+ADRESL); // ADC result
+       adcValue = (int) ((ADRESH<<8)+ADRESL); // ADC result
     
-             if (ADC_Value < 180)
+             if (adcValue < 180)
                        {
-                        PWM_Value = 10;
+                        pwmValue = 10;
                        }
-             else if ((ADC_Value >= 180) && (ADC_Value < 460))
+             else if ((adcValue >= 180) && (adcValue < 460))
                        {
-                        PWM_Value = 25;
+                        pwmValue = 25;
                        }
-             else if ((ADC_Value >= 460) && (ADC_Value < 614))
+             else if ((adcValue >= 460) && (adcValue < 614))
                        {
-                        PWM_Value = 50;
+                        pwmValue = 50;
                        }
-             else if ((ADC_Value >= 614) && (ADC_Value < 737))
+             else if ((adcValue >= 614) && (adcValue < 737))
                        {
-                        PWM_Value = 75;
+                        pwmValue = 75;
                        }
-             else if ((ADC_Value >= 737) && (ADC_Value < 1023))
+             else if ((adcValue >= 737) && (adcValue < 1023))
                        {
-                        PWM_Value = 95;
+                        pwmValue = 95;
                        }
        
-       return PWM_Value;   
+       return pwmValue;   
+}
+
+int InVoltageControl (void){
+    
+    ADCON0 = 0x00;
+    
+    ADFM = 1;               /* ADC results is right justified                            */
+    ADCON0 |= 0b00100001;   /* Enable ADC channel 1 (AN1) "Power ON button", ADC is ON    */ 
+    
+     __delay_ms(10); 
+     
+       GO   = 1;
+       while(!ADIF);  // make ADC Measurement
+     __delay_ms(10);
+    
+     adcValue = (int) ((ADRESH<<8)+ADRESL); // ADC result
+     
+     return adcValue;
 }
 
 

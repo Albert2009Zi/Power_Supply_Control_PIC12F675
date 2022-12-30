@@ -1,9 +1,10 @@
 #include <xc.h>
+#include <stdint.h>
 #include "interrupt.h"
 #include "ADC.h"
 #include "timer0.h"
 
-//#define SIMULATION
+#define SIMULATION
 
 #ifndef SIMULATION
 // CONFIG
@@ -21,18 +22,22 @@ __CONFIG(FOSC_INTRCIO & WDTE_OFF & PWRTE_ON & MCLRE_OFF & BOREN_ON & CP_OFF & CP
 
 #endif
     
-unsigned int  PWM_Value = 0;
-int  ADC_Value = 0;
+unsigned int pwmValue;
+int  adcValue = 0;
+//struct pin7Param {
+//       
+//       uint8_t overload;
+//      };
 
 // Main function
 void main()
 {	
-	initTimer0();
-    init_uC();
+	InitTimer0();
+    Init_uC();
     ei();
 	while(1)
 	{ 
-       buttonEvent();
+       ButtonEvent();
 	}
 }
 

@@ -1,7 +1,7 @@
 #include "interrupt.h"
 #include <xc.h>
 
-extern unsigned int PWM_Value;
+extern unsigned int pwmValue;
 unsigned int pulsePerTakt = 0;
 
 void __interrupt() ISR(void)
@@ -10,7 +10,7 @@ void __interrupt() ISR(void)
       pulsePerTakt++;
 	  if(T0IF)  //If Timer0 Interrupt
 	   {
-        if (pulsePerTakt < PWM_Value)
+        if (pulsePerTakt < pwmValue)
          {GP4 = 1;}
         else               
 		 {GP4 = 0;} 

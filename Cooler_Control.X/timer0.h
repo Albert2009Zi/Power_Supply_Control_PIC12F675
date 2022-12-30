@@ -8,7 +8,7 @@
 #ifndef TIMER0_H
 #define	TIMER0_H
 
-void initTimer0(void);
+void InitTimer0(void);
 
 #endif	/* TIMER0_H */
 

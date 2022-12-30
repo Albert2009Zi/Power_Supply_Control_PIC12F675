@@ -8,11 +8,13 @@
 #ifndef ADC_H
 #define	ADC_H
 
-void init_uC(void);
+void Init_uC(void);
 
-void buttonEvent (void);
+void ButtonEvent (void);
 
-unsigned int thermoControl (void);
+unsigned int ThermoControl (void);
+
+int InVoltageControl (void);
 
 #endif	/* ADC_H */
 

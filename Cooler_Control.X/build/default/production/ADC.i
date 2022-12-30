@@ -10,11 +10,13 @@
 
 # 1 "./ADC.h" 1
 # 11 "./ADC.h"
-void init_uC(void);
+void Init_uC(void);
 
-void buttonEvent (void);
+void ButtonEvent (void);
 
-unsigned int thermoControl (void);
+unsigned int ThermoControl (void);
+
+int InVoltageControl (void);
 # 2 "ADC.c" 2
 
 # 1 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\\pic\\include\\xc.h" 1 3
@@ -25,8 +27,8 @@ extern double __fpnormalize(double);
 
 
 
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\xc8debug.h" 1 3
-# 13 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\xc8debug.h" 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c90\\xc8debug.h" 1 3
+# 13 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c90\\xc8debug.h" 3
 #pragma intrinsic(__builtin_software_breakpoint)
 extern void __builtin_software_breakpoint(void);
 # 24 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\\pic\\include\\xc.h" 2 3
@@ -1023,11 +1025,10 @@ extern __bank0 __bit __timeout;
 
 
 
-extern unsigned int PWM_Value;
-extern int ADC_Value;
+extern unsigned int pwmValue;
+extern int adcValue;
 
-void init_uC()
-{
+void Init_uC(){
  CMCON = 0x07;
     VRCON = 0x00;
 
@@ -1046,64 +1047,90 @@ void init_uC()
 
 
     ADON = 1;
-    ADFM = 1;
-    VCFG = 0;
+
+    VCFG = 1;
     TRISIO0 = 1;
     TRISIO1 = 1;
     GP1 = 0;
 
     ANSEL = 0b00110001;
 
-    CHS1 = 0;
-    CHS0 = 0;
+
     GIE = 1;
 }
 
 
-void buttonEvent (void)
-{
-        if (GP1)
-                      {
+void ButtonEvent (void){
+        if ((InVoltageControl() >= 475) && (InVoltageControl() <= 540)){
+
                        GP5 = 0;
-                       PWM_Value = thermoControl();
+                       pwmValue = ThermoControl();
 
                       }
-        else if (!GP1)
-                      {
+        else if (InVoltageControl() < 475) {
+
+                      GP5 = 1;
+                      pwmValue = 0;
+        }
+
+        else if (InVoltageControl() > 540){
+
                        GP5 = 1;
-                       PWM_Value = 0;
+                       pwmValue = 0;
                       }
-}
+ }
 
-unsigned int thermoControl (void)
-{
+unsigned int ThermoControl (void){
+
+       ADCON0 = 0x00;
+       ADFM = 1;
+       ADON = 1;
+
        _delay((unsigned long)((10)*(4000000/4000.0)));
        GO = 1;
        while(!ADIF);
        _delay((unsigned long)((10)*(4000000/4000.0)));
 
-       ADC_Value = (int) ((ADRESH<<8)+ADRESL);
+       adcValue = (int) ((ADRESH<<8)+ADRESL);
 
-             if (ADC_Value < 180)
+             if (adcValue < 180)
                        {
-                        PWM_Value = 10;
+                        pwmValue = 10;
                        }
-             else if ((ADC_Value >= 180) && (ADC_Value < 460))
+             else if ((adcValue >= 180) && (adcValue < 460))
                        {
-                        PWM_Value = 25;
+                        pwmValue = 25;
                        }
-             else if ((ADC_Value >= 460) && (ADC_Value < 614))
+             else if ((adcValue >= 460) && (adcValue < 614))
                        {
-                        PWM_Value = 50;
+                        pwmValue = 50;
                        }
-             else if ((ADC_Value >= 614) && (ADC_Value < 737))
+             else if ((adcValue >= 614) && (adcValue < 737))
                        {
-                        PWM_Value = 75;
+                        pwmValue = 75;
                        }
-             else if ((ADC_Value >= 737) && (ADC_Value < 1023))
+             else if ((adcValue >= 737) && (adcValue < 1023))
                        {
-                        PWM_Value = 95;
+                        pwmValue = 95;
                        }
 
-       return PWM_Value;
+       return pwmValue;
+}
+
+int InVoltageControl (void){
+
+    ADCON0 = 0x00;
+
+    ADFM = 1;
+    ADCON0 |= 0b00100001;
+
+     _delay((unsigned long)((10)*(4000000/4000.0)));
+
+       GO = 1;
+       while(!ADIF);
+     _delay((unsigned long)((10)*(4000000/4000.0)));
+
+     adcValue = (int) ((ADRESH<<8)+ADRESL);
+
+     return adcValue;
 }

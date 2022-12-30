@@ -20,8 +20,8 @@ extern double __fpnormalize(double);
 
 
 
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\xc8debug.h" 1 3
-# 13 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\xc8debug.h" 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c90\\xc8debug.h" 1 3
+# 13 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c90\\xc8debug.h" 3
 #pragma intrinsic(__builtin_software_breakpoint)
 extern void __builtin_software_breakpoint(void);
 # 24 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\\pic\\include\\xc.h" 2 3
@@ -1016,7 +1016,7 @@ extern __bank0 __bit __timeout;
 # 2 "interrupt.c" 2
 
 
-extern unsigned int PWM_Value;
+extern unsigned int pwmValue;
 unsigned int pulsePerTakt = 0;
 
 void __attribute__((picinterrupt(("")))) ISR(void)
@@ -1025,7 +1025,7 @@ void __attribute__((picinterrupt(("")))) ISR(void)
       pulsePerTakt++;
    if(T0IF)
     {
-        if (pulsePerTakt < PWM_Value)
+        if (pulsePerTakt < pwmValue)
          {GP4 = 1;}
         else
    {GP4 = 0;}
