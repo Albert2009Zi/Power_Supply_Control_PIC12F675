@@ -6,7 +6,7 @@ unsigned int pulsePerTakt = 0;
 
 void __interrupt() ISR(void)
 {      
-      TMR0 = 200;
+      TMR0 = 200; 
       pulsePerTakt++;
 	  if(T0IF)  //If Timer0 Interrupt
 	   {

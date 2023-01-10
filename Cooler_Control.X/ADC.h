@@ -12,9 +12,9 @@ void Init_uC(void);
 
 void ButtonEvent (void);
 
-unsigned int ThermoControl (void);
+unsigned int Pin7ThermoControl (void);
 
-int InVoltageControl (void);
+int Pin6VoltageControl (void);
 
 #endif	/* ADC_H */
 

@@ -39,64 +39,7 @@ void Init_uC(){
 }
 
 
-void ButtonEvent (void){    
-        if  ((InVoltageControl() >= 475) && (InVoltageControl() <= 540)){    /* Power switch ON                                 */
-                      
-                       GP5      = 0;
-                       pwmValue = ThermoControl();
-                       /*PWM_Value = 100;*/
-                      }
-        else if (InVoltageControl() < 475) {
-                      /* dva korotkih odin dlinniy */
-                      GP5      = 1;
-                      pwmValue = 0;
-        }
-                
-        else if (InVoltageControl() > 540){     /* Power switch OFF                                */
-                       /* dva korotkih dva dlinnyh */
-                       GP5      = 1;
-                       pwmValue = 0;
-                      }
- }
-
-unsigned int ThermoControl (void){
-    
-       ADCON0 = 0x00;   
-       ADFM = 1;               /* ADC results is right justified                            */
-       ADON = 1;               /* ADC channel 0 (AN0) "Thermal control" by default, ADC is ON    */ 
-    
-       __delay_ms(10); 
-       GO   = 1;
-       while(!ADIF);  // make ADC Measurement
-       __delay_ms(10);
-    
-       adcValue = (int) ((ADRESH<<8)+ADRESL); // ADC result
-    
-             if (adcValue < 180)
-                       {
-                        pwmValue = 10;
-                       }
-             else if ((adcValue >= 180) && (adcValue < 460))
-                       {
-                        pwmValue = 25;
-                       }
-             else if ((adcValue >= 460) && (adcValue < 614))
-                       {
-                        pwmValue = 50;
-                       }
-             else if ((adcValue >= 614) && (adcValue < 737))
-                       {
-                        pwmValue = 75;
-                       }
-             else if ((adcValue >= 737) && (adcValue < 1023))
-                       {
-                        pwmValue = 95;
-                       }
-       
-       return pwmValue;   
-}
-
-int InVoltageControl (void){
+int Pin6VoltageControl (void){
     
     ADCON0 = 0x00;
     
@@ -113,5 +56,75 @@ int InVoltageControl (void){
      
      return adcValue;
 }
+
+unsigned int Pin7ThermoControl (void){
+    
+       ADCON0 = 0x00;   
+       ADFM = 1;               /* ADC results is right justified                            */
+       ADON = 1;               /* ADC channel 0 (AN0) "Thermal control" by default, ADC is ON    */ 
+    
+       __delay_ms(10); 
+       GO   = 1;
+       while(!ADIF);  // make ADC Measurement
+       __delay_ms(10);
+    
+       adcValue = (int) ((ADRESH<<8)+ADRESL); // ADC result
+    
+             if (adcValue < 200)
+                       {
+                        GP5 = 0;
+                        pwmValue = 0;
+                       }
+             else if ((adcValue >= 200) && (adcValue < 395)) //between 30 and 45 Grad
+                       {
+                        GP5 = 0;
+                        pwmValue = 25;
+                       }
+             else if ((adcValue >= 395) && (adcValue < 640))
+                       {
+                        GP5 = 0;
+                        pwmValue = 65;
+                       }
+             else if ((adcValue >= 640) && (adcValue < 1000))
+                       {
+                        GP5 = 0;
+                        pwmValue = 85;
+                       }
+             else if ((adcValue >= 1000))
+                       {
+                        GP5 = 1;
+                        pwmValue = 95;
+                       }
+       
+       return pwmValue;   
+}
+
+void ButtonEvent (void){    
+       
+        if (Pin6VoltageControl() < 470) {
+                      /* dva korotkih odin dlinniy */
+                      GP5      = 1; /* Power OFF */
+                      pwmValue = 0;
+        }
+                
+        else if (Pin6VoltageControl() > 540){     
+                       /* dva korotkih dva dlinnyh */
+                       GP5      = 1; /* Power OFF */
+                       pwmValue = 0;
+                      }
+//        else if (Pin7ThermoControl() < 100){/* Power switch ON                                 */
+//                       GP5      = 1;
+//                       pwmValue = 0;
+//                       /*PWM_Value = 100;*/
+//              }
+        else {         
+                       Pin7ThermoControl();
+        }
+        
+ }
+
+
+
+
 
 

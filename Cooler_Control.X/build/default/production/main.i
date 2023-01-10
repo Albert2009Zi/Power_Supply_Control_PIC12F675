@@ -1156,9 +1156,9 @@ void Init_uC(void);
 
 void ButtonEvent (void);
 
-unsigned int ThermoControl (void);
+unsigned int Pin7ThermoControl (void);
 
-int InVoltageControl (void);
+int Pin6VoltageControl (void);
 # 4 "main.c" 2
 
 # 1 "./timer0.h" 1
