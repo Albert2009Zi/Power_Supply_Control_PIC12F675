@@ -1152,13 +1152,17 @@ void __attribute__((picinterrupt(("")))) ISR(void);
 
 # 1 "./ADC.h" 1
 # 11 "./ADC.h"
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c90\\stdbool.h" 1 3
+# 11 "./ADC.h" 2
+
+
 void Init_uC(void);
 
 void ButtonEvent (void);
 
-unsigned int Pin7ThermoControl (void);
+_Bool Pin7ThermoControl (void);
 
-int Pin6VoltageControl (void);
+_Bool Pin6VoltageControl (void);
 # 4 "main.c" 2
 
 # 1 "./timer0.h" 1

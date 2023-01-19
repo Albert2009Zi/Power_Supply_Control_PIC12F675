@@ -10,13 +10,17 @@
 
 # 1 "./ADC.h" 1
 # 11 "./ADC.h"
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c90\\stdbool.h" 1 3
+# 11 "./ADC.h" 2
+
+
 void Init_uC(void);
 
 void ButtonEvent (void);
 
-unsigned int Pin7ThermoControl (void);
+_Bool Pin7ThermoControl (void);
 
-int Pin6VoltageControl (void);
+_Bool Pin6VoltageControl (void);
 # 2 "ADC.c" 2
 
 # 1 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\\pic\\include\\xc.h" 1 3
@@ -1051,21 +1055,21 @@ void Init_uC(){
     VCFG = 1;
     TRISIO0 = 1;
     TRISIO1 = 1;
-    GP1 = 0;
 
-    ANSEL = 0b00110001;
+    ANSEL = 0b00110011;
 
 
     GIE = 1;
 }
 
 
-int Pin6VoltageControl (void){
+_Bool Pin6VoltageControl (void){
 
     ADCON0 = 0x00;
-
     ADFM = 1;
-    ADCON0 |= 0b00100001;
+    CHS1 = 0;
+    CHS0 = 1;
+    ADON = 1;
 
      _delay((unsigned long)((10)*(4000000/4000.0)));
 
@@ -1073,12 +1077,20 @@ int Pin6VoltageControl (void){
        while(!ADIF);
      _delay((unsigned long)((10)*(4000000/4000.0)));
 
-     adcValue = (int) ((ADRESH<<8)+ADRESL);
+       adcValue = (int) ((ADRESH<<8)+ADRESL);
 
-     return adcValue;
+     if ((adcValue > 440) && (adcValue < 520)){
+         GP5 = 0;
+         return 1;
+        }
+     else {
+         GP5 = 1;
+         return 0;
+        }
+
 }
 
-unsigned int Pin7ThermoControl (void){
+_Bool Pin7ThermoControl (void){
 
        ADCON0 = 0x00;
        ADFM = 1;
@@ -1089,57 +1101,43 @@ unsigned int Pin7ThermoControl (void){
        while(!ADIF);
        _delay((unsigned long)((10)*(4000000/4000.0)));
 
-       adcValue = (int) ((ADRESH<<8)+ADRESL);
+       adcValue = (int) ((ADRESH << 8) + ADRESL);
 
-             if (adcValue < 200)
-                       {
-                        GP5 = 0;
-                        pwmValue = 0;
-                       }
-             else if ((adcValue >= 200) && (adcValue < 395))
-                       {
-                        GP5 = 0;
-                        pwmValue = 25;
-                       }
-             else if ((adcValue >= 395) && (adcValue < 640))
-                       {
-                        GP5 = 0;
-                        pwmValue = 65;
+             if ((adcValue >= 200) && (adcValue < 395)){
+                  pwmValue = 25;
+                  return 1;
+                }
+             else if ((adcValue >= 395) && (adcValue < 640)){
+                        pwmValue = 40;
+                        return 1;
                        }
              else if ((adcValue >= 640) && (adcValue < 1000))
                        {
-                        GP5 = 0;
-                        pwmValue = 85;
+                        pwmValue = 65;
+                        return 1;
                        }
              else if ((adcValue >= 1000))
                        {
-                        GP5 = 1;
                         pwmValue = 95;
+                        return 1;
                        }
-
-       return pwmValue;
+             else {
+                  pwmValue = 0;
+                  return 0;
+                       }
 }
 
 void ButtonEvent (void){
 
-        if (Pin6VoltageControl() < 470) {
-
-                      GP5 = 1;
-                      pwmValue = 0;
-        }
-
-        else if (Pin6VoltageControl() > 540){
-
-                       GP5 = 1;
-                       pwmValue = 0;
-                      }
-
-
-
-
-
-        else {
-                       Pin7ThermoControl();
-        }
-
- }
+    if (!Pin7ThermoControl()){
+         GP5 = 1;
+    }
+    else if (Pin7ThermoControl()){
+            if (!Pin6VoltageControl()){
+              GP5 = 1;
+            }
+            else if (Pin6VoltageControl()){
+              GP5 = 0;
+            }
+    }
+}

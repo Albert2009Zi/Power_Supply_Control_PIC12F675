@@ -30,34 +30,42 @@ void Init_uC(){
     VCFG    = 1;           /* Sets Vref = Vpin6                                 */
     TRISIO0 = 1;           /* Sets GP0 (Pin 7) as input. Temperature control  */
     TRISIO1 = 1;           /* Sets GP1 (Pin 6) as input. Button control       */
-    GP1     = 0;
     
-    ANSEL   = 0b00110001;  /* Sets Tosc = 4us (RC Generator)                  **
+    ANSEL   = 0b00110011;  /* Sets Tosc = 4us (RC Generator)                  **
                                                        */  
                 
     GIE  = 1;			   /* Enable global interrupts                        */
 }
 
 
-int Pin6VoltageControl (void){
+bool Pin6VoltageControl (void){
     
-    ADCON0 = 0x00;
-    
+    ADCON0 = 0x00;  
     ADFM = 1;               /* ADC results is right justified                            */
-    ADCON0 |= 0b00100001;   /* Enable ADC channel 1 (AN1) "Power ON button", ADC is ON    */ 
+    CHS1 = 0;   
+    CHS0 = 1;/* Enable ADC channel 1 (AN1) "Power ON button", ADC is ON    */    
+    ADON = 1;   
     
      __delay_ms(10); 
      
        GO   = 1;
        while(!ADIF);  // make ADC Measurement
      __delay_ms(10);
-    
-     adcValue = (int) ((ADRESH<<8)+ADRESL); // ADC result
      
-     return adcValue;
+       adcValue = (int) ((ADRESH<<8)+ADRESL); // ADC result
+     
+     if ((adcValue > 440) && (adcValue < 520)){
+         GP5      = 0; /* Power OFF */
+         return true;
+        }
+     else {/* dva korotkih dva dlinnyh */
+         GP5      = 1; /* Power OFF */
+         return false;
+        }
+       
 }
 
-unsigned int Pin7ThermoControl (void){
+bool Pin7ThermoControl (void){
     
        ADCON0 = 0x00;   
        ADFM = 1;               /* ADC results is right justified                            */
@@ -68,63 +76,46 @@ unsigned int Pin7ThermoControl (void){
        while(!ADIF);  // make ADC Measurement
        __delay_ms(10);
     
-       adcValue = (int) ((ADRESH<<8)+ADRESL); // ADC result
-    
-             if (adcValue < 200)
-                       {
-                        GP5 = 0;
-                        pwmValue = 0;
-                       }
-             else if ((adcValue >= 200) && (adcValue < 395)) //between 30 and 45 Grad
-                       {
-                        GP5 = 0;
-                        pwmValue = 25;
-                       }
-             else if ((adcValue >= 395) && (adcValue < 640))
-                       {
-                        GP5 = 0;
-                        pwmValue = 65;
+       adcValue = (int) ((ADRESH << 8) + ADRESL); // ADC result
+             
+             if ((adcValue >= 200) && (adcValue < 395)){
+                  pwmValue = 25;
+                  return true; 
+                }
+             else if ((adcValue >= 395) && (adcValue < 640)){
+                        pwmValue = 40;
+                        return true; 
                        }
              else if ((adcValue >= 640) && (adcValue < 1000))
                        {
-                        GP5 = 0;
-                        pwmValue = 85;
+                        pwmValue = 65;
+                        return true; 
                        }
              else if ((adcValue >= 1000))
                        {
-                        GP5 = 1;
                         pwmValue = 95;
+                        return true; 
                        }
-       
-       return pwmValue;   
+             else {
+                  pwmValue = 0;
+                  return false;
+                       }
 }
 
 void ButtonEvent (void){    
        
-        if (Pin6VoltageControl() < 470) {
-                      /* dva korotkih odin dlinniy */
-                      GP5      = 1; /* Power OFF */
-                      pwmValue = 0;
-        }
-                
-        else if (Pin6VoltageControl() > 540){     
-                       /* dva korotkih dva dlinnyh */
-                       GP5      = 1; /* Power OFF */
-                       pwmValue = 0;
-                      }
-//        else if (Pin7ThermoControl() < 100){/* Power switch ON                                 */
-//                       GP5      = 1;
-//                       pwmValue = 0;
-//                       /*PWM_Value = 100;*/
-//              }
-        else {         
-                       Pin7ThermoControl();
-        }
-        
- }
-
-
-
+    if (!Pin7ThermoControl()){
+         GP5  = 1;  
+    }
+    else if (Pin7ThermoControl()){
+            if (!Pin6VoltageControl()){
+              GP5 = 1;             
+            } 
+            else if (Pin6VoltageControl()){
+              GP5 = 0;             
+            } 
+    }
+}
 
 
 
