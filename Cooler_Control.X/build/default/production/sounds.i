@@ -1,4 +1,4 @@
-# 1 "ADC.c"
+# 1 "sounds.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,22 +6,27 @@
 # 1 "<built-in>" 2
 # 1 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "ADC.c" 2
+# 1 "sounds.c" 2
+# 1 "./sounds.h" 1
+# 11 "./sounds.h"
+void SimpleTone(void);
 
-# 1 "./ADC.h" 1
-# 11 "./ADC.h"
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c90\\stdbool.h" 1 3
-# 11 "./ADC.h" 2
+void LongSound(void);
 
+void ShortSound(void);
 
-void Init_uC(void);
+void TwoShortOneLong(void);
 
-void ButtonEvent (void);
+void TwoShortTwoLong(void);
 
-_Bool Pin7ThermoControl (void);
+void TwoShort(void);
 
-_Bool Pin6VoltageControl (void);
-# 2 "ADC.c" 2
+void ThreeShort(void);
+
+void ThreeLong(void);
+
+void ThreeLongOneShort(void);
+# 1 "sounds.c" 2
 
 # 1 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\\pic\\include\\xc.h" 3
@@ -1024,156 +1029,76 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 28 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\\pic\\include\\xc.h" 2 3
-# 3 "ADC.c" 2
-
-# 1 "./sounds.h" 1
-# 11 "./sounds.h"
-void SimpleTone(void);
-
-void LongSound(void);
-
-void ShortSound(void);
-
-void TwoShortOneLong(void);
-
-void TwoShortTwoLong(void);
-
-void TwoShort(void);
-
-void ThreeShort(void);
-
-void ThreeLong(void);
-
-void ThreeLongOneShort(void);
-# 4 "ADC.c" 2
+# 2 "sounds.c" 2
 
 
 
 
-extern unsigned int pwmValue;
-extern int adcValue;
-
-void Init_uC(){
- CMCON = 0x07;
-    VRCON = 0x00;
-
-
-    TRISIO = 0;
-    GPIO = 0;
-
-
-    TRISIO2 = 0;
-    GP2 = 0;
-
-
-    TRISIO5 = 0;
-    GP5 = 1;
-
-
-    TRISIO4 = 0;
-    GP4 = 0;
-
-
-
-    ADON = 1;
-
-    VCFG = 1;
-    TRISIO0 = 1;
-    TRISIO1 = 1;
-
-    ANSEL = 0b00110011;
-
-
-    GIE = 1;
+void SimpleTone() {
+  GP2 = 1;
+  _delay((unsigned long)((10)*(4000000/4000.0)));
+  GP2 = 0;
+  _delay((unsigned long)((10)*(4000000/4000.0)));
 }
 
-
-_Bool Pin6VoltageControl (void){
-
-    ADCON0 = 0x00;
-    ADFM = 1;
-    CHS1 = 0;
-    CHS0 = 1;
-    ADON = 1;
-
-     _delay((unsigned long)((10)*(4000000/4000.0)));
-
-       GO = 1;
-       while(!ADIF);
-     _delay((unsigned long)((10)*(4000000/4000.0)));
-
-       adcValue = (int) ((ADRESH<<8)+ADRESL);
-
-     if ((adcValue > 440) && (adcValue < 520)){
-         GP5 = 0;
-         return 1;
-        }
-     else {
-         GP5 = 1;
-         if (adcValue <= 440){
-             TwoShortOneLong();
-         }
-         else if (adcValue >= 520){
-             TwoShortTwoLong();
-         }
-         return 0;
-        }
-
+void LongSound(){
+   for(int cnt = 0; cnt < 65; cnt++){
+     SimpleTone();
+   }
 }
 
-_Bool Pin7ThermoControl (void){
-
-       ADCON0 = 0x00;
-       ADFM = 1;
-       ADON = 1;
-
-       _delay((unsigned long)((10)*(4000000/4000.0)));
-       GO = 1;
-       while(!ADIF);
-       _delay((unsigned long)((10)*(4000000/4000.0)));
-
-       adcValue = (int) ((ADRESH << 8) + ADRESL);
-
-             if ((adcValue >= 200) && (adcValue < 395)){
-                  pwmValue = 25;
-                  return 1;
-                }
-             else if ((adcValue >= 395) && (adcValue < 640)){
-                        pwmValue = 40;
-
-                        return 1;
-                       }
-             else if ((adcValue >= 640) && (adcValue < 1000))
-                       {
-                        pwmValue = 65;
-
-                        return 1;
-                       }
-             else if ((adcValue >= 1000))
-                       {
-                        pwmValue = 95;
-
-                        return 1;
-                       }
-             else {
-                  pwmValue = 0;
-
-                  return 0;
-                       }
+void ShortSound(){
+   for(int cnt = 0; cnt < 65; cnt++){
+     SimpleTone();
+   }
 }
 
-void ButtonEvent (void){
+void TwoShortOneLong(){
+   ShortSound();
+    _delay((unsigned long)((200)*(4000000/4000.0)));
+   ShortSound();
+    _delay((unsigned long)((200)*(4000000/4000.0)));
+   LongSound();
+}
 
-    if (!Pin7ThermoControl()){
-         GP5 = 1;
-         ThreeLongOneShort();
-    }
-    else if (Pin7ThermoControl()){
-            if (!Pin6VoltageControl()){
-              GP5 = 1;
-            }
-            else if (Pin6VoltageControl()){
-              GP5 = 0;
-            }
-    }
+void TwoShortTwoLong(){
+   ShortSound();
+    _delay((unsigned long)((200)*(4000000/4000.0)));
+   ShortSound();
+    _delay((unsigned long)((200)*(4000000/4000.0)));
+   LongSound();
+    _delay((unsigned long)((200)*(4000000/4000.0)));
+   LongSound();
+}
+
+void TwoShort(){
+   ShortSound();
+    _delay((unsigned long)((200)*(4000000/4000.0)));
+   ShortSound();
+}
+
+void ThreeShort(){
+   ShortSound();
+    _delay((unsigned long)((200)*(4000000/4000.0)));
+   ShortSound();
+    _delay((unsigned long)((200)*(4000000/4000.0)));
+   ShortSound();
+}
+
+void ThreeLong(){
+   LongSound();
+    _delay((unsigned long)((200)*(4000000/4000.0)));
+   LongSound();
+    _delay((unsigned long)((200)*(4000000/4000.0)));
+   LongSound();
+}
+
+void ThreeLongOneShort(){
+   LongSound();
+    _delay((unsigned long)((200)*(4000000/4000.0)));
+   LongSound();
+    _delay((unsigned long)((200)*(4000000/4000.0)));
+   LongSound();
+    _delay((unsigned long)((200)*(4000000/4000.0)));
+   ShortSound();
 }

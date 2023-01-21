@@ -1,6 +1,7 @@
 
 #include "ADC.h"
 #include <xc.h>
+#include "sounds.h"
 
 #define _XTAL_FREQ   4000000 
 
@@ -14,6 +15,10 @@ void Init_uC(){
     /* Sets all Pins of chip as digital output  */
     TRISIO  = 0;
     GPIO    = 0;
+    
+    /* Sets GP2 (Pin 5) in nessesary conditions */
+    TRISIO2 = 0;           /* Sets GP2 (Pin 5) as output                      */
+    GP2     = 0;           /* Low level on GP2 (Pin 5)                        */
     
     /* Sets GP5 (Pin 2) in nessesary conditions */
     TRISIO5 = 0;           /* Sets GP5 (Pin 2) as output                      */
@@ -58,8 +63,14 @@ bool Pin6VoltageControl (void){
          GP5      = 0; /* Power OFF */
          return true;
         }
-     else {/* dva korotkih dva dlinnyh */
+     else {
          GP5      = 1; /* Power OFF */
+         if (adcValue <= 440){
+             TwoShortOneLong();     /*??? ????????, ???? ??????? ????*/
+         }
+         else if (adcValue >= 520){
+             TwoShortTwoLong();     /*??? ????????, ??? ??????? ?????*/
+         }
          return false;
         }
        
@@ -84,20 +95,24 @@ bool Pin7ThermoControl (void){
                 }
              else if ((adcValue >= 395) && (adcValue < 640)){
                         pwmValue = 40;
+               //         TwoShort();
                         return true; 
                        }
              else if ((adcValue >= 640) && (adcValue < 1000))
                        {
                         pwmValue = 65;
+               //        ThreeShort();
                         return true; 
                        }
              else if ((adcValue >= 1000))
                        {
                         pwmValue = 95;
+                //        ThreeLong();
                         return true; 
                        }
              else {
                   pwmValue = 0;
+                //  ThreeLongOneShort();
                   return false;
                        }
 }
@@ -106,6 +121,7 @@ void ButtonEvent (void){
        
     if (!Pin7ThermoControl()){
          GP5  = 1;  
+         ThreeLongOneShort();
     }
     else if (Pin7ThermoControl()){
             if (!Pin6VoltageControl()){

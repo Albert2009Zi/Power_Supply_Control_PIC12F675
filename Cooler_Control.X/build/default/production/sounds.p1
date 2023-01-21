@@ -1,29 +1,11 @@
 Version 4.0 HI-TECH Software Intermediate Code
-[p mainexit ]
-"11 ./timer0.h
-[; ;./timer0.h: 11: void InitTimer0(void);
-[v _InitTimer0 `(v ~T0 @X0 0 ef ]
-"13 ./ADC.h
-[; ;./ADC.h: 13: void Init_uC(void);
-[v _Init_uC `(v ~T0 @X0 0 ef ]
-"332 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\pic\include\proc\pic12f675.h
-[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\pic\include\proc\pic12f675.h: 332:     struct {
-[s S19 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S19 . GPIF INTF T0IF GPIE INTE T0IE PEIE GIE ]
-"342
-[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\pic\include\proc\pic12f675.h: 342:     struct {
-[s S20 :2 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
-[n S20 . . TMR0IF . TMR0IE ]
-"331
-[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\pic\include\proc\pic12f675.h: 331: typedef union {
-[u S18 `S19 1 `S20 1 ]
-[n S18 . . . ]
-"349
-[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\pic\include\proc\pic12f675.h: 349: extern volatile INTCONbits_t INTCONbits __attribute__((address(0x00B)));
-[v _INTCONbits `VS18 ~T0 @X0 0 e@11 ]
-"15 ./ADC.h
-[; ;./ADC.h: 15: void ButtonEvent (void);
-[v _ButtonEvent `(v ~T0 @X0 0 ef ]
+"1591 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\pic\include\proc\pic12f675.h
+[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\pic\include\proc\pic12f675.h: 1591: extern volatile __bit GP2 __attribute__((address(0x2A)));
+[v _GP2 `Vb ~T0 @X0 0 e@42 ]
+[v F546 `(v ~T0 @X0 1 tf1`ul ]
+"92 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\pic\include\pic.h
+[v __delay `JF546 ~T0 @X0 0 e ]
+[p i __delay ]
 "54 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\pic\include\proc\pic12f675.h
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\pic\include\proc\pic12f675.h: 54: __asm("INDF equ 00h");
 [; <" INDF equ 00h ;# ">
@@ -120,53 +102,239 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1406
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\pic\include\proc\pic12f675.h: 1406: __asm("ANSEL equ 09Fh");
 [; <" ANSEL equ 09Fh ;# ">
-"31 main.c
-[; ;main.c: 31: __asm("GLOBAL nosup@@$_$_" "CONFIG" "\nnosup@@$_$_" "CONFIG" " SET 0");
-[; <" GLOBAL nosup@@$_$_CONFIG ;# ">
-[; <" nosup@@$_$_CONFIG SET 0 ;# ">
-"35
-[; ;main.c: 35: unsigned int pwmValue;
-[v _pwmValue `ui ~T0 @X0 1 e ]
-"36
-[; ;main.c: 36: int adcValue = 0;
-[v _adcValue `i ~T0 @X0 1 e ]
-[i _adcValue
--> 0 `i
-]
-[v $root$_main `(v ~T0 @X0 0 e ]
-"39
-[; ;main.c: 39: void main()
-[v _main `(v ~T0 @X0 1 ef ]
-"40
-[; ;main.c: 40: {
+"6 sounds.c
+[; ;sounds.c: 6: void SimpleTone() {
+[v _SimpleTone `(v ~T0 @X0 1 ef ]
 {
-[e :U _main ]
+[e :U _SimpleTone ]
 [f ]
-"41
-[; ;main.c: 41:  InitTimer0();
-[e ( _InitTimer0 ..  ]
-"42
-[; ;main.c: 42:     Init_uC();
-[e ( _Init_uC ..  ]
-"43
-[; ;main.c: 43:     (INTCONbits.GIE = 1);
-[e = . . _INTCONbits 0 7 -> -> 1 `i `uc ]
-"44
-[; ;main.c: 44:  while(1)
-[e :U 83 ]
-"45
-[; ;main.c: 45:  {
-{
-"46
-[; ;main.c: 46:        ButtonEvent();
-[e ( _ButtonEvent ..  ]
-"47
-[; ;main.c: 47:  }
-}
-[e :U 82 ]
-[e $U 83  ]
-[e :U 84 ]
-"48
-[; ;main.c: 48: }
+"7
+[; ;sounds.c: 7:   GP2 = 1;
+[e = _GP2 -> -> 1 `i `b ]
+"8
+[; ;sounds.c: 8:   _delay((unsigned long)((10)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"9
+[; ;sounds.c: 9:   GP2 = 0;
+[e = _GP2 -> -> 0 `i `b ]
+"10
+[; ;sounds.c: 10:   _delay((unsigned long)((10)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"11
+[; ;sounds.c: 11: }
 [e :UE 81 ]
+}
+"13
+[; ;sounds.c: 13: void LongSound(){
+[v _LongSound `(v ~T0 @X0 1 ef ]
+{
+[e :U _LongSound ]
+[f ]
+"14
+[; ;sounds.c: 14:    for(int cnt = 0; cnt < 65; cnt++){
+{
+[v _cnt `i ~T0 @X0 1 a ]
+[e = _cnt -> 0 `i ]
+[e $ < _cnt -> 65 `i 83  ]
+[e $U 84  ]
+[e :U 83 ]
+{
+"15
+[; ;sounds.c: 15:      SimpleTone();
+[e ( _SimpleTone ..  ]
+"16
+[; ;sounds.c: 16:    }
+}
+[e ++ _cnt -> 1 `i ]
+[e $ < _cnt -> 65 `i 83  ]
+[e :U 84 ]
+}
+"17
+[; ;sounds.c: 17: }
+[e :UE 82 ]
+}
+"19
+[; ;sounds.c: 19: void ShortSound(){
+[v _ShortSound `(v ~T0 @X0 1 ef ]
+{
+[e :U _ShortSound ]
+[f ]
+"20
+[; ;sounds.c: 20:    for(int cnt = 0; cnt < 65; cnt++){
+{
+[v _cnt `i ~T0 @X0 1 a ]
+[e = _cnt -> 0 `i ]
+[e $ < _cnt -> 65 `i 87  ]
+[e $U 88  ]
+[e :U 87 ]
+{
+"21
+[; ;sounds.c: 21:      SimpleTone();
+[e ( _SimpleTone ..  ]
+"22
+[; ;sounds.c: 22:    }
+}
+[e ++ _cnt -> 1 `i ]
+[e $ < _cnt -> 65 `i 87  ]
+[e :U 88 ]
+}
+"23
+[; ;sounds.c: 23: }
+[e :UE 86 ]
+}
+"25
+[; ;sounds.c: 25: void TwoShortOneLong(){
+[v _TwoShortOneLong `(v ~T0 @X0 1 ef ]
+{
+[e :U _TwoShortOneLong ]
+[f ]
+"26
+[; ;sounds.c: 26:    ShortSound();
+[e ( _ShortSound ..  ]
+"27
+[; ;sounds.c: 27:     _delay((unsigned long)((200)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"28
+[; ;sounds.c: 28:    ShortSound();
+[e ( _ShortSound ..  ]
+"29
+[; ;sounds.c: 29:     _delay((unsigned long)((200)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"30
+[; ;sounds.c: 30:    LongSound();
+[e ( _LongSound ..  ]
+"31
+[; ;sounds.c: 31: }
+[e :UE 90 ]
+}
+"33
+[; ;sounds.c: 33: void TwoShortTwoLong(){
+[v _TwoShortTwoLong `(v ~T0 @X0 1 ef ]
+{
+[e :U _TwoShortTwoLong ]
+[f ]
+"34
+[; ;sounds.c: 34:    ShortSound();
+[e ( _ShortSound ..  ]
+"35
+[; ;sounds.c: 35:     _delay((unsigned long)((200)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"36
+[; ;sounds.c: 36:    ShortSound();
+[e ( _ShortSound ..  ]
+"37
+[; ;sounds.c: 37:     _delay((unsigned long)((200)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"38
+[; ;sounds.c: 38:    LongSound();
+[e ( _LongSound ..  ]
+"39
+[; ;sounds.c: 39:     _delay((unsigned long)((200)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"40
+[; ;sounds.c: 40:    LongSound();
+[e ( _LongSound ..  ]
+"41
+[; ;sounds.c: 41: }
+[e :UE 91 ]
+}
+"43
+[; ;sounds.c: 43: void TwoShort(){
+[v _TwoShort `(v ~T0 @X0 1 ef ]
+{
+[e :U _TwoShort ]
+[f ]
+"44
+[; ;sounds.c: 44:    ShortSound();
+[e ( _ShortSound ..  ]
+"45
+[; ;sounds.c: 45:     _delay((unsigned long)((200)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"46
+[; ;sounds.c: 46:    ShortSound();
+[e ( _ShortSound ..  ]
+"47
+[; ;sounds.c: 47: }
+[e :UE 92 ]
+}
+"49
+[; ;sounds.c: 49: void ThreeShort(){
+[v _ThreeShort `(v ~T0 @X0 1 ef ]
+{
+[e :U _ThreeShort ]
+[f ]
+"50
+[; ;sounds.c: 50:    ShortSound();
+[e ( _ShortSound ..  ]
+"51
+[; ;sounds.c: 51:     _delay((unsigned long)((200)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"52
+[; ;sounds.c: 52:    ShortSound();
+[e ( _ShortSound ..  ]
+"53
+[; ;sounds.c: 53:     _delay((unsigned long)((200)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"54
+[; ;sounds.c: 54:    ShortSound();
+[e ( _ShortSound ..  ]
+"55
+[; ;sounds.c: 55: }
+[e :UE 93 ]
+}
+"57
+[; ;sounds.c: 57: void ThreeLong(){
+[v _ThreeLong `(v ~T0 @X0 1 ef ]
+{
+[e :U _ThreeLong ]
+[f ]
+"58
+[; ;sounds.c: 58:    LongSound();
+[e ( _LongSound ..  ]
+"59
+[; ;sounds.c: 59:     _delay((unsigned long)((200)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"60
+[; ;sounds.c: 60:    LongSound();
+[e ( _LongSound ..  ]
+"61
+[; ;sounds.c: 61:     _delay((unsigned long)((200)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"62
+[; ;sounds.c: 62:    LongSound();
+[e ( _LongSound ..  ]
+"63
+[; ;sounds.c: 63: }
+[e :UE 94 ]
+}
+"65
+[; ;sounds.c: 65: void ThreeLongOneShort(){
+[v _ThreeLongOneShort `(v ~T0 @X0 1 ef ]
+{
+[e :U _ThreeLongOneShort ]
+[f ]
+"66
+[; ;sounds.c: 66:    LongSound();
+[e ( _LongSound ..  ]
+"67
+[; ;sounds.c: 67:     _delay((unsigned long)((200)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"68
+[; ;sounds.c: 68:    LongSound();
+[e ( _LongSound ..  ]
+"69
+[; ;sounds.c: 69:     _delay((unsigned long)((200)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"70
+[; ;sounds.c: 70:    LongSound();
+[e ( _LongSound ..  ]
+"71
+[; ;sounds.c: 71:     _delay((unsigned long)((200)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"72
+[; ;sounds.c: 72:    ShortSound();
+[e ( _ShortSound ..  ]
+"73
+[; ;sounds.c: 73: }
+[e :UE 95 ]
 }
