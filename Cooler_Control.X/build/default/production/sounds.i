@@ -1034,71 +1034,63 @@ extern __bank0 __bit __timeout;
 
 
 
-void SimpleTone() {
-  GP2 = 1;
-  _delay((unsigned long)((10)*(4000000/4000.0)));
-  GP2 = 0;
-  _delay((unsigned long)((10)*(4000000/4000.0)));
-}
-
 void LongSound(){
-   for(int cnt = 0; cnt < 65; cnt++){
-     SimpleTone();
-   }
+   GP2 = 1;
+    _delay((unsigned long)((200)*(4000000/4000.0)));
+   GP2 = 0;
+    _delay((unsigned long)((100)*(4000000/4000.0)));
 }
 
 void ShortSound(){
-   for(int cnt = 0; cnt < 65; cnt++){
-     SimpleTone();
-   }
+   GP2 = 1;
+    _delay((unsigned long)((500)*(4000000/4000.0)));
+   GP2 = 0;
+    _delay((unsigned long)((100)*(4000000/4000.0)));
 }
 
 void TwoShortOneLong(){
    ShortSound();
-    _delay((unsigned long)((200)*(4000000/4000.0)));
    ShortSound();
-    _delay((unsigned long)((200)*(4000000/4000.0)));
    LongSound();
+   _delay((unsigned long)((700)*(4000000/4000.0)));
 }
 
 void TwoShortTwoLong(){
    ShortSound();
-    _delay((unsigned long)((200)*(4000000/4000.0)));
    ShortSound();
-    _delay((unsigned long)((200)*(4000000/4000.0)));
    LongSound();
-    _delay((unsigned long)((200)*(4000000/4000.0)));
    LongSound();
+   _delay((unsigned long)((700)*(4000000/4000.0)));
 }
 
 void TwoShort(){
    ShortSound();
-    _delay((unsigned long)((200)*(4000000/4000.0)));
    ShortSound();
+   _delay((unsigned long)((700)*(4000000/4000.0)));
 }
 
 void ThreeShort(){
    ShortSound();
-    _delay((unsigned long)((200)*(4000000/4000.0)));
+    _delay((unsigned long)((100)*(4000000/4000.0)));
    ShortSound();
-    _delay((unsigned long)((200)*(4000000/4000.0)));
+    _delay((unsigned long)((100)*(4000000/4000.0)));
    ShortSound();
+   _delay((unsigned long)((500)*(4000000/4000.0)));
 }
 
 void ThreeLong(){
    LongSound();
-    _delay((unsigned long)((200)*(4000000/4000.0)));
+    _delay((unsigned long)((100)*(4000000/4000.0)));
    LongSound();
-    _delay((unsigned long)((200)*(4000000/4000.0)));
+    _delay((unsigned long)((100)*(4000000/4000.0)));
    LongSound();
+   _delay((unsigned long)((500)*(4000000/4000.0)));
 }
 
 void ThreeLongOneShort(){
    LongSound();
-    _delay((unsigned long)((200)*(4000000/4000.0)));
    LongSound();
-    _delay((unsigned long)((200)*(4000000/4000.0)));
    LongSound();
-    _delay((unsigned long)((200)*(4000000/4000.0)));
    ShortSound();
+   _delay((unsigned long)((700)*(4000000/4000.0)));
 }

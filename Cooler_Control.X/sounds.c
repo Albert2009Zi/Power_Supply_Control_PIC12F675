@@ -3,71 +3,63 @@
 
 #define _XTAL_FREQ   4000000 
 
-void SimpleTone() {
-  GP2 = 1;
-  __delay_ms(10);
-  GP2 = 0;
-  __delay_ms(10);  
-}
-
 void LongSound(){
-   for(int cnt = 0; cnt < 65; cnt++){
-     SimpleTone();  
-   }   
+   GP2 = 1;
+    __delay_ms(200);
+   GP2 = 0; 
+    __delay_ms(100);
 }
 
 void ShortSound(){
-   for(int cnt = 0; cnt < 65; cnt++){
-     SimpleTone();  
-   }   
+   GP2 = 1;
+    __delay_ms(500);
+   GP2 = 0; 
+    __delay_ms(100); 
 }
 
 void TwoShortOneLong(){
    ShortSound();
-    __delay_ms(200); 
    ShortSound();
-    __delay_ms(200);
    LongSound();
+   __delay_ms(700);
 }
 
 void TwoShortTwoLong(){
    ShortSound();
-    __delay_ms(200); 
    ShortSound();
-    __delay_ms(200);
    LongSound();
-    __delay_ms(200);
    LongSound();
+   __delay_ms(700);
 }
 
 void TwoShort(){
+   ShortSound(); 
    ShortSound();
-    __delay_ms(200); 
-   ShortSound();
+   __delay_ms(700);
 }
 
 void ThreeShort(){
    ShortSound();
-    __delay_ms(200); 
+    __delay_ms(100); 
    ShortSound();
-    __delay_ms(200); 
+    __delay_ms(100); 
    ShortSound();
+   __delay_ms(500);
 }
 
 void ThreeLong(){
    LongSound();
-    __delay_ms(200);
+    __delay_ms(100);
    LongSound();
-    __delay_ms(200);
+    __delay_ms(100);
    LongSound();
+   __delay_ms(500);
 }
 
 void ThreeLongOneShort(){
    LongSound();
-    __delay_ms(200);
    LongSound();
-    __delay_ms(200);
-   LongSound();
-    __delay_ms(200); 
+   LongSound(); 
    ShortSound();
+   __delay_ms(700);
 }

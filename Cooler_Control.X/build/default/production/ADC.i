@@ -1104,18 +1104,10 @@ _Bool Pin6VoltageControl (void){
 
        adcValue = (int) ((ADRESH<<8)+ADRESL);
 
-     if ((adcValue > 440) && (adcValue < 520)){
-         GP5 = 0;
+     if ((adcValue > 190) && (adcValue < 285)){
          return 1;
         }
      else {
-         GP5 = 1;
-         if (adcValue <= 440){
-             TwoShortOneLong();
-         }
-         else if (adcValue >= 520){
-             TwoShortTwoLong();
-         }
          return 0;
         }
 
@@ -1127,38 +1119,37 @@ _Bool Pin7ThermoControl (void){
        ADFM = 1;
        ADON = 1;
 
-       _delay((unsigned long)((10)*(4000000/4000.0)));
+       _delay((unsigned long)((5)*(4000000/4000.0)));
        GO = 1;
        while(!ADIF);
-       _delay((unsigned long)((10)*(4000000/4000.0)));
+       _delay((unsigned long)((5)*(4000000/4000.0)));
 
        adcValue = (int) ((ADRESH << 8) + ADRESL);
 
-             if ((adcValue >= 200) && (adcValue < 395)){
-                  pwmValue = 25;
-                  return 1;
+             if (adcValue < 200){
+                  pwmValue = 0;
+                  return 0;
                 }
-             else if ((adcValue >= 395) && (adcValue < 640)){
-                        pwmValue = 40;
-
+             else if ((adcValue >= 200) && (adcValue < 880)){
+                        pwmValue = 0;
                         return 1;
                        }
-             else if ((adcValue >= 640) && (adcValue < 1000))
-                       {
-                        pwmValue = 65;
+             else if ((adcValue >= 880) && (adcValue < 910)){
 
+                        pwmValue = 30;
                         return 1;
                        }
-             else if ((adcValue >= 1000))
-                       {
-                        pwmValue = 95;
-
+             else if ((adcValue >= 910) && (adcValue < 940)){
+                        pwmValue = 45;
+                        return 1;
+                       }
+             else if ((adcValue >= 940) && (adcValue < 970)){
+                        pwmValue = 55;
                         return 1;
                        }
              else {
-                  pwmValue = 0;
-
-                  return 0;
+                        pwmValue = 85;
+                        return 0;
                        }
 }
 
@@ -1166,7 +1157,6 @@ void ButtonEvent (void){
 
     if (!Pin7ThermoControl()){
          GP5 = 1;
-         ThreeLongOneShort();
     }
     else if (Pin7ThermoControl()){
             if (!Pin6VoltageControl()){

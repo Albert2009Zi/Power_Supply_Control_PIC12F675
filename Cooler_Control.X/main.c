@@ -1,12 +1,3 @@
-
-
-
-
-
-
-
-
-
 #include <xc.h>
 #include <stdint.h>
 #include "interrupt.h"
