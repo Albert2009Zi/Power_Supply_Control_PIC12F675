@@ -40,20 +40,16 @@ void TwoShort(){
 
 void ThreeShort(){
    ShortSound();
-    __delay_ms(100); 
    ShortSound();
-    __delay_ms(100); 
    ShortSound();
-   __delay_ms(500);
+   __delay_ms(700);
 }
 
 void ThreeLong(){
    LongSound();
-    __delay_ms(100);
    LongSound();
-    __delay_ms(100);
    LongSound();
-   __delay_ms(500);
+   __delay_ms(700);
 }
 
 void ThreeLongOneShort(){

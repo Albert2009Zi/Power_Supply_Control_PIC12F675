@@ -43,7 +43,7 @@ void Init_uC(){
 }
 
 
-bool Pin6VoltageControl (void){
+void Pin6VoltageControl (void){
     
     ADCON0 = 0x00;  
     ADFM = 1;               /* ADC results is right justified                            */
@@ -60,15 +60,20 @@ bool Pin6VoltageControl (void){
        adcValue = (int) ((ADRESH<<8)+ADRESL); /* ADC result*/
      
      if ((adcValue > 190) && (adcValue < 285)){
-         return true;  /* Vin in normal conditions */
+         GP5 = 0;
+         GP2 = 0;
+        }
+     else if (adcValue <= 190) { 
+         GP5 = 1;
+         TwoShortOneLong();
         }
      else {
-         return false; /* Vin is in low or overvoltage */
-        }
-       
+         GP5 = 1;
+         TwoShortTwoLong();
+     }  
 }
 
-bool Pin7ThermoControl (void){
+void Pin7ThermoControl (void){
     
        ADCON0 = 0x00;   
        ADFM = 1;               /* ADC results is right justified                            */
@@ -82,45 +87,31 @@ bool Pin7ThermoControl (void){
        adcValue = (int) ((ADRESH << 8) + ADRESL); /* ADC result */
              
              if (adcValue < 200){  /* Pin 7 Signal is in low level < 1V. Error */
-                  pwmValue = 0;
-                  return false;
+                  GP5             = 1;  /* Error on termocontrol and outer comparator Pin */
+                  pwmValue        = 0;
+                  ThreeLongOneShort();
                 }
              else if ((adcValue >= 200) && (adcValue < 880)){ /* Temperature is good, cooler is off */
+                        GP5      = 0; 
                         pwmValue = 0;
-                        return true; 
                        }
              else if ((adcValue >= 880) && (adcValue < 910)){ /* Temperature is between 43 and 57 degrees Celsium */
-                                                              /* Cooler PWM is 30% */
+                        GP5      = 0;                                       /* Cooler PWM is 30% */
                         pwmValue = 30;
-                        return true; 
                        }
              else if ((adcValue >= 910) && (adcValue < 940)){ /* Temperature is between 57 and 71 degrees Celsium */
-                        pwmValue = 45;                        /* Cooler PWM is 45% */
-                        return true; 
+                        GP5      = 0; 
+                        pwmValue = 45;                        /* Cooler PWM is 45% */ 
                        }
              else if ((adcValue >= 940) && (adcValue < 970)){ /* Temperature is between 71 and 85 degrees Celsium */
+                        GP5      = 0; 
                         pwmValue = 55;                        /* Cooler PWM is 55% */
-                        return true; 
                        }
              else     { /* Temperature is high than 85 degrees Celsium. Error */
-                        pwmValue = 85;                             
-                        return false; 
+                        GP5      = 1;
+                        pwmValue = 85; 
+                        ThreeLong();
                        }
-}
-
-void ButtonEvent (void){    
-       
-    if (!Pin7ThermoControl()){
-         GP5  = 1;  /* Error on termocontrol and outer comparator Pin */
-    }
-    else if (Pin7ThermoControl()){
-            if (!Pin6VoltageControl()){
-              GP5 = 1; /* Power button not in ON or voltage error */
-            } 
-            else if (Pin6VoltageControl()){
-              GP5 = 0; /* Temperature and Vin is OK*/
-            } 
-    }
 }
 
 

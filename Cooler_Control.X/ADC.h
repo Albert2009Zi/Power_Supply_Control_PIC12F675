@@ -8,15 +8,13 @@
 #ifndef ADC_H
 #define	ADC_H
 
-#include <stdbool.h>
-
 void Init_uC(void);
 
 void ButtonEvent (void);
 
-bool Pin7ThermoControl (void);
+void Pin7ThermoControl (void);
 
-bool Pin6VoltageControl (void);
+void Pin6VoltageControl (void);
 
 #endif	/* ADC_H */
 

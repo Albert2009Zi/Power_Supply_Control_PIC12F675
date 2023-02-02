@@ -1071,20 +1071,16 @@ void TwoShort(){
 
 void ThreeShort(){
    ShortSound();
-    _delay((unsigned long)((100)*(4000000/4000.0)));
    ShortSound();
-    _delay((unsigned long)((100)*(4000000/4000.0)));
    ShortSound();
-   _delay((unsigned long)((500)*(4000000/4000.0)));
+   _delay((unsigned long)((700)*(4000000/4000.0)));
 }
 
 void ThreeLong(){
    LongSound();
-    _delay((unsigned long)((100)*(4000000/4000.0)));
    LongSound();
-    _delay((unsigned long)((100)*(4000000/4000.0)));
    LongSound();
-   _delay((unsigned long)((500)*(4000000/4000.0)));
+   _delay((unsigned long)((700)*(4000000/4000.0)));
 }
 
 void ThreeLongOneShort(){

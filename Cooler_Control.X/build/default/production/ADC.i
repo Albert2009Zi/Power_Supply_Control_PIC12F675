@@ -10,17 +10,13 @@
 
 # 1 "./ADC.h" 1
 # 11 "./ADC.h"
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c90\\stdbool.h" 1 3
-# 11 "./ADC.h" 2
-
-
 void Init_uC(void);
 
 void ButtonEvent (void);
 
-_Bool Pin7ThermoControl (void);
+void Pin7ThermoControl (void);
 
-_Bool Pin6VoltageControl (void);
+void Pin6VoltageControl (void);
 # 2 "ADC.c" 2
 
 # 1 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\\pic\\include\\xc.h" 1 3
@@ -1088,7 +1084,7 @@ void Init_uC(){
 }
 
 
-_Bool Pin6VoltageControl (void){
+void Pin6VoltageControl (void){
 
     ADCON0 = 0x00;
     ADFM = 1;
@@ -1105,15 +1101,20 @@ _Bool Pin6VoltageControl (void){
        adcValue = (int) ((ADRESH<<8)+ADRESL);
 
      if ((adcValue > 190) && (adcValue < 285)){
-         return 1;
+         GP5 = 0;
+         GP2 = 0;
+        }
+     else if (adcValue <= 190) {
+         GP5 = 1;
+         TwoShortOneLong();
         }
      else {
-         return 0;
-        }
-
+         GP5 = 1;
+         TwoShortTwoLong();
+     }
 }
 
-_Bool Pin7ThermoControl (void){
+void Pin7ThermoControl (void){
 
        ADCON0 = 0x00;
        ADFM = 1;
@@ -1127,43 +1128,29 @@ _Bool Pin7ThermoControl (void){
        adcValue = (int) ((ADRESH << 8) + ADRESL);
 
              if (adcValue < 200){
+                  GP5 = 1;
                   pwmValue = 0;
-                  return 0;
+                  ThreeLongOneShort();
                 }
              else if ((adcValue >= 200) && (adcValue < 880)){
+                        GP5 = 0;
                         pwmValue = 0;
-                        return 1;
                        }
              else if ((adcValue >= 880) && (adcValue < 910)){
-
+                        GP5 = 0;
                         pwmValue = 30;
-                        return 1;
                        }
              else if ((adcValue >= 910) && (adcValue < 940)){
+                        GP5 = 0;
                         pwmValue = 45;
-                        return 1;
                        }
              else if ((adcValue >= 940) && (adcValue < 970)){
+                        GP5 = 0;
                         pwmValue = 55;
-                        return 1;
                        }
              else {
+                        GP5 = 1;
                         pwmValue = 85;
-                        return 0;
+                        ThreeLong();
                        }
-}
-
-void ButtonEvent (void){
-
-    if (!Pin7ThermoControl()){
-         GP5 = 1;
-    }
-    else if (Pin7ThermoControl()){
-            if (!Pin6VoltageControl()){
-              GP5 = 1;
-            }
-            else if (Pin6VoltageControl()){
-              GP5 = 0;
-            }
-    }
 }

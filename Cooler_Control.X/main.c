@@ -34,7 +34,8 @@ void main()
     ei();
 	while(1)
 	{ 
-       ButtonEvent();
+       Pin7ThermoControl();
+       Pin6VoltageControl();
 	}
 }
 

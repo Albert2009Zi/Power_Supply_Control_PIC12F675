@@ -222,74 +222,62 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;sounds.c: 42:    ShortSound();
 [e ( _ShortSound ..  ]
 "43
-[; ;sounds.c: 43:     _delay((unsigned long)((100)*(4000000/4000.0)));
-[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+[; ;sounds.c: 43:    ShortSound();
+[e ( _ShortSound ..  ]
 "44
 [; ;sounds.c: 44:    ShortSound();
 [e ( _ShortSound ..  ]
 "45
-[; ;sounds.c: 45:     _delay((unsigned long)((100)*(4000000/4000.0)));
-[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+[; ;sounds.c: 45:    _delay((unsigned long)((700)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 700 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
 "46
-[; ;sounds.c: 46:    ShortSound();
-[e ( _ShortSound ..  ]
-"47
-[; ;sounds.c: 47:    _delay((unsigned long)((500)*(4000000/4000.0)));
-[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"48
-[; ;sounds.c: 48: }
+[; ;sounds.c: 46: }
 [e :UE 86 ]
 }
-"50
-[; ;sounds.c: 50: void ThreeLong(){
+"48
+[; ;sounds.c: 48: void ThreeLong(){
 [v _ThreeLong `(v ~T0 @X0 1 ef ]
 {
 [e :U _ThreeLong ]
 [f ]
+"49
+[; ;sounds.c: 49:    LongSound();
+[e ( _LongSound ..  ]
+"50
+[; ;sounds.c: 50:    LongSound();
+[e ( _LongSound ..  ]
 "51
 [; ;sounds.c: 51:    LongSound();
 [e ( _LongSound ..  ]
 "52
-[; ;sounds.c: 52:     _delay((unsigned long)((100)*(4000000/4000.0)));
-[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+[; ;sounds.c: 52:    _delay((unsigned long)((700)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 700 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
 "53
-[; ;sounds.c: 53:    LongSound();
-[e ( _LongSound ..  ]
-"54
-[; ;sounds.c: 54:     _delay((unsigned long)((100)*(4000000/4000.0)));
-[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"55
-[; ;sounds.c: 55:    LongSound();
-[e ( _LongSound ..  ]
-"56
-[; ;sounds.c: 56:    _delay((unsigned long)((500)*(4000000/4000.0)));
-[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"57
-[; ;sounds.c: 57: }
+[; ;sounds.c: 53: }
 [e :UE 87 ]
 }
-"59
-[; ;sounds.c: 59: void ThreeLongOneShort(){
+"55
+[; ;sounds.c: 55: void ThreeLongOneShort(){
 [v _ThreeLongOneShort `(v ~T0 @X0 1 ef ]
 {
 [e :U _ThreeLongOneShort ]
 [f ]
-"60
-[; ;sounds.c: 60:    LongSound();
+"56
+[; ;sounds.c: 56:    LongSound();
 [e ( _LongSound ..  ]
-"61
-[; ;sounds.c: 61:    LongSound();
+"57
+[; ;sounds.c: 57:    LongSound();
 [e ( _LongSound ..  ]
-"62
-[; ;sounds.c: 62:    LongSound();
+"58
+[; ;sounds.c: 58:    LongSound();
 [e ( _LongSound ..  ]
-"63
-[; ;sounds.c: 63:    ShortSound();
+"59
+[; ;sounds.c: 59:    ShortSound();
 [e ( _ShortSound ..  ]
-"64
-[; ;sounds.c: 64:    _delay((unsigned long)((700)*(4000000/4000.0)));
+"60
+[; ;sounds.c: 60:    _delay((unsigned long)((700)*(4000000/4000.0)));
 [e ( __delay (1 -> * -> -> 700 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"65
-[; ;sounds.c: 65: }
+"61
+[; ;sounds.c: 61: }
 [e :UE 88 ]
 }
