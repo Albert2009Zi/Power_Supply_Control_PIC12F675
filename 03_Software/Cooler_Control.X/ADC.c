@@ -102,10 +102,11 @@ void Pin7ThermoControl (void){
              else     { /* Temperature is high than 85 degrees Celsius. Error */
                         GP5      = 1;
                         pwmValue = 85; 
-                        LongSound();
-			             do
-			               MeasureTemp();
-			             while (adcValue >= 970); /* System stays in Error modus, before device cooled below 85 degrees Celsius */
+                        ThreeShort();
+//			             do{
+//			               MeasureTemp();
+//                         }
+//			             while (adcValue >= 970); /* System stays in Error modus, before device cooled below 85 degrees Celsius */
                        }
 }
 

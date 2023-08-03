@@ -1145,10 +1145,11 @@ void Pin7ThermoControl (void){
              else {
                         GP5 = 1;
                         pwmValue = 85;
-                        LongSound();
-                do
-                  MeasureTemp();
-                while (adcValue >= 970);
+                        ThreeShort();
+
+
+
+
                        }
 }
 

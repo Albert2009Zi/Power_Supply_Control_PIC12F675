@@ -24,7 +24,7 @@
  * which transforms +12V DC to 220V AC in field conditions. 
  *  
  * ***********************************
- * System clock is configured to 16MHz
+ * System clock is configured to 4MHz
  * ***********************************
  *
  *
