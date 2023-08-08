@@ -1081,8 +1081,9 @@ void Init_uC(){
 
     ANSEL = 0b00110011;
 
-
     GIE = 1;
+
+    _delay((unsigned long)((3000)*(4000000/4000.0)));
 }
 
 
