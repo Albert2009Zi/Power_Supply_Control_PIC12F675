@@ -1052,6 +1052,9 @@ extern unsigned int pwmValue;
 extern int adcValue;
 
 void Init_uC(){
+
+    _delay((unsigned long)((2500)*(4000000/4000.0)));
+
  CMCON = 0x07;
     VRCON = 0x00;
 
@@ -1083,7 +1086,6 @@ void Init_uC(){
 
     GIE = 1;
 
-    _delay((unsigned long)((3000)*(4000000/4000.0)));
 }
 
 

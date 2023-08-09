@@ -8,7 +8,10 @@
 extern unsigned int pwmValue;
 extern int adcValue;
 
-void Init_uC(){    
+void Init_uC(){  
+    
+    __delay_ms(2500);      /* Needs for charge device capasitors (c)Alex Talko */
+    
 	CMCON  = 0x07;		   /* Shut down the Comparator                         */
     VRCON  = 0x00;         /* Shut down Comparator reference Voltage           */
     
@@ -39,8 +42,7 @@ void Init_uC(){
     ANSEL   = 0b00110011;  /* Sets Tosc = 4us (RC Generator)                   */  
                 
     GIE  = 1;			   /* Enable global interrupts                         */
-    
-    __delay_ms(3000);      /* Needs for charge device capasitors (c)Alex Talko */
+       
 }
 
 
