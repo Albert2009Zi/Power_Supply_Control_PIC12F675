@@ -19,6 +19,8 @@ void Pin7ThermoControl (void);
 void Pin6VoltageControl (void);
 
 int MeasureTemp(void);
+
+int MeasureVoltage(void);
 # 2 "ADC.c" 2
 
 # 1 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\\pic\\include\\xc.h" 1 3
@@ -1052,9 +1054,6 @@ extern unsigned int pwmValue;
 extern int adcValue;
 
 void Init_uC(){
-
-    _delay((unsigned long)((2500)*(4000000/4000.0)));
-
  CMCON = 0x07;
     VRCON = 0x00;
 
@@ -1084,26 +1083,14 @@ void Init_uC(){
 
     ANSEL = 0b00110011;
 
-    GIE = 1;
 
+    GIE = 1;
 }
 
 
 void Pin6VoltageControl (void){
 
-    ADCON0 = 0x00;
-    ADFM = 1;
-    CHS1 = 0;
-    CHS0 = 1;
-    ADON = 1;
-
-     _delay((unsigned long)((10)*(4000000/4000.0)));
-
-       GO = 1;
-       while(!ADIF);
-     _delay((unsigned long)((10)*(4000000/4000.0)));
-
-       adcValue = (int) ((ADRESH<<8)+ADRESL);
+   MeasureVoltage();
 
      if ((adcValue > 190) && (adcValue < 285)){
          GP5 = 0;
@@ -1112,46 +1099,63 @@ void Pin6VoltageControl (void){
      else if (adcValue <= 190) {
          GP5 = 1;
          TwoShortOneLong();
+  do {
+      MeasureVoltage();
+      TwoShortOneLong();
+     } while (adcValue <= 190);
         }
      else if (adcValue >= 285){
          GP5 = 1;
          TwoShortTwoLong();
+   do {
+      MeasureVoltage();
+      TwoShortTwoLong();
+     } while (adcValue >= 285);
      }
 }
 
 void Pin7ThermoControl (void){
 
-             MeasureTemp();
+       MeasureTemp();
 
-             if (adcValue < 200){
-                 GP5 = 1;
-                       pwmValue = 0;
-                     do{
-                      MeasureTemp();
-                      ThreeLongOneShort();
-                    } while(adcValue < 200);
-                  }
+             if (adcValue < 200)
+         {
+        GP5 = 1;
+                      pwmValue = 0;
+           do{
+        MeasureTemp();
+        ThreeLongOneShort();
+       }
+    while(adcValue < 200);
+
+    }
+
              else if ((adcValue >= 200) && (adcValue < 880)){
+
                         pwmValue = 0;
                        }
              else if ((adcValue >= 880) && (adcValue < 910)){
+
                         pwmValue = 30;
                        }
              else if ((adcValue >= 910) && (adcValue < 940)){
+
                         pwmValue = 45;
                        }
              else if ((adcValue >= 940) && (adcValue < 970)){
+
                         pwmValue = 55;
                         ThreeShort();
                        }
              else {
-                     GP5 = 1;
+                 GP5 = 1;
                         pwmValue = 85;
             do {
                         MeasureTemp();
-               ThreeShort();
-            } while (adcValue >= 970);
-                }
+   ThreeShort();
+        }
+     while (adcValue >= 970);
+     }
 }
 
 int MeasureTemp(void){
@@ -1169,4 +1173,23 @@ int MeasureTemp(void){
 
        return adcValue;
 
+}
+
+int MeasureVoltage(void){
+
+    ADCON0 = 0x00;
+    ADFM = 1;
+    CHS1 = 0;
+    CHS0 = 1;
+    ADON = 1;
+
+     _delay((unsigned long)((10)*(4000000/4000.0)));
+
+       GO = 1;
+       while(!ADIF);
+     _delay((unsigned long)((10)*(4000000/4000.0)));
+
+       adcValue = (int) ((ADRESH<<8)+ADRESL);
+
+       return adcValue;
 }

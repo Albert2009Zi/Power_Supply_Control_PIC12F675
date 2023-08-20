@@ -18,5 +18,7 @@ void Pin6VoltageControl (void);
 
 int  MeasureTemp(void);
 
+int  MeasureVoltage(void);
+
 #endif	/* ADC_H */
 

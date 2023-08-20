@@ -1162,6 +1162,8 @@ void Pin7ThermoControl (void);
 void Pin6VoltageControl (void);
 
 int MeasureTemp(void);
+
+int MeasureVoltage(void);
 # 36 "main.c" 2
 
 # 1 "./timer0.h" 1
