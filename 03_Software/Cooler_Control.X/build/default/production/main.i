@@ -1177,6 +1177,7 @@ void InitTimer0(void);
 
 
 
+
 #pragma config FOSC = INTRCIO
 #pragma config WDTE = OFF
 #pragma config PWRTE = OFF
@@ -1196,7 +1197,7 @@ int adcValue = 0;
 
 
 void main()
-{
+{ _delay((unsigned long)((2000)*(4000000/4000.0)));
  InitTimer0();
     Init_uC();
     (INTCONbits.GIE = 1);

@@ -40,6 +40,10 @@ void Init_uC(){
                                                        */  
                 
     GIE  = 1;			   /* Enable global interrupts                        */
+    
+    LongSound();
+    __delay_ms(700);
+    
 }
 
 

@@ -1,5 +1,9 @@
 Version 4.0 HI-TECH Software Intermediate Code
 [p mainexit ]
+[v F537 `(v ~T0 @X0 1 tf1`ul ]
+"92 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\pic\include\pic.h
+[v __delay `JF537 ~T0 @X0 0 e ]
+[p i __delay ]
 "10 ./timer0.h
 [; ;./timer0.h: 10: void InitTimer0(void);
 [v _InitTimer0 `(v ~T0 @X0 0 ef ]
@@ -123,53 +127,54 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1406
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\pic\include\proc\pic12f675.h: 1406: __asm("ANSEL equ 09Fh");
 [; <" ANSEL equ 09Fh ;# ">
-"44 main.c
+"45 main.c
 [p x FOSC  =  INTRCIO    ]
-"45
-[p x WDTE  =  OFF        ]
 "46
-[p x PWRTE  =  OFF       ]
+[p x WDTE  =  OFF        ]
 "47
-[p x MCLRE  =  ON        ]
+[p x PWRTE  =  OFF       ]
 "48
-[p x BOREN  =  ON        ]
+[p x MCLRE  =  ON        ]
 "49
-[p x CP  =  OFF          ]
+[p x BOREN  =  ON        ]
 "50
+[p x CP  =  OFF          ]
+"51
 [p x CPD  =  OFF         ]
-"58
-[v _pwmValue `ui ~T0 @X0 1 e ]
 "59
+[v _pwmValue `ui ~T0 @X0 1 e ]
+"60
 [v _adcValue `i ~T0 @X0 1 e ]
 [i _adcValue
 -> 0 `i
 ]
 [v $root$_main `(v ~T0 @X0 0 e ]
-"62
-[v _main `(v ~T0 @X0 1 ef ]
 "63
+[v _main `(v ~T0 @X0 1 ef ]
+"64
 {
 [e :U _main ]
 [f ]
-"64
-[e ( _InitTimer0 ..  ]
+[e ( __delay (1 -> * -> -> 2000 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
 "65
-[e ( _Init_uC ..  ]
+[e ( _InitTimer0 ..  ]
 "66
-[e = . . _INTCONbits 0 7 -> -> 1 `i `uc ]
+[e ( _Init_uC ..  ]
 "67
-[e :U 83 ]
+[e = . . _INTCONbits 0 7 -> -> 1 `i `uc ]
 "68
-{
+[e :U 83 ]
 "69
-[e ( _Pin6VoltageControl ..  ]
+{
 "70
-[e ( _Pin7ThermoControl ..  ]
+[e ( _Pin6VoltageControl ..  ]
 "71
+[e ( _Pin7ThermoControl ..  ]
+"72
 }
 [e :U 82 ]
 [e $U 83  ]
 [e :U 84 ]
-"72
+"73
 [e :UE 81 ]
 }

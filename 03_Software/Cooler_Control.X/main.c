@@ -36,6 +36,7 @@
 #include "ADC.h"
 #include "timer0.h"
 
+#define _XTAL_FREQ   4000000 
 
 //#define SIMULATION
 
@@ -60,7 +61,7 @@ int  adcValue = 0;
 
 // Main function
 void main()
-{	
+{	__delay_ms(2000);
 	InitTimer0(); 
     Init_uC();
     ei();

@@ -1085,6 +1085,10 @@ void Init_uC(){
 
 
     GIE = 1;
+
+    LongSound();
+    _delay((unsigned long)((700)*(4000000/4000.0)));
+
 }
 
 
