@@ -1200,7 +1200,7 @@ void main()
     (INTCONbits.GIE = 1);
  while(1)
  {
-       Pin7ThermoControl();
        Pin6VoltageControl();
+       Pin7ThermoControl();
  }
 }

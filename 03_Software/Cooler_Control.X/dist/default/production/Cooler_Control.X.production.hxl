@@ -10,11 +10,11 @@
 ### Memory Usage ###
  Intel Hex-file ranges:
   0h - 1h		(dist/default/production\Cooler_Control.X.production.hex)
-  8h - 445h		(dist/default/production\Cooler_Control.X.production.hex)
+  8h - 479h		(dist/default/production\Cooler_Control.X.production.hex)
   400Eh - 400Fh		(dist/default/production\Cooler_Control.X.production.hex)
  Unused ranges:
   2h - 7h
-  446h - 400Dh
+  47Ah - 400Dh
 
 ### Hex Memory Map ###
  Legend:
@@ -91,6 +91,9 @@
 00000410 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00000420 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00000430 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
-00000440 | H1 H1 H1 H1 H1 H1 -- -- -- -- -- -- -- -- -- --
+00000440 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00000450 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00000460 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00000470 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 -- -- -- -- -- --
 ----------------------------------------------------------
 00004000 | -- -- -- -- -- -- -- -- -- -- -- -- -- -- H1 H1

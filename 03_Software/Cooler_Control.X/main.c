@@ -66,8 +66,8 @@ void main()
     ei();
 	while(1)
 	{ 
-       Pin7ThermoControl();
-       Pin6VoltageControl();
+       Pin6VoltageControl(); //at first control and limit all Voltages
+       Pin7ThermoControl();  //at second thermo control
 	}
 }
 

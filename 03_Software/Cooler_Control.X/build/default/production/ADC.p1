@@ -357,145 +357,157 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $ ! < _adcValue -> 200 `i 92  ]
 {
 "84
-[; ;ADC.c: 84:                   GP5 = 1;
+[; ;ADC.c: 84:                  GP5 = 1;
 [e = _GP5 -> -> 1 `i `b ]
 "85
-[; ;ADC.c: 85:                   pwmValue = 0;
+[; ;ADC.c: 85:                        pwmValue = 0;
 [e = _pwmValue -> -> 0 `i `ui ]
 "86
-[; ;ADC.c: 86:                   ThreeLongOneShort();
-[e ( _ThreeLongOneShort ..  ]
+[; ;ADC.c: 86:                      do{
+[e :U 95 ]
+{
 "87
-[; ;ADC.c: 87:                 }
-}
-[e $U 93  ]
+[; ;ADC.c: 87:                       MeasureTemp();
+[e ( _MeasureTemp ..  ]
 "88
-[; ;ADC.c: 88:              else if ((adcValue >= 200) && (adcValue < 880)){
-[e :U 92 ]
-[e $ ! && >= _adcValue -> 200 `i < _adcValue -> 880 `i 94  ]
-{
+[; ;ADC.c: 88:                       ThreeLongOneShort();
+[e ( _ThreeLongOneShort ..  ]
 "89
-[; ;ADC.c: 89:                         GP5 = 0;
-[e = _GP5 -> -> 0 `i `b ]
-"90
-[; ;ADC.c: 90:                         pwmValue = 0;
-[e = _pwmValue -> -> 0 `i `ui ]
-"91
-[; ;ADC.c: 91:                        }
+[; ;ADC.c: 89:                     } while(adcValue < 200);
 }
-[e $U 95  ]
-"92
-[; ;ADC.c: 92:              else if ((adcValue >= 880) && (adcValue < 910)){
+[e $ < _adcValue -> 200 `i 95  ]
 [e :U 94 ]
-[e $ ! && >= _adcValue -> 880 `i < _adcValue -> 910 `i 96  ]
-{
-"93
-[; ;ADC.c: 93:                         GP5 = 0;
-[e = _GP5 -> -> 0 `i `b ]
-"94
-[; ;ADC.c: 94:                         pwmValue = 30;
-[e = _pwmValue -> -> 30 `i `ui ]
-"95
-[; ;ADC.c: 95:                        }
+"90
+[; ;ADC.c: 90:                   }
 }
-[e $U 97  ]
-"96
-[; ;ADC.c: 96:              else if ((adcValue >= 910) && (adcValue < 940)){
-[e :U 96 ]
-[e $ ! && >= _adcValue -> 910 `i < _adcValue -> 940 `i 98  ]
+[e $U 96  ]
+"91
+[; ;ADC.c: 91:              else if ((adcValue >= 200) && (adcValue < 880)){
+[e :U 92 ]
+[e $ ! && >= _adcValue -> 200 `i < _adcValue -> 880 `i 97  ]
 {
+"92
+[; ;ADC.c: 92:                         pwmValue = 0;
+[e = _pwmValue -> -> 0 `i `ui ]
+"93
+[; ;ADC.c: 93:                        }
+}
+[e $U 98  ]
+"94
+[; ;ADC.c: 94:              else if ((adcValue >= 880) && (adcValue < 910)){
+[e :U 97 ]
+[e $ ! && >= _adcValue -> 880 `i < _adcValue -> 910 `i 99  ]
+{
+"95
+[; ;ADC.c: 95:                         pwmValue = 30;
+[e = _pwmValue -> -> 30 `i `ui ]
+"96
+[; ;ADC.c: 96:                        }
+}
+[e $U 100  ]
 "97
-[; ;ADC.c: 97:                         GP5 = 0;
-[e = _GP5 -> -> 0 `i `b ]
+[; ;ADC.c: 97:              else if ((adcValue >= 910) && (adcValue < 940)){
+[e :U 99 ]
+[e $ ! && >= _adcValue -> 910 `i < _adcValue -> 940 `i 101  ]
+{
 "98
 [; ;ADC.c: 98:                         pwmValue = 45;
 [e = _pwmValue -> -> 45 `i `ui ]
 "99
 [; ;ADC.c: 99:                        }
 }
-[e $U 99  ]
+[e $U 102  ]
 "100
 [; ;ADC.c: 100:              else if ((adcValue >= 940) && (adcValue < 970)){
-[e :U 98 ]
-[e $ ! && >= _adcValue -> 940 `i < _adcValue -> 970 `i 100  ]
+[e :U 101 ]
+[e $ ! && >= _adcValue -> 940 `i < _adcValue -> 970 `i 103  ]
 {
 "101
-[; ;ADC.c: 101:                         GP5 = 0;
-[e = _GP5 -> -> 0 `i `b ]
-"102
-[; ;ADC.c: 102:                         pwmValue = 55;
+[; ;ADC.c: 101:                         pwmValue = 55;
 [e = _pwmValue -> -> 55 `i `ui ]
+"102
+[; ;ADC.c: 102:                         ThreeShort();
+[e ( _ThreeShort ..  ]
 "103
-[; ;ADC.c: 103:                         ThreeShort();
-[e ( _ThreeShort ..  ]
+[; ;ADC.c: 103:                        }
+}
+[e $U 104  ]
 "104
-[; ;ADC.c: 104:                        }
-}
-[e $U 101  ]
-"105
-[; ;ADC.c: 105:              else {
-[e :U 100 ]
+[; ;ADC.c: 104:              else {
+[e :U 103 ]
 {
-"106
-[; ;ADC.c: 106:                         GP5 = 1;
+"105
+[; ;ADC.c: 105:                      GP5 = 1;
 [e = _GP5 -> -> 1 `i `b ]
-"107
-[; ;ADC.c: 107:                         pwmValue = 85;
+"106
+[; ;ADC.c: 106:                         pwmValue = 85;
 [e = _pwmValue -> -> 85 `i `ui ]
+"107
+[; ;ADC.c: 107:             do {
+[e :U 107 ]
+{
 "108
-[; ;ADC.c: 108:                         ThreeShort();
+[; ;ADC.c: 108:                         MeasureTemp();
+[e ( _MeasureTemp ..  ]
+"109
+[; ;ADC.c: 109:                ThreeShort();
 [e ( _ThreeShort ..  ]
-"113
-[; ;ADC.c: 113:                        }
+"110
+[; ;ADC.c: 110:             } while (adcValue >= 970);
 }
-[e :U 101 ]
-[e :U 99 ]
-[e :U 97 ]
-[e :U 95 ]
-[e :U 93 ]
-"114
-[; ;ADC.c: 114: }
+[e $ >= _adcValue -> 970 `i 107  ]
+[e :U 106 ]
+"111
+[; ;ADC.c: 111:                 }
+}
+[e :U 104 ]
+[e :U 102 ]
+[e :U 100 ]
+[e :U 98 ]
+[e :U 96 ]
+"112
+[; ;ADC.c: 112: }
 [e :UE 91 ]
 }
-"116
-[; ;ADC.c: 116: int MeasureTemp(void){
+"114
+[; ;ADC.c: 114: int MeasureTemp(void){
 [v _MeasureTemp `(i ~T0 @X0 1 ef ]
 {
 [e :U _MeasureTemp ]
 [f ]
-"118
-[; ;ADC.c: 118:        ADCON0 = 0x00;
+"116
+[; ;ADC.c: 116:        ADCON0 = 0x00;
 [e = _ADCON0 -> -> 0 `i `uc ]
-"119
-[; ;ADC.c: 119:        ADFM = 1;
+"117
+[; ;ADC.c: 117:        ADFM = 1;
 [e = _ADFM -> -> 1 `i `b ]
-"120
-[; ;ADC.c: 120:        ADON = 1;
+"118
+[; ;ADC.c: 118:        ADON = 1;
 [e = _ADON -> -> 1 `i `b ]
-"122
-[; ;ADC.c: 122:        _delay((unsigned long)((5)*(4000000/4000.0)));
+"120
+[; ;ADC.c: 120:        _delay((unsigned long)((5)*(4000000/4000.0)));
 [e ( __delay (1 -> * -> -> 5 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"123
-[; ;ADC.c: 123:        GO = 1;
+"121
+[; ;ADC.c: 121:        GO = 1;
 [e = _GO -> -> 1 `i `b ]
-"124
-[; ;ADC.c: 124:        while(!ADIF);
-[e $U 103  ]
-[e :U 104 ]
-[e :U 103 ]
-[e $ ! _ADIF 104  ]
-[e :U 105 ]
-"125
-[; ;ADC.c: 125:        _delay((unsigned long)((5)*(4000000/4000.0)));
+"122
+[; ;ADC.c: 122:        while(!ADIF);
+[e $U 109  ]
+[e :U 110 ]
+[e :U 109 ]
+[e $ ! _ADIF 110  ]
+[e :U 111 ]
+"123
+[; ;ADC.c: 123:        _delay((unsigned long)((5)*(4000000/4000.0)));
 [e ( __delay (1 -> * -> -> 5 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"127
-[; ;ADC.c: 127:        adcValue = (int) ((ADRESH << 8) + ADRESL);
+"125
+[; ;ADC.c: 125:        adcValue = (int) ((ADRESH << 8) + ADRESL);
 [e = _adcValue + << -> _ADRESH `i -> 8 `i -> _ADRESL `i ]
-"129
-[; ;ADC.c: 129:        return adcValue;
+"127
+[; ;ADC.c: 127:        return adcValue;
 [e ) _adcValue ]
-[e $UE 102  ]
-"131
-[; ;ADC.c: 131: }
-[e :UE 102 ]
+[e $UE 108  ]
+"129
+[; ;ADC.c: 129: }
+[e :UE 108 ]
 }

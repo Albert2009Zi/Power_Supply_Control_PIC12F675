@@ -80,37 +80,35 @@ void Pin7ThermoControl (void){
     
              MeasureTemp();
              
-             if (adcValue < 200){  /* Pin 7 Signal is in low level < 1V. Error */
-                  GP5             = 1;  /* Error on termocontrol and outer comparator Pin */
-                  pwmValue        = 0;
-                  ThreeLongOneShort();
-                }
+             if (adcValue < 200){                            /* Pin 7 Signal is in low level < 1V. Error */
+		               GP5      = 1;                         /* Error on termocontrol and outer comparator Pin */
+                       pwmValue = 0;      
+	                    do{
+		                    MeasureTemp();
+		                    ThreeLongOneShort();
+		                  } while(adcValue < 200);
+		                }
              else if ((adcValue >= 200) && (adcValue < 880)){ /* Temperature is good, cooler is off */
-                        GP5      = 0; 
                         pwmValue = 0;
                        }
              else if ((adcValue >= 880) && (adcValue < 910)){ /* Temperature is between 43 and 57 degrees Celsium */
-                        GP5      = 0;                                       /* Cooler PWM is 30% */
-                        pwmValue = 30;
+                        pwmValue = 30;                        /* Cooler PWM is 30% */
                        }
              else if ((adcValue >= 910) && (adcValue < 940)){ /* Temperature is between 57 and 71 degrees Celsium */
-                        GP5      = 0; 
                         pwmValue = 45;                        /* Cooler PWM is 45% */ 
                        }
              else if ((adcValue >= 940) && (adcValue < 970)){ /* Temperature is between 71 and 85 degrees Celsium */
-                        GP5      = 0; 
                         pwmValue = 55;                        /* Cooler PWM is 55% */
                         ThreeShort();
                        }
-             else     { /* Temperature is high than 85 degrees Celsius. Error */
-                        GP5      = 1;
-                        pwmValue = 85; 
-                        ThreeShort();
-//			             do{
-//			               MeasureTemp();
-//                         }
-//			             while (adcValue >= 970); /* System stays in Error modus, before device cooled below 85 degrees Celsius */
-                       }
+             else     {
+	                    GP5      = 1;
+                        pwmValue = 85;   
+	           do {                                            /* Temperature is high than 85 degrees Celsium. Error */
+                        MeasureTemp();
+			            ThreeShort();
+		          }	while (adcValue >= 970);
+		              }
 }
 
 int MeasureTemp(void){

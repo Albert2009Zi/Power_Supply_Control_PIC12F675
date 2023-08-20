@@ -1124,36 +1124,34 @@ void Pin7ThermoControl (void){
              MeasureTemp();
 
              if (adcValue < 200){
-                  GP5 = 1;
-                  pwmValue = 0;
-                  ThreeLongOneShort();
-                }
+                 GP5 = 1;
+                       pwmValue = 0;
+                     do{
+                      MeasureTemp();
+                      ThreeLongOneShort();
+                    } while(adcValue < 200);
+                  }
              else if ((adcValue >= 200) && (adcValue < 880)){
-                        GP5 = 0;
                         pwmValue = 0;
                        }
              else if ((adcValue >= 880) && (adcValue < 910)){
-                        GP5 = 0;
                         pwmValue = 30;
                        }
              else if ((adcValue >= 910) && (adcValue < 940)){
-                        GP5 = 0;
                         pwmValue = 45;
                        }
              else if ((adcValue >= 940) && (adcValue < 970)){
-                        GP5 = 0;
                         pwmValue = 55;
                         ThreeShort();
                        }
              else {
-                        GP5 = 1;
+                     GP5 = 1;
                         pwmValue = 85;
-                        ThreeShort();
-
-
-
-
-                       }
+            do {
+                        MeasureTemp();
+               ThreeShort();
+            } while (adcValue >= 970);
+                }
 }
 
 int MeasureTemp(void){
