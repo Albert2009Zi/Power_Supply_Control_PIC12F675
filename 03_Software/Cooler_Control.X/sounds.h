@@ -21,5 +21,7 @@ void ThreeShort(void);
 
 void ThreeLongOneShort(void);
 
+void VoltageCheck(void);
+
 #endif	/* SOUNDS_H */
 
