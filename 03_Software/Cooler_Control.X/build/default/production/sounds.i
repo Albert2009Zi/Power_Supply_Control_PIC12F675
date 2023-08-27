@@ -22,8 +22,6 @@ void TwoShortTwoLong(void);
 void ThreeShort(void);
 
 void ThreeLongOneShort(void);
-
-void VoltageCheck(void);
 # 1 "sounds.c" 2
 
 # 1 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\\pic\\include\\xc.h" 1 3
@@ -1073,15 +1071,5 @@ void ThreeLongOneShort(){
    LongSound();
    LongSound();
    ShortSound();
-   _delay((unsigned long)((700)*(4000000/4000.0)));
-}
-
-void VoltageCheck(){
-    ShortSound();
-    LongSound();
-    ShortSound();
-    LongSound();
-    ShortSound();
-    LongSound();
    _delay((unsigned long)((700)*(4000000/4000.0)));
 }

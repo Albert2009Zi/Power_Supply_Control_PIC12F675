@@ -47,14 +47,14 @@ void ThreeLongOneShort(){
    __delay_ms(700);
 }  
    
-void VoltageCheck(){
-    ShortSound();
-    LongSound();
-    ShortSound();
-    LongSound();
-    ShortSound();
-    LongSound();
-   __delay_ms(700);   
-}
+//void VoltageCheck(){
+//    ShortSound();
+//    LongSound();
+//    ShortSound();
+//    LongSound();
+//    ShortSound();
+//    LongSound();
+//   __delay_ms(700);   
+//}
 
 

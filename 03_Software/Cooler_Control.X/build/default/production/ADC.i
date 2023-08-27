@@ -1041,8 +1041,6 @@ void TwoShortTwoLong(void);
 void ThreeShort(void);
 
 void ThreeLongOneShort(void);
-
-void VoltageCheck(void);
 # 4 "ADC.c" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c90\\stdint.h" 1 3
@@ -1231,11 +1229,15 @@ void Pin6VoltageControl (void){
 
    MeasureVoltage();
 
-     if ((adcValue > 190) && (adcValue < 285)){
+     if ((adcValue > 190) && (adcValue < 280)){
+         if (errorFlag == 0){
          GP5 = 0;
-         GP2 = 0;
-         if (errorFlag == 1) {
-      VoltageCheck();
+         }
+         else if (errorFlag == 1) {
+             while ((adcValue < 255) && (adcValue > 260)){
+               MeasureVoltage();
+             }
+         GP5 = 0;
       errorFlag = 0;
       }
         }
