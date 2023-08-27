@@ -7,7 +7,6 @@
 # 1 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
 # 1 "ADC.c" 2
-
 # 1 "./ADC.h" 1
 # 11 "./ADC.h"
 void Init_uC(void);
@@ -21,7 +20,7 @@ void Pin6VoltageControl (void);
 int MeasureTemp(void);
 
 int MeasureVoltage(void);
-# 2 "ADC.c" 2
+# 1 "ADC.c" 2
 
 # 1 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\\pic\\include\\xc.h" 3
@@ -1024,7 +1023,7 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 28 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\\pic\\include\\xc.h" 2 3
-# 3 "ADC.c" 2
+# 2 "ADC.c" 2
 
 # 1 "./sounds.h" 1
 # 10 "./sounds.h"
@@ -1041,7 +1040,7 @@ void TwoShortTwoLong(void);
 void ThreeShort(void);
 
 void ThreeLongOneShort(void);
-# 4 "ADC.c" 2
+# 3 "ADC.c" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c90\\stdint.h" 1 3
 # 13 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c90\\stdint.h" 3
@@ -1176,7 +1175,7 @@ typedef int16_t intptr_t;
 
 
 typedef uint16_t uintptr_t;
-# 5 "ADC.c" 2
+# 4 "ADC.c" 2
 
 
 
@@ -1229,18 +1228,15 @@ void Pin6VoltageControl (void){
 
    MeasureVoltage();
 
-     if ((adcValue > 190) && (adcValue < 280)){
+     if ((adcValue > 185) && (adcValue < 278)){
          if (errorFlag == 0){
-         GP5 = 0;
+             GP5 = 0;
          }
-         else if (errorFlag == 1) {
-             while ((adcValue < 255) && (adcValue > 260)){
-               MeasureVoltage();
+         else if ((errorFlag == 1) && (adcValue > 255) && (adcValue < 260)){
+             GP5 = 0;
+          errorFlag = 0;
              }
-         GP5 = 0;
-      errorFlag = 0;
-      }
-        }
+         }
      else if (adcValue <= 190) {
          GP5 = 1;
          errorFlag = 1;
