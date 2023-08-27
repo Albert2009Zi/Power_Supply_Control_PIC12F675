@@ -1197,7 +1197,7 @@ int adcValue = 0;
 
 
 void main()
-{ _delay((unsigned long)((2000)*(4000000/4000.0)));
+{ _delay((unsigned long)((2300)*(4000000/4000.0)));
  InitTimer0();
     Init_uC();
     (INTCONbits.GIE = 1);

@@ -17,11 +17,7 @@ void TwoShortOneLong(void);
 
 void TwoShortTwoLong(void);
 
-void TwoShort(void);
-
 void ThreeShort(void);
-
-void ThreeLong(void);
 
 void ThreeLongOneShort(void);
 

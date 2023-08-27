@@ -32,23 +32,10 @@ void TwoShortTwoLong(){
    __delay_ms(700);
 }
 
-void TwoShort(){
-   ShortSound(); 
-   ShortSound();
-   __delay_ms(700);
-}
-
 void ThreeShort(){
    ShortSound();
    ShortSound();
    ShortSound();
-   __delay_ms(700);
-}
-
-void ThreeLong(){
-   LongSound();
-   LongSound();
-   LongSound();
    __delay_ms(700);
 }
 

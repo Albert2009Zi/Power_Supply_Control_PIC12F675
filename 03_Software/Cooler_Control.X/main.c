@@ -61,7 +61,7 @@ int  adcValue = 0;
 
 // Main function
 void main()
-{	__delay_ms(2000);
+{	__delay_ms(2300);
 	InitTimer0(); 
     Init_uC();
     ei();

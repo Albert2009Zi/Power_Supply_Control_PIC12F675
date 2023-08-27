@@ -2,11 +2,14 @@
 #include "ADC.h"
 #include <xc.h>
 #include "sounds.h"
+#include <stdint.h>
 
 #define _XTAL_FREQ   4000000 
 
 extern unsigned int pwmValue;
 extern int adcValue;
+
+uint8_t errorFlag = 0;
 
 void Init_uC(){    
 	CMCON  = 0x07;		   /* Shut down the Comparator                        */
@@ -52,24 +55,22 @@ void Pin6VoltageControl (void){
    MeasureVoltage();
      
      if ((adcValue > 190) && (adcValue < 285)){
+        if (errorFlag == 1) {
+	     __delay_ms(2500);
+	     errorFlag = 0;
+	     } 
          GP5 = 0;
          GP2 = 0;
         }
      else if (adcValue <= 190) { 
          GP5 = 1;
-         TwoShortOneLong();
-	 do {
-	     MeasureVoltage();
-	     TwoShortOneLong();
-	    } while (adcValue <= 190);
+         errorFlag = 1;
+         TwoShortOneLong(); 
         }
      else if (adcValue >= 285){
          GP5 = 1;
-         TwoShortTwoLong();
-	  do {
-	     MeasureVoltage();
-	     TwoShortTwoLong();
-	    } while (adcValue >= 285);
+         errorFlag = 1;
+         TwoShortTwoLong();    
      }  
 }
 
@@ -80,7 +81,7 @@ void Pin7ThermoControl (void){
              if (adcValue < 200)  /* Pin 7 Signal is in low level < 1V. Error */
 	        {
 		      GP5             = 1;  /* Error on termocontrol and outer comparator Pin */
-                      pwmValue        = 0;      
+              pwmValue        = 0;      
 	          do{
 		      MeasureTemp();
 		      ThreeLongOneShort();
