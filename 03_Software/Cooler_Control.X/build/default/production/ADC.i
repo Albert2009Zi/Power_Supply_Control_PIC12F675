@@ -1229,15 +1229,15 @@ void Pin6VoltageControl (void){
    MeasureVoltage();
 
      if ((adcValue > 185) && (adcValue < 278)){
-         if (errorFlag == 0){
-             GP5 = 0;
-         }
-         else if ((errorFlag == 1) && (adcValue > 255) && (adcValue < 260)){
+         if (errorFlag == 0) GP5 = 0;
+          else
+         if ((adcValue > 255) && (adcValue < 260)){
              GP5 = 0;
           errorFlag = 0;
              }
          }
-     else if (adcValue <= 190) {
+     else
+         if (adcValue <= 190) {
          GP5 = 1;
          errorFlag = 1;
          TwoShortOneLong();

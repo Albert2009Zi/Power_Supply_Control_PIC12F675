@@ -282,39 +282,37 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $ ! && > _adcValue -> 185 `i < _adcValue -> 278 `i 83  ]
 {
 "57
-[; ;ADC.c: 57:          if (errorFlag == 0){
+[; ;ADC.c: 57:          if (errorFlag == 0) GP5 = 0;
 [e $ ! == -> _errorFlag `i -> 0 `i 84  ]
-{
-"58
-[; ;ADC.c: 58:              GP5 = 0;
 [e = _GP5 -> -> 0 `i `b ]
-"59
-[; ;ADC.c: 59:          }
-}
 [e $U 85  ]
-"60
-[; ;ADC.c: 60:          else if ((errorFlag == 1) && (adcValue > 255) && (adcValue < 260)){
+"58
+[; ;ADC.c: 58:           else
 [e :U 84 ]
-[e $ ! && && == -> _errorFlag `i -> 1 `i > _adcValue -> 255 `i < _adcValue -> 260 `i 86  ]
+"59
+[; ;ADC.c: 59:          if ((adcValue > 255) && (adcValue < 260)){
+[e $ ! && > _adcValue -> 255 `i < _adcValue -> 260 `i 86  ]
 {
-"61
-[; ;ADC.c: 61:              GP5 = 0;
+"60
+[; ;ADC.c: 60:              GP5 = 0;
 [e = _GP5 -> -> 0 `i `b ]
-"62
-[; ;ADC.c: 62:           errorFlag = 0;
+"61
+[; ;ADC.c: 61:           errorFlag = 0;
 [e = _errorFlag -> -> 0 `i `uc ]
-"63
-[; ;ADC.c: 63:              }
+"62
+[; ;ADC.c: 62:              }
 }
 [e :U 86 ]
 [e :U 85 ]
-"64
-[; ;ADC.c: 64:          }
+"63
+[; ;ADC.c: 63:          }
 }
 [e $U 87  ]
-"65
-[; ;ADC.c: 65:      else if (adcValue <= 190) {
+"64
+[; ;ADC.c: 64:      else
 [e :U 83 ]
+"65
+[; ;ADC.c: 65:          if (adcValue <= 190) {
 [e $ ! <= _adcValue -> 190 `i 88  ]
 {
 "66

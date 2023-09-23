@@ -5,9 +5,9 @@ Linker command line:
 -W-3 --edf=C:\Program Files\Microchip\xc8\v2.36\pic\dat\en_msgs.txt -cn \
   -h+dist/default/production\Cooler_Control.X.production.sym \
   --cmf=dist/default/production\Cooler_Control.X.production.cmf -z -Q12F675 \
-  -oC:\Users\ziatd\AppData\Local\Temp\xcAs6p8.4 --defsym=__MPLAB_BUILD=1 \
+  -oC:\Users\ziatd\AppData\Local\Temp\xcAsc04.4 --defsym=__MPLAB_BUILD=1 \
   -Mdist/default/production/Cooler_Control.X.production.map \
-  --md=C:\Users\ziatd\AppData\Local\Temp\xcAs6p8.dat -E1 -ver=XC8 Compiler \
+  --md=C:\Users\ziatd\AppData\Local\Temp\xcAsc04.dat -E1 -ver=XC8 Compiler \
   --acfsm=1493 -ACODE=00h-03FEh -ASTRCODE=00h-03FEh \
   -ASTRING=00h-0FFhx3,0300h-03FEh -ACONST=00h-0FFhx3,0300h-03FEh \
   -AENTRY=00h-0FFhx3,0300h-03FEh -ABANK0=020h-05Dh -ARAM=020h-05Dh \
@@ -17,7 +17,7 @@ Linker command line:
   -DSTRCODE=2 -DSTRING=2 -DCONST=2 -DENTRY=2 \
   -preset_vec=00h,intentry=04h,init,end_init -ppowerup=CODE -pcinit=CODE \
   -pfunctab=ENTRY -posccal=03FFh -k \
-  C:\Users\ziatd\AppData\Local\Temp\xcAs6p8.o \
+  C:\Users\ziatd\AppData\Local\Temp\xcAsc04.o \
   dist/default/production\Cooler_Control.X.production.o 
 
 Object code version is 3.11
@@ -27,7 +27,7 @@ Machine type is 12F675
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\ziatd\AppData\Local\Temp\xcAs6p8.o
+C:\Users\ziatd\AppData\Local\Temp\xcAsc04.o
                 end_init                              B        B        1        8       0
                 reset_vec                             0        0        1        0       0
                 config                             2007     2007        1        0       4
@@ -35,20 +35,20 @@ dist/default/production\Cooler_Control.X.production.o
                 cinit                                 C        C        A        8       0
                 intentry                              4        4        7        8       0
                 config                             2007     2007        1        0       4
-                text13                              175      175       2C        8       0
-                text12                              274      274        8        8       0
-                text11                              1FF      1FF       16        8       0
-                text10                              149      149       2C        8       0
-                text9                               1A1      1A1       26        8       0
-                text8                               1E9      1E9       16        8       0
-                text7                               262      262       12        8       0
-                text6                               23D      23D       13        8       0
-                text5                                D8       D8       71        8       0
-                text4                               1C7      1C7       22        8       0
-                text3                               22A      22A       13        8       0
-                text2                               250      250       12        8       0
+                text13                              170      170       2C        8       0
+                text12                              26F      26F        8        8       0
+                text11                              1FA      1FA       16        8       0
+                text10                              144      144       2C        8       0
+                text9                               19C      19C       26        8       0
+                text8                               1E4      1E4       16        8       0
+                text7                               25D      25D       12        8       0
+                text6                               238      238       13        8       0
+                text5                                D8       D8       6C        8       0
+                text4                               1C2      1C2       22        8       0
+                text3                               225      225       13        8       0
+                text2                               24B      24B       12        8       0
                 text1                                16       16       C2        8       0
-                maintext                            215      215       15        8       0
+                maintext                            210      210       15        8       0
                 cstackBANK0                          20       20        A       20       1
                 bssBANK0                             2A       2A        7       20       1
 
@@ -58,20 +58,20 @@ TOTAL           Name                               Link     Load   Length     Sp
                 cinit                                 C        C        A         0
                 intentry                              4        4        7         0
                 reset_vec                             0        0        1         0
-                text13                              175      175       2C         0
-                text12                              274      274        8         0
-                text11                              1FF      1FF       16         0
-                text10                              149      149       2C         0
-                text9                               1A1      1A1       26         0
-                text8                               1E9      1E9       16         0
-                text7                               262      262       12         0
-                text6                               23D      23D       13         0
-                text5                                D8       D8       71         0
-                text4                               1C7      1C7       22         0
-                text3                               22A      22A       13         0
-                text2                               250      250       12         0
+                text13                              170      170       2C         0
+                text12                              26F      26F        8         0
+                text11                              1FA      1FA       16         0
+                text10                              144      144       2C         0
+                text9                               19C      19C       26         0
+                text8                               1E4      1E4       16         0
+                text7                               25D      25D       12         0
+                text6                               238      238       13         0
+                text5                                D8       D8       6C         0
+                text4                               1C2      1C2       22         0
+                text3                               225      225       13         0
+                text2                               24B      24B       12         0
                 text1                                16       16       C2         0
-                maintext                            215      215       15         0
+                maintext                            210      210       15         0
 
         CLASS   STRCODE        
 
@@ -112,7 +112,7 @@ TOTAL           Name                               Link     Load   Length     Sp
 SEGMENTS        Name                           Load    Length   Top    Selector   Space  Class     Delta
 
                 reset_vec                      000000  000001  000001         0       0  CODE        2
-                intentry                       000004  000278  00027C         8       0  CODE        2
+                intentry                       000004  000273  000277         8       0  CODE        2
                 cstackBANK0                    000020  000011  000031        20       1  BANK0       1
 
 
@@ -121,20 +121,20 @@ UNUSED ADDRESS RANGES
         Name                Unused          Largest block    Delta
         BANK0            0031-005D             2D           1
         CODE             0001-0003              3           2
-                         027C-03FE            183
+                         0277-03FE            188
         CONST            0001-0003              3           2
-                         027C-03FE             84
+                         0277-03FE             89
         EEDATA           2100-217F             80           2
         ENTRY            0001-0003              3           2
-                         027C-03FE             84
+                         0277-03FE             89
         IDLOC            2000-2003              4           2
         RAM              0031-005D             2D           1
         SFR0             0000-001F             20           1
         SFR1             0080-00DD             5E           1
         STRCODE          0001-0003              3           2
-                         027C-03FE            183
+                         0277-03FE            188
         STRING           0001-0003              3           2
-                         027C-03FE             84
+                         0277-03FE             89
 
                                   Symbol Table
 
@@ -155,16 +155,16 @@ _GP4                        (abs)        002C
 _GP5                        (abs)        002D
 _GPIO                       (abs)        0005
 _INTCONbits                 (abs)        000B
-_ISR                        text13       0175
-_InitTimer0                 text12       0274
-_Init_uC                    text10       0149
-_LongSound                  text11       01FF
-_MeasureTemp                text4        01C7
-_MeasureVoltage             text9        01A1
+_ISR                        text13       0170
+_InitTimer0                 text12       026F
+_Init_uC                    text10       0144
+_LongSound                  text11       01FA
+_MeasureTemp                text4        01C2
+_MeasureVoltage             text9        019C
 _OPTION_REG                 (abs)        0081
 _Pin6VoltageControl         text5        00D8
 _Pin7ThermoControl          text1        0016
-_ShortSound                 text8        01E9
+_ShortSound                 text8        01E4
 _T0IE                       (abs)        005D
 _T0IF                       (abs)        005A
 _TMR0                       (abs)        0001
@@ -174,10 +174,10 @@ _TRISIO1                    (abs)        0429
 _TRISIO2                    (abs)        042A
 _TRISIO4                    (abs)        042C
 _TRISIO5                    (abs)        042D
-_ThreeLongOneShort          text3        022A
-_ThreeShort                 text2        0250
-_TwoShortOneLong            text7        0262
-_TwoShortTwoLong            text6        023D
+_ThreeLongOneShort          text3        0225
+_ThreeShort                 text2        024B
+_TwoShortOneLong            text7        025D
+_TwoShortTwoLong            text6        0238
 _VCFG                       (abs)        00FE
 _VRCON                      (abs)        0099
 __Habs1                     abs1         07FE
@@ -242,7 +242,7 @@ __Lspace_4                  (abs)        0000
 __Lstack                    stack        07FE
 __Lstrings                  strings      07FE
 __Ltext                     text         07FE
-__S0                        (abs)        027C
+__S0                        (abs)        0277
 __S1                        (abs)        0031
 __S3                        (abs)        0000
 ___int_sp                   stack        07FE
@@ -251,43 +251,43 @@ ___osccal_val               osccal       03FF
 ___sp                       stack        07FE
 ___stackhi                  (abs)        0000
 ___stacklo                  (abs)        0000
-__end_of_ISR                text13       01A1
-__end_of_InitTimer0         text12       027C
-__end_of_Init_uC            text10       0175
-__end_of_LongSound          text11       0215
-__end_of_MeasureTemp        text4        01E9
-__end_of_MeasureVoltage     text9        01C7
-__end_of_Pin6VoltageControl text5        0149
+__end_of_ISR                text13       019C
+__end_of_InitTimer0         text12       0277
+__end_of_Init_uC            text10       0170
+__end_of_LongSound          text11       0210
+__end_of_MeasureTemp        text4        01E4
+__end_of_MeasureVoltage     text9        01C2
+__end_of_Pin6VoltageControl text5        0144
 __end_of_Pin7ThermoControl  text1        00D8
-__end_of_ShortSound         text8        01FF
-__end_of_ThreeLongOneShort  text3        023D
-__end_of_ThreeShort         text2        0262
-__end_of_TwoShortOneLong    text7        0274
-__end_of_TwoShortTwoLong    text6        0250
+__end_of_ShortSound         text8        01FA
+__end_of_ThreeLongOneShort  text3        0238
+__end_of_ThreeShort         text2        025D
+__end_of_TwoShortOneLong    text7        026F
+__end_of_TwoShortTwoLong    text6        024B
 __end_of__initialization    cinit        0014
-__end_of_main               maintext     022A
+__end_of_main               maintext     0225
 __initialization            cinit        000C
 __pbssBANK0                 bssBANK0     002A
 __pcstackBANK0              cstackBANK0  0020
 __pcstackCOMMON             cstackCOMMON 0000
 __pintentry                 intentry     0004
-__pmaintext                 maintext     0215
+__pmaintext                 maintext     0210
 __ptext1                    text1        0016
-__ptext10                   text10       0149
-__ptext11                   text11       01FF
-__ptext12                   text12       0274
-__ptext13                   text13       0175
-__ptext2                    text2        0250
-__ptext3                    text3        022A
-__ptext4                    text4        01C7
+__ptext10                   text10       0144
+__ptext11                   text11       01FA
+__ptext12                   text12       026F
+__ptext13                   text13       0170
+__ptext2                    text2        024B
+__ptext3                    text3        0225
+__ptext4                    text4        01C2
 __ptext5                    text5        00D8
-__ptext6                    text6        023D
-__ptext7                    text7        0262
-__ptext8                    text8        01E9
-__ptext9                    text9        01A1
+__ptext6                    text6        0238
+__ptext7                    text7        025D
+__ptext8                    text8        01E4
+__ptext9                    text9        019C
 _adcValue                   bssBANK0     002E
 _errorFlag                  bssBANK0     0030
-_main                       maintext     0215
+_main                       maintext     0210
 _pulsePerTakt               bssBANK0     002A
 _pwmValue                   bssBANK0     002C
 btemp                       (abs)        005E
@@ -310,22 +310,22 @@ MODULE INFORMATION
 
 Module		Function		Class		Link	Load	Size
 sounds.c
-		_ThreeLongOneShort		CODE           	022A	0000	19
-		_ThreeShort    		CODE           	0250	0000	18
-		_TwoShortOneLong		CODE           	0262	0000	18
-		_TwoShortTwoLong		CODE           	023D	0000	19
-		_ShortSound    		CODE           	01E9	0000	22
-		_LongSound     		CODE           	01FF	0000	22
+		_ThreeLongOneShort		CODE           	0225	0000	19
+		_ThreeShort    		CODE           	024B	0000	18
+		_TwoShortOneLong		CODE           	025D	0000	18
+		_TwoShortTwoLong		CODE           	0238	0000	19
+		_ShortSound    		CODE           	01E4	0000	22
+		_LongSound     		CODE           	01FA	0000	22
 
 sounds.c estimated size: 118
 
 timer0.c
-		_InitTimer0    		CODE           	0274	0000	8
+		_InitTimer0    		CODE           	026F	0000	8
 
 timer0.c estimated size: 8
 
 interrupt.c
-		_ISR           		CODE           	0175	0000	44
+		_ISR           		CODE           	0170	0000	44
 
 interrupt.c estimated size: 44
 
@@ -335,16 +335,16 @@ shared
 shared estimated size: 8
 
 ADC.c
-		_MeasureVoltage		CODE           	01A1	0000	38
-		_Init_uC       		CODE           	0149	0000	44
-		_Pin6VoltageControl		CODE           	00D8	0000	113
+		_MeasureVoltage		CODE           	019C	0000	38
+		_Init_uC       		CODE           	0144	0000	44
+		_Pin6VoltageControl		CODE           	00D8	0000	108
 		_Pin7ThermoControl		CODE           	0016	0000	194
-		_MeasureTemp   		CODE           	01C7	0000	34
+		_MeasureTemp   		CODE           	01C2	0000	34
 
-ADC.c estimated size: 423
+ADC.c estimated size: 418
 
 main.c
-		_main          		CODE           	0215	0000	21
+		_main          		CODE           	0210	0000	21
 
 main.c estimated size: 21
 
