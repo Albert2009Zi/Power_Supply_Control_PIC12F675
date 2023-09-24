@@ -294,12 +294,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $ ! == -> _errorFlag `i -> 1 `i 86  ]
 {
 "60
-[; ;ADC.c: 60:            if ((adcValue > 239) && (adcValue < 260)){
-[e $ ! && > _adcValue -> 239 `i < _adcValue -> 260 `i 87  ]
+[; ;ADC.c: 60:            if ((adcValue > 250) && (adcValue < 260)){
+[e $ ! && > _adcValue -> 250 `i < _adcValue -> 260 `i 87  ]
 {
 "61
-[; ;ADC.c: 61:              GP5 = ~GP5;
-[e = _GP5 -> ~ -> _GP5 `ui `b ]
+[; ;ADC.c: 61:              GP5 = 0;
+[e = _GP5 -> -> 0 `i `b ]
 "62
 [; ;ADC.c: 62:           errorFlag = 0;
 [e = _errorFlag -> -> 0 `i `uc ]
