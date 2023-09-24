@@ -59,7 +59,8 @@ void Pin6VoltageControl (void){
          if (errorFlag == 1){     
            if ((adcValue > 250) && (adcValue < 260)){
              GP5       = 0;    
-	         errorFlag = 0;
+             errorFlag = 0;
+             __delay_ms(2500);
              }
          }
          }
