@@ -1231,10 +1231,12 @@ void Pin6VoltageControl (void){
      if ((adcValue > 185) && (adcValue < 278)){
          if (errorFlag == 0) GP5 = 0;
           else
-         if ((adcValue > 255) && (adcValue < 260)){
-             GP5 = 0;
+         if (errorFlag == 1){
+           if ((adcValue > 239) && (adcValue < 260)){
+             GP5 = ~GP5;
           errorFlag = 0;
              }
+         }
          }
      else
          if (adcValue <= 190) {
