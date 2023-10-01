@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.36 build 20220127204148 
-                                                                                               Sun Sep 24 21:10:08 2023
+                                                                                               Sun Oct 01 13:05:20 2023
 
 Microchip MPLAB XC8 C Compiler v2.36 (Free license) build 20220127204148 Og1 
      1                           	processor	12F675
@@ -1125,7 +1125,7 @@ Microchip MPLAB XC8 C Compiler v2.36 (Free license) build 20220127204148 Og1
   1111  00D8  21AF               	fcall	_MeasureVoltage
   1112  00D9                     l1066:
   1113                           
-  1114                           ;ADC.c: 56:      if ((adcValue > 185) && (adcValue < 278)){
+  1114                           ;ADC.c: 56:      if ((adcValue > 190) && (adcValue < 278)){
   1115  00D9  1283               	bcf	3,5	;RP0=0, select bank0
   1116  00DA  0832               	movf	_adcValue+1,w
   1117  00DB  3A80               	xorlw	128
@@ -1134,7 +1134,7 @@ Microchip MPLAB XC8 C Compiler v2.36 (Free license) build 20220127204148 Og1
   1120  00DE  025F               	subwf	btemp+1,w
   1121  00DF  1D03               	skipz
   1122  00E0  28E3               	goto	u95
-  1123  00E1  30BA               	movlw	186
+  1123  00E1  30BF               	movlw	191
   1124  00E2  0231               	subwf	_adcValue,w
   1125  00E3                     u95:
   1126  00E3  1C03               	skipc
@@ -1298,7 +1298,7 @@ Microchip MPLAB XC8 C Compiler v2.36 (Free license) build 20220127204148 Og1
   1284  0148  025F               	subwf	btemp+1,w
   1285  0149  1D03               	skipz
   1286  014A  294D               	goto	u165
-  1287  014B  301D               	movlw	29
+  1287  014B  3016               	movlw	22
   1288  014C  0231               	subwf	_adcValue,w
   1289  014D                     u165:
   1290  014D  1C03               	skipc
@@ -2247,7 +2247,7 @@ DATA                 0      0      14       6        0.0%
 
 
 Microchip Technology PIC Macro Assembler V2.36 build 20220127204148 
-Symbol Table                                                                                   Sun Sep 24 21:10:08 2023
+Symbol Table                                                                                   Sun Oct 01 13:05:20 2023
 
                         l73 0182                          l85 0156                          l78 012E  
                         _GO 00F9                          l98 00C1                          u70 01C4  

@@ -278,8 +278,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;ADC.c: 54:    MeasureVoltage();
 [e ( _MeasureVoltage ..  ]
 "56
-[; ;ADC.c: 56:      if ((adcValue > 185) && (adcValue < 278)){
-[e $ ! && > _adcValue -> 185 `i < _adcValue -> 278 `i 83  ]
+[; ;ADC.c: 56:      if ((adcValue > 190) && (adcValue < 278)){
+[e $ ! && > _adcValue -> 190 `i < _adcValue -> 278 `i 83  ]
 {
 "57
 [; ;ADC.c: 57:          if (errorFlag == 0) GP5 = 0;
@@ -340,9 +340,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 90  ]
 "73
-[; ;ADC.c: 73:      else if (adcValue >= 285){
+[; ;ADC.c: 73:      else if (adcValue >= 278){
 [e :U 89 ]
-[e $ ! >= _adcValue -> 285 `i 91  ]
+[e $ ! >= _adcValue -> 278 `i 91  ]
 {
 "74
 [; ;ADC.c: 74:          GP5 = 1;
