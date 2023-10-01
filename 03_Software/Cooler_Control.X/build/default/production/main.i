@@ -1201,9 +1201,10 @@ void main()
  InitTimer0();
     Init_uC();
     (INTCONbits.GIE = 1);
+    _delay((unsigned long)((2500)*(4000000/4000.0)));
  while(1)
  {
-
-
+       Pin6VoltageControl();
+       Pin7ThermoControl();
  }
 }

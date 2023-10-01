@@ -5,6 +5,10 @@
 [d frameptr 0 ]
 "13 C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\ADC.c
 [v _Init_uC Init_uC `(v  1 e 1 0 ]
+"52
+[v _Pin6VoltageControl Pin6VoltageControl `(v  1 e 1 0 ]
+"80
+[v _Pin7ThermoControl Pin7ThermoControl `(v  1 e 1 0 ]
 "124
 [v _MeasureTemp MeasureTemp `(i  1 e 2 0 ]
 "141
@@ -119,9 +123,54 @@
 "63
 [v _main main `(v  1 e 1 0 ]
 {
-"73
+"74
 } 0
-"13 C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\ADC.c
+"80 C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\ADC.c
+[v _Pin7ThermoControl Pin7ThermoControl `(v  1 e 1 0 ]
+{
+"122
+} 0
+"35 C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\sounds.c
+[v _ThreeShort ThreeShort `(v  1 e 1 0 ]
+{
+"40
+} 0
+"42
+[v _ThreeLongOneShort ThreeLongOneShort `(v  1 e 1 0 ]
+{
+"48
+} 0
+"124 C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\ADC.c
+[v _MeasureTemp MeasureTemp `(i  1 e 2 0 ]
+{
+"139
+} 0
+"52
+[v _Pin6VoltageControl Pin6VoltageControl `(v  1 e 1 0 ]
+{
+"78
+} 0
+"27 C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\sounds.c
+[v _TwoShortTwoLong TwoShortTwoLong `(v  1 e 1 0 ]
+{
+"33
+} 0
+"20
+[v _TwoShortOneLong TwoShortOneLong `(v  1 e 1 0 ]
+{
+"25
+} 0
+"13
+[v _ShortSound ShortSound `(v  1 e 1 0 ]
+{
+"18
+} 0
+"141 C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\ADC.c
+[v _MeasureVoltage MeasureVoltage `(i  1 e 2 0 ]
+{
+"158
+} 0
+"13
 [v _Init_uC Init_uC `(v  1 e 1 0 ]
 {
 "49
