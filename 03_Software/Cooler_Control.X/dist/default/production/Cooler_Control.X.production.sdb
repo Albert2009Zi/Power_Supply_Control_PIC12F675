@@ -5,10 +5,6 @@
 [d frameptr 0 ]
 "13 C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\ADC.c
 [v _Init_uC Init_uC `(v  1 e 1 0 ]
-"52
-[v _Pin6VoltageControl Pin6VoltageControl `(v  1 e 1 0 ]
-"80
-[v _Pin7ThermoControl Pin7ThermoControl `(v  1 e 1 0 ]
 "124
 [v _MeasureTemp MeasureTemp `(i  1 e 2 0 ]
 "141
@@ -45,7 +41,7 @@
 [v _TMR0 TMR0 `VEuc  1 e 1 @1 ]
 "218
 [v _GPIO GPIO `VEuc  1 e 1 @5 ]
-[s S105 . 1 `uc 1 GPIF 1 0 :1:0 
+[s S103 . 1 `uc 1 GPIF 1 0 :1:0 
 `uc 1 INTF 1 0 :1:1 
 `uc 1 T0IF 1 0 :1:2 
 `uc 1 GPIE 1 0 :1:3 
@@ -55,13 +51,13 @@
 `uc 1 GIE 1 0 :1:7 
 ]
 "349
-[s S114 . 1 `uc 1 . 1 0 :2:0 
+[s S112 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 TMR0IF 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 TMR0IE 1 0 :1:5 
 ]
-[u S119 . 1 `S105 1 . 1 0 `S114 1 . 1 0 ]
-[v _INTCONbits INTCONbits `VES119  1 e 1 @11 ]
+[u S117 . 1 `S103 1 . 1 0 `S112 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES117  1 e 1 @11 ]
 "564
 [v _CMCON CMCON `VEuc  1 e 1 @25 ]
 "623
@@ -125,52 +121,7 @@
 {
 "73
 } 0
-"80 C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\ADC.c
-[v _Pin7ThermoControl Pin7ThermoControl `(v  1 e 1 0 ]
-{
-"122
-} 0
-"35 C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\sounds.c
-[v _ThreeShort ThreeShort `(v  1 e 1 0 ]
-{
-"40
-} 0
-"42
-[v _ThreeLongOneShort ThreeLongOneShort `(v  1 e 1 0 ]
-{
-"48
-} 0
-"124 C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\ADC.c
-[v _MeasureTemp MeasureTemp `(i  1 e 2 0 ]
-{
-"139
-} 0
-"52
-[v _Pin6VoltageControl Pin6VoltageControl `(v  1 e 1 0 ]
-{
-"78
-} 0
-"27 C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\sounds.c
-[v _TwoShortTwoLong TwoShortTwoLong `(v  1 e 1 0 ]
-{
-"33
-} 0
-"20
-[v _TwoShortOneLong TwoShortOneLong `(v  1 e 1 0 ]
-{
-"25
-} 0
-"13
-[v _ShortSound ShortSound `(v  1 e 1 0 ]
-{
-"18
-} 0
-"141 C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\ADC.c
-[v _MeasureVoltage MeasureVoltage `(i  1 e 2 0 ]
-{
-"158
-} 0
-"13
+"13 C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\ADC.c
 [v _Init_uC Init_uC `(v  1 e 1 0 ]
 {
 "49

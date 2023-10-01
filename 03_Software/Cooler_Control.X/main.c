@@ -61,14 +61,14 @@ int  adcValue = 0;
 
 // Main function
 void main()
-{	__delay_ms(2300);
+{	//__delay_ms(2300);
 	InitTimer0(); 
     Init_uC();
     ei();
 	while(1)
 	{ 
-       Pin6VoltageControl(); //at first control and limit all Voltages
-       Pin7ThermoControl();  //at second thermo control
+ //      Pin6VoltageControl(); //at first control and limit all Voltages
+ //      Pin7ThermoControl();  //at second thermo control
 	}
 }
 
