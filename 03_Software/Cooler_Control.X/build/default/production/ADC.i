@@ -1180,10 +1180,9 @@ typedef uint16_t uintptr_t;
 
 
 
-extern unsigned int pwmValue;
-extern int adcValue;
-
-uint8_t errorFlag = 0;
+unsigned int pwmValue;
+int adcValue;
+uint8_t errorFlag;
 
 void Init_uC(){
  CMCON = 0x07;
@@ -1201,6 +1200,10 @@ void Init_uC(){
     TRISIO5 = 0;
     GP5 = 1;
 
+    pwmValue = 0;
+    adcValue = 0;
+    errorFlag = 0;
+
 
     TRISIO4 = 0;
     GP4 = 0;
@@ -1214,7 +1217,6 @@ void Init_uC(){
     TRISIO1 = 1;
 
     ANSEL = 0b00110011;
-
 
     GIE = 1;
 

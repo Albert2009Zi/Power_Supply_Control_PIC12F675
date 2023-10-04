@@ -1192,9 +1192,6 @@ void InitTimer0(void);
 
 
 
-unsigned int pwmValue;
-int adcValue = 0;
-
 
 void main()
 {

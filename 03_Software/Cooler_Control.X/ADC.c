@@ -5,10 +5,9 @@
 
 #define _XTAL_FREQ   4000000 
 
-extern unsigned int pwmValue;
-extern int adcValue;
-
-uint8_t errorFlag = 0;
+unsigned int  pwmValue;
+int           adcValue;
+uint8_t       errorFlag;
 
 void Init_uC(){    
 	CMCON  = 0x07;		   /* Shut down the Comparator                        */
@@ -26,6 +25,10 @@ void Init_uC(){
     TRISIO5 = 0;           /* Sets GP5 (Pin 2) as output                      */
     GP5     = 1;           /* High level on GP5 (Pin 2)                       */
     
+    pwmValue  = 0;         /* Before first measurement                        */
+    adcValue  = 0;         /* Before first measurement                        */ 
+    errorFlag = 0;         /* Before first measurement                        */    
+    
     /* Sets GP4 (Pin 3) in nessesary conditions */
     TRISIO4 = 0;           /* Sets GP4 (Pin 3) as output                      */
     GP4     = 0;           /* High level on GP4 (Pin 3)                       */
@@ -34,12 +37,11 @@ void Init_uC(){
     /*Sets Pin4 of chip as ADC input  */
     ADON    = 1;           /* ADC is ON                                       */
     
-    VCFG    = 1;           /* Sets Vref = Vpin6                                 */
+    VCFG    = 1;           /* Sets Vref = Vpin6                               */
     TRISIO0 = 1;           /* Sets GP0 (Pin 7) as input. Temperature control  */
     TRISIO1 = 1;           /* Sets GP1 (Pin 6) as input. Button control       */
     
-    ANSEL   = 0b00110011;  /* Sets Tosc = 4us (RC Generator)                  **
-                                                       */  
+    ANSEL   = 0b00110011;  /* Sets Tosc = 4us (RC Generator)                  */  
                 
     GIE  = 1;			   /* Enable global interrupts                        */
     
