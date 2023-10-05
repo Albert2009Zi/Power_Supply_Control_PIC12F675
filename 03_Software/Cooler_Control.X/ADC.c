@@ -7,7 +7,7 @@
 
 unsigned int  pwmValue;
 int           adcValue;
-uint8_t       errorFlag;
+//uint8_t       errorFlag;     R01
 
 void Init_uC(){    
 	CMCON  = 0x07;		   /* Shut down the Comparator                        */
@@ -27,7 +27,7 @@ void Init_uC(){
     
     pwmValue  = 0;         /* Before first measurement                        */
     adcValue  = 0;         /* Before first measurement                        */ 
-    errorFlag = 0;         /* Before first measurement                        */    
+   // errorFlag = 0;         /* Before first measurement                        */    R01
     
     /* Sets GP4 (Pin 3) in nessesary conditions */
     TRISIO4 = 0;           /* Sets GP4 (Pin 3) as output                      */
@@ -56,25 +56,26 @@ void Pin6VoltageControl (void){
    MeasureVoltage();
      
      if ((adcValue > 190) && (adcValue < 278)){
-         if (errorFlag == 0) GP5 = 0;
-          else 
-         if (errorFlag == 1){     
-           if ((adcValue > 250) && (adcValue < 260)){
-             GP5       = 0;    
-             errorFlag = 0;
-             __delay_ms(2500);
-             }
-         }
+      //   if (errorFlag == 0)
+             GP5 = 0;
+      //    else 
+      //   if (errorFlag == 1){     
+      //     if ((adcValue > 250) && (adcValue < 260)){
+      //       GP5       = 0;    
+      //       errorFlag = 0;
+      //       __delay_ms(2500);
+      //       }
+      //   }
          }
      else 
          if (adcValue <= 190) { 
          GP5 = 1;
-         errorFlag = 1;
+       //  errorFlag = 1;
          TwoShortOneLong(); 
         }
      else if (adcValue >= 278){
          GP5 = 1;
-         errorFlag = 1;
+     //    errorFlag = 1;
          TwoShortTwoLong();    
      }  
 }

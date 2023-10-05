@@ -1182,7 +1182,7 @@ typedef uint16_t uintptr_t;
 
 unsigned int pwmValue;
 int adcValue;
-uint8_t errorFlag;
+
 
 void Init_uC(){
  CMCON = 0x07;
@@ -1202,7 +1202,7 @@ void Init_uC(){
 
     pwmValue = 0;
     adcValue = 0;
-    errorFlag = 0;
+
 
 
     TRISIO4 = 0;
@@ -1231,25 +1231,19 @@ void Pin6VoltageControl (void){
    MeasureVoltage();
 
      if ((adcValue > 190) && (adcValue < 278)){
-         if (errorFlag == 0) GP5 = 0;
-          else
-         if (errorFlag == 1){
-           if ((adcValue > 250) && (adcValue < 260)){
+
              GP5 = 0;
-             errorFlag = 0;
-             _delay((unsigned long)((2500)*(4000000/4000.0)));
-             }
-         }
+# 69 "ADC.c"
          }
      else
          if (adcValue <= 190) {
          GP5 = 1;
-         errorFlag = 1;
+
          TwoShortOneLong();
         }
      else if (adcValue >= 278){
          GP5 = 1;
-         errorFlag = 1;
+
          TwoShortTwoLong();
      }
 }
