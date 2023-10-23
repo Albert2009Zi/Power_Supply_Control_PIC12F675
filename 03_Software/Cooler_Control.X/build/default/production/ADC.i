@@ -1183,7 +1183,6 @@ typedef uint16_t uintptr_t;
 unsigned int pwmValue;
 int adcValue;
 
-
 void Init_uC(){
  CMCON = 0x07;
     VRCON = 0x00;
@@ -1230,22 +1229,9 @@ void Pin6VoltageControl (void){
 
    MeasureVoltage();
 
-     if ((adcValue > 190) && (adcValue < 278)){
-
-             GP5 = 0;
-# 69 "ADC.c"
-         }
-     else
-         if (adcValue <= 190) {
-         GP5 = 1;
-
-         TwoShortOneLong();
-        }
-     else if (adcValue >= 278){
-         GP5 = 1;
-
-         TwoShortTwoLong();
-     }
+    if (adcValue <= 190) GP5 = 1;
+    else if (adcValue >= 278) GP5 = 1;
+    else GP5 = 0;
 }
 
 void Pin7ThermoControl (void){
@@ -1279,14 +1265,12 @@ void Pin7ThermoControl (void){
              else if ((adcValue >= 940) && (adcValue < 970)){
 
                         pwmValue = 55;
-                        ThreeShort();
                        }
              else {
                  GP5 = 1;
                         pwmValue = 85;
             do {
                         MeasureTemp();
-   ThreeShort();
         }
      while (adcValue >= 970);
      }

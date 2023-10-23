@@ -7,7 +7,6 @@
 
 unsigned int  pwmValue;
 int           adcValue;
-//uint8_t       errorFlag;     R01
 
 void Init_uC(){    
 	CMCON  = 0x07;		   /* Shut down the Comparator                        */
@@ -53,31 +52,11 @@ void Init_uC(){
 
 void Pin6VoltageControl (void){
     
-   MeasureVoltage();
-     
-     if ((adcValue > 190) && (adcValue < 278)){
-      //   if (errorFlag == 0)
-             GP5 = 0;
-      //    else 
-      //   if (errorFlag == 1){     
-      //     if ((adcValue > 250) && (adcValue < 260)){
-      //       GP5       = 0;    
-      //       errorFlag = 0;
-      //       __delay_ms(2500);
-      //       }
-      //   }
-         }
-     else 
-         if (adcValue <= 190) { 
-         GP5 = 1;
-       //  errorFlag = 1;
-         TwoShortOneLong(); 
-        }
-     else if (adcValue >= 278){
-         GP5 = 1;
-     //    errorFlag = 1;
-         TwoShortTwoLong();    
-     }  
+   MeasureVoltage();                   /* Measure input voltage             */
+  
+    if (adcValue <= 190) GP5 = 1;      /* Undervoltage state. Device is OFF */
+    else if (adcValue >= 278) GP5 = 1; /* Overvoltage state. Device is OFF  */
+    else GP5 = 0;                      /* Normal voltage. Device is ON      */
 }
 
 void Pin7ThermoControl (void){
@@ -111,14 +90,12 @@ void Pin7ThermoControl (void){
              else if ((adcValue >= 940) && (adcValue < 970)){ /* Temperature is between 71 and 85 degrees Celsium */
                         //GP5      = 0; 
                         pwmValue = 55;                        /* Cooler PWM is 55% */
-                        ThreeShort();
                        }
              else  {
 	                GP5      = 1;
                         pwmValue = 85;   
 	           do { /* Temperature is high than 85 degrees Celsium. Error */
                         MeasureTemp();
-			ThreeShort();
 		      }	
 		   while (adcValue >= 970);
 		   }
