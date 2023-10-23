@@ -2,11 +2,13 @@
 #include <xc.h>
 #include "sounds.h"
 #include <stdint.h>
+#include "interrupt.h"
 
 #define _XTAL_FREQ   4000000 
 
-unsigned int  pwmValue;
-int           adcValue;
+volatile  uint8_t   pwmValue;
+volatile  uint8_t   mode;
+volatile  uint16_t  adcValue;
 //uint8_t       errorFlag;     R01
 
 void Init_uC(){    
@@ -82,6 +84,8 @@ void Pin6VoltageControl (void){
 
 void Pin7ThermoControl (void){
     
+       mode = PWM;   
+    
        MeasureTemp();
              
              if (adcValue < 200)  /* Pin 7 Signal is in low level < 1V. Error */
@@ -124,7 +128,7 @@ void Pin7ThermoControl (void){
 		   }
 }
 
-int MeasureTemp(void){
+uint16_t MeasureTemp(void){
 
        ADCON0 = 0x00;   
        ADFM = 1;               /* ADC results is right justified                            */
@@ -135,13 +139,13 @@ int MeasureTemp(void){
        while(!ADIF);  /* make ADC Measurement */
        __delay_ms(5);
     
-       adcValue = (int) ((ADRESH << 8) + ADRESL); /* ADC result */
+       adcValue = (uint16_t)((ADRESH << 8) + ADRESL); /* ADC result */
 
        return adcValue;
 
 }
 
-int MeasureVoltage(void){
+uint16_t MeasureVoltage(void){
     
     ADCON0 = 0x00;  
     ADFM = 1;               /* ADC results is right justified                            */
@@ -150,12 +154,11 @@ int MeasureVoltage(void){
     ADON = 1;   
     
      __delay_ms(10); 
-     
        GO   = 1;
        while(!ADIF);       /* make ADC Measurement */
      __delay_ms(10);
      
-       adcValue = (int) ((ADRESH<<8)+ADRESL); /* ADC result*/
+       adcValue = (uint16_t)((ADRESH<<8)+ADRESL); /* ADC result*/
        
        return adcValue;
 }

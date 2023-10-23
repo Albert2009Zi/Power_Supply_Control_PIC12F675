@@ -3,8 +3,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "10 ./timer0.h
 [; ;./timer0.h: 10: void InitTimer0(void);
 [v _InitTimer0 `(v ~T0 @X0 0 ef ]
-"11 ./ADC.h
-[; ;./ADC.h: 11: void Init_uC(void);
+"13 ./ADC.h
+[; ;./ADC.h: 13: void Init_uC(void);
 [v _Init_uC `(v ~T0 @X0 0 ef ]
 "332 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\pic\include\proc\pic12f675.h
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\pic\include\proc\pic12f675.h: 332:     struct {
@@ -25,11 +25,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 "92 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\pic\include\pic.h
 [v __delay `JF537 ~T0 @X0 0 e ]
 [p i __delay ]
-"17 ./ADC.h
-[; ;./ADC.h: 17: void Pin6VoltageControl (void);
+"19 ./ADC.h
+[; ;./ADC.h: 19: void Pin6VoltageControl (void);
 [v _Pin6VoltageControl `(v ~T0 @X0 0 ef ]
-"15
-[; ;./ADC.h: 15: void Pin7ThermoControl (void);
+"17
+[; ;./ADC.h: 17: void Pin7ThermoControl (void);
 [v _Pin7ThermoControl `(v ~T0 @X0 0 ef ]
 "54 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\pic\include\proc\pic12f675.h
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\pic\include\proc\pic12f675.h: 54: __asm("INDF equ 00h");
@@ -127,48 +127,50 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1406
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\pic\include\proc\pic12f675.h: 1406: __asm("ANSEL equ 09Fh");
 [; <" ANSEL equ 09Fh ;# ">
-"45 main.c
-[p x FOSC    =  INTRCIO      ]
-"46
-[p x WDTE    =  OFF          ]
-"47
-[p x PWRTE  =  OFF          ]
-"48
-[p x MCLRE  =  ON           ]
-"49
-[p x BOREN  =  ON           ]
-"50
-[p x CP        =  OFF          ]
-"51
-[p x CPD      =  OFF          ]
+"55 main.c
+[; ;main.c: 55: __asm("GLOBAL nosup@@$_$_" "CONFIG" "\nnosup@@$_$_" "CONFIG" " SET 0");
+[; <" GLOBAL nosup@@$_$_CONFIG ;# ">
+[; <" nosup@@$_$_CONFIG SET 0 ;# ">
 [v $root$_main `(v ~T0 @X0 0 e ]
 "60
+[; ;main.c: 60: void main()
 [v _main `(v ~T0 @X0 1 ef ]
 "61
+[; ;main.c: 61: {
 {
 [e :U _main ]
 [f ]
 "62
+[; ;main.c: 62:  InitTimer0();
 [e ( _InitTimer0 ..  ]
 "63
+[; ;main.c: 63:     Init_uC();
 [e ( _Init_uC ..  ]
 "64
+[; ;main.c: 64:     (INTCONbits.GIE = 1);
 [e = . . _INTCONbits 0 7 -> -> 1 `i `uc ]
 "65
+[; ;main.c: 65:     _delay((unsigned long)((2500)*(4000000/4000.0)));
 [e ( __delay (1 -> * -> -> 2500 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
 "66
+[; ;main.c: 66:  while(1)
 [e :U 83 ]
 "67
+[; ;main.c: 67:  {
 {
 "68
+[; ;main.c: 68:       Pin6VoltageControl();
 [e ( _Pin6VoltageControl ..  ]
 "69
+[; ;main.c: 69:       Pin7ThermoControl();
 [e ( _Pin7ThermoControl ..  ]
 "70
+[; ;main.c: 70:  }
 }
 [e :U 82 ]
 [e $U 83  ]
 [e :U 84 ]
 "71
+[; ;main.c: 71: }
 [e :UE 81 ]
 }

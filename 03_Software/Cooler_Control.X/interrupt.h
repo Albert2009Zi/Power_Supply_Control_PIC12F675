@@ -7,7 +7,9 @@
 #ifndef INTERRUPT_H
 #define	INTERRUPT_H
 
-void __interrupt() ISR(void);
+#define PWM   1
+#define SOUND 2
+#define ADC   3
 
 #endif	/* INTERRUPT_H */
 

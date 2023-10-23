@@ -1153,6 +1153,10 @@ void __attribute__((picinterrupt(("")))) ISR(void);
 
 # 1 "./ADC.h" 1
 # 11 "./ADC.h"
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c90\\stdint.h" 1 3
+# 11 "./ADC.h" 2
+
+
 void Init_uC(void);
 
 void ButtonEvent (void);
@@ -1161,34 +1165,17 @@ void Pin7ThermoControl (void);
 
 void Pin6VoltageControl (void);
 
-int MeasureTemp(void);
+uint16_t MeasureTemp(void);
 
-int MeasureVoltage(void);
+uint16_t MeasureVoltage(void);
 # 36 "main.c" 2
 
 # 1 "./timer0.h" 1
 # 10 "./timer0.h"
 void InitTimer0(void);
 # 37 "main.c" 2
-
-
-
-
-
-
-
-
-#pragma config FOSC = INTRCIO
-#pragma config WDTE = OFF
-#pragma config PWRTE = OFF
-#pragma config MCLRE = ON
-#pragma config BOREN = ON
-#pragma config CP = OFF
-#pragma config CPD = OFF
-
-
-
-
+# 55 "main.c"
+__asm("GLOBAL nosup@@$_$_" "CONFIG" "\nnosup@@$_$_" "CONFIG" " SET 0");
 
 
 
@@ -1201,7 +1188,7 @@ void main()
     _delay((unsigned long)((2500)*(4000000/4000.0)));
  while(1)
  {
-       Pin6VoltageControl();
-       Pin7ThermoControl();
+      Pin6VoltageControl();
+      Pin7ThermoControl();
  }
 }

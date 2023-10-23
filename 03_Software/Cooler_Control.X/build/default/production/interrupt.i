@@ -1015,24 +1015,156 @@ extern __bank0 __bit __timeout;
 # 28 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\\pic\\include\\xc.h" 2 3
 # 2 "interrupt.c" 2
 
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c90\\stdint.h" 1 3
+# 13 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c90\\stdint.h" 3
+typedef signed char int8_t;
 
-extern unsigned int pwmValue;
-unsigned int pulsePerTakt = 0;
 
-void __attribute__((picinterrupt(("")))) ISR(void)
-{
+
+
+
+
+typedef signed int int16_t;
+
+
+
+
+
+
+
+typedef __int24 int24_t;
+
+
+
+
+
+
+
+typedef signed long int int32_t;
+# 52 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c90\\stdint.h" 3
+typedef unsigned char uint8_t;
+
+
+
+
+
+typedef unsigned int uint16_t;
+
+
+
+
+
+
+typedef __uint24 uint24_t;
+
+
+
+
+
+
+typedef unsigned long int uint32_t;
+# 88 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c90\\stdint.h" 3
+typedef signed char int_least8_t;
+
+
+
+
+
+
+
+typedef signed int int_least16_t;
+# 109 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c90\\stdint.h" 3
+typedef __int24 int_least24_t;
+# 118 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c90\\stdint.h" 3
+typedef signed long int int_least32_t;
+# 136 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c90\\stdint.h" 3
+typedef unsigned char uint_least8_t;
+
+
+
+
+
+
+typedef unsigned int uint_least16_t;
+# 154 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c90\\stdint.h" 3
+typedef __uint24 uint_least24_t;
+
+
+
+
+
+
+
+typedef unsigned long int uint_least32_t;
+# 181 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c90\\stdint.h" 3
+typedef signed char int_fast8_t;
+
+
+
+
+
+
+typedef signed int int_fast16_t;
+# 200 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c90\\stdint.h" 3
+typedef __int24 int_fast24_t;
+
+
+
+
+
+
+
+typedef signed long int int_fast32_t;
+# 224 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c90\\stdint.h" 3
+typedef unsigned char uint_fast8_t;
+
+
+
+
+
+typedef unsigned int uint_fast16_t;
+# 240 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c90\\stdint.h" 3
+typedef __uint24 uint_fast24_t;
+
+
+
+
+
+
+typedef unsigned long int uint_fast32_t;
+# 268 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c90\\stdint.h" 3
+typedef int32_t intmax_t;
+# 282 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c90\\stdint.h" 3
+typedef uint32_t uintmax_t;
+
+
+
+
+
+
+typedef int16_t intptr_t;
+
+
+
+
+typedef uint16_t uintptr_t;
+# 3 "interrupt.c" 2
+
+
+extern uint8_t pwmValue;
+extern uint8_t mode;
+volatile uint8_t highLevelTime = 0;
+
+void __attribute__((picinterrupt(("")))) ISR(void){
       TMR0 = 200;
-      pulsePerTakt++;
-   if(T0IF)
-    {
-        if (pulsePerTakt < pwmValue)
-         {GP4 = 1;}
-        else
-   {GP4 = 0;}
+      highLevelTime++;
+   if(T0IF){
+    if (highLevelTime < pwmValue) GP4 = 1;
+
+        else GP4 = 0;
+
   T0IF = 0;
-    }
-      if (pulsePerTakt > 100)
-       {
-         pulsePerTakt = 0;
-       }
-}
+     }
+
+      if (highLevelTime > 100) highLevelTime = 0;
+ }

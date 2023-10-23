@@ -8,6 +8,8 @@
 #ifndef ADC_H
 #define	ADC_H
 
+#include <stdint.h>
+
 void Init_uC(void);
 
 void ButtonEvent (void);
@@ -16,9 +18,9 @@ void Pin7ThermoControl (void);
 
 void Pin6VoltageControl (void);
 
-int  MeasureTemp(void);
+uint16_t  MeasureTemp(void);
 
-int  MeasureVoltage(void);
+uint16_t  MeasureVoltage(void);
 
 #endif	/* ADC_H */
 

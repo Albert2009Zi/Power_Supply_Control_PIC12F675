@@ -38,7 +38,7 @@
 
 #define _XTAL_FREQ   4000000 
 
-//#define SIMULATION
+#define SIMULATION
 
 #ifndef SIMULATION
 // CONFIG
@@ -65,8 +65,8 @@ void main()
     __delay_ms(2500);
 	while(1)
 	{ 
-       Pin6VoltageControl(); //at first control and limit all Voltages
-       Pin7ThermoControl();  //at second thermo control
+      Pin6VoltageControl(); //at first control and limit all Voltages
+      Pin7ThermoControl();  //at second thermo control
 	}
 }
 

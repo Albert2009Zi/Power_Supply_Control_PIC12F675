@@ -9,6 +9,142 @@
 # 1 "ADC.c" 2
 # 1 "./ADC.h" 1
 # 11 "./ADC.h"
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c90\\stdint.h" 1 3
+# 13 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c90\\stdint.h" 3
+typedef signed char int8_t;
+
+
+
+
+
+
+typedef signed int int16_t;
+
+
+
+
+
+
+
+typedef __int24 int24_t;
+
+
+
+
+
+
+
+typedef signed long int int32_t;
+# 52 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c90\\stdint.h" 3
+typedef unsigned char uint8_t;
+
+
+
+
+
+typedef unsigned int uint16_t;
+
+
+
+
+
+
+typedef __uint24 uint24_t;
+
+
+
+
+
+
+typedef unsigned long int uint32_t;
+# 88 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c90\\stdint.h" 3
+typedef signed char int_least8_t;
+
+
+
+
+
+
+
+typedef signed int int_least16_t;
+# 109 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c90\\stdint.h" 3
+typedef __int24 int_least24_t;
+# 118 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c90\\stdint.h" 3
+typedef signed long int int_least32_t;
+# 136 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c90\\stdint.h" 3
+typedef unsigned char uint_least8_t;
+
+
+
+
+
+
+typedef unsigned int uint_least16_t;
+# 154 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c90\\stdint.h" 3
+typedef __uint24 uint_least24_t;
+
+
+
+
+
+
+
+typedef unsigned long int uint_least32_t;
+# 181 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c90\\stdint.h" 3
+typedef signed char int_fast8_t;
+
+
+
+
+
+
+typedef signed int int_fast16_t;
+# 200 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c90\\stdint.h" 3
+typedef __int24 int_fast24_t;
+
+
+
+
+
+
+
+typedef signed long int int_fast32_t;
+# 224 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c90\\stdint.h" 3
+typedef unsigned char uint_fast8_t;
+
+
+
+
+
+typedef unsigned int uint_fast16_t;
+# 240 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c90\\stdint.h" 3
+typedef __uint24 uint_fast24_t;
+
+
+
+
+
+
+typedef unsigned long int uint_fast32_t;
+# 268 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c90\\stdint.h" 3
+typedef int32_t intmax_t;
+# 282 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c90\\stdint.h" 3
+typedef uint32_t uintmax_t;
+
+
+
+
+
+
+typedef int16_t intptr_t;
+
+
+
+
+typedef uint16_t uintptr_t;
+# 11 "./ADC.h" 2
+
+
 void Init_uC(void);
 
 void ButtonEvent (void);
@@ -17,9 +153,9 @@ void Pin7ThermoControl (void);
 
 void Pin6VoltageControl (void);
 
-int MeasureTemp(void);
+uint16_t MeasureTemp(void);
 
-int MeasureVoltage(void);
+uint16_t MeasureVoltage(void);
 # 1 "ADC.c" 2
 
 # 1 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\\pic\\include\\xc.h" 1 3
@@ -1043,145 +1179,13 @@ void ThreeLongOneShort(void);
 # 3 "ADC.c" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c90\\stdint.h" 1 3
-# 13 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c90\\stdint.h" 3
-typedef signed char int8_t;
-
-
-
-
-
-
-typedef signed int int16_t;
-
-
-
-
-
-
-
-typedef __int24 int24_t;
-
-
-
-
-
-
-
-typedef signed long int int32_t;
-# 52 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c90\\stdint.h" 3
-typedef unsigned char uint8_t;
-
-
-
-
-
-typedef unsigned int uint16_t;
-
-
-
-
-
-
-typedef __uint24 uint24_t;
-
-
-
-
-
-
-typedef unsigned long int uint32_t;
-# 88 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c90\\stdint.h" 3
-typedef signed char int_least8_t;
-
-
-
-
-
-
-
-typedef signed int int_least16_t;
-# 109 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c90\\stdint.h" 3
-typedef __int24 int_least24_t;
-# 118 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c90\\stdint.h" 3
-typedef signed long int int_least32_t;
-# 136 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c90\\stdint.h" 3
-typedef unsigned char uint_least8_t;
-
-
-
-
-
-
-typedef unsigned int uint_least16_t;
-# 154 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c90\\stdint.h" 3
-typedef __uint24 uint_least24_t;
-
-
-
-
-
-
-
-typedef unsigned long int uint_least32_t;
-# 181 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c90\\stdint.h" 3
-typedef signed char int_fast8_t;
-
-
-
-
-
-
-typedef signed int int_fast16_t;
-# 200 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c90\\stdint.h" 3
-typedef __int24 int_fast24_t;
-
-
-
-
-
-
-
-typedef signed long int int_fast32_t;
-# 224 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c90\\stdint.h" 3
-typedef unsigned char uint_fast8_t;
-
-
-
-
-
-typedef unsigned int uint_fast16_t;
-# 240 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c90\\stdint.h" 3
-typedef __uint24 uint_fast24_t;
-
-
-
-
-
-
-typedef unsigned long int uint_fast32_t;
-# 268 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c90\\stdint.h" 3
-typedef int32_t intmax_t;
-# 282 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c90\\stdint.h" 3
-typedef uint32_t uintmax_t;
-
-
-
-
-
-
-typedef int16_t intptr_t;
-
-
-
-
-typedef uint16_t uintptr_t;
 # 4 "ADC.c" 2
 
 
 
 
-unsigned int pwmValue;
-int adcValue;
+uint8_t pwmValue;
+uint16_t adcValue;
 
 
 void Init_uC(){
@@ -1292,7 +1296,7 @@ void Pin7ThermoControl (void){
      }
 }
 
-int MeasureTemp(void){
+uint16_t MeasureTemp(void){
 
        ADCON0 = 0x00;
        ADFM = 1;
@@ -1303,13 +1307,13 @@ int MeasureTemp(void){
        while(!ADIF);
        _delay((unsigned long)((5)*(4000000/4000.0)));
 
-       adcValue = (int) ((ADRESH << 8) + ADRESL);
+       adcValue = (uint16_t)((ADRESH << 8) + ADRESL);
 
        return adcValue;
 
 }
 
-int MeasureVoltage(void){
+uint16_t MeasureVoltage(void){
 
     ADCON0 = 0x00;
     ADFM = 1;
@@ -1318,12 +1322,11 @@ int MeasureVoltage(void){
     ADON = 1;
 
      _delay((unsigned long)((10)*(4000000/4000.0)));
-
        GO = 1;
        while(!ADIF);
      _delay((unsigned long)((10)*(4000000/4000.0)));
 
-       adcValue = (int) ((ADRESH<<8)+ADRESL);
+       adcValue = (uint16_t)((ADRESH<<8)+ADRESL);
 
        return adcValue;
 }
