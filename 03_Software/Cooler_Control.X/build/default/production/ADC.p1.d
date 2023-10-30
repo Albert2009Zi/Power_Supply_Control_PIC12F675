@@ -1,4 +1,5 @@
 build/default/production/ADC.p1:  \
 ADC.c  \
 ADC.h  \
-sounds.h 
+sounds.h  \
+interrupt.h 

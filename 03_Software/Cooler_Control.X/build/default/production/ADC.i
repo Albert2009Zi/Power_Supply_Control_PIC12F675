@@ -1181,14 +1181,26 @@ void ThreeLongOneShort(void);
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c90\\stdint.h" 1 3
 # 4 "ADC.c" 2
 
+# 1 "./interrupt.h" 1
+# 5 "ADC.c" 2
 
 
 
-uint8_t pwmValue;
-uint16_t adcValue;
+
+volatile uint8_t pwmValue;
+volatile uint16_t adcValue;
 
 
 void Init_uC(){
+
+
+    ADON = 1;
+
+    VCFG = 1;
+    TRISIO0 = 1;
+    TRISIO1 = 1;
+
+
  CMCON = 0x07;
     VRCON = 0x00;
 
@@ -1224,8 +1236,15 @@ void Init_uC(){
 
     GIE = 1;
 
-    LongSound();
-    _delay((unsigned long)((700)*(4000000/4000.0)));
+
+    MeasureVoltage();
+    if (adcValue <= 190) GP5 = 1;
+     else if (adcValue >= 278) GP5 = 1;
+       else {GP5 = 0;
+             _delay((unsigned long)((650)*(4000000/4000000.0)));
+             GP5 = 1;
+        }
+    _delay((unsigned long)((1000)*(4000000/4000.0)));
 
 }
 
@@ -1233,23 +1252,13 @@ void Init_uC(){
 void Pin6VoltageControl (void){
 
    MeasureVoltage();
-
-     if ((adcValue > 190) && (adcValue < 278)){
-
-             GP5 = 0;
-# 69 "ADC.c"
-         }
-     else
-         if (adcValue <= 190) {
+     if (adcValue <= 190) {
          GP5 = 1;
-
-         TwoShortOneLong();
         }
      else if (adcValue >= 278){
          GP5 = 1;
-
-         TwoShortTwoLong();
-     }
+        }
+     else GP5 = 0;
 }
 
 void Pin7ThermoControl (void){
@@ -1321,10 +1330,10 @@ uint16_t MeasureVoltage(void){
     CHS0 = 1;
     ADON = 1;
 
-     _delay((unsigned long)((10)*(4000000/4000.0)));
+     _delay((unsigned long)((1)*(4000000/4000.0)));
        GO = 1;
        while(!ADIF);
-     _delay((unsigned long)((10)*(4000000/4000.0)));
+     _delay((unsigned long)((1)*(4000000/4000.0)));
 
        adcValue = (uint16_t)((ADRESH<<8)+ADRESL);
 

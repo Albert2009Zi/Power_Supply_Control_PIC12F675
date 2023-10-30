@@ -7,11 +7,19 @@
 #define _XTAL_FREQ   4000000 
 
 volatile  uint8_t   pwmValue;
-volatile  uint8_t   mode;
 volatile  uint16_t  adcValue;
 //uint8_t       errorFlag;     R01
 
 void Init_uC(){    
+    
+    /*Sets Pin4 of chip as ADC input  */
+    ADON    = 1;           /* ADC is ON                                       */
+    
+    VCFG    = 1;           /* Sets Vref = Vpin6                               */
+    TRISIO0 = 1;           /* Sets GP0 (Pin 7) as input. Temperature control  */
+    TRISIO1 = 1;           /* Sets GP1 (Pin 6) as input. Button control       */
+    
+    
 	CMCON  = 0x07;		   /* Shut down the Comparator                        */
     VRCON  = 0x00;         /* Shut down Comparator reference Voltage          */
     
@@ -47,44 +55,32 @@ void Init_uC(){
                 
     GIE  = 1;			   /* Enable global interrupts                        */
     
-    LongSound();
-    __delay_ms(700);
-    
+    /* Smooth system start */
+    MeasureVoltage();
+    if (adcValue <= 190)       GP5 = 1;     
+     else if (adcValue >= 278) GP5 = 1;   
+       else {GP5 = 0;
+             __delay_us(650);
+             GP5 = 1;
+        }
+    __delay_ms(1000);
+    /************************/
 }
 
 
 void Pin6VoltageControl (void){
     
    MeasureVoltage();
-     
-     if ((adcValue > 190) && (adcValue < 278)){
-      //   if (errorFlag == 0)
-             GP5 = 0;
-      //    else 
-      //   if (errorFlag == 1){     
-      //     if ((adcValue > 250) && (adcValue < 260)){
-      //       GP5       = 0;    
-      //       errorFlag = 0;
-      //       __delay_ms(2500);
-      //       }
-      //   }
-         }
-     else 
-         if (adcValue <= 190) { 
-         GP5 = 1;
-       //  errorFlag = 1;
-         TwoShortOneLong(); 
+     if (adcValue <= 190) { 
+         GP5 = 1;      
         }
      else if (adcValue >= 278){
-         GP5 = 1;
-     //    errorFlag = 1;
-         TwoShortTwoLong();    
-     }  
+         GP5 = 1;   
+        }  
+     else GP5 = 0;
 }
 
-void Pin7ThermoControl (void){
-    
-       mode = PWM;   
+void Pin7ThermoControl (void){   
     
        MeasureTemp();
              
@@ -153,10 +149,10 @@ uint16_t MeasureVoltage(void){
     CHS0 = 1;              /* Enable ADC channel 1 (AN1) "Power ON button", ADC is ON    */    
     ADON = 1;   
     
-     __delay_ms(10); 
+     __delay_ms(1); 
        GO   = 1;
        while(!ADIF);       /* make ADC Measurement */
-     __delay_ms(10);
+     __delay_ms(1);
      
        adcValue = (uint16_t)((ADRESH<<8)+ADRESL); /* ADC result*/
        

@@ -8,8 +8,6 @@
 # 2 "<built-in>" 2
 # 1 "interrupt.c" 2
 # 1 "./interrupt.h" 1
-# 10 "./interrupt.h"
-void __attribute__((picinterrupt(("")))) ISR(void);
 # 1 "interrupt.c" 2
 
 # 1 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\\pic\\include\\xc.h" 1 3
@@ -1152,19 +1150,20 @@ typedef uint16_t uintptr_t;
 
 
 extern uint8_t pwmValue;
-extern uint8_t mode;
 volatile uint8_t highLevelTime = 0;
 
 void __attribute__((picinterrupt(("")))) ISR(void){
-      TMR0 = 200;
-      highLevelTime++;
-   if(T0IF){
-    if (highLevelTime < pwmValue) GP4 = 1;
 
-        else GP4 = 0;
+             TMR0 = 200;
+             highLevelTime++;
+           if(T0IF){
+            if (highLevelTime < pwmValue) GP4 = 1;
 
-  T0IF = 0;
-     }
+                 else GP4 = 0;
 
-      if (highLevelTime > 100) highLevelTime = 0;
- }
+            T0IF = 0;
+              }
+
+             if (highLevelTime > 100) highLevelTime = 0;
+
+}

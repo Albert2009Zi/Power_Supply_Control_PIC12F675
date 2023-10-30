@@ -59,10 +59,9 @@ __CONFIG(FOSC_INTRCIO & WDTE_OFF & PWRTE_ON & MCLRE_OFF & BOREN_ON & CP_OFF & CP
 // Main function
 void main()
 {
-	InitTimer0(); 
-    Init_uC();
     ei();
-    __delay_ms(2500);
+    Init_uC();
+    InitTimer0();
 	while(1)
 	{ 
       Pin6VoltageControl(); //at first control and limit all Voltages

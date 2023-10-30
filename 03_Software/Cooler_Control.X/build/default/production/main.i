@@ -1147,8 +1147,6 @@ typedef uint16_t uintptr_t;
 # 34 "main.c" 2
 
 # 1 "./interrupt.h" 1
-# 10 "./interrupt.h"
-void __attribute__((picinterrupt(("")))) ISR(void);
 # 35 "main.c" 2
 
 # 1 "./ADC.h" 1
@@ -1182,10 +1180,9 @@ __asm("GLOBAL nosup@@$_$_" "CONFIG" "\nnosup@@$_$_" "CONFIG" " SET 0");
 
 void main()
 {
- InitTimer0();
-    Init_uC();
     (INTCONbits.GIE = 1);
-    _delay((unsigned long)((2500)*(4000000/4000.0)));
+    Init_uC();
+    InitTimer0();
  while(1)
  {
       Pin6VoltageControl();

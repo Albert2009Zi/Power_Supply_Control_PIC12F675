@@ -3,13 +3,10 @@
 #include <stdint.h>
 
 extern   uint8_t pwmValue;
-extern   uint8_t mode;
 volatile uint8_t highLevelTime = 0;
 
 void __interrupt() ISR(void){  
-    
-    switch (mode){
-        case PWM:
+   
              TMR0 = 200;                                 /* Timer0 interval 200us   */
              highLevelTime++;                            /* highLevelTime increment */ 
 	          if(T0IF){                                  /* If Timer0 Interrupt     */
@@ -21,6 +18,5 @@ void __interrupt() ISR(void){
               }      
       
              if (highLevelTime > 100) highLevelTime = 0; /* Next cycle of pwm       */ 
-        break;     
-    }
+ 
 }    
