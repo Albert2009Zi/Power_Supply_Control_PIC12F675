@@ -21,7 +21,7 @@ void TwoShortOneLong(){
    ShortSound();
    ShortSound();
    LongSound();
-   __delay_ms(700);
+   __delay_ms(300);
 }
 
 void TwoShortTwoLong(){
@@ -29,14 +29,7 @@ void TwoShortTwoLong(){
    ShortSound();
    LongSound();
    LongSound();
-   __delay_ms(700);
-}
-
-void ThreeShort(){
-   ShortSound();
-   ShortSound();
-   ShortSound();
-   __delay_ms(700);
+   __delay_ms(300);
 }
 
 void ThreeLongOneShort(){
@@ -44,17 +37,7 @@ void ThreeLongOneShort(){
    LongSound();
    LongSound(); 
    ShortSound();
-   __delay_ms(700);
+   __delay_ms(300);
 }  
-   
-//void VoltageCheck(){
-//    ShortSound();
-//    LongSound();
-//    ShortSound();
-//    LongSound();
-//    ShortSound();
-//    LongSound();
-//   __delay_ms(700);   
-//}
 
 

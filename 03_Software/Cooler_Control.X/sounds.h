@@ -17,8 +17,6 @@ void TwoShortOneLong(void);
 
 void TwoShortTwoLong(void);
 
-void ThreeShort(void);
-
 void ThreeLongOneShort(void);
 
 //void VoltageCheck(void);

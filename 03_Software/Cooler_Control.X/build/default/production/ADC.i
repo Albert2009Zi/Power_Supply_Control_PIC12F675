@@ -1037,8 +1037,6 @@ void TwoShortOneLong(void);
 
 void TwoShortTwoLong(void);
 
-void ThreeShort(void);
-
 void ThreeLongOneShort(void);
 # 3 "ADC.c" 2
 
@@ -1182,6 +1180,7 @@ typedef uint16_t uintptr_t;
 
 unsigned int pwmValue;
 int adcValue;
+uint8_t startFlag;
 
 void Init_uC(){
  CMCON = 0x07;
@@ -1198,6 +1197,7 @@ void Init_uC(){
 
     TRISIO5 = 0;
     GP5 = 1;
+    startFlag = 0;
 
     pwmValue = 0;
     adcValue = 0;
@@ -1220,8 +1220,6 @@ void Init_uC(){
     GIE = 1;
 
     LongSound();
-    _delay((unsigned long)((700)*(4000000/4000.0)));
-
 }
 
 
@@ -1229,28 +1227,29 @@ void Pin6VoltageControl (void){
 
    MeasureVoltage();
 
-    if (adcValue <= 190) GP5 = 1;
-    else if (adcValue >= 278) GP5 = 1;
-    else GP5 = 0;
+    if (adcValue <= 190) {
+           GP5 = 1;
+           TwoShortOneLong();
+    }
+    else if (adcValue >= 278){
+           GP5 = 1;
+           TwoShortTwoLong();
+    }
+    else{ GP5 = 0;
+    if (startFlag == 0){
+      _delay((unsigned long)((650)*(4000000/4000000.0)));
+      GP5 = 1;
+      _delay((unsigned long)((1000)*(4000000/4000.0)));
+      GP5 = 0;
+      startFlag++;}
+    }
 }
 
 void Pin7ThermoControl (void){
 
        MeasureTemp();
-
-             if (adcValue < 200)
-         {
-        GP5 = 1;
-              pwmValue = 0;
-           do{
-        MeasureTemp();
-        ThreeLongOneShort();
-       }
-    while(adcValue < 200);
-
-    }
-
-             else if ((adcValue >= 200) && (adcValue < 880)){
+# 93 "ADC.c"
+            if ((adcValue >= 200) && (adcValue < 880)){
 
                         pwmValue = 0;
                        }
@@ -1271,6 +1270,7 @@ void Pin7ThermoControl (void){
                         pwmValue = 85;
             do {
                         MeasureTemp();
+                        ThreeLongOneShort();
         }
      while (adcValue >= 970);
      }
@@ -1282,10 +1282,9 @@ int MeasureTemp(void){
        ADFM = 1;
        ADON = 1;
 
-       _delay((unsigned long)((5)*(4000000/4000.0)));
        GO = 1;
        while(!ADIF);
-       _delay((unsigned long)((5)*(4000000/4000.0)));
+       _delay((unsigned long)((10)*(4000000/4000.0)));
 
        adcValue = (int) ((ADRESH << 8) + ADRESL);
 
@@ -1300,8 +1299,6 @@ int MeasureVoltage(void){
     CHS1 = 0;
     CHS0 = 1;
     ADON = 1;
-
-     _delay((unsigned long)((10)*(4000000/4000.0)));
 
        GO = 1;
        while(!ADIF);

@@ -19,8 +19,6 @@ void TwoShortOneLong(void);
 
 void TwoShortTwoLong(void);
 
-void ThreeShort(void);
-
 void ThreeLongOneShort(void);
 # 1 "sounds.c" 2
 
@@ -1048,7 +1046,7 @@ void TwoShortOneLong(){
    ShortSound();
    ShortSound();
    LongSound();
-   _delay((unsigned long)((700)*(4000000/4000.0)));
+   _delay((unsigned long)((300)*(4000000/4000.0)));
 }
 
 void TwoShortTwoLong(){
@@ -1056,14 +1054,7 @@ void TwoShortTwoLong(){
    ShortSound();
    LongSound();
    LongSound();
-   _delay((unsigned long)((700)*(4000000/4000.0)));
-}
-
-void ThreeShort(){
-   ShortSound();
-   ShortSound();
-   ShortSound();
-   _delay((unsigned long)((700)*(4000000/4000.0)));
+   _delay((unsigned long)((300)*(4000000/4000.0)));
 }
 
 void ThreeLongOneShort(){
@@ -1071,5 +1062,5 @@ void ThreeLongOneShort(){
    LongSound();
    LongSound();
    ShortSound();
-   _delay((unsigned long)((700)*(4000000/4000.0)));
+   _delay((unsigned long)((300)*(4000000/4000.0)));
 }

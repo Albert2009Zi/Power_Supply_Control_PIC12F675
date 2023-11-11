@@ -62,7 +62,6 @@ void main()
 	InitTimer0(); 
     Init_uC();
     ei();
-    __delay_ms(2500);
 	while(1)
 	{ 
        Pin6VoltageControl(); //at first control and limit all Voltages
