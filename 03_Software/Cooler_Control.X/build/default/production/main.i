@@ -1147,12 +1147,37 @@ typedef uint16_t uintptr_t;
 # 34 "main.c" 2
 
 # 1 "./interrupt.h" 1
-# 10 "./interrupt.h"
+# 11 "./interrupt.h"
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c90\\stdint.h" 1 3
+# 11 "./interrupt.h" 2
+
+
 void __attribute__((picinterrupt(("")))) ISR(void);
 # 35 "main.c" 2
 
 # 1 "./ADC.h" 1
-# 11 "./ADC.h"
+# 12 "./ADC.h"
+# 1 "./sounds.h" 1
+# 14 "./sounds.h"
+void SimpleTone(void);
+
+void LongSound(void);
+
+void ShortSound(void);
+
+void TwoShortOneLong(void);
+
+void TwoShortTwoLong(void);
+
+void ThreeLongOneShort(void);
+# 12 "./ADC.h" 2
+
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c90\\stdint.h" 1 3
+# 13 "./ADC.h" 2
+
+
+
+
 void Init_uC(void);
 
 void ButtonEvent (void);
@@ -1161,13 +1186,13 @@ void Pin7ThermoControl (void);
 
 void Pin6VoltageControl (void);
 
-int MeasureTemp(void);
+uint16_t MeasureTemp(void);
 
-int MeasureVoltage(void);
+uint16_t MeasureVoltage(void);
 # 36 "main.c" 2
 
 # 1 "./timer0.h" 1
-# 10 "./timer0.h"
+# 12 "./timer0.h"
 void InitTimer0(void);
 # 37 "main.c" 2
 
@@ -1198,6 +1223,7 @@ void main()
  InitTimer0();
     Init_uC();
     (INTCONbits.GIE = 1);
+    _delay((unsigned long)((2500)*(4000000/4000.0)));
  while(1)
  {
        Pin6VoltageControl();

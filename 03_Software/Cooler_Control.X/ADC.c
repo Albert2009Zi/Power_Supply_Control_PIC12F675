@@ -1,13 +1,7 @@
 #include "ADC.h"
-#include <xc.h>
-#include "sounds.h"
-#include <stdint.h>
 
-#define _XTAL_FREQ   4000000 
-
-unsigned int  pwmValue;
-int           adcValue;
-uint8_t       startFlag;
+uint8_t  pwmValue;
+uint16_t adcValue;
 
 void Init_uC(){    
 	CMCON  = 0x07;		   /* Shut down the Comparator                        */
@@ -24,11 +18,9 @@ void Init_uC(){
     /* Sets GP5 (Pin 2) in nessesary conditions */
     TRISIO5 = 0;           /* Sets GP5 (Pin 2) as output                      */
     GP5     = 1;           /* High level on GP5 (Pin 2)                       */
-    startFlag = 0;         /* makes silent Start*/
     
     pwmValue  = 0;         /* Before first measurement                        */
     adcValue  = 0;         /* Before first measurement                        */ 
-   // errorFlag = 0;         /* Before first measurement                        */    R01
     
     /* Sets GP4 (Pin 3) in nessesary conditions */
     TRISIO4 = 0;           /* Sets GP4 (Pin 3) as output                      */
@@ -63,12 +55,12 @@ void Pin6VoltageControl (void){
            TwoShortTwoLong();
     }
     else{ GP5 = 0;                      /* Normal voltage. Device is ON      */
-    if (startFlag == 0){
-      __delay_us(650);
-      GP5 = 1;
-      __delay_ms(1000);
-      GP5 = 0;
-      startFlag++;}
+//    if (startFlag == 0){
+//      __delay_us(650);
+//      GP5 = 1;
+//      __delay_ms(1000);
+//      GP5 = 0;
+//      startFlag++;}
     }
 }
 
@@ -76,20 +68,17 @@ void Pin7ThermoControl (void){
     
        MeasureTemp();
              
-//             if (adcValue < 200)  /* Pin 7 Signal is in low level < 1V. Error */
-//	        {
-//		      GP5             = 1;  /* Error on termocontrol and outer comparator Pin */
-//              pwmValue        = 0;      
-//	          do{
-//		      MeasureTemp();
-//		      ThreeLongOneShort();
-//		     } 
-//		  while(adcValue < 200);
-//		  
-//		  }
-//                
-//             else 
-                 
+             if (adcValue < 200)  /* Pin 7 Signal is in low level < 1V. Error */
+	        {
+		      GP5             = 1;  /* Error on termocontrol and outer comparator Pin */
+              pwmValue        = 0;      
+	          do{
+		      MeasureTemp();
+		      ThreeLongOneShort();
+		     } 
+		  while(adcValue < 200);
+		  }  
+             else     
             if ((adcValue >= 200) && (adcValue < 880)){ /* Temperature is good, cooler is off */
                         //GP5      = 0; 
                         pwmValue = 0;
@@ -117,7 +106,7 @@ void Pin7ThermoControl (void){
 		   }
 }
 
-int MeasureTemp(void){
+uint16_t MeasureTemp(void){
 
        ADCON0 = 0x00;   
        ADFM = 1;               /* ADC results is right justified                            */
@@ -127,13 +116,13 @@ int MeasureTemp(void){
        while(!ADIF);  /* make ADC Measurement */
        __delay_ms(10);
     
-       adcValue = (int) ((ADRESH << 8) + ADRESL); /* ADC result */
+       adcValue = (uint16_t) ((ADRESH << 8) + ADRESL); /* ADC result */
 
        return adcValue;
 
 }
 
-int MeasureVoltage(void){
+uint16_t MeasureVoltage(void){
     
     ADCON0 = 0x00;  
     ADFM = 1;               /* ADC results is right justified                            */
@@ -145,7 +134,7 @@ int MeasureVoltage(void){
        while(!ADIF);       /* make ADC Measurement */
      __delay_ms(10);
      
-       adcValue = (int) ((ADRESH<<8)+ADRESL); /* ADC result*/
+       adcValue = (uint16_t) ((ADRESH<<8)+ADRESL); /* ADC result*/
        
        return adcValue;
 }

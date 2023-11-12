@@ -36,8 +36,6 @@
 #include "ADC.h"
 #include "timer0.h"
 
-#define _XTAL_FREQ   4000000 
-
 //#define SIMULATION
 
 #ifndef SIMULATION
@@ -62,6 +60,7 @@ void main()
 	InitTimer0(); 
     Init_uC();
     ei();
+    __delay_ms(2500);
 	while(1)
 	{ 
        Pin6VoltageControl(); //at first control and limit all Voltages

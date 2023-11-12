@@ -9,19 +9,6 @@
 # 1 "ADC.c" 2
 # 1 "./ADC.h" 1
 # 11 "./ADC.h"
-void Init_uC(void);
-
-void ButtonEvent (void);
-
-void Pin7ThermoControl (void);
-
-void Pin6VoltageControl (void);
-
-int MeasureTemp(void);
-
-int MeasureVoltage(void);
-# 1 "ADC.c" 2
-
 # 1 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -1023,10 +1010,10 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 28 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\\pic\\include\\xc.h" 2 3
-# 2 "ADC.c" 2
+# 11 "./ADC.h" 2
 
 # 1 "./sounds.h" 1
-# 10 "./sounds.h"
+# 14 "./sounds.h"
 void SimpleTone(void);
 
 void LongSound(void);
@@ -1038,7 +1025,7 @@ void TwoShortOneLong(void);
 void TwoShortTwoLong(void);
 
 void ThreeLongOneShort(void);
-# 3 "ADC.c" 2
+# 12 "./ADC.h" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c90\\stdint.h" 1 3
 # 13 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c90\\stdint.h" 3
@@ -1173,14 +1160,27 @@ typedef int16_t intptr_t;
 
 
 typedef uint16_t uintptr_t;
-# 4 "ADC.c" 2
+# 13 "./ADC.h" 2
 
 
 
 
-unsigned int pwmValue;
-int adcValue;
-uint8_t startFlag;
+void Init_uC(void);
+
+void ButtonEvent (void);
+
+void Pin7ThermoControl (void);
+
+void Pin6VoltageControl (void);
+
+uint16_t MeasureTemp(void);
+
+uint16_t MeasureVoltage(void);
+# 1 "ADC.c" 2
+
+
+uint8_t pwmValue;
+uint16_t adcValue;
 
 void Init_uC(){
  CMCON = 0x07;
@@ -1197,11 +1197,9 @@ void Init_uC(){
 
     TRISIO5 = 0;
     GP5 = 1;
-    startFlag = 0;
 
     pwmValue = 0;
     adcValue = 0;
-
 
 
     TRISIO4 = 0;
@@ -1236,19 +1234,30 @@ void Pin6VoltageControl (void){
            TwoShortTwoLong();
     }
     else{ GP5 = 0;
-    if (startFlag == 0){
-      _delay((unsigned long)((650)*(4000000/4000000.0)));
-      GP5 = 1;
-      _delay((unsigned long)((1000)*(4000000/4000.0)));
-      GP5 = 0;
-      startFlag++;}
+
+
+
+
+
+
     }
 }
 
 void Pin7ThermoControl (void){
 
        MeasureTemp();
-# 93 "ADC.c"
+
+             if (adcValue < 200)
+         {
+        GP5 = 1;
+              pwmValue = 0;
+           do{
+        MeasureTemp();
+        ThreeLongOneShort();
+       }
+    while(adcValue < 200);
+    }
+             else
             if ((adcValue >= 200) && (adcValue < 880)){
 
                         pwmValue = 0;
@@ -1276,7 +1285,7 @@ void Pin7ThermoControl (void){
      }
 }
 
-int MeasureTemp(void){
+uint16_t MeasureTemp(void){
 
        ADCON0 = 0x00;
        ADFM = 1;
@@ -1286,13 +1295,13 @@ int MeasureTemp(void){
        while(!ADIF);
        _delay((unsigned long)((10)*(4000000/4000.0)));
 
-       adcValue = (int) ((ADRESH << 8) + ADRESL);
+       adcValue = (uint16_t) ((ADRESH << 8) + ADRESL);
 
        return adcValue;
 
 }
 
-int MeasureVoltage(void){
+uint16_t MeasureVoltage(void){
 
     ADCON0 = 0x00;
     ADFM = 1;
@@ -1304,7 +1313,7 @@ int MeasureVoltage(void){
        while(!ADIF);
      _delay((unsigned long)((10)*(4000000/4000.0)));
 
-       adcValue = (int) ((ADRESH<<8)+ADRESL);
+       adcValue = (uint16_t) ((ADRESH<<8)+ADRESL);
 
        return adcValue;
 }

@@ -1,8 +1,7 @@
 #include "interrupt.h"
-#include <xc.h>
 
-extern unsigned int pwmValue;
-unsigned int pulsePerTakt = 0;
+extern uint8_t pwmValue;
+uint8_t pulsePerTakt = 0;
 
 void __interrupt() ISR(void)
 {      

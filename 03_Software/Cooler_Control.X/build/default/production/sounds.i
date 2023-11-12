@@ -9,19 +9,6 @@
 # 1 "sounds.c" 2
 # 1 "./sounds.h" 1
 # 10 "./sounds.h"
-void SimpleTone(void);
-
-void LongSound(void);
-
-void ShortSound(void);
-
-void TwoShortOneLong(void);
-
-void TwoShortTwoLong(void);
-
-void ThreeLongOneShort(void);
-# 1 "sounds.c" 2
-
 # 1 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -1023,9 +1010,23 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 28 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\\pic\\include\\xc.h" 2 3
-# 2 "sounds.c" 2
+# 10 "./sounds.h" 2
 
 
+
+
+void SimpleTone(void);
+
+void LongSound(void);
+
+void ShortSound(void);
+
+void TwoShortOneLong(void);
+
+void TwoShortTwoLong(void);
+
+void ThreeLongOneShort(void);
+# 1 "sounds.c" 2
 
 
 void LongSound(){
