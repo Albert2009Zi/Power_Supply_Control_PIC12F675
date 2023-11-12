@@ -1,4 +1,5 @@
 #include "timer0.h"
+#include <xc.h>
 
 void InitTimer0(void)
 {

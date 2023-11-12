@@ -36,6 +36,8 @@
 #include "ADC.h"
 #include "timer0.h"
 
+#define _XTAL_FREQ   4000000
+
 //#define SIMULATION
 
 #ifndef SIMULATION
@@ -54,17 +56,20 @@ __CONFIG(FOSC_INTRCIO & WDTE_OFF & PWRTE_ON & MCLRE_OFF & BOREN_ON & CP_OFF & CP
 
 #endif
 
+uint8_t  pwmValue = 0;
+uint16_t adcValue = 0;
+
 // Main function
 void main()
-{
-	InitTimer0(); 
+{	
+    InitTimer0(); 
     Init_uC();
     ei();
     __delay_ms(2500);
 	while(1)
 	{ 
-       Pin6VoltageControl(); //at first control and limit all Voltages
-       Pin7ThermoControl();  //at second thermo control
+          Pin6VoltageControl();	
+          Pin7ThermoControl();
 	}
 }
 

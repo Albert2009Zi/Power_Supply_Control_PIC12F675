@@ -9,6 +9,9 @@
 # 1 "interrupt.c" 2
 # 1 "./interrupt.h" 1
 # 10 "./interrupt.h"
+void __attribute__((picinterrupt(("")))) ISR(void);
+# 1 "interrupt.c" 2
+
 # 1 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -1010,7 +1013,7 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 28 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\\pic\\include\\xc.h" 2 3
-# 10 "./interrupt.h" 2
+# 2 "interrupt.c" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c90\\stdint.h" 1 3
 # 13 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c90\\stdint.h" 3
@@ -1145,11 +1148,7 @@ typedef int16_t intptr_t;
 
 
 typedef uint16_t uintptr_t;
-# 11 "./interrupt.h" 2
-
-
-void __attribute__((picinterrupt(("")))) ISR(void);
-# 1 "interrupt.c" 2
+# 3 "interrupt.c" 2
 
 
 extern uint8_t pwmValue;

@@ -1,4 +1,7 @@
 #include "sounds.h"
+#include <xc.h>
+
+#define _XTAL_FREQ   4000000 
 
 void LongSound(){
    GP2 = 1;
@@ -29,12 +32,17 @@ void TwoShortTwoLong(){
    __delay_ms(300);
 }
 
+void ThreeShort(){
+   ShortSound();
+   ShortSound();
+   ShortSound();
+   __delay_ms(300);
+}
+
 void ThreeLongOneShort(){
    LongSound();
    LongSound();
    LongSound(); 
    ShortSound();
    __delay_ms(300);
-}  
-
-
+}

@@ -1,7 +1,12 @@
 #include "ADC.h"
+#include <xc.h>
+#include "sounds.h"
+#include <stdint.h>
 
-uint8_t  pwmValue;
-uint16_t adcValue;
+#define _XTAL_FREQ   4000000 
+
+extern uint8_t pwmValue;
+extern uint16_t adcValue;
 
 void Init_uC(){    
 	CMCON  = 0x07;		   /* Shut down the Comparator                        */
@@ -19,9 +24,6 @@ void Init_uC(){
     TRISIO5 = 0;           /* Sets GP5 (Pin 2) as output                      */
     GP5     = 1;           /* High level on GP5 (Pin 2)                       */
     
-    pwmValue  = 0;         /* Before first measurement                        */
-    adcValue  = 0;         /* Before first measurement                        */ 
-    
     /* Sets GP4 (Pin 3) in nessesary conditions */
     TRISIO4 = 0;           /* Sets GP4 (Pin 3) as output                      */
     GP4     = 0;           /* High level on GP4 (Pin 3)                       */
@@ -30,38 +32,36 @@ void Init_uC(){
     /*Sets Pin4 of chip as ADC input  */
     ADON    = 1;           /* ADC is ON                                       */
     
-    VCFG    = 1;           /* Sets Vref = Vpin6                               */
+    VCFG    = 1;           /* Sets Vref = Vpin6                                 */
     TRISIO0 = 1;           /* Sets GP0 (Pin 7) as input. Temperature control  */
     TRISIO1 = 1;           /* Sets GP1 (Pin 6) as input. Button control       */
     
-    ANSEL   = 0b00110011;  /* Sets Tosc = 4us (RC Generator)                  */  
+    ANSEL   = 0b00110011;  /* Sets Tosc = 4us (RC Generator)                  **
+                                                       */  
                 
     GIE  = 1;			   /* Enable global interrupts                        */
     
     LongSound();
+    __delay_ms(700);
+    
 }
 
 
 void Pin6VoltageControl (void){
     
-   MeasureVoltage();                   /* Measure input voltage             */
-  
-    if (adcValue <= 190) {
-           GP5 = 1;      /* Undervoltage state. Device is OFF */
-           TwoShortOneLong();
-    }
-    else if (adcValue >= 278){
-           GP5 = 1; /* Overvoltage state. Device is OFF  */
-           TwoShortTwoLong();
-    }
-    else{ GP5 = 0;                      /* Normal voltage. Device is ON      */
-//    if (startFlag == 0){
-//      __delay_us(650);
-//      GP5 = 1;
-//      __delay_ms(1000);
-//      GP5 = 0;
-//      startFlag++;}
-    }
+   MeasureVoltage();
+     
+     if ((adcValue > 190) && (adcValue < 285)){
+        GP5 = 0;
+         }           
+     else if (adcValue <= 190) { 
+         GP5 = 1;
+         TwoShortOneLong(); 
+        }
+     else if (adcValue >= 285){
+         GP5 = 1;
+         TwoShortTwoLong();    
+     }  
 }
 
 void Pin7ThermoControl (void){
@@ -71,15 +71,16 @@ void Pin7ThermoControl (void){
              if (adcValue < 200)  /* Pin 7 Signal is in low level < 1V. Error */
 	        {
 		      GP5             = 1;  /* Error on termocontrol and outer comparator Pin */
-              pwmValue        = 0;      
+                      pwmValue        = 0;      
 	          do{
 		      MeasureTemp();
 		      ThreeLongOneShort();
 		     } 
 		  while(adcValue < 200);
-		  }  
-             else     
-            if ((adcValue >= 200) && (adcValue < 880)){ /* Temperature is good, cooler is off */
+		  
+		  }
+                
+             else if ((adcValue >= 200) && (adcValue < 880)){ /* Temperature is good, cooler is off */
                         //GP5      = 0; 
                         pwmValue = 0;
                        }
@@ -94,13 +95,14 @@ void Pin7ThermoControl (void){
              else if ((adcValue >= 940) && (adcValue < 970)){ /* Temperature is between 71 and 85 degrees Celsium */
                         //GP5      = 0; 
                         pwmValue = 55;                        /* Cooler PWM is 55% */
+                        ThreeShort();
                        }
              else  {
 	                GP5      = 1;
                         pwmValue = 85;   
 	           do { /* Temperature is high than 85 degrees Celsium. Error */
                         MeasureTemp();
-                        ThreeLongOneShort();
+			ThreeShort();
 		      }	
 		   while (adcValue >= 970);
 		   }
@@ -112,9 +114,10 @@ uint16_t MeasureTemp(void){
        ADFM = 1;               /* ADC results is right justified                            */
        ADON = 1;               /* ADC channel 0 (AN0) "Thermal control" by default, ADC is ON    */ 
     
+       __delay_ms(5); 
        GO   = 1;
        while(!ADIF);  /* make ADC Measurement */
-       __delay_ms(10);
+       __delay_ms(5);
     
        adcValue = (uint16_t) ((ADRESH << 8) + ADRESL); /* ADC result */
 
@@ -129,12 +132,16 @@ uint16_t MeasureVoltage(void){
     CHS1 = 0;   
     CHS0 = 1;              /* Enable ADC channel 1 (AN1) "Power ON button", ADC is ON    */    
     ADON = 1;   
-         
+    
+     __delay_ms(5); 
+     
        GO   = 1;
        while(!ADIF);       /* make ADC Measurement */
-     __delay_ms(10);
+     __delay_ms(5);
      
        adcValue = (uint16_t) ((ADRESH<<8)+ADRESL); /* ADC result*/
        
        return adcValue;
 }
+
+

@@ -7,10 +7,6 @@
 #ifndef SOUNDS_H
 #define	SOUNDS_H
 
-#include <xc.h>
-
-#define _XTAL_FREQ   4000000 
-
 void SimpleTone(void);
 
 void LongSound(void);
@@ -21,9 +17,9 @@ void TwoShortOneLong(void);
 
 void TwoShortTwoLong(void);
 
-void ThreeLongOneShort(void);
+void ThreeShort(void);
 
-//void VoltageCheck(void);
+void ThreeLongOneShort(void);
 
 #endif	/* SOUNDS_H */
 
