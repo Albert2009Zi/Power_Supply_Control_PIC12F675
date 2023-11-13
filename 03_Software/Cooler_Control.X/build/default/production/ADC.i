@@ -1202,6 +1202,8 @@ void Init_uC(){
 
     TRISIO5 = 0;
     GP5 = 1;
+    _delay((unsigned long)((1000)*(4000000/4000.0)));
+    GP5 = 0;
 
 
     TRISIO4 = 0;
@@ -1221,7 +1223,6 @@ void Init_uC(){
     GIE = 1;
 
     LongSound();
-    _delay((unsigned long)((700)*(4000000/4000.0)));
 
 }
 

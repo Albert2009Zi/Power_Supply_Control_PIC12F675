@@ -22,7 +22,9 @@ void Init_uC(){
     
     /* Sets GP5 (Pin 2) in nessesary conditions */
     TRISIO5 = 0;           /* Sets GP5 (Pin 2) as output                      */
-    GP5     = 1;           /* High level on GP5 (Pin 2)                       */
+    GP5     = 1;
+    __delay_ms(1000);
+    GP5     = 0;           /* High level on GP5 (Pin 2)                       */
     
     /* Sets GP4 (Pin 3) in nessesary conditions */
     TRISIO4 = 0;           /* Sets GP4 (Pin 3) as output                      */
@@ -42,7 +44,6 @@ void Init_uC(){
     GIE  = 1;			   /* Enable global interrupts                        */
     
     LongSound();
-    __delay_ms(700);
     
 }
 
