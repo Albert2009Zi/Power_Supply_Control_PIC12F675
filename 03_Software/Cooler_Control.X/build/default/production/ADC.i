@@ -1186,6 +1186,7 @@ void ThreeLongOneShort(void);
 
 extern uint8_t pwmValue;
 extern uint16_t adcValue;
+volatile uint8_t errorFlag = 0;
 
 void Init_uC(){
  CMCON = 0x07;
@@ -1232,15 +1233,23 @@ void Pin6VoltageControl (void){
    MeasureVoltage();
 
      if ((adcValue > 190) && (adcValue < 285)){
-        GP5 = 0;
+        if (errorFlag == 0) GP5 = 0;
+         else
+         { GP5 = 1;
+                     _delay((unsigned long)((1000)*(4000000/4000.0)));
+                     GP5 = 0;
+                     errorFlag = 0;
          }
+     }
      else if (adcValue <= 190) {
          GP5 = 1;
          TwoShortOneLong();
+         errorFlag = 1;
         }
      else if (adcValue >= 285){
          GP5 = 1;
          TwoShortTwoLong();
+         errorFlag = 1;
      }
 }
 

@@ -198,344 +198,378 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1406
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\pic\include\proc\pic12f675.h: 1406: __asm("ANSEL equ 09Fh");
 [; <" ANSEL equ 09Fh ;# ">
-"11 ADC.c
-[; ;ADC.c: 11: void Init_uC(){
+"10 ADC.c
+[; ;ADC.c: 10: volatile uint8_t errorFlag = 0;
+[v _errorFlag `Vuc ~T0 @X0 1 e ]
+[i _errorFlag
+-> -> 0 `i `uc
+]
+"12
+[; ;ADC.c: 12: void Init_uC(){
 [v _Init_uC `(v ~T0 @X0 1 ef ]
 {
 [e :U _Init_uC ]
 [f ]
-"12
-[; ;ADC.c: 12:  CMCON = 0x07;
-[e = _CMCON -> -> 7 `i `uc ]
 "13
-[; ;ADC.c: 13:     VRCON = 0x00;
+[; ;ADC.c: 13:  CMCON = 0x07;
+[e = _CMCON -> -> 7 `i `uc ]
+"14
+[; ;ADC.c: 14:     VRCON = 0x00;
 [e = _VRCON -> -> 0 `i `uc ]
-"16
-[; ;ADC.c: 16:     TRISIO = 0;
-[e = _TRISIO -> -> 0 `i `uc ]
 "17
-[; ;ADC.c: 17:     GPIO = 0;
+[; ;ADC.c: 17:     TRISIO = 0;
+[e = _TRISIO -> -> 0 `i `uc ]
+"18
+[; ;ADC.c: 18:     GPIO = 0;
 [e = _GPIO -> -> 0 `i `uc ]
-"20
-[; ;ADC.c: 20:     TRISIO2 = 0;
-[e = _TRISIO2 -> -> 0 `i `b ]
 "21
-[; ;ADC.c: 21:     GP2 = 0;
+[; ;ADC.c: 21:     TRISIO2 = 0;
+[e = _TRISIO2 -> -> 0 `i `b ]
+"22
+[; ;ADC.c: 22:     GP2 = 0;
 [e = _GP2 -> -> 0 `i `b ]
-"24
-[; ;ADC.c: 24:     TRISIO5 = 0;
-[e = _TRISIO5 -> -> 0 `i `b ]
 "25
-[; ;ADC.c: 25:     GP5 = 1;
-[e = _GP5 -> -> 1 `i `b ]
+[; ;ADC.c: 25:     TRISIO5 = 0;
+[e = _TRISIO5 -> -> 0 `i `b ]
 "26
-[; ;ADC.c: 26:     _delay((unsigned long)((1000)*(4000000/4000.0)));
-[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+[; ;ADC.c: 26:     GP5 = 1;
+[e = _GP5 -> -> 1 `i `b ]
 "27
-[; ;ADC.c: 27:     GP5 = 0;
+[; ;ADC.c: 27:     _delay((unsigned long)((1000)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"28
+[; ;ADC.c: 28:     GP5 = 0;
 [e = _GP5 -> -> 0 `i `b ]
-"30
-[; ;ADC.c: 30:     TRISIO4 = 0;
-[e = _TRISIO4 -> -> 0 `i `b ]
 "31
-[; ;ADC.c: 31:     GP4 = 0;
+[; ;ADC.c: 31:     TRISIO4 = 0;
+[e = _TRISIO4 -> -> 0 `i `b ]
+"32
+[; ;ADC.c: 32:     GP4 = 0;
 [e = _GP4 -> -> 0 `i `b ]
-"35
-[; ;ADC.c: 35:     ADON = 1;
+"36
+[; ;ADC.c: 36:     ADON = 1;
 [e = _ADON -> -> 1 `i `b ]
-"37
-[; ;ADC.c: 37:     VCFG = 1;
-[e = _VCFG -> -> 1 `i `b ]
 "38
-[; ;ADC.c: 38:     TRISIO0 = 1;
-[e = _TRISIO0 -> -> 1 `i `b ]
+[; ;ADC.c: 38:     VCFG = 1;
+[e = _VCFG -> -> 1 `i `b ]
 "39
-[; ;ADC.c: 39:     TRISIO1 = 1;
+[; ;ADC.c: 39:     TRISIO0 = 1;
+[e = _TRISIO0 -> -> 1 `i `b ]
+"40
+[; ;ADC.c: 40:     TRISIO1 = 1;
 [e = _TRISIO1 -> -> 1 `i `b ]
-"41
-[; ;ADC.c: 41:     ANSEL = 0b00110011;
+"42
+[; ;ADC.c: 42:     ANSEL = 0b00110011;
 [e = _ANSEL -> -> 51 `i `uc ]
-"44
-[; ;ADC.c: 44:     GIE = 1;
+"45
+[; ;ADC.c: 45:     GIE = 1;
 [e = _GIE -> -> 1 `i `b ]
-"46
-[; ;ADC.c: 46:     LongSound();
+"47
+[; ;ADC.c: 47:     LongSound();
 [e ( _LongSound ..  ]
-"48
-[; ;ADC.c: 48: }
+"49
+[; ;ADC.c: 49: }
 [e :UE 81 ]
 }
-"51
-[; ;ADC.c: 51: void Pin6VoltageControl (void){
+"52
+[; ;ADC.c: 52: void Pin6VoltageControl (void){
 [v _Pin6VoltageControl `(v ~T0 @X0 1 ef ]
 {
 [e :U _Pin6VoltageControl ]
 [f ]
-"53
-[; ;ADC.c: 53:    MeasureVoltage();
+"54
+[; ;ADC.c: 54:    MeasureVoltage();
 [e ( _MeasureVoltage ..  ]
-"55
-[; ;ADC.c: 55:      if ((adcValue > 190) && (adcValue < 285)){
+"56
+[; ;ADC.c: 56:      if ((adcValue > 190) && (adcValue < 285)){
 [e $ ! && > _adcValue -> -> 190 `i `ui < _adcValue -> -> 285 `i `ui 83  ]
 {
-"56
-[; ;ADC.c: 56:         GP5 = 0;
-[e = _GP5 -> -> 0 `i `b ]
 "57
-[; ;ADC.c: 57:          }
-}
-[e $U 84  ]
+[; ;ADC.c: 57:         if (errorFlag == 0) GP5 = 0;
+[e $ ! == -> _errorFlag `i -> 0 `i 84  ]
+[e = _GP5 -> -> 0 `i `b ]
+[e $U 85  ]
 "58
-[; ;ADC.c: 58:      else if (adcValue <= 190) {
-[e :U 83 ]
-[e $ ! <= _adcValue -> -> 190 `i `ui 85  ]
-{
+[; ;ADC.c: 58:          else
+[e :U 84 ]
 "59
-[; ;ADC.c: 59:          GP5 = 1;
+[; ;ADC.c: 59:          { GP5 = 1;
+{
 [e = _GP5 -> -> 1 `i `b ]
 "60
-[; ;ADC.c: 60:          TwoShortOneLong();
-[e ( _TwoShortOneLong ..  ]
+[; ;ADC.c: 60:                      _delay((unsigned long)((1000)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
 "61
-[; ;ADC.c: 61:         }
+[; ;ADC.c: 61:                      GP5 = 0;
+[e = _GP5 -> -> 0 `i `b ]
+"62
+[; ;ADC.c: 62:                      errorFlag = 0;
+[e = _errorFlag -> -> 0 `i `uc ]
+"63
+[; ;ADC.c: 63:          }
+}
+[e :U 85 ]
+"64
+[; ;ADC.c: 64:      }
 }
 [e $U 86  ]
-"62
-[; ;ADC.c: 62:      else if (adcValue >= 285){
-[e :U 85 ]
-[e $ ! >= _adcValue -> -> 285 `i `ui 87  ]
-{
-"63
-[; ;ADC.c: 63:          GP5 = 1;
-[e = _GP5 -> -> 1 `i `b ]
-"64
-[; ;ADC.c: 64:          TwoShortTwoLong();
-[e ( _TwoShortTwoLong ..  ]
 "65
-[; ;ADC.c: 65:      }
-}
-[e :U 87 ]
-[e :U 86 ]
-[e :U 84 ]
+[; ;ADC.c: 65:      else if (adcValue <= 190) {
+[e :U 83 ]
+[e $ ! <= _adcValue -> -> 190 `i `ui 87  ]
+{
 "66
-[; ;ADC.c: 66: }
+[; ;ADC.c: 66:          GP5 = 1;
+[e = _GP5 -> -> 1 `i `b ]
+"67
+[; ;ADC.c: 67:          TwoShortOneLong();
+[e ( _TwoShortOneLong ..  ]
+"68
+[; ;ADC.c: 68:          errorFlag = 1;
+[e = _errorFlag -> -> 1 `i `uc ]
+"69
+[; ;ADC.c: 69:         }
+}
+[e $U 88  ]
+"70
+[; ;ADC.c: 70:      else if (adcValue >= 285){
+[e :U 87 ]
+[e $ ! >= _adcValue -> -> 285 `i `ui 89  ]
+{
+"71
+[; ;ADC.c: 71:          GP5 = 1;
+[e = _GP5 -> -> 1 `i `b ]
+"72
+[; ;ADC.c: 72:          TwoShortTwoLong();
+[e ( _TwoShortTwoLong ..  ]
+"73
+[; ;ADC.c: 73:          errorFlag = 1;
+[e = _errorFlag -> -> 1 `i `uc ]
+"74
+[; ;ADC.c: 74:      }
+}
+[e :U 89 ]
+[e :U 88 ]
+[e :U 86 ]
+"75
+[; ;ADC.c: 75: }
 [e :UE 82 ]
 }
-"68
-[; ;ADC.c: 68: void Pin7ThermoControl (void){
+"77
+[; ;ADC.c: 77: void Pin7ThermoControl (void){
 [v _Pin7ThermoControl `(v ~T0 @X0 1 ef ]
 {
 [e :U _Pin7ThermoControl ]
 [f ]
-"70
-[; ;ADC.c: 70:        MeasureTemp();
-[e ( _MeasureTemp ..  ]
-"72
-[; ;ADC.c: 72:              if (adcValue < 200)
-[e $ ! < _adcValue -> -> 200 `i `ui 89  ]
-"73
-[; ;ADC.c: 73:          {
-{
-"74
-[; ;ADC.c: 74:         GP5 = 1;
-[e = _GP5 -> -> 1 `i `b ]
-"75
-[; ;ADC.c: 75:                       pwmValue = 0;
-[e = _pwmValue -> -> 0 `i `uc ]
-"76
-[; ;ADC.c: 76:            do{
-[e :U 92 ]
-{
-"77
-[; ;ADC.c: 77:         MeasureTemp();
-[e ( _MeasureTemp ..  ]
-"78
-[; ;ADC.c: 78:         ThreeLongOneShort();
-[e ( _ThreeLongOneShort ..  ]
 "79
-[; ;ADC.c: 79:        }
-}
-[e $ < _adcValue -> -> 200 `i `ui 92  ]
-[e :U 91 ]
+[; ;ADC.c: 79:        MeasureTemp();
+[e ( _MeasureTemp ..  ]
+"81
+[; ;ADC.c: 81:              if (adcValue < 200)
+[e $ ! < _adcValue -> -> 200 `i `ui 91  ]
 "82
-[; ;ADC.c: 82:     }
-}
-[e $U 93  ]
+[; ;ADC.c: 82:          {
+{
+"83
+[; ;ADC.c: 83:         GP5 = 1;
+[e = _GP5 -> -> 1 `i `b ]
 "84
-[; ;ADC.c: 84:              else if ((adcValue >= 200) && (adcValue < 880)){
-[e :U 89 ]
-[e $ ! && >= _adcValue -> -> 200 `i `ui < _adcValue -> -> 880 `i `ui 94  ]
+[; ;ADC.c: 84:                       pwmValue = 0;
+[e = _pwmValue -> -> 0 `i `uc ]
+"85
+[; ;ADC.c: 85:            do{
+[e :U 94 ]
 {
 "86
-[; ;ADC.c: 86:                         pwmValue = 0;
-[e = _pwmValue -> -> 0 `i `uc ]
+[; ;ADC.c: 86:         MeasureTemp();
+[e ( _MeasureTemp ..  ]
 "87
-[; ;ADC.c: 87:                        }
+[; ;ADC.c: 87:         ThreeLongOneShort();
+[e ( _ThreeLongOneShort ..  ]
+"88
+[; ;ADC.c: 88:        }
+}
+[e $ < _adcValue -> -> 200 `i `ui 94  ]
+[e :U 93 ]
+"91
+[; ;ADC.c: 91:     }
 }
 [e $U 95  ]
-"88
-[; ;ADC.c: 88:              else if ((adcValue >= 880) && (adcValue < 910)){
-[e :U 94 ]
-[e $ ! && >= _adcValue -> -> 880 `i `ui < _adcValue -> -> 910 `i `ui 96  ]
+"93
+[; ;ADC.c: 93:              else if ((adcValue >= 200) && (adcValue < 880)){
+[e :U 91 ]
+[e $ ! && >= _adcValue -> -> 200 `i `ui < _adcValue -> -> 880 `i `ui 96  ]
 {
-"90
-[; ;ADC.c: 90:                         pwmValue = 30;
-[e = _pwmValue -> -> 30 `i `uc ]
-"91
-[; ;ADC.c: 91:                        }
+"95
+[; ;ADC.c: 95:                         pwmValue = 0;
+[e = _pwmValue -> -> 0 `i `uc ]
+"96
+[; ;ADC.c: 96:                        }
 }
 [e $U 97  ]
-"92
-[; ;ADC.c: 92:              else if ((adcValue >= 910) && (adcValue < 940)){
+"97
+[; ;ADC.c: 97:              else if ((adcValue >= 880) && (adcValue < 910)){
 [e :U 96 ]
-[e $ ! && >= _adcValue -> -> 910 `i `ui < _adcValue -> -> 940 `i `ui 98  ]
+[e $ ! && >= _adcValue -> -> 880 `i `ui < _adcValue -> -> 910 `i `ui 98  ]
 {
-"94
-[; ;ADC.c: 94:                         pwmValue = 45;
-[e = _pwmValue -> -> 45 `i `uc ]
-"95
-[; ;ADC.c: 95:                        }
-}
-[e $U 99  ]
-"96
-[; ;ADC.c: 96:              else if ((adcValue >= 940) && (adcValue < 970)){
-[e :U 98 ]
-[e $ ! && >= _adcValue -> -> 940 `i `ui < _adcValue -> -> 970 `i `ui 100  ]
-{
-"98
-[; ;ADC.c: 98:                         pwmValue = 55;
-[e = _pwmValue -> -> 55 `i `uc ]
 "99
-[; ;ADC.c: 99:                         ThreeShort();
-[e ( _ThreeShort ..  ]
+[; ;ADC.c: 99:                         pwmValue = 30;
+[e = _pwmValue -> -> 30 `i `uc ]
 "100
 [; ;ADC.c: 100:                        }
 }
-[e $U 101  ]
+[e $U 99  ]
 "101
-[; ;ADC.c: 101:              else {
-[e :U 100 ]
+[; ;ADC.c: 101:              else if ((adcValue >= 910) && (adcValue < 940)){
+[e :U 98 ]
+[e $ ! && >= _adcValue -> -> 910 `i `ui < _adcValue -> -> 940 `i `ui 100  ]
 {
-"102
-[; ;ADC.c: 102:                  GP5 = 1;
-[e = _GP5 -> -> 1 `i `b ]
 "103
-[; ;ADC.c: 103:                         pwmValue = 85;
-[e = _pwmValue -> -> 85 `i `uc ]
+[; ;ADC.c: 103:                         pwmValue = 45;
+[e = _pwmValue -> -> 45 `i `uc ]
 "104
-[; ;ADC.c: 104:             do {
-[e :U 104 ]
-{
+[; ;ADC.c: 104:                        }
+}
+[e $U 101  ]
 "105
-[; ;ADC.c: 105:                         MeasureTemp();
-[e ( _MeasureTemp ..  ]
-"106
-[; ;ADC.c: 106:    ThreeShort();
-[e ( _ThreeShort ..  ]
+[; ;ADC.c: 105:              else if ((adcValue >= 940) && (adcValue < 970)){
+[e :U 100 ]
+[e $ ! && >= _adcValue -> -> 940 `i `ui < _adcValue -> -> 970 `i `ui 102  ]
+{
 "107
-[; ;ADC.c: 107:         }
-}
-[e $ >= _adcValue -> -> 970 `i `ui 104  ]
-[e :U 103 ]
+[; ;ADC.c: 107:                         pwmValue = 55;
+[e = _pwmValue -> -> 55 `i `uc ]
+"108
+[; ;ADC.c: 108:                         ThreeShort();
+[e ( _ThreeShort ..  ]
 "109
-[; ;ADC.c: 109:      }
+[; ;ADC.c: 109:                        }
 }
+[e $U 103  ]
+"110
+[; ;ADC.c: 110:              else {
+[e :U 102 ]
+{
+"111
+[; ;ADC.c: 111:                  GP5 = 1;
+[e = _GP5 -> -> 1 `i `b ]
+"112
+[; ;ADC.c: 112:                         pwmValue = 85;
+[e = _pwmValue -> -> 85 `i `uc ]
+"113
+[; ;ADC.c: 113:             do {
+[e :U 106 ]
+{
+"114
+[; ;ADC.c: 114:                         MeasureTemp();
+[e ( _MeasureTemp ..  ]
+"115
+[; ;ADC.c: 115:    ThreeShort();
+[e ( _ThreeShort ..  ]
+"116
+[; ;ADC.c: 116:         }
+}
+[e $ >= _adcValue -> -> 970 `i `ui 106  ]
+[e :U 105 ]
+"118
+[; ;ADC.c: 118:      }
+}
+[e :U 103 ]
 [e :U 101 ]
 [e :U 99 ]
 [e :U 97 ]
 [e :U 95 ]
-[e :U 93 ]
-"110
-[; ;ADC.c: 110: }
-[e :UE 88 ]
+"119
+[; ;ADC.c: 119: }
+[e :UE 90 ]
 }
-"112
-[; ;ADC.c: 112: uint16_t MeasureTemp(void){
+"121
+[; ;ADC.c: 121: uint16_t MeasureTemp(void){
 [v _MeasureTemp `(ui ~T0 @X0 1 ef ]
 {
 [e :U _MeasureTemp ]
 [f ]
-"114
-[; ;ADC.c: 114:        ADCON0 = 0x00;
-[e = _ADCON0 -> -> 0 `i `uc ]
-"115
-[; ;ADC.c: 115:        ADFM = 1;
-[e = _ADFM -> -> 1 `i `b ]
-"116
-[; ;ADC.c: 116:        ADON = 1;
-[e = _ADON -> -> 1 `i `b ]
-"118
-[; ;ADC.c: 118:        _delay((unsigned long)((5)*(4000000/4000.0)));
-[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"119
-[; ;ADC.c: 119:        GO = 1;
-[e = _GO -> -> 1 `i `b ]
-"120
-[; ;ADC.c: 120:        while(!ADIF);
-[e $U 106  ]
-[e :U 107 ]
-[e :U 106 ]
-[e $ ! _ADIF 107  ]
-[e :U 108 ]
-"121
-[; ;ADC.c: 121:        _delay((unsigned long)((5)*(4000000/4000.0)));
-[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
 "123
-[; ;ADC.c: 123:        adcValue = (uint16_t) ((ADRESH << 8) + ADRESL);
-[e = _adcValue -> + << -> _ADRESH `i -> 8 `i -> _ADRESL `i `ui ]
+[; ;ADC.c: 123:        ADCON0 = 0x00;
+[e = _ADCON0 -> -> 0 `i `uc ]
+"124
+[; ;ADC.c: 124:        ADFM = 1;
+[e = _ADFM -> -> 1 `i `b ]
 "125
-[; ;ADC.c: 125:        return adcValue;
-[e ) _adcValue ]
-[e $UE 105  ]
+[; ;ADC.c: 125:        ADON = 1;
+[e = _ADON -> -> 1 `i `b ]
 "127
-[; ;ADC.c: 127: }
-[e :UE 105 ]
-}
+[; ;ADC.c: 127:        _delay((unsigned long)((5)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"128
+[; ;ADC.c: 128:        GO = 1;
+[e = _GO -> -> 1 `i `b ]
 "129
-[; ;ADC.c: 129: uint16_t MeasureVoltage(void){
+[; ;ADC.c: 129:        while(!ADIF);
+[e $U 108  ]
+[e :U 109 ]
+[e :U 108 ]
+[e $ ! _ADIF 109  ]
+[e :U 110 ]
+"130
+[; ;ADC.c: 130:        _delay((unsigned long)((5)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"132
+[; ;ADC.c: 132:        adcValue = (uint16_t) ((ADRESH << 8) + ADRESL);
+[e = _adcValue -> + << -> _ADRESH `i -> 8 `i -> _ADRESL `i `ui ]
+"134
+[; ;ADC.c: 134:        return adcValue;
+[e ) _adcValue ]
+[e $UE 107  ]
+"136
+[; ;ADC.c: 136: }
+[e :UE 107 ]
+}
+"138
+[; ;ADC.c: 138: uint16_t MeasureVoltage(void){
 [v _MeasureVoltage `(ui ~T0 @X0 1 ef ]
 {
 [e :U _MeasureVoltage ]
 [f ]
-"131
-[; ;ADC.c: 131:     ADCON0 = 0x00;
-[e = _ADCON0 -> -> 0 `i `uc ]
-"132
-[; ;ADC.c: 132:     ADFM = 1;
-[e = _ADFM -> -> 1 `i `b ]
-"133
-[; ;ADC.c: 133:     CHS1 = 0;
-[e = _CHS1 -> -> 0 `i `b ]
-"134
-[; ;ADC.c: 134:     CHS0 = 1;
-[e = _CHS0 -> -> 1 `i `b ]
-"135
-[; ;ADC.c: 135:     ADON = 1;
-[e = _ADON -> -> 1 `i `b ]
-"137
-[; ;ADC.c: 137:      _delay((unsigned long)((5)*(4000000/4000.0)));
-[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"139
-[; ;ADC.c: 139:        GO = 1;
-[e = _GO -> -> 1 `i `b ]
 "140
-[; ;ADC.c: 140:        while(!ADIF);
-[e $U 110  ]
-[e :U 111 ]
-[e :U 110 ]
-[e $ ! _ADIF 111  ]
-[e :U 112 ]
+[; ;ADC.c: 140:     ADCON0 = 0x00;
+[e = _ADCON0 -> -> 0 `i `uc ]
 "141
-[; ;ADC.c: 141:      _delay((unsigned long)((5)*(4000000/4000.0)));
-[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+[; ;ADC.c: 141:     ADFM = 1;
+[e = _ADFM -> -> 1 `i `b ]
+"142
+[; ;ADC.c: 142:     CHS1 = 0;
+[e = _CHS1 -> -> 0 `i `b ]
 "143
-[; ;ADC.c: 143:        adcValue = (uint16_t) ((ADRESH<<8)+ADRESL);
-[e = _adcValue -> + << -> _ADRESH `i -> 8 `i -> _ADRESL `i `ui ]
-"145
-[; ;ADC.c: 145:        return adcValue;
-[e ) _adcValue ]
-[e $UE 109  ]
+[; ;ADC.c: 143:     CHS0 = 1;
+[e = _CHS0 -> -> 1 `i `b ]
+"144
+[; ;ADC.c: 144:     ADON = 1;
+[e = _ADON -> -> 1 `i `b ]
 "146
-[; ;ADC.c: 146: }
-[e :UE 109 ]
+[; ;ADC.c: 146:      _delay((unsigned long)((5)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"148
+[; ;ADC.c: 148:        GO = 1;
+[e = _GO -> -> 1 `i `b ]
+"149
+[; ;ADC.c: 149:        while(!ADIF);
+[e $U 112  ]
+[e :U 113 ]
+[e :U 112 ]
+[e $ ! _ADIF 113  ]
+[e :U 114 ]
+"150
+[; ;ADC.c: 150:      _delay((unsigned long)((5)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"152
+[; ;ADC.c: 152:        adcValue = (uint16_t) ((ADRESH<<8)+ADRESL);
+[e = _adcValue -> + << -> _ADRESH `i -> 8 `i -> _ADRESL `i `ui ]
+"154
+[; ;ADC.c: 154:        return adcValue;
+[e ) _adcValue ]
+[e $UE 111  ]
+"155
+[; ;ADC.c: 155: }
+[e :UE 111 ]
 }
