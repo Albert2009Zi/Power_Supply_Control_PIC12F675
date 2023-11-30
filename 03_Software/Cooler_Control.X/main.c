@@ -57,7 +57,7 @@ __CONFIG(FOSC_INTRCIO & WDTE_OFF & PWRTE_ON & MCLRE_OFF & BOREN_ON & CP_OFF & CP
 #endif
 
 uint8_t  pwmValue = 0;
-uint16_t adcValue = 0;
+volatile uint16_t adcValue = 0;
 
 // Main function
 void main()
@@ -65,11 +65,14 @@ void main()
     InitTimer0(); 
     Init_uC();
     ei();
-    __delay_ms(2500);
+   // __delay_ms(2500);
+    
+      MuxVoltage();
+    
 	while(1)
 	{ 
-          Pin6VoltageControl();	
-          Pin7ThermoControl();
+       //   Pin6VoltageControl();	
+       //   Pin7ThermoControl();
 	}
 }
 

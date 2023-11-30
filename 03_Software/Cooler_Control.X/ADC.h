@@ -22,5 +22,7 @@ uint16_t MeasureTemp(void);
 
 uint16_t MeasureVoltage(void);
 
+void MuxVoltage(void);
+
 #endif	/* ADC_H */
 

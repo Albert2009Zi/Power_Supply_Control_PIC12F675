@@ -1151,23 +1151,49 @@ typedef uint16_t uintptr_t;
 # 3 "interrupt.c" 2
 
 
+
+
 extern uint8_t pwmValue;
+extern uint16_t adcValue;
 uint8_t pulsePerTakt = 0;
 
 void __attribute__((picinterrupt(("")))) ISR(void)
 {
-      TMR0 = 200;
-      pulsePerTakt++;
-   if(T0IF)
-    {
-        if (pulsePerTakt < pwmValue)
-         {GP4 = 1;}
-        else
-   {GP4 = 0;}
-  T0IF = 0;
-    }
-      if (pulsePerTakt > 100)
-       {
-         pulsePerTakt = 0;
+# 27 "interrupt.c"
+     if (T0IE && T0IF){
+     pulsePerTakt++;
+
+
+        if (pulsePerTakt < pwmValue) GP4 = 1;
+         else GP4 = 0;
+   T0IF = 0;
+      if (pulsePerTakt > 100) pulsePerTakt = 0;
+     }
+
+
+
+     if (ADIF == 1){
+
+
+     adcValue = (uint16_t) ((ADRESH << 8) + ADRESL);
+
+     if ((adcValue > 190) && (adcValue < 285)){
+         GP5 = 0;
        }
+      else if (adcValue <= 190) {
+         GP5 = 1;
+
+       }
+      else if (adcValue >= 285){
+         GP5 = 1;
+
+     }
+
+       ADIF = 0;
+       _delay((unsigned long)((30)*(4000000/4000000.0)));
+       GO = 1;
+     }
+
+
+
 }

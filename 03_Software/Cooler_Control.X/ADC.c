@@ -155,3 +155,13 @@ uint16_t MeasureVoltage(void){
 }
 
 
+void MuxVoltage(void){
+       ADCON0 = 0x00;  
+       ADFM   = 1;               /* ADC results is right justified                            */
+       CHS1   = 0;   
+       CHS0   = 1;              /* Enable ADC channel 1 (AN1) "Power ON button", ADC is ON    */    
+       ADON   = 1;  
+       
+       GO = 1;
+}
+

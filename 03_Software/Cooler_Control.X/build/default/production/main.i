@@ -1168,6 +1168,8 @@ void Pin6VoltageControl (void);
 uint16_t MeasureTemp(void);
 
 uint16_t MeasureVoltage(void);
+
+void MuxVoltage(void);
 # 36 "main.c" 2
 
 # 1 "./timer0.h" 1
@@ -1197,7 +1199,7 @@ void InitTimer0(void);
 
 
 uint8_t pwmValue = 0;
-uint16_t adcValue = 0;
+volatile uint16_t adcValue = 0;
 
 
 void main()
@@ -1205,10 +1207,13 @@ void main()
     InitTimer0();
     Init_uC();
     (INTCONbits.GIE = 1);
-    _delay((unsigned long)((2500)*(4000000/4000.0)));
+
+
+      MuxVoltage();
+
  while(1)
  {
-          Pin6VoltageControl();
-          Pin7ThermoControl();
+
+
  }
 }

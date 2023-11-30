@@ -156,6 +156,8 @@ void Pin6VoltageControl (void);
 uint16_t MeasureTemp(void);
 
 uint16_t MeasureVoltage(void);
+
+void MuxVoltage(void);
 # 1 "ADC.c" 2
 
 # 1 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\\pic\\include\\xc.h" 1 3
@@ -1331,4 +1333,15 @@ uint16_t MeasureVoltage(void){
        adcValue = (uint16_t) ((ADRESH<<8)+ADRESL);
 
        return adcValue;
+}
+
+
+void MuxVoltage(void){
+       ADCON0 = 0x00;
+       ADFM = 1;
+       CHS1 = 0;
+       CHS0 = 1;
+       ADON = 1;
+
+       GO = 1;
 }
