@@ -7,11 +7,6 @@
 # 1 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
 # 1 "interrupt.c" 2
-# 1 "./interrupt.h" 1
-# 10 "./interrupt.h"
-void __attribute__((picinterrupt(("")))) ISR(void);
-# 1 "interrupt.c" 2
-
 # 1 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -1013,7 +1008,7 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 28 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\\pic\\include\\xc.h" 2 3
-# 2 "interrupt.c" 2
+# 1 "interrupt.c" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c90\\stdint.h" 1 3
 # 13 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c90\\stdint.h" 3
@@ -1148,52 +1143,30 @@ typedef int16_t intptr_t;
 
 
 typedef uint16_t uintptr_t;
+# 2 "interrupt.c" 2
+
+# 1 "./interrupt.h" 1
+
+
+
+void __attribute__((picinterrupt(("")))) ISR(void);
 # 3 "interrupt.c" 2
 
 
 
 
+uint16_t highLevelCounter = 0;
 extern uint8_t pwmValue;
-extern uint16_t adcValue;
-uint8_t pulsePerTakt = 0;
 
 void __attribute__((picinterrupt(("")))) ISR(void)
 {
-# 27 "interrupt.c"
-     if (T0IE && T0IF){
-     pulsePerTakt++;
-
-
-        if (pulsePerTakt < pwmValue) GP4 = 1;
-         else GP4 = 0;
-   T0IF = 0;
-      if (pulsePerTakt > 100) pulsePerTakt = 0;
+    TMR0 = 200;
+    if (T0IE && T0IF){
+         highLevelCounter++;
+    if (highLevelCounter < pwmValue) GP4 = 1;
+             else GP4 = 0;
+  T0IF = 0;
+      if (highLevelCounter > 100) highLevelCounter = 0;
      }
-
-
-
-     if (ADIF == 1){
-
-
-     adcValue = (uint16_t) ((ADRESH << 8) + ADRESL);
-
-     if ((adcValue > 190) && (adcValue < 285)){
-         GP5 = 0;
-       }
-      else if (adcValue <= 190) {
-         GP5 = 1;
-
-       }
-      else if (adcValue >= 285){
-         GP5 = 1;
-
-     }
-
-       ADIF = 0;
-       _delay((unsigned long)((30)*(4000000/4000000.0)));
-       GO = 1;
-     }
-
-
 
 }

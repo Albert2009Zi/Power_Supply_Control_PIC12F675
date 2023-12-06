@@ -1,4 +1,4 @@
-# 1 "timer0.c"
+# 1 "init_periphery.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,12 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "timer0.c" 2
-# 1 "./timer0.h" 1
-# 10 "./timer0.h"
-void InitTimer0(void);
-# 1 "timer0.c" 2
-
+# 1 "init_periphery.c" 2
 # 1 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -1013,12 +1008,249 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 28 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\\pic\\include\\xc.h" 2 3
-# 2 "timer0.c" 2
+# 1 "init_periphery.c" 2
+
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c90\\stdint.h" 1 3
+# 13 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c90\\stdint.h" 3
+typedef signed char int8_t;
 
 
-void InitTimer0(void)
-{
+
+
+
+
+typedef signed int int16_t;
+
+
+
+
+
+
+
+typedef __int24 int24_t;
+
+
+
+
+
+
+
+typedef signed long int int32_t;
+# 52 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c90\\stdint.h" 3
+typedef unsigned char uint8_t;
+
+
+
+
+
+typedef unsigned int uint16_t;
+
+
+
+
+
+
+typedef __uint24 uint24_t;
+
+
+
+
+
+
+typedef unsigned long int uint32_t;
+# 88 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c90\\stdint.h" 3
+typedef signed char int_least8_t;
+
+
+
+
+
+
+
+typedef signed int int_least16_t;
+# 109 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c90\\stdint.h" 3
+typedef __int24 int_least24_t;
+# 118 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c90\\stdint.h" 3
+typedef signed long int int_least32_t;
+# 136 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c90\\stdint.h" 3
+typedef unsigned char uint_least8_t;
+
+
+
+
+
+
+typedef unsigned int uint_least16_t;
+# 154 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c90\\stdint.h" 3
+typedef __uint24 uint_least24_t;
+
+
+
+
+
+
+
+typedef unsigned long int uint_least32_t;
+# 181 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c90\\stdint.h" 3
+typedef signed char int_fast8_t;
+
+
+
+
+
+
+typedef signed int int_fast16_t;
+# 200 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c90\\stdint.h" 3
+typedef __int24 int_fast24_t;
+
+
+
+
+
+
+
+typedef signed long int int_fast32_t;
+# 224 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c90\\stdint.h" 3
+typedef unsigned char uint_fast8_t;
+
+
+
+
+
+typedef unsigned int uint_fast16_t;
+# 240 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c90\\stdint.h" 3
+typedef __uint24 uint_fast24_t;
+
+
+
+
+
+
+typedef unsigned long int uint_fast32_t;
+# 268 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c90\\stdint.h" 3
+typedef int32_t intmax_t;
+# 282 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c90\\stdint.h" 3
+typedef uint32_t uintmax_t;
+
+
+
+
+
+
+typedef int16_t intptr_t;
+
+
+
+
+typedef uint16_t uintptr_t;
+# 2 "init_periphery.c" 2
+
+# 1 "./sounds.h" 1
+# 10 "./sounds.h"
+void SimpleTone(void);
+
+void LongSound(void);
+
+void ShortSound(void);
+
+void TwoShortOneLong(void);
+
+void TwoShortTwoLong(void);
+
+void ThreeShort(void);
+
+void ThreeLongOneShort(void);
+# 3 "init_periphery.c" 2
+
+# 1 "./init_periphery.h" 1
+# 11 "./init_periphery.h"
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c90\\stdint.h" 1 3
+# 11 "./init_periphery.h" 2
+
+
+
+
+
+void InitTimer0(void);
+
+void Init_uC(void);
+
+void MuxVoltage(void);
+
+void MuxTemp(void);
+# 4 "init_periphery.c" 2
+
+
+
+
+
+extern uint8_t pwmValue;
+extern uint16_t adcValue;
+uint8_t measureFlag;
+
+void InitTimer0(void){
 
  OPTION_REG &= 0xC0;
+ T0IF = 0;
  T0IE = 1;
+}
+
+void Init_uC(){
+    CMCON = 0x07;
+    VRCON = 0x00;
+
+
+    TRISIO = 0;
+    GPIO = 0;
+
+
+    TRISIO2 = 0;
+    GP2 = 0;
+
+
+    TRISIO5 = 0;
+    GP5 = 1;
+
+
+    TRISIO4 = 0;
+    GP4 = 0;
+
+
+    VCFG = 1;
+    TRISIO0 = 1;
+    TRISIO1 = 1;
+
+    ANSEL = 0b00110011;
+
+    PEIE = 1;
+    GIE = 1;
+
+    LongSound();
+    adcValue = 0;
+
+}
+
+void MuxVoltage(void){
+       ADCON0 = 0;
+       ADON = 1;
+       ADFM = 1;
+       CHS1 = 0;
+       CHS0 = 1;
+       measureFlag = 1;
+       ADIF = 0;
+       _delay((unsigned long)((30)*(4000000/4000000.0)));
+       GO = 1;
+}
+
+
+void MuxTemp(void){
+       ADCON0 = 0;
+       ADON = 1;
+       ADFM = 1;
+       CHS1 = 0;
+       CHS0 = 0;
+       measureFlag = 2;
+       ADIF = 0;
+       _delay((unsigned long)((30)*(4000000/4000000.0)));
+       GO = 1;
 }

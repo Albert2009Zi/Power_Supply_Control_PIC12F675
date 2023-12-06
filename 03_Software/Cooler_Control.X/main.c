@@ -33,8 +33,8 @@
 #include <xc.h>
 #include <stdint.h>
 #include "interrupt.h"
-#include "ADC.h"
-#include "timer0.h"
+#include "init_periphery.h"
+#include "sounds.h"
 
 #define _XTAL_FREQ   4000000
 
@@ -56,23 +56,90 @@ __CONFIG(FOSC_INTRCIO & WDTE_OFF & PWRTE_ON & MCLRE_OFF & BOREN_ON & CP_OFF & CP
 
 #endif
 
-uint8_t  pwmValue = 0;
-volatile uint16_t adcValue = 0;
+uint8_t  pwmValue    = 0;
+uint16_t adcValue    = 0;
+
+uint8_t  measureFlag = 1;
+uint8_t  tempError   = 0;
 
 // Main function
 void main()
 {	
     InitTimer0(); 
     Init_uC();
-    ei();
-   // __delay_ms(2500);
+    MuxVoltage();
     
-      MuxVoltage();
+    while(1){ 
+   
+  
+     if (ADIF == 1){      
+      
+      switch (measureFlag){
+      
+       case VOLTAGE_MEASURE: 
+  
+        adcValue = (uint16_t) ((ADRESH << 8) + ADRESL); /* ADC result */    
+  
+	    if ((adcValue > 190) && (adcValue < 285) && (tempError != 1)){
+           GP5 = 0;
+           }  	
+        else if (adcValue <= 190) { 
+           GP5 = 1; 
+	     TwoShortOneLong();   
+           }
+	    else if (adcValue >= 285){
+           GP5 = 1;
+	     TwoShortTwoLong();  
+           }    
+          MuxTemp();
+        break;
+	
+	
+	    case TEMPERATURE_MEASURE:
+
+	      adcValue = (uint16_t) ((ADRESH << 8) + ADRESL);
+	
+            if (adcValue < 200)  
+	        {
+		      GP5       = 1;  
+                      pwmValue  = 0; 
+		      tempError = 1;     
+		  }
+                
+             else if ((adcValue >= 200) && (adcValue < 880)){ 
+                        pwmValue  = 0;
+			tempError = 0;
+                       }
+             else if ((adcValue >= 880) && (adcValue < 910)){ 
+                        pwmValue  = 30;
+			tempError = 0;
+                       }
+             else if ((adcValue >= 910) && (adcValue < 940)){ 
+                        pwmValue  = 45;
+			tempError = 0;
+                       }
+             else if ((adcValue >= 940) && (adcValue < 970)){ 
+                        pwmValue  = 55;
+                        tempError = 0;   			
+                       }
+             else  {
+	                GP5       = 1;
+                        pwmValue  = 85;
+                        tempError = 1;  			
+			ThreeShort();
+		   }
+	 MuxVoltage();
+	break;
+	
+	default:
+	break;
+	}  
+     }
+ 
+ }
+
+
+ 
     
-	while(1)
-	{ 
-       //   Pin6VoltageControl();	
-       //   Pin7ThermoControl();
-	}
 }
 

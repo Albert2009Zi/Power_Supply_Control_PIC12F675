@@ -1,9 +1,3 @@
-/* 
- * File:   interrupt.h
- * Author: Albert Ziatdinov
- *
- */
-
 #ifndef INTERRUPT_H
 #define	INTERRUPT_H
 

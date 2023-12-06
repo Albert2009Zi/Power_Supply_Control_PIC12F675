@@ -1147,34 +1147,45 @@ typedef uint16_t uintptr_t;
 # 34 "main.c" 2
 
 # 1 "./interrupt.h" 1
-# 10 "./interrupt.h"
+
+
+
 void __attribute__((picinterrupt(("")))) ISR(void);
 # 35 "main.c" 2
 
-# 1 "./ADC.h" 1
-# 11 "./ADC.h"
+# 1 "./init_periphery.h" 1
+# 11 "./init_periphery.h"
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c90\\stdint.h" 1 3
-# 11 "./ADC.h" 2
+# 11 "./init_periphery.h" 2
 
+
+
+
+
+void InitTimer0(void);
 
 void Init_uC(void);
 
-void ButtonEvent (void);
-
-void Pin7ThermoControl (void);
-
-void Pin6VoltageControl (void);
-
-uint16_t MeasureTemp(void);
-
-uint16_t MeasureVoltage(void);
-
 void MuxVoltage(void);
+
+void MuxTemp(void);
 # 36 "main.c" 2
 
-# 1 "./timer0.h" 1
-# 10 "./timer0.h"
-void InitTimer0(void);
+# 1 "./sounds.h" 1
+# 10 "./sounds.h"
+void SimpleTone(void);
+
+void LongSound(void);
+
+void ShortSound(void);
+
+void TwoShortOneLong(void);
+
+void TwoShortTwoLong(void);
+
+void ThreeShort(void);
+
+void ThreeLongOneShort(void);
 # 37 "main.c" 2
 
 
@@ -1199,21 +1210,88 @@ void InitTimer0(void);
 
 
 uint8_t pwmValue = 0;
-volatile uint16_t adcValue = 0;
+uint16_t adcValue = 0;
+
+uint8_t measureFlag = 1;
+uint8_t tempError = 0;
 
 
 void main()
 {
     InitTimer0();
     Init_uC();
-    (INTCONbits.GIE = 1);
+    MuxVoltage();
+
+    while(1){
 
 
-      MuxVoltage();
+     if (ADIF == 1){
 
- while(1)
- {
+      switch (measureFlag){
 
+       case 1:
+
+        adcValue = (uint16_t) ((ADRESH << 8) + ADRESL);
+
+     if ((adcValue > 190) && (adcValue < 285) && (tempError != 1)){
+           GP5 = 0;
+           }
+        else if (adcValue <= 190) {
+           GP5 = 1;
+      TwoShortOneLong();
+           }
+     else if (adcValue >= 285){
+           GP5 = 1;
+      TwoShortTwoLong();
+           }
+          MuxTemp();
+        break;
+
+
+     case 2:
+
+       adcValue = (uint16_t) ((ADRESH << 8) + ADRESL);
+
+            if (adcValue < 200)
+         {
+        GP5 = 1;
+                      pwmValue = 0;
+        tempError = 1;
+    }
+
+             else if ((adcValue >= 200) && (adcValue < 880)){
+                        pwmValue = 0;
+   tempError = 0;
+                       }
+             else if ((adcValue >= 880) && (adcValue < 910)){
+                        pwmValue = 30;
+   tempError = 0;
+                       }
+             else if ((adcValue >= 910) && (adcValue < 940)){
+                        pwmValue = 45;
+   tempError = 0;
+                       }
+             else if ((adcValue >= 940) && (adcValue < 970)){
+                        pwmValue = 55;
+                        tempError = 0;
+                       }
+             else {
+                 GP5 = 1;
+                        pwmValue = 85;
+                        tempError = 1;
+   ThreeShort();
+     }
+  MuxVoltage();
+ break;
+
+ default:
+ break;
+ }
+     }
 
  }
+
+
+
+
 }

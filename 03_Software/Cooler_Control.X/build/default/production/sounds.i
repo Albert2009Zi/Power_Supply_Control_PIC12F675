@@ -1065,11 +1065,3 @@ void ThreeShort(){
    ShortSound();
    _delay((unsigned long)((300)*(4000000/4000.0)));
 }
-
-void ThreeLongOneShort(){
-   LongSound();
-   LongSound();
-   LongSound();
-   ShortSound();
-   _delay((unsigned long)((300)*(4000000/4000.0)));
-}

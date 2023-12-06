@@ -38,11 +38,3 @@ void ThreeShort(){
    ShortSound();
    __delay_ms(300);
 }
-
-void ThreeLongOneShort(){
-   LongSound();
-   LongSound();
-   LongSound(); 
-   ShortSound();
-   __delay_ms(300);
-}

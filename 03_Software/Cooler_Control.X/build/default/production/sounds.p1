@@ -215,28 +215,3 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;sounds.c: 40: }
 [e :UE 85 ]
 }
-"42
-[; ;sounds.c: 42: void ThreeLongOneShort(){
-[v _ThreeLongOneShort `(v ~T0 @X0 1 ef ]
-{
-[e :U _ThreeLongOneShort ]
-[f ]
-"43
-[; ;sounds.c: 43:    LongSound();
-[e ( _LongSound ..  ]
-"44
-[; ;sounds.c: 44:    LongSound();
-[e ( _LongSound ..  ]
-"45
-[; ;sounds.c: 45:    LongSound();
-[e ( _LongSound ..  ]
-"46
-[; ;sounds.c: 46:    ShortSound();
-[e ( _ShortSound ..  ]
-"47
-[; ;sounds.c: 47:    _delay((unsigned long)((300)*(4000000/4000.0)));
-[e ( __delay (1 -> * -> -> 300 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"48
-[; ;sounds.c: 48: }
-[e :UE 86 ]
-}

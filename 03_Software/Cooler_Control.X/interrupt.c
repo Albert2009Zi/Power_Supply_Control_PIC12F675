@@ -1,64 +1,23 @@
-#include "interrupt.h"
 #include <xc.h>
 #include <stdint.h>
+#include "interrupt.h"
 
-#define _XTAL_FREQ   4000000
+#define _XTAL_FREQ   4000000 
 
-extern uint8_t pwmValue;
-extern uint16_t adcValue;
-uint8_t pulsePerTakt = 0;
+uint16_t       highLevelCounter = 0;
+extern uint8_t pwmValue; 
 
 void __interrupt() ISR(void)
-{      
-//      TMR0 = 200; 
-//      pulsePerTakt++;
-//	  if(T0IF)  //If Timer0 Interrupt
-//	   {
-//        if (pulsePerTakt < pwmValue)
-//         {GP4 = 1;}
-//        else               
-//		 {GP4 = 0;} 
-//		T0IF = 0;   // Clear the interrupt
-//	   }  
-//      if (pulsePerTakt > 100)
-//       {
-//         pulsePerTakt = 0; 
-//       }
-     if (T0IE && T0IF){ 
-     pulsePerTakt++;
-	 // if(T0IF)  //If Timer0 Interrupt
-	 //  {
-        if (pulsePerTakt < pwmValue) GP4 = 1;
-         else GP4 = 0; 
-	  T0IF = 0;   // Clear the interrupt    
-      if (pulsePerTakt > 100) pulsePerTakt = 0; 
-     }
-     
-     
-     
-     if (ADIF == 1){
-     
-   
-     adcValue = (uint16_t) ((ADRESH << 8) + ADRESL); /* ADC result */     
-       
-     if ((adcValue > 190) && (adcValue < 285)){
-         GP5 = 0;
-       }           
-      else if (adcValue <= 190) { 
-         GP5 = 1; 
-	// TwoShortOneLong();    
-       }
-      else if (adcValue >= 285){
-         GP5 = 1;
-	// TwoShortTwoLong();   
+{       
+    TMR0 = 200;                                          // Timer0 overload after every 200us 
+    if (T0IE && T0IF){                                   // Timer0 is overload 
+         highLevelCounter++;                             //  
+	   if (highLevelCounter < pwmValue)  GP4 = 1;
+             else GP4 = 0; 
+	 T0IF = 0;                                            // Clear the interrupt    
+      if (highLevelCounter > 100) highLevelCounter = 0;         
      } 
-         
-       ADIF = 0;
-       __delay_us(30);
-       GO     = 1; 
-     }
-      
-      
-      
+    
 }
+
 
