@@ -3,4 +3,3 @@ EN: Short photo guide for my friend and coauthor this project Alex Talko. Who re
 DE: Diese kurze Fotoanweisung ist für mein Freund und Co-Autor dieses Projekts Alex Talko gemacht. 
     Er macht diesen Projekt remote auf hardware. Anweisung  zeigt Verbindung und Vorbereitung uc PIC12F625 für Programmieren 
     mit chinesischen Klon von PICKit3 Debugger auf Rasterplatine.
-UA: 
