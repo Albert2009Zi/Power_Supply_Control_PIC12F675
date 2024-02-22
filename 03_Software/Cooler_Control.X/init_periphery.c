@@ -38,8 +38,9 @@ void MuxVoltage(){
        CHS0   = 1;                     /* Enable ADC channel 1 (AN1) "Power ON button", ADC is ON */    
        measureType = VOLTAGE_MEASURE; 
        ADIF   = 0;
-       while (msFlag != 1);
-       msFlag = 0;
+    /*   while (msFlag != 1);
+       msFlag = 0;*/
+       __delay_ms(1);
        GO     = 1; 
 }
 
@@ -52,8 +53,9 @@ void MuxTemp(){
        CHS0        = 0;                   /* Enable ADC channel 0 (AN0) "Temperature control", ADC is ON    */ 
        measureType = TEMPERATURE_MEASURE;
        ADIF        = 0;
-       while (msFlag != 1);
-       msFlag = 0;
+       /*   while (msFlag != 1);
+       msFlag = 0;*/
+       __delay_ms(1);
        GO          = 1;    
 }
 

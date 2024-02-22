@@ -1215,8 +1215,9 @@ void MuxVoltage(){
        CHS0 = 1;
        measureType = 1;
        ADIF = 0;
-       while (msFlag != 1);
-       msFlag = 0;
+
+
+       _delay((unsigned long)((1)*(4000000/4000.0)));
        GO = 1;
 }
 
@@ -1229,8 +1230,9 @@ void MuxTemp(){
        CHS0 = 0;
        measureType = 2;
        ADIF = 0;
-       while (msFlag != 1);
-       msFlag = 0;
+
+
+       _delay((unsigned long)((1)*(4000000/4000.0)));
        GO = 1;
 }
 
