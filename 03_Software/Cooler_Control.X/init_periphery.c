@@ -2,22 +2,62 @@
 #include <stdint.h>
 #include "sounds.h"
 #include "init_periphery.h"
+#include "defines.h"
 
 #define _XTAL_FREQ   4000000 
 
-
-extern uint8_t  pwmValue;
-extern uint16_t adcValue;
-uint8_t         measureFlag;
+extern uint8_t  measureType;
+extern uint8_t  msFlag; 
 
 void InitTimer0(void){
-	// Timer0 is 8bit timer, select T0CS and PSA to be one
-	OPTION_REG &= 0xC0;                     // Make Prescalar 1:2
-	T0IF = 0;
-	T0IE = 1;				// Enable Timer0 interrupt
+
+    OPTION_REG = 0b11000001;  // ????????? ??????? TIMER0 (1:4 prescaler)
+    TMR0 = 0;                 // ??????????????? ????????? ??????? (??? ????????? 1 ????????????)
+    T0IF = 0;                 // ?????????? ???? ?????????? ??????? 0
+    T0IE = 1;                 // ????????? ?????????? ?? ??????? 0
+         
 }
 
-void Init_uC(){    
+void InitTimer1(void){
+
+     TMR1H = 0xFC;
+	 TMR1L = 0x17;         // Interrupt after 1ms 0x03E8 = 1000, 1000000/1000 = 1000Hz, 1/1000Hz = 1ms
+	 
+	 T1CON = 0x01;         //Enable Timer 1
+	 
+	 T1IF = 0;
+	 T1IE = 1;
+	 
+}
+
+void MuxVoltage(){ 
+       ADCON0 = 0;                     /* must after every new switch be                          */ 
+       ADON   = 1;                     /* ADC is ON                                               */
+       ADFM   = 1;                     /* ADC results is right justified                          */
+       CHS1   = 0;   
+       CHS0   = 1;                     /* Enable ADC channel 1 (AN1) "Power ON button", ADC is ON */    
+       measureType = VOLTAGE_MEASURE; 
+       ADIF   = 0;
+       while (msFlag != 1);
+       msFlag = 0;
+       GO     = 1; 
+}
+
+
+void MuxTemp(){
+       ADCON0      = 0;                   /* must after every new switch be*/ 
+       ADON        = 1;                   /* ADC is ON                                       */
+       ADFM        = 1;                   /* ADC results is right justified                            */
+       CHS1        = 0;   
+       CHS0        = 0;                   /* Enable ADC channel 0 (AN0) "Temperature control", ADC is ON    */ 
+       measureType = TEMPERATURE_MEASURE;
+       ADIF        = 0;
+       while (msFlag != 1);
+       msFlag = 0;
+       GO          = 1;    
+}
+
+void Init_uC(void){    
     CMCON  = 0x07;		   /* Shut down the Comparator                        */
     VRCON  = 0x00;         /* Shut down Comparator reference Voltage          */
     
@@ -46,34 +86,12 @@ void Init_uC(){
                                                        */  
     PEIE = 1;            
     GIE  = 1;			   /* Enable global interrupts                        */
-    
-    LongSound();
-    adcValue = 0;
-       
-}
 
-void MuxVoltage(void){ 
-       ADCON0 = 0;                     /* must after every new switch be                          */ 
-       ADON   = 1;                     /* ADC is ON                                               */
-       ADFM   = 1;                     /* ADC results is right justified                          */
-       CHS1   = 0;   
-       CHS0   = 1;                     /* Enable ADC channel 1 (AN1) "Power ON button", ADC is ON */    
-       measureFlag = VOLTAGE_MEASURE; 
-       ADIF   = 0;
-       __delay_us(30);
-       GO     = 1; 
+    LongSound();     
+    MuxVoltage();
 }
 
 
-void MuxTemp(void){
-       ADCON0 = 0;                        /* must after every new switch be                              */ 
-       ADON   = 1;                        /* ADC is ON                                                   */
-       ADFM   = 1;                        /* ADC results is right justified                              */
-       CHS1   = 0;   
-       CHS0   = 0;                        /* Enable ADC channel 0 (AN0) "Temperature control", ADC is ON */ 
-       measureFlag = TEMPERATURE_MEASURE;
-       ADIF   = 0;
-       __delay_us(30);
-       GO     = 1;    
-}
+
+
 

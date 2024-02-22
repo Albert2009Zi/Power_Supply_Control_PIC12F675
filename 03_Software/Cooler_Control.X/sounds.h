@@ -1,25 +1,19 @@
-/* 
- * File:   Sounds.h
- * Author: Albert Ziatdinov
- *
- */
-
 #ifndef SOUNDS_H
 #define	SOUNDS_H
 
-void SimpleTone(void);
+/*****Sounds and pauses*****/
+void ShortSound(void);
 
 void LongSound(void);
 
-void ShortSound(void);
+void TimeOut(void);
 
+/***********Alarms*********/
 void TwoShortOneLong(void);
 
 void TwoShortTwoLong(void);
 
 void ThreeShort(void);
-
-void ThreeLongOneShort(void);
 
 #endif	/* SOUNDS_H */
 

@@ -7,7 +7,7 @@
 # 1 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
 # 1 "main.c" 2
-# 33 "main.c"
+# 39 "main.c"
 # 1 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -1009,7 +1009,7 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 28 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\\pic\\include\\xc.h" 2 3
-# 33 "main.c" 2
+# 39 "main.c" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c90\\stdint.h" 1 3
 # 13 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c90\\stdint.h" 3
@@ -1144,51 +1144,47 @@ typedef int16_t intptr_t;
 
 
 typedef uint16_t uintptr_t;
-# 34 "main.c" 2
-
-# 1 "./interrupt.h" 1
-
-
-
-void __attribute__((picinterrupt(("")))) ISR(void);
-# 35 "main.c" 2
+# 40 "main.c" 2
 
 # 1 "./init_periphery.h" 1
 # 11 "./init_periphery.h"
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c90\\stdint.h" 1 3
-# 11 "./init_periphery.h" 2
-
-
-
-
-
 void InitTimer0(void);
 
-void Init_uC(void);
+void InitTimer1(void);
 
 void MuxVoltage(void);
 
 void MuxTemp(void);
-# 36 "main.c" 2
+
+void Init_uC(void);
+# 41 "main.c" 2
+
+# 1 "./interrupt.h" 1
+# 11 "./interrupt.h"
+void __attribute__((picinterrupt(("")))) ISR(void);
+# 42 "main.c" 2
 
 # 1 "./sounds.h" 1
-# 10 "./sounds.h"
-void SimpleTone(void);
+
+
+
+
+void ShortSound(void);
 
 void LongSound(void);
 
-void ShortSound(void);
+void TimeOut(void);
+
 
 void TwoShortOneLong(void);
 
 void TwoShortTwoLong(void);
 
 void ThreeShort(void);
+# 43 "main.c" 2
 
-void ThreeLongOneShort(void);
-# 37 "main.c" 2
-
-
+# 1 "./defines.h" 1
+# 44 "main.c" 2
 
 
 
@@ -1209,89 +1205,22 @@ void ThreeLongOneShort(void);
 
 
 
-uint8_t pwmValue = 0;
-uint16_t adcValue = 0;
 
-uint8_t measureFlag = 1;
-uint8_t tempError = 0;
+uint16_t adcValue = 0;
+uint8_t measureType = 1;
+uint8_t msFlag = 0;
+
+uint16_t cnt1 = 0;
 
 
 void main()
 {
     InitTimer0();
+    InitTimer1();
     Init_uC();
-    MuxVoltage();
 
     while(1){
 
-
-     if (ADIF == 1){
-
-      switch (measureFlag){
-
-       case 1:
-
-        adcValue = (uint16_t) ((ADRESH << 8) + ADRESL);
-
-     if ((adcValue > 190) && (adcValue < 285) && (tempError != 1)){
-           GP5 = 0;
-           }
-        else if (adcValue <= 190) {
-           GP5 = 1;
-      TwoShortOneLong();
-           }
-     else if (adcValue >= 285){
-           GP5 = 1;
-      TwoShortTwoLong();
-           }
-          MuxTemp();
-        break;
-
-
-     case 2:
-
-       adcValue = (uint16_t) ((ADRESH << 8) + ADRESL);
-
-            if (adcValue < 200)
-         {
-        GP5 = 1;
-                      pwmValue = 0;
-        tempError = 1;
-    }
-
-             else if ((adcValue >= 200) && (adcValue < 880)){
-                        pwmValue = 0;
-   tempError = 0;
-                       }
-             else if ((adcValue >= 880) && (adcValue < 910)){
-                        pwmValue = 30;
-   tempError = 0;
-                       }
-             else if ((adcValue >= 910) && (adcValue < 940)){
-                        pwmValue = 45;
-   tempError = 0;
-                       }
-             else if ((adcValue >= 940) && (adcValue < 970)){
-                        pwmValue = 55;
-                        tempError = 0;
-                       }
-             else {
-                 GP5 = 1;
-                        pwmValue = 85;
-                        tempError = 1;
-   ThreeShort();
-     }
-  MuxVoltage();
- break;
-
- default:
- break;
  }
-     }
-
- }
-
-
-
 
 }

@@ -1146,27 +1146,149 @@ typedef uint16_t uintptr_t;
 # 2 "interrupt.c" 2
 
 # 1 "./interrupt.h" 1
-
-
-
+# 11 "./interrupt.h"
 void __attribute__((picinterrupt(("")))) ISR(void);
 # 3 "interrupt.c" 2
 
+# 1 "./sounds.h" 1
 
 
 
-uint16_t highLevelCounter = 0;
-extern uint8_t pwmValue;
+
+void ShortSound(void);
+
+void LongSound(void);
+
+void TimeOut(void);
+
+
+void TwoShortOneLong(void);
+
+void TwoShortTwoLong(void);
+
+void ThreeShort(void);
+# 4 "interrupt.c" 2
+
+# 1 "./init_periphery.h" 1
+# 11 "./init_periphery.h"
+void InitTimer0(void);
+
+void InitTimer1(void);
+
+void MuxVoltage(void);
+
+void MuxTemp(void);
+
+void Init_uC(void);
+# 5 "interrupt.c" 2
+
+# 1 "./defines.h" 1
+# 6 "interrupt.c" 2
+
+
+
+
+extern uint16_t cnt1;
+extern uint8_t msFlag;
+extern uint16_t adcValue;
+
+extern uint8_t measureType;
+uint8_t errorType = 1;
 
 void __attribute__((picinterrupt(("")))) ISR(void)
 {
-    TMR0 = 200;
-    if (T0IE && T0IF){
-         highLevelCounter++;
-    if (highLevelCounter < pwmValue) GP4 = 1;
-             else GP4 = 0;
-  T0IF = 0;
-      if (highLevelCounter > 100) highLevelCounter = 0;
+
+    if (TMR0IF == 1){
+        TMR0 = 0;
+ msFlag = 1;
+ T0IF = 0;
+     }
+
+    if (TMR1IF == 1){
+
+  TMR1H = 0xFC;
+  TMR1L = 0x17;
+
+         cnt1++;
+
+  switch(errorType){
+
+  case 1:
+     break;
+
+  case 2:
+    TwoShortOneLong();
+     break;
+
+  case 3:
+           TwoShortTwoLong();
+     break;
+
+  case 5:
+           ThreeShort();
+     break;
+
+  default:
+            break;
+ }
+
+         TMR1IF = 0;
+    }
+
+    if (ADIF == 1){
+      switch (measureType){
+
+       case 1:
+        adcValue = (uint16_t) ((ADRESH << 8) + ADRESL);
+
+ if ((adcValue > 190) && (adcValue < 285) && (errorType == 1)){
+           GP5 = 0;
+    GP2 = 0;
+           }
+        else if (adcValue <= 190) {
+           GP5 = 1;
+    errorType = 2;
+           }
+  else if (adcValue >= 285){
+           GP5 = 1;
+    errorType = 3;
+           }
+          MuxTemp();
+        break;
+
+
+ case 2:
+  adcValue = (uint16_t) ((ADRESH << 8) + ADRESL);
+
+            if (adcValue < 200)
+         {
+        GP5 = 1;
+        GP4 = 0;
+
+
+    }
+
+             else if ((adcValue >= 200) && (adcValue < 880)){
+
+          GP4 = 0;
+   errorType = 1;
+                       }
+
+      else if ((adcValue >= 880) && (adcValue < 970)){
+          GP4 = 1;
+   errorType = 1;
+                       }
+         else {
+          GP4 = 1;
+             GP5 = 1;
+                errorType = 5;
+     }
+  MuxVoltage();
+ break;
+
+ default:
+ break;
+ }
      }
 
 }
