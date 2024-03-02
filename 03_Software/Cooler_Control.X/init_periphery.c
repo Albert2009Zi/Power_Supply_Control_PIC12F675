@@ -8,14 +8,13 @@
 
 extern uint16_t adcValue;
 extern uint8_t  measureType;
-extern uint8_t  msFlag;
 
 void InitTimer0(void){
 
     OPTION_REG = 0b11000001;  // ????????? ??????? TIMER0 (1:4 prescaler)
     TMR0 = 0;                 // ??????????????? ????????? ??????? (??? ????????? 1 ????????????)
-    T0IF = 0;                 // ?????????? ???? ?????????? ??????? 0
-    T0IE = 1;                 // ????????? ?????????? ?? ??????? 0
+    TMR0IF = 0;                 // ?????????? ???? ?????????? ??????? 0
+    TMR0IE = 1;                 // ????????? ?????????? ?? ??????? 0
          
 }
 
@@ -26,8 +25,8 @@ void InitTimer1(void){
 	 
 	 T1CON = 0x01;         //Enable Timer 1
 	 
-	 T1IF = 0;
-	 T1IE = 1;
+	 TMR1IF = 0;
+	 TMR1IE = 1;
 	 
 }
 
@@ -65,36 +64,3 @@ void Init_uC(void){
     adcValue = 0;
        
 }
-
-void MuxVoltage(void){ 
-       ADCON0 = 0;                     /* must after every new switch be                          */ 
-       ADON   = 1;                     /* ADC is ON                                               */
-       ADFM   = 1;                     /* ADC results is right justified                          */
-       CHS1   = 0;   
-       CHS0   = 1;                     /* Enable ADC channel 1 (AN1) "Power ON button", ADC is ON */    
-       measureType = VOLTAGE_MEASURE; 
-       ADIF   = 0;
-       while (msFlag != 1);
-       msFlag = 0;
-       GO     = 1; 
-}
-
-
-void MuxTemp(void){
-       ADCON0      = 0;                   /* must after every new switch be*/ 
-       ADON        = 1;                   /* ADC is ON                                       */
-       ADFM        = 1;                   /* ADC results is right justified                            */
-       CHS1        = 0;   
-       CHS0        = 0;                   /* Enable ADC channel 0 (AN0) "Temperature control", ADC is ON    */ 
-       measureType = TEMPERATURE_MEASURE;
-       ADIF        = 0;
-       while (msFlag != 1);
-       msFlag = 0;
-       GO          = 1;    
-}
-
-
-
-
-
-

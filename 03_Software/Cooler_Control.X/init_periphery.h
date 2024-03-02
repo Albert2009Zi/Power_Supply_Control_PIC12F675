@@ -17,9 +17,6 @@ void InitTimer1(void);
 
 void Init_uC(void);
 
-void MuxVoltage(void);
-
-void MuxTemp(void);
 
 #endif	/* INIT_PERIPHERY_H */
 

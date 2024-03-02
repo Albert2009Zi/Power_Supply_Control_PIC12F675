@@ -1166,6 +1166,10 @@ void ThreeShort(void);
 # 1 "./interrupt.h" 1
 # 11 "./interrupt.h"
 void __attribute__((picinterrupt(("")))) ISR(void);
+
+void MuxVoltage(void);
+
+void MuxTemp(void);
 # 3 "sounds.c" 2
 
 

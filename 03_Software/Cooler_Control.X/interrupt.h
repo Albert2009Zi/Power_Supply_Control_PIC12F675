@@ -10,5 +10,9 @@
 
 void __interrupt() ISR(void);
 
+void MuxVoltage(void);
+
+void MuxTemp(void);
+
 #endif	/* INTERRUPT_H */
 

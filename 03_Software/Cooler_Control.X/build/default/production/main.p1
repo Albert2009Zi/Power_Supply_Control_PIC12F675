@@ -9,9 +9,22 @@ Version 4.0 HI-TECH Software Intermediate Code
 "18
 [; ;./init_periphery.h: 18: void Init_uC(void);
 [v _Init_uC `(v ~T0 @X0 0 ef ]
-"20
-[; ;./init_periphery.h: 20: void MuxVoltage(void);
+"13 ./interrupt.h
+[; ;./interrupt.h: 13: void MuxVoltage(void);
 [v _MuxVoltage `(v ~T0 @X0 0 ef ]
+"64 main.c
+[v _errorType `uc ~T0 @X0 0 e ]
+"65
+[v _cnt0 `uc ~T0 @X0 0 e ]
+"20 ./sounds.h
+[; ;./sounds.h: 20: void TwoShortOneLong(void);
+[v _TwoShortOneLong `(v ~T0 @X0 0 ef ]
+"22
+[; ;./sounds.h: 22: void TwoShortTwoLong(void);
+[v _TwoShortTwoLong `(v ~T0 @X0 0 ef ]
+"24
+[; ;./sounds.h: 24: void ThreeShort(void);
+[v _ThreeShort `(v ~T0 @X0 0 ef ]
 "54 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\pic\include\proc\pic12f675.h
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\pic\include\proc\pic12f675.h: 54: __asm("INDF equ 00h");
 [; <" INDF equ 00h ;# ">
@@ -109,51 +122,113 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\pic\include\proc\pic12f675.h: 1406: __asm("ANSEL equ 09Fh");
 [; <" ANSEL equ 09Fh ;# ">
 "50 main.c
+[; ;main.c: 50:  }
 [p x FOSC  =  INTRCIO    ]
 "51
+[; ;main.c: 51: 
 [p x WDTE  =  OFF        ]
 "52
+[; ;main.c: 52: 
 [p x PWRTE  =  OFF       ]
 "53
+[; ;main.c: 53:  }
 [p x MCLRE  =  ON        ]
 "54
+[; ;main.c: 54: 
 [p x BOREN  =  ON        ]
 "55
+[; ;main.c: 55: }
 [p x CP  =  OFF          ]
 "56
 [p x CPD  =  OFF         ]
-[v $root$_main `(v ~T0 @X0 0 e ]
 "67
-[; ;main.c: 67: void main()
-[v _main `(v ~T0 @X0 1 ef ]
+[v _firstMeasRes `uc ~T0 @X0 1 e ]
+[i _firstMeasRes
+-> -> 0 `i `uc
+]
 "68
-[; ;main.c: 68: {
+[v _secondMeasRes `uc ~T0 @X0 1 e ]
+[i _secondMeasRes
+-> -> 0 `i `uc
+]
+[v $root$_main `(v ~T0 @X0 0 e ]
+"71
+[v _main `(v ~T0 @X0 1 ef ]
+"72
 {
 [e :U _main ]
 [f ]
-"69
-[; ;main.c: 69:     InitTimer0();
+"73
 [e ( _InitTimer0 ..  ]
-"70
-[; ;main.c: 70:     InitTimer1();
-[e ( _InitTimer1 ..  ]
-"71
-[; ;main.c: 71:     Init_uC();
-[e ( _Init_uC ..  ]
-"72
-[; ;main.c: 72:     MuxVoltage();
-[e ( _MuxVoltage ..  ]
 "74
-[; ;main.c: 74:     while(1){
+[e ( _InitTimer1 ..  ]
+"75
+[e ( _Init_uC ..  ]
+"76
+[e ( _MuxVoltage ..  ]
+"78
 [e :U 83 ]
 {
-"76
-[; ;main.c: 76:  }
+"80
+[e = _firstMeasRes _errorType ]
+"82
+[e $ ! == -> _cnt0 `i -> 30 `i 85  ]
+{
+"83
+[e = _secondMeasRes _errorType ]
+"84
+[e = _cnt0 -> -> 0 `i `uc ]
+"85
+}
+[e :U 85 ]
+"87
+[e $ ! != -> _firstMeasRes `i -> _secondMeasRes `i 86  ]
+[e = _errorType -> -> 1 `i `uc ]
+[e :U 86 ]
+"89
+[e $U 88  ]
+{
+"91
+[e :U 89 ]
+"92
+[e $U 87  ]
+"94
+[e :U 90 ]
+"95
+[e ( _TwoShortOneLong ..  ]
+"96
+[e $U 87  ]
+"98
+[e :U 91 ]
+"99
+[e ( _TwoShortTwoLong ..  ]
+"100
+[e $U 87  ]
+"102
+[e :U 92 ]
+"103
+[e ( _ThreeShort ..  ]
+"104
+[e $U 87  ]
+"106
+[e :U 93 ]
+"107
+[e $U 87  ]
+"108
+}
+[e $U 87  ]
+[e :U 88 ]
+[e [\ -> _errorType `i , $ -> 1 `i 89
+ , $ -> 2 `i 90
+ , $ -> 3 `i 91
+ , $ -> 5 `i 92
+ 93 ]
+[e :U 87 ]
+"111
 }
 [e :U 82 ]
 [e $U 83  ]
 [e :U 84 ]
-"78
-[; ;main.c: 78: }
+"113
 [e :UE 81 ]
 }

@@ -9,6 +9,7 @@
 #define PWM_ON
 
 uint16_t cnt1             = 0;
+uint8_t  cnt0             = 0;
 uint8_t  msFlag           = 0; 
 uint16_t adcValue         = 0;
 
@@ -19,9 +20,14 @@ void __interrupt() ISR(void)
 {       
     
     if (TMR0IF == 1){       // Timer0 is overload 
-        msFlag = 1;
-	TMR0 = 6; // ???????? ??? ???????????? ????? 1 ?? ??? ???????????? 256
-	T0IF   = 0;  // ?????????? ???? ?????????? ??????? 0       
+    
+        TMR0 = 6; // ???????? ??? ???????????? ????? 1 ?? ??? ???????????? 256
+    
+        //msFlag++;
+	
+	cnt0++;
+	
+	TMR0IF   = 0;  // ?????????? ???? ?????????? ??????? 0       
      }
      
     if (TMR1IF == 1){
@@ -31,26 +37,7 @@ void __interrupt() ISR(void)
     
          cnt1++;
 	 
-	 switch(errorType){
-	 
-	 case ERROR_OK:
-	    break;
-	 
-	 case ERROR_UNDER_VOLTAGE:
-	   TwoShortOneLong();
-	    break;
-	    
-	 case ERROR_OVER_VOLTAGE:
-           TwoShortTwoLong();
-	    break;
-	 
-	 case ERROR_TMP_HIGH:
-           ThreeShort();
-	    break;      
-	    
-	 default:
-            break;	 
-	}
+
 	
          TMR1IF = 0;  // ?????????? ???? ?????????? ??????? 1
     }
@@ -128,5 +115,34 @@ void __interrupt() ISR(void)
 	}  
      } 
     
+}
+
+void MuxVoltage(void){ 
+       ADCON0 = 0;                     /* must after every new switch be                          */ 
+       ADON   = 1;                     /* ADC is ON                                               */
+       ADFM   = 1;                     /* ADC results is right justified                          */
+       CHS1   = 0;   
+       CHS0   = 1;                     /* Enable ADC channel 1 (AN1) "Power ON button", ADC is ON */    
+       measureType = VOLTAGE_MEASURE; 
+       ADIF   = 0;
+     /*  while (msFlag < 3);
+       msFlag = 0;*/
+       __delay_us(50);
+       GO     = 1; 
+}
+
+
+void MuxTemp(void){
+       ADCON0      = 0;                   /* must after every new switch be*/ 
+       ADON        = 1;                   /* ADC is ON                                       */
+       ADFM        = 1;                   /* ADC results is right justified                            */
+       CHS1        = 0;   
+       CHS0        = 0;                   /* Enable ADC channel 0 (AN0) "Temperature control", ADC is ON    */ 
+       measureType = TEMPERATURE_MEASURE;
+       ADIF        = 0;
+    /*   while (msFlag < 3);
+       msFlag = 0;*/
+       __delay_us(50);
+       GO          = 1;    
 }
 

@@ -1152,15 +1152,15 @@ void InitTimer0(void);
 void InitTimer1(void);
 
 void Init_uC(void);
-
-void MuxVoltage(void);
-
-void MuxTemp(void);
 # 3 "init_periphery.c" 2
 
 # 1 "./interrupt.h" 1
 # 11 "./interrupt.h"
 void __attribute__((picinterrupt(("")))) ISR(void);
+
+void MuxVoltage(void);
+
+void MuxTemp(void);
 # 4 "init_periphery.c" 2
 
 # 1 "./sounds.h" 1
@@ -1189,14 +1189,13 @@ void ThreeShort(void);
 
 extern uint16_t adcValue;
 extern uint8_t measureType;
-extern uint8_t msFlag;
 
 void InitTimer0(void){
 
     OPTION_REG = 0b11000001;
     TMR0 = 0;
-    T0IF = 0;
-    T0IE = 1;
+    TMR0IF = 0;
+    TMR0IE = 1;
 
 }
 
@@ -1207,8 +1206,8 @@ void InitTimer1(void){
 
   T1CON = 0x01;
 
-  T1IF = 0;
-  T1IE = 1;
+  TMR1IF = 0;
+  TMR1IE = 1;
 
 }
 
@@ -1245,31 +1244,4 @@ void Init_uC(void){
     LongSound();
     adcValue = 0;
 
-}
-
-void MuxVoltage(void){
-       ADCON0 = 0;
-       ADON = 1;
-       ADFM = 1;
-       CHS1 = 0;
-       CHS0 = 1;
-       measureType = 1;
-       ADIF = 0;
-       while (msFlag != 1);
-       msFlag = 0;
-       GO = 1;
-}
-
-
-void MuxTemp(void){
-       ADCON0 = 0;
-       ADON = 1;
-       ADFM = 1;
-       CHS1 = 0;
-       CHS0 = 0;
-       measureType = 2;
-       ADIF = 0;
-       while (msFlag != 1);
-       msFlag = 0;
-       GO = 1;
 }

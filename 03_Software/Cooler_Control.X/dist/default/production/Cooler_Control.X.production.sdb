@@ -11,26 +11,25 @@
 [v ___eecpymem __eecpymem `(v  1 e 1 0 ]
 "39
 [v ___memcpyee __memcpyee `(v  1 e 1 0 ]
-"13 C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\init_periphery.c
+"12 C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\init_periphery.c
 [v _InitTimer0 InitTimer0 `(v  1 e 1 0 ]
-"22
+"21
 [v _InitTimer1 InitTimer1 `(v  1 e 1 0 ]
-"34
+"33
 [v _Init_uC Init_uC `(v  1 e 1 0 ]
-"69
+"19 C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\interrupt.c
+[v _ISR ISR `II(v  1 e 1 0 ]
+"120
 [v _MuxVoltage MuxVoltage `(v  1 e 1 0 ]
 [v i1_MuxVoltage MuxVoltage `(v  1 e 1 0 ]
-"83
+"135
 [v _MuxTemp MuxTemp `(v  1 e 1 0 ]
-"18 C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\interrupt.c
-[v _ISR ISR `II(v  1 e 1 0 ]
-"67 C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\main.c
+"71 C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\main.c
 [v _main main `(v  1 e 1 0 ]
 "8 C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\sounds.c
 [v _ShortSound ShortSound `(v  1 e 1 0 ]
 "17
 [v _LongSound LongSound `(v  1 e 1 0 ]
-[v i1_LongSound LongSound `(v  1 e 1 0 ]
 "26
 [v _TimeOut TimeOut `(v  1 e 1 0 ]
 "35
@@ -87,16 +86,12 @@
 [v _GP5 GP5 `VEb  1 e 0 @45 ]
 "1675
 [v _PEIE PEIE `VEb  1 e 0 @94 ]
-"1702
-[v _T0IE T0IE `VEb  1 e 0 @93 ]
-"1705
-[v _T0IF T0IF `VEb  1 e 0 @90 ]
-"1717
-[v _T1IE T1IE `VEb  1 e 0 @1120 ]
-"1720
-[v _T1IF T1IF `VEb  1 e 0 @96 ]
+"1726
+[v _TMR0IE TMR0IE `VEb  1 e 0 @93 ]
 "1729
 [v _TMR0IF TMR0IF `VEb  1 e 0 @90 ]
+"1738
+[v _TMR1IE TMR1IE `VEb  1 e 0 @1120 ]
 "1741
 [v _TMR1IF TMR1IF `VEb  1 e 0 @96 ]
 "1747
@@ -114,54 +109,23 @@
 "11 C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\interrupt.c
 [v _cnt1 cnt1 `ui  1 e 2 0 ]
 "12
-[v _msFlag msFlag `uc  1 e 1 0 ]
-"13
+[v _cnt0 cnt0 `uc  1 e 1 0 ]
+"14
 [v _adcValue adcValue `ui  1 e 2 0 ]
-"15
-[v _measureType measureType `uc  1 e 1 0 ]
 "16
+[v _measureType measureType `uc  1 e 1 0 ]
+"17
 [v _errorType errorType `uc  1 e 1 0 ]
+"67 C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\main.c
+[v _firstMeasRes firstMeasRes `uc  1 e 1 0 ]
+"68
+[v _secondMeasRes secondMeasRes `uc  1 e 1 0 ]
 "6 C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\sounds.c
 [v _soundModeSwitch soundModeSwitch `VEuc  1 e 1 0 ]
-"67 C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\main.c
+"71 C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\main.c
 [v _main main `(v  1 e 1 0 ]
 {
-"78
-} 0
-"69 C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\init_periphery.c
-[v _MuxVoltage MuxVoltage `(v  1 e 1 0 ]
-{
-"80
-} 0
-"34
-[v _Init_uC Init_uC `(v  1 e 1 0 ]
-{
-"67
-} 0
-"17 C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\sounds.c
-[v _LongSound LongSound `(v  1 e 1 0 ]
-{
-"24
-} 0
-"22 C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\init_periphery.c
-[v _InitTimer1 InitTimer1 `(v  1 e 1 0 ]
-{
-"32
-} 0
-"13
-[v _InitTimer0 InitTimer0 `(v  1 e 1 0 ]
-{
-"20
-} 0
-"18 C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\interrupt.c
-[v _ISR ISR `II(v  1 e 1 0 ]
-{
-"131
-} 0
-"69 C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\init_periphery.c
-[v i1_MuxVoltage MuxVoltage `(v  1 e 1 0 ]
-{
-"80
+"113
 } 0
 "52 C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\sounds.c
 [v _TwoShortTwoLong TwoShortTwoLong `(v  1 e 1 0 ]
@@ -172,11 +136,6 @@
 [v _TwoShortOneLong TwoShortOneLong `(v  1 e 1 0 ]
 {
 "50
-} 0
-"17
-[v i1_LongSound LongSound `(v  1 e 1 0 ]
-{
-"24
 } 0
 "71
 [v _ThreeShort ThreeShort `(v  1 e 1 0 ]
@@ -193,8 +152,43 @@
 {
 "15
 } 0
-"83 C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\init_periphery.c
+"120 C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\interrupt.c
+[v _MuxVoltage MuxVoltage `(v  1 e 1 0 ]
+{
+"132
+} 0
+"33 C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\init_periphery.c
+[v _Init_uC Init_uC `(v  1 e 1 0 ]
+{
+"66
+} 0
+"17 C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\sounds.c
+[v _LongSound LongSound `(v  1 e 1 0 ]
+{
+"24
+} 0
+"21 C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\init_periphery.c
+[v _InitTimer1 InitTimer1 `(v  1 e 1 0 ]
+{
+"31
+} 0
+"12
+[v _InitTimer0 InitTimer0 `(v  1 e 1 0 ]
+{
+"19
+} 0
+"19 C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\interrupt.c
+[v _ISR ISR `II(v  1 e 1 0 ]
+{
+"118
+} 0
+"120
+[v i1_MuxVoltage MuxVoltage `(v  1 e 1 0 ]
+{
+"132
+} 0
+"135
 [v _MuxTemp MuxTemp `(v  1 e 1 0 ]
 {
-"94
+"147
 } 0

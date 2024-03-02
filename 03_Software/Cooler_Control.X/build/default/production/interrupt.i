@@ -1148,6 +1148,10 @@ typedef uint16_t uintptr_t;
 # 1 "./interrupt.h" 1
 # 11 "./interrupt.h"
 void __attribute__((picinterrupt(("")))) ISR(void);
+
+void MuxVoltage(void);
+
+void MuxTemp(void);
 # 3 "interrupt.c" 2
 
 # 1 "./init_periphery.h" 1
@@ -1157,10 +1161,6 @@ void InitTimer0(void);
 void InitTimer1(void);
 
 void Init_uC(void);
-
-void MuxVoltage(void);
-
-void MuxTemp(void);
 # 4 "interrupt.c" 2
 
 # 1 "./sounds.h" 1
@@ -1190,6 +1190,7 @@ void ThreeShort(void);
 
 
 uint16_t cnt1 = 0;
+uint8_t cnt0 = 0;
 uint8_t msFlag = 0;
 uint16_t adcValue = 0;
 
@@ -1200,9 +1201,14 @@ void __attribute__((picinterrupt(("")))) ISR(void)
 {
 
     if (TMR0IF == 1){
-        msFlag = 1;
- TMR0 = 6;
- T0IF = 0;
+
+        TMR0 = 6;
+
+
+
+ cnt0++;
+
+ TMR0IF = 0;
      }
 
     if (TMR1IF == 1){
@@ -1212,26 +1218,7 @@ void __attribute__((picinterrupt(("")))) ISR(void)
 
          cnt1++;
 
-  switch(errorType){
 
-  case 1:
-     break;
-
-  case 2:
-    TwoShortOneLong();
-     break;
-
-  case 3:
-           TwoShortTwoLong();
-     break;
-
-  case 5:
-           ThreeShort();
-     break;
-
-  default:
-            break;
- }
 
          TMR1IF = 0;
     }
@@ -1274,7 +1261,7 @@ void __attribute__((picinterrupt(("")))) ISR(void)
           GP4 = 0;
    errorType = 1;
                        }
-# 111 "interrupt.c"
+# 98 "interrupt.c"
       else if ((adcValue >= 880) && (adcValue < 970)){
           GP4 = 1;
    errorType = 1;
@@ -1295,4 +1282,33 @@ void __attribute__((picinterrupt(("")))) ISR(void)
  }
      }
 
+}
+
+void MuxVoltage(void){
+       ADCON0 = 0;
+       ADON = 1;
+       ADFM = 1;
+       CHS1 = 0;
+       CHS0 = 1;
+       measureType = 1;
+       ADIF = 0;
+
+
+       _delay((unsigned long)((50)*(4000000/4000000.0)));
+       GO = 1;
+}
+
+
+void MuxTemp(void){
+       ADCON0 = 0;
+       ADON = 1;
+       ADFM = 1;
+       CHS1 = 0;
+       CHS0 = 0;
+       measureType = 2;
+       ADIF = 0;
+
+
+       _delay((unsigned long)((50)*(4000000/4000000.0)));
+       GO = 1;
 }

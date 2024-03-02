@@ -1149,6 +1149,10 @@ typedef uint16_t uintptr_t;
 # 1 "./interrupt.h" 1
 # 11 "./interrupt.h"
 void __attribute__((picinterrupt(("")))) ISR(void);
+
+void MuxVoltage(void);
+
+void MuxTemp(void);
 # 41 "main.c" 2
 
 # 1 "./init_periphery.h" 1
@@ -1158,10 +1162,6 @@ void InitTimer0(void);
 void InitTimer1(void);
 
 void Init_uC(void);
-
-void MuxVoltage(void);
-
-void MuxTemp(void);
 # 42 "main.c" 2
 
 # 1 "./sounds.h" 1
@@ -1198,7 +1198,20 @@ void ThreeShort(void);
 #pragma config BOREN = ON
 #pragma config CP = OFF
 #pragma config CPD = OFF
-# 67 "main.c"
+
+
+
+
+
+
+
+extern uint8_t errorType;
+extern uint8_t cnt0;
+
+uint8_t firstMeasRes = 0;
+uint8_t secondMeasRes = 0;
+
+
 void main()
 {
     InitTimer0();
@@ -1207,6 +1220,37 @@ void main()
     MuxVoltage();
 
     while(1){
+
+    firstMeasRes = errorType;
+
+    if (cnt0 == 30){
+    secondMeasRes = errorType;
+    cnt0 = 0;
+    }
+
+    if (firstMeasRes != secondMeasRes) errorType = 1;
+
+      switch(errorType){
+
+  case 1:
+     break;
+
+  case 2:
+    TwoShortOneLong();
+     break;
+
+  case 3:
+           TwoShortTwoLong();
+     break;
+
+  case 5:
+           ThreeShort();
+     break;
+
+  default:
+            break;
+ }
+
 
  }
 
