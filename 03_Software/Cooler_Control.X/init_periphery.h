@@ -8,15 +8,18 @@
 #ifndef INIT_PERIPHERY_H
 #define	INIT_PERIPHERY_H
 
+#define VOLTAGE_MEASURE     1
+#define TEMPERATURE_MEASURE 2
+
 void InitTimer0(void);
 
 void InitTimer1(void);
 
+void Init_uC(void);
+
 void MuxVoltage(void);
 
 void MuxTemp(void);
-
-void Init_uC(void);
 
 #endif	/* INIT_PERIPHERY_H */
 

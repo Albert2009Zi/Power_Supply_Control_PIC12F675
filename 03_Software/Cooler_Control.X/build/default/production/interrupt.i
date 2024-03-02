@@ -1150,11 +1150,26 @@ typedef uint16_t uintptr_t;
 void __attribute__((picinterrupt(("")))) ISR(void);
 # 3 "interrupt.c" 2
 
+# 1 "./init_periphery.h" 1
+# 14 "./init_periphery.h"
+void InitTimer0(void);
+
+void InitTimer1(void);
+
+void Init_uC(void);
+
+void MuxVoltage(void);
+
+void MuxTemp(void);
+# 4 "interrupt.c" 2
+
 # 1 "./sounds.h" 1
 
 
 
-
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c90\\stdint.h" 1 3
+# 4 "./sounds.h" 2
+# 13 "./sounds.h"
 void ShortSound(void);
 
 void LongSound(void);
@@ -1167,40 +1182,26 @@ void TwoShortOneLong(void);
 void TwoShortTwoLong(void);
 
 void ThreeShort(void);
-# 4 "interrupt.c" 2
-
-# 1 "./init_periphery.h" 1
-# 11 "./init_periphery.h"
-void InitTimer0(void);
-
-void InitTimer1(void);
-
-void MuxVoltage(void);
-
-void MuxTemp(void);
-
-void Init_uC(void);
 # 5 "interrupt.c" 2
 
-# 1 "./defines.h" 1
-# 6 "interrupt.c" 2
 
 
 
 
-extern uint16_t cnt1;
-extern uint8_t msFlag;
-extern uint16_t adcValue;
 
-extern uint8_t measureType;
+uint16_t cnt1 = 0;
+uint8_t msFlag = 0;
+uint16_t adcValue = 0;
+
+uint8_t measureType = 1;
 uint8_t errorType = 1;
 
 void __attribute__((picinterrupt(("")))) ISR(void)
 {
 
     if (TMR0IF == 1){
-        TMR0 = 0;
- msFlag = 1;
+        msFlag = 1;
+ TMR0 = 6;
  T0IF = 0;
      }
 
@@ -1273,15 +1274,18 @@ void __attribute__((picinterrupt(("")))) ISR(void)
           GP4 = 0;
    errorType = 1;
                        }
-
+# 111 "interrupt.c"
       else if ((adcValue >= 880) && (adcValue < 970)){
           GP4 = 1;
    errorType = 1;
                        }
-         else {
+
+
+             else {
+
           GP4 = 1;
-             GP5 = 1;
-                errorType = 5;
+                 GP5 = 1;
+                        errorType = 5;
      }
   MuxVoltage();
  break;

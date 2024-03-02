@@ -38,10 +38,10 @@
 
 #include <xc.h>
 #include <stdint.h>
-#include "init_periphery.h"
 #include "interrupt.h"
+#include "init_periphery.h"
 #include "sounds.h"
-#include "defines.h"
+
 
 //#define SIMULATION
 
@@ -62,11 +62,6 @@ __CONFIG(FOSC_INTRCIO & WDTE_OFF & PWRTE_ON & MCLRE_OFF & BOREN_ON & CP_OFF & CP
 #endif
     
 
-uint16_t adcValue    = 0;
-uint8_t  measureType = 1;
-uint8_t  msFlag      = 0;
-
-uint16_t cnt1 = 0;
 
 // Main function
 void main()          //its app whichmakes on uc alone and not needs return somthing in OS
@@ -74,9 +69,11 @@ void main()          //its app whichmakes on uc alone and not needs return somth
     InitTimer0();
     InitTimer1();
     Init_uC();
-   
+    MuxVoltage();
+    
     while(1){ 
  
  }
-    
+   
 }
+

@@ -1010,6 +1010,10 @@ extern __bank0 __bit __timeout;
 # 28 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\\pic\\include\\xc.h" 2 3
 # 1 "sounds.c" 2
 
+# 1 "./sounds.h" 1
+
+
+
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c90\\stdint.h" 1 3
 # 13 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c90\\stdint.h" 3
 typedef signed char int8_t;
@@ -1143,13 +1147,8 @@ typedef int16_t intptr_t;
 
 
 typedef uint16_t uintptr_t;
-# 2 "sounds.c" 2
-
-# 1 "./sounds.h" 1
-
-
-
-
+# 4 "./sounds.h" 2
+# 13 "./sounds.h"
 void ShortSound(void);
 
 void LongSound(void);
@@ -1162,6 +1161,11 @@ void TwoShortOneLong(void);
 void TwoShortTwoLong(void);
 
 void ThreeShort(void);
+# 2 "sounds.c" 2
+
+# 1 "./interrupt.h" 1
+# 11 "./interrupt.h"
+void __attribute__((picinterrupt(("")))) ISR(void);
 # 3 "sounds.c" 2
 
 
@@ -1193,6 +1197,7 @@ void TimeOut(){
     soundModeSwitch = 0;
     }
 }
+
 
 void TwoShortOneLong(){
 

@@ -1,6 +1,6 @@
 #include <xc.h>
-#include <stdint.h>
 #include "sounds.h"
+#include "interrupt.h"
 
 extern   uint16_t cnt1;
 volatile uint8_t soundModeSwitch = 0;
@@ -30,6 +30,7 @@ void TimeOut(){
     soundModeSwitch = 0;    
     }
 }
+
 
 void TwoShortOneLong(){
        

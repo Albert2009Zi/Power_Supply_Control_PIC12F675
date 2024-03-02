@@ -1,25 +1,26 @@
 #include <xc.h>
 #include <stdint.h>
 #include "interrupt.h"
-#include "sounds.h"
 #include "init_periphery.h"
-#include "defines.h"
+#include "sounds.h"
 
 #define _XTAL_FREQ   4000000 
 
-extern uint16_t cnt1;
-extern uint8_t  msFlag; 
-extern uint16_t adcValue;
+#define PWM_ON
 
-extern uint8_t  measureType;
+uint16_t cnt1             = 0;
+uint8_t  msFlag           = 0; 
+uint16_t adcValue         = 0;
+
+uint8_t  measureType      = 1;
 uint8_t  errorType        = ERROR_OK;
 
 void __interrupt() ISR(void)
 {       
     
     if (TMR0IF == 1){       // Timer0 is overload 
-        TMR0   = 0;
-	msFlag = 1;
+        msFlag = 1;
+	TMR0 = 6; // ???????? ??? ???????????? ????? 1 ?? ??? ???????????? 256
 	T0IF   = 0;  // ?????????? ???? ?????????? ??????? 0       
      }
      
@@ -92,15 +93,32 @@ void __interrupt() ISR(void)
 		        GP4       = 0;
 			errorType = ERROR_OK;
                        }
-	       	       
+
+/*#ifdef PWM_ON		       
+             else if ((adcValue >= 880) && (adcValue < 910)){ 
+                        pwmValue  = 15;
+			errorType = ERROR_OK;
+                       }
+             else if ((adcValue >= 910) && (adcValue < 940)){ 
+                        pwmValue  = 25;
+			errorType = ERROR_OK;
+                       }
+             else if ((adcValue >= 940) && (adcValue < 970)){ 
+                        pwmValue  = 50;
+                        errorType = ERROR_OK;   			
+                       }
+#else*/		       	       
 	     else if ((adcValue >= 880) && (adcValue < 970)){ 
 		        GP4 = 1;
 			errorType = ERROR_OK;
                        }
-         else  {
+	
+/*#endif*/	
+             else  {
+	               // pwmValue  = 85;
 		        GP4       = 1;
-	            GP5       = 1;
-                errorType = ERROR_TMP_HIGH;  					
+	                GP5       = 1;
+                        errorType = ERROR_TMP_HIGH;  					
 		   }
 	 MuxVoltage();
 	break;

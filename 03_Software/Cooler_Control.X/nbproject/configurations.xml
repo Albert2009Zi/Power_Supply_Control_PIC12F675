@@ -7,7 +7,6 @@
       <itemPath>interrupt.h</itemPath>
       <itemPath>sounds.h</itemPath>
       <itemPath>init_periphery.h</itemPath>
-      <itemPath>defines.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -35,7 +34,7 @@
         <targetDevice>PIC12F675</targetDevice>
         <targetHeader></targetHeader>
         <targetPluginBoard></targetPluginBoard>
-        <platformTool>noID</platformTool>
+        <platformTool></platformTool>
         <languageToolchain>XC8</languageToolchain>
         <languageToolchainVersion>2.36</languageToolchainVersion>
         <platform>3</platform>

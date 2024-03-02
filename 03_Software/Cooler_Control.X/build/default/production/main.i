@@ -1146,29 +1146,31 @@ typedef int16_t intptr_t;
 typedef uint16_t uintptr_t;
 # 40 "main.c" 2
 
+# 1 "./interrupt.h" 1
+# 11 "./interrupt.h"
+void __attribute__((picinterrupt(("")))) ISR(void);
+# 41 "main.c" 2
+
 # 1 "./init_periphery.h" 1
-# 11 "./init_periphery.h"
+# 14 "./init_periphery.h"
 void InitTimer0(void);
 
 void InitTimer1(void);
 
+void Init_uC(void);
+
 void MuxVoltage(void);
 
 void MuxTemp(void);
-
-void Init_uC(void);
-# 41 "main.c" 2
-
-# 1 "./interrupt.h" 1
-# 11 "./interrupt.h"
-void __attribute__((picinterrupt(("")))) ISR(void);
 # 42 "main.c" 2
 
 # 1 "./sounds.h" 1
 
 
 
-
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c90\\stdint.h" 1 3
+# 4 "./sounds.h" 2
+# 13 "./sounds.h"
 void ShortSound(void);
 
 void LongSound(void);
@@ -1183,8 +1185,6 @@ void TwoShortTwoLong(void);
 void ThreeShort(void);
 # 43 "main.c" 2
 
-# 1 "./defines.h" 1
-# 44 "main.c" 2
 
 
 
@@ -1198,26 +1198,13 @@ void ThreeShort(void);
 #pragma config BOREN = ON
 #pragma config CP = OFF
 #pragma config CPD = OFF
-
-
-
-
-
-
-
-
-uint16_t adcValue = 0;
-uint8_t measureType = 1;
-uint8_t msFlag = 0;
-
-uint16_t cnt1 = 0;
-
-
+# 67 "main.c"
 void main()
 {
     InitTimer0();
     InitTimer1();
     Init_uC();
+    MuxVoltage();
 
     while(1){
 

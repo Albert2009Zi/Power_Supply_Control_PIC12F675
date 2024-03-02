@@ -1,13 +1,14 @@
 #include <xc.h>
 #include <stdint.h>
-#include "sounds.h"
 #include "init_periphery.h"
-#include "defines.h"
+#include "interrupt.h"
+#include "sounds.h"
 
 #define _XTAL_FREQ   4000000 
 
+extern uint16_t adcValue;
 extern uint8_t  measureType;
-extern uint8_t  msFlag; 
+extern uint8_t  msFlag;
 
 void InitTimer0(void){
 
@@ -20,7 +21,7 @@ void InitTimer0(void){
 
 void InitTimer1(void){
 
-     TMR1H = 0xFC;
+         TMR1H = 0xFC;
 	 TMR1L = 0x17;         // Interrupt after 1ms 0x03E8 = 1000, 1000000/1000 = 1000Hz, 1/1000Hz = 1ms
 	 
 	 T1CON = 0x01;         //Enable Timer 1
@@ -28,35 +29,6 @@ void InitTimer1(void){
 	 T1IF = 0;
 	 T1IE = 1;
 	 
-}
-
-void MuxVoltage(){ 
-       ADCON0 = 0;                     /* must after every new switch be                          */ 
-       ADON   = 1;                     /* ADC is ON                                               */
-       ADFM   = 1;                     /* ADC results is right justified                          */
-       CHS1   = 0;   
-       CHS0   = 1;                     /* Enable ADC channel 1 (AN1) "Power ON button", ADC is ON */    
-       measureType = VOLTAGE_MEASURE; 
-       ADIF   = 0;
-    /*   while (msFlag != 1);
-       msFlag = 0;*/
-       __delay_ms(1);
-       GO     = 1; 
-}
-
-
-void MuxTemp(){
-       ADCON0      = 0;                   /* must after every new switch be*/ 
-       ADON        = 1;                   /* ADC is ON                                       */
-       ADFM        = 1;                   /* ADC results is right justified                            */
-       CHS1        = 0;   
-       CHS0        = 0;                   /* Enable ADC channel 0 (AN0) "Temperature control", ADC is ON    */ 
-       measureType = TEMPERATURE_MEASURE;
-       ADIF        = 0;
-       /*   while (msFlag != 1);
-       msFlag = 0;*/
-       __delay_ms(1);
-       GO          = 1;    
 }
 
 void Init_uC(void){    
@@ -88,10 +60,39 @@ void Init_uC(void){
                                                        */  
     PEIE = 1;            
     GIE  = 1;			   /* Enable global interrupts                        */
-
-    LongSound();     
-    MuxVoltage();
+    
+    LongSound();
+    adcValue = 0;
+       
 }
+
+void MuxVoltage(void){ 
+       ADCON0 = 0;                     /* must after every new switch be                          */ 
+       ADON   = 1;                     /* ADC is ON                                               */
+       ADFM   = 1;                     /* ADC results is right justified                          */
+       CHS1   = 0;   
+       CHS0   = 1;                     /* Enable ADC channel 1 (AN1) "Power ON button", ADC is ON */    
+       measureType = VOLTAGE_MEASURE; 
+       ADIF   = 0;
+       while (msFlag != 1);
+       msFlag = 0;
+       GO     = 1; 
+}
+
+
+void MuxTemp(void){
+       ADCON0      = 0;                   /* must after every new switch be*/ 
+       ADON        = 1;                   /* ADC is ON                                       */
+       ADFM        = 1;                   /* ADC results is right justified                            */
+       CHS1        = 0;   
+       CHS0        = 0;                   /* Enable ADC channel 0 (AN0) "Temperature control", ADC is ON    */ 
+       measureType = TEMPERATURE_MEASURE;
+       ADIF        = 0;
+       while (msFlag != 1);
+       msFlag = 0;
+       GO          = 1;    
+}
+
 
 
 

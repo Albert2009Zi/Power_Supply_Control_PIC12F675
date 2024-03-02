@@ -1145,11 +1145,31 @@ typedef int16_t intptr_t;
 typedef uint16_t uintptr_t;
 # 2 "init_periphery.c" 2
 
+# 1 "./init_periphery.h" 1
+# 14 "./init_periphery.h"
+void InitTimer0(void);
+
+void InitTimer1(void);
+
+void Init_uC(void);
+
+void MuxVoltage(void);
+
+void MuxTemp(void);
+# 3 "init_periphery.c" 2
+
+# 1 "./interrupt.h" 1
+# 11 "./interrupt.h"
+void __attribute__((picinterrupt(("")))) ISR(void);
+# 4 "init_periphery.c" 2
+
 # 1 "./sounds.h" 1
 
 
 
-
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c90\\stdint.h" 1 3
+# 4 "./sounds.h" 2
+# 13 "./sounds.h"
 void ShortSound(void);
 
 void LongSound(void);
@@ -1162,27 +1182,12 @@ void TwoShortOneLong(void);
 void TwoShortTwoLong(void);
 
 void ThreeShort(void);
-# 3 "init_periphery.c" 2
-
-# 1 "./init_periphery.h" 1
-# 11 "./init_periphery.h"
-void InitTimer0(void);
-
-void InitTimer1(void);
-
-void MuxVoltage(void);
-
-void MuxTemp(void);
-
-void Init_uC(void);
-# 4 "init_periphery.c" 2
-
-# 1 "./defines.h" 1
 # 5 "init_periphery.c" 2
 
 
 
 
+extern uint16_t adcValue;
 extern uint8_t measureType;
 extern uint8_t msFlag;
 
@@ -1197,7 +1202,7 @@ void InitTimer0(void){
 
 void InitTimer1(void){
 
-     TMR1H = 0xFC;
+         TMR1H = 0xFC;
   TMR1L = 0x17;
 
   T1CON = 0x01;
@@ -1205,35 +1210,6 @@ void InitTimer1(void){
   T1IF = 0;
   T1IE = 1;
 
-}
-
-void MuxVoltage(){
-       ADCON0 = 0;
-       ADON = 1;
-       ADFM = 1;
-       CHS1 = 0;
-       CHS0 = 1;
-       measureType = 1;
-       ADIF = 0;
-
-
-       _delay((unsigned long)((1)*(4000000/4000.0)));
-       GO = 1;
-}
-
-
-void MuxTemp(){
-       ADCON0 = 0;
-       ADON = 1;
-       ADFM = 1;
-       CHS1 = 0;
-       CHS0 = 0;
-       measureType = 2;
-       ADIF = 0;
-
-
-       _delay((unsigned long)((1)*(4000000/4000.0)));
-       GO = 1;
 }
 
 void Init_uC(void){
@@ -1267,5 +1243,33 @@ void Init_uC(void){
     GIE = 1;
 
     LongSound();
-    MuxVoltage();
+    adcValue = 0;
+
+}
+
+void MuxVoltage(void){
+       ADCON0 = 0;
+       ADON = 1;
+       ADFM = 1;
+       CHS1 = 0;
+       CHS0 = 1;
+       measureType = 1;
+       ADIF = 0;
+       while (msFlag != 1);
+       msFlag = 0;
+       GO = 1;
+}
+
+
+void MuxTemp(void){
+       ADCON0 = 0;
+       ADON = 1;
+       ADFM = 1;
+       CHS1 = 0;
+       CHS0 = 0;
+       measureType = 2;
+       ADIF = 0;
+       while (msFlag != 1);
+       msFlag = 0;
+       GO = 1;
 }
