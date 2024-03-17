@@ -10,26 +10,24 @@
 
 uint16_t cnt1             = 0;
 uint8_t  cnt0             = 0;
-uint8_t  msFlag           = 0; 
 uint16_t adcValue         = 0;
 
 uint8_t  measureType      = 1;
-uint8_t  errorType        = ERROR_OK;
+volatile uint8_t  errorType        = ERROR_OK;
 
 void __interrupt() ISR(void)
 {       
-    
+ 
+//##########################Timer0#####################################// 
     if (TMR0IF == 1){       // Timer0 is overload 
     
-        TMR0 = 6; // ???????? ??? ???????????? ????? 1 ?? ??? ???????????? 256
-    
-        //msFlag++;
-	
+        TMR0 = 6;      // ???????? ??? ???????????? ????? 1 ?? ??? ???????????? 256
 	cnt0++;
-	
 	TMR0IF   = 0;  // ?????????? ???? ?????????? ??????? 0       
      }
      
+     
+ //##########################Timer1#####################################//     
     if (TMR1IF == 1){
          
 	 TMR1H = 0xFC;
@@ -37,83 +35,80 @@ void __interrupt() ISR(void)
     
          cnt1++;
 	 
-
-	
          TMR1IF = 0;  // ?????????? ???? ?????????? ??????? 1
     }
-     
-    if (ADIF == 1){      
-      switch (measureType){
+
+
+ //##########################ADC#####################################//      
+   if (ADIF == 1){     
+     adcValue = (uint16_t) ((ADRESH << 8) + ADRESL); /* ADC result */    
       
+      switch (measureType){
        case VOLTAGE_MEASURE: 
-        adcValue = (uint16_t) ((ADRESH << 8) + ADRESL); /* ADC result */    
-  
+
 	if ((adcValue > 190) && (adcValue < 285) && (errorType == ERROR_OK)){
            GP5 = 0;
 	   GP2 = 0;
            }  	
         else if (adcValue <= 190) { 
            GP5 = 1; 
-	   errorType = ERROR_UNDER_VOLTAGE;  
+	   errorType = ERROR_UNDER_VOLTAGE; 
            }
 	 else if (adcValue >= 285){
            GP5 = 1;
 	   errorType = ERROR_OVER_VOLTAGE; 
            }    
+	   
+       if(errorType != ERROR_OK){
+            do{
+	    DataProcessing();} 
+	    while (errorType != ERROR_OK); 	    
+          }
+	  
           MuxTemp();
         break;
 	
 	
 	case TEMPERATURE_MEASURE:
-	 adcValue = (uint16_t) ((ADRESH << 8) + ADRESL);
 	
-            if (adcValue < 200)  
-	        {
+	     if (adcValue < 200){
 		      GP5       = 1;  
 		      GP4       = 0;
-                  //    pwmValue  = 0; 
-		      //errorType = ERR_TMP_CONTROL_LOW;     
+           	      errorType = ERROR_OK;
 		  }
                 
-             else if ((adcValue >= 200) && (adcValue < 880)){ 
-                   //     pwmValue  = 0;
+             else if ((adcValue >= 200) && (adcValue < 930)){ 
 		        GP4       = 0;
 			errorType = ERROR_OK;
                        }
-
-/*#ifdef PWM_ON		       
-             else if ((adcValue >= 880) && (adcValue < 910)){ 
-                        pwmValue  = 15;
-			errorType = ERROR_OK;
-                       }
-             else if ((adcValue >= 910) && (adcValue < 940)){ 
-                        pwmValue  = 25;
-			errorType = ERROR_OK;
-                       }
-             else if ((adcValue >= 940) && (adcValue < 970)){ 
-                        pwmValue  = 50;
-                        errorType = ERROR_OK;   			
-                       }
-#else*/		       	       
-	     else if ((adcValue >= 880) && (adcValue < 970)){ 
+	       	       
+	     else if ((adcValue >= 930) && (adcValue < 970)){ 
 		        GP4 = 1;
 			errorType = ERROR_OK;
-                       }
-	
-/*#endif*/	
+                       }	
              else  {
-	               // pwmValue  = 85;
 		        GP4       = 1;
 	                GP5       = 1;
-                        errorType = ERROR_TMP_HIGH;  					
+                        errorType = ERROR_TMP_HIGH;  		
 		   }
-	 MuxVoltage();
+	
+
+        if(errorType != ERROR_OK){
+            do{
+	    DataProcessing();} 
+	    while (errorType != ERROR_OK); 	    
+          }
+		
+	    MuxVoltage();
+	    
+	    
 	break;
 	
 	default:
 	break;
 	}  
-     } 
+     }
+    
     
 }
 
@@ -125,8 +120,8 @@ void MuxVoltage(void){
        CHS0   = 1;                     /* Enable ADC channel 1 (AN1) "Power ON button", ADC is ON */    
        measureType = VOLTAGE_MEASURE; 
        ADIF   = 0;
-     /*  while (msFlag < 3);
-       msFlag = 0;*/
+//       while (cnt0 < 50);
+//       cnt0   = 0;
        __delay_us(50);
        GO     = 1; 
 }
@@ -140,9 +135,36 @@ void MuxTemp(void){
        CHS0        = 0;                   /* Enable ADC channel 0 (AN0) "Temperature control", ADC is ON    */ 
        measureType = TEMPERATURE_MEASURE;
        ADIF        = 0;
-    /*   while (msFlag < 3);
-       msFlag = 0;*/
+ //      while (cnt0 < 50)
+ //      cnt0        = 0;
        __delay_us(50);
        GO          = 1;    
 }
 
+
+void DataProcessing(void){
+    
+    	 switch(errorType){
+	 
+	 case ERROR_OK:
+	    break;
+	 
+	 case ERROR_UNDER_VOLTAGE:
+	   TwoShortOneLong();
+	   errorType = ERROR_OK;
+	    break;
+	    
+	 case ERROR_OVER_VOLTAGE:
+           TwoShortTwoLong();
+	   errorType = ERROR_OK;
+	    break;
+	 
+	 case ERROR_TMP_HIGH:
+           ThreeShort();
+	   errorType = ERROR_OK;
+	    break;      
+	    
+	 default:
+            break;	 
+	}
+}

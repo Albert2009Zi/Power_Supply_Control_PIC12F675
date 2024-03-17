@@ -61,54 +61,14 @@ __CONFIG(FOSC_INTRCIO & WDTE_OFF & PWRTE_ON & MCLRE_OFF & BOREN_ON & CP_OFF & CP
 
 #endif
    
-extern uint8_t errorType;
-extern uint8_t cnt0;
-
-uint8_t firstMeasRes  = 0;
-uint8_t secondMeasRes = 0;
-
 // Main function
 void main()          //its app whichmakes on uc alone and not needs return somthing in OS
 {	
     InitTimer0();
     InitTimer1();
     Init_uC();
-    MuxVoltage();
     
-    while(1){ 
-    
-    firstMeasRes = errorType;
-    
-    if (cnt0 == 30){
-    secondMeasRes = errorType;
-    cnt0 = 0;
-    }
-    
-    if (firstMeasRes != secondMeasRes) errorType = ERROR_OK;
-    
-    	 switch(errorType){
-	 
-	 case ERROR_OK:
-	    break;
-	 
-	 case ERROR_UNDER_VOLTAGE:
-	   TwoShortOneLong();
-	    break;
-	    
-	 case ERROR_OVER_VOLTAGE:
-           TwoShortTwoLong();
-	    break;
-	 
-	 case ERROR_TMP_HIGH:
-           ThreeShort();
-	    break;      
-	    
-	 default:
-            break;	 
-	}
-    
- 
- }
-   
+    while(1){             
+    }   
 }
 

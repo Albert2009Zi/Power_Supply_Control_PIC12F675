@@ -1161,6 +1161,8 @@ void __attribute__((picinterrupt(("")))) ISR(void);
 void MuxVoltage(void);
 
 void MuxTemp(void);
+
+void DataProcessing(void);
 # 4 "init_periphery.c" 2
 
 # 1 "./sounds.h" 1
@@ -1201,7 +1203,7 @@ void InitTimer0(void){
 
 void InitTimer1(void){
 
-         TMR1H = 0xFC;
+     TMR1H = 0xFC;
   TMR1L = 0x17;
 
   T1CON = 0x01;
@@ -1244,4 +1246,12 @@ void Init_uC(void){
     LongSound();
     adcValue = 0;
 
+    ADCON0 = 0;
+    ADON = 1;
+    ADFM = 1;
+    CHS1 = 0;
+    CHS0 = 1;
+    measureType = 1;
+    ADIF = 0;
+    GO = 1;
 }

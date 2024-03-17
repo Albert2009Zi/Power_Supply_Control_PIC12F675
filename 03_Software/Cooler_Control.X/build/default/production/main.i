@@ -1153,6 +1153,8 @@ void __attribute__((picinterrupt(("")))) ISR(void);
 void MuxVoltage(void);
 
 void MuxTemp(void);
+
+void DataProcessing(void);
 # 41 "main.c" 2
 
 # 1 "./init_periphery.h" 1
@@ -1205,53 +1207,13 @@ void ThreeShort(void);
 
 
 
-extern uint8_t errorType;
-extern uint8_t cnt0;
-
-uint8_t firstMeasRes = 0;
-uint8_t secondMeasRes = 0;
-
 
 void main()
 {
     InitTimer0();
     InitTimer1();
     Init_uC();
-    MuxVoltage();
 
     while(1){
-
-    firstMeasRes = errorType;
-
-    if (cnt0 == 30){
-    secondMeasRes = errorType;
-    cnt0 = 0;
     }
-
-    if (firstMeasRes != secondMeasRes) errorType = 1;
-
-      switch(errorType){
-
-  case 1:
-     break;
-
-  case 2:
-    TwoShortOneLong();
-     break;
-
-  case 3:
-           TwoShortTwoLong();
-     break;
-
-  case 5:
-           ThreeShort();
-     break;
-
-  default:
-            break;
- }
-
-
- }
-
 }

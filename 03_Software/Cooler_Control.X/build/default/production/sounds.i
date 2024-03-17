@@ -1170,6 +1170,8 @@ void __attribute__((picinterrupt(("")))) ISR(void);
 void MuxVoltage(void);
 
 void MuxTemp(void);
+
+void DataProcessing(void);
 # 3 "sounds.c" 2
 
 

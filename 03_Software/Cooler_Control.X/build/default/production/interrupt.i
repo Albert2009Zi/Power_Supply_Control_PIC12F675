@@ -1152,6 +1152,8 @@ void __attribute__((picinterrupt(("")))) ISR(void);
 void MuxVoltage(void);
 
 void MuxTemp(void);
+
+void DataProcessing(void);
 # 3 "interrupt.c" 2
 
 # 1 "./init_periphery.h" 1
@@ -1191,25 +1193,23 @@ void ThreeShort(void);
 
 uint16_t cnt1 = 0;
 uint8_t cnt0 = 0;
-uint8_t msFlag = 0;
 uint16_t adcValue = 0;
 
 uint8_t measureType = 1;
-uint8_t errorType = 1;
+volatile uint8_t errorType = 1;
 
 void __attribute__((picinterrupt(("")))) ISR(void)
 {
 
+
     if (TMR0IF == 1){
 
         TMR0 = 6;
-
-
-
  cnt0++;
-
  TMR0IF = 0;
      }
+
+
 
     if (TMR1IF == 1){
 
@@ -1218,16 +1218,16 @@ void __attribute__((picinterrupt(("")))) ISR(void)
 
          cnt1++;
 
-
-
          TMR1IF = 0;
     }
 
-    if (ADIF == 1){
-      switch (measureType){
 
+
+   if (ADIF == 1){
+     adcValue = (uint16_t) ((ADRESH << 8) + ADRESL);
+
+      switch (measureType){
        case 1:
-        adcValue = (uint16_t) ((ADRESH << 8) + ADRESL);
 
  if ((adcValue > 190) && (adcValue < 285) && (errorType == 1)){
            GP5 = 0;
@@ -1241,46 +1241,57 @@ void __attribute__((picinterrupt(("")))) ISR(void)
            GP5 = 1;
     errorType = 3;
            }
+
+       if(errorType != 1){
+            do{
+     DataProcessing();}
+     while (errorType != 1);
+          }
+
           MuxTemp();
         break;
 
 
  case 2:
-  adcValue = (uint16_t) ((ADRESH << 8) + ADRESL);
 
-            if (adcValue < 200)
-         {
+      if (adcValue < 200){
         GP5 = 1;
         GP4 = 0;
-
-
+                  errorType = 1;
     }
 
-             else if ((adcValue >= 200) && (adcValue < 880)){
-
+             else if ((adcValue >= 200) && (adcValue < 930)){
           GP4 = 0;
    errorType = 1;
                        }
-# 98 "interrupt.c"
-      else if ((adcValue >= 880) && (adcValue < 970)){
+
+      else if ((adcValue >= 930) && (adcValue < 970)){
           GP4 = 1;
    errorType = 1;
                        }
-
-
              else {
-
           GP4 = 1;
                  GP5 = 1;
                         errorType = 5;
      }
-  MuxVoltage();
+
+
+        if(errorType != 1){
+            do{
+     DataProcessing();}
+     while (errorType != 1);
+          }
+
+     MuxVoltage();
+
+
  break;
 
  default:
  break;
  }
      }
+
 
 }
 
@@ -1311,4 +1322,32 @@ void MuxTemp(void){
 
        _delay((unsigned long)((50)*(4000000/4000000.0)));
        GO = 1;
+}
+
+
+void DataProcessing(void){
+
+      switch(errorType){
+
+  case 1:
+     break;
+
+  case 2:
+    TwoShortOneLong();
+    errorType = 1;
+     break;
+
+  case 3:
+           TwoShortTwoLong();
+    errorType = 1;
+     break;
+
+  case 5:
+           ThreeShort();
+    errorType = 1;
+     break;
+
+  default:
+            break;
+ }
 }
