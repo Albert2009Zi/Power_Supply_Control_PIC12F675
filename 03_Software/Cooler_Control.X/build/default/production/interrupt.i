@@ -1152,8 +1152,6 @@ void __attribute__((picinterrupt(("")))) ISR(void);
 void MuxVoltage(void);
 
 void MuxTemp(void);
-
-void DataProcessing(void);
 # 3 "interrupt.c" 2
 
 # 1 "./init_periphery.h" 1
@@ -1196,7 +1194,7 @@ uint8_t cnt0 = 0;
 uint16_t adcValue = 0;
 
 uint8_t measureType = 1;
-volatile uint8_t errorType = 1;
+uint8_t errorType = 1;
 
 void __attribute__((picinterrupt(("")))) ISR(void)
 {
@@ -1218,7 +1216,7 @@ void __attribute__((picinterrupt(("")))) ISR(void)
 
          cnt1++;
 
-         TMR1IF = 0;
+        TMR1IF = 0;
     }
 
 
@@ -1241,12 +1239,6 @@ void __attribute__((picinterrupt(("")))) ISR(void)
            GP5 = 1;
     errorType = 3;
            }
-
-       if(errorType != 1){
-            do{
-     DataProcessing();}
-     while (errorType != 1);
-          }
 
           MuxTemp();
         break;
@@ -1275,15 +1267,7 @@ void __attribute__((picinterrupt(("")))) ISR(void)
                         errorType = 5;
      }
 
-
-        if(errorType != 1){
-            do{
-     DataProcessing();}
-     while (errorType != 1);
-          }
-
      MuxVoltage();
-
 
  break;
 
@@ -1303,8 +1287,6 @@ void MuxVoltage(void){
        CHS0 = 1;
        measureType = 1;
        ADIF = 0;
-
-
        _delay((unsigned long)((50)*(4000000/4000000.0)));
        GO = 1;
 }
@@ -1318,36 +1300,6 @@ void MuxTemp(void){
        CHS0 = 0;
        measureType = 2;
        ADIF = 0;
-
-
        _delay((unsigned long)((50)*(4000000/4000000.0)));
        GO = 1;
-}
-
-
-void DataProcessing(void){
-
-      switch(errorType){
-
-  case 1:
-     break;
-
-  case 2:
-    TwoShortOneLong();
-    errorType = 1;
-     break;
-
-  case 3:
-           TwoShortTwoLong();
-    errorType = 1;
-     break;
-
-  case 5:
-           ThreeShort();
-    errorType = 1;
-     break;
-
-  default:
-            break;
- }
 }

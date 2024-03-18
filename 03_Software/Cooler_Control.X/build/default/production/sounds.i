@@ -1170,89 +1170,55 @@ void __attribute__((picinterrupt(("")))) ISR(void);
 void MuxVoltage(void);
 
 void MuxTemp(void);
-
-void DataProcessing(void);
 # 3 "sounds.c" 2
 
 
+
+
 extern uint16_t cnt1;
-volatile uint8_t soundModeSwitch = 0;
 
 void ShortSound(){
-   if(cnt1 <= 120) GP2 = 1;
-    else if ((cnt1 > 120) && (cnt1 <= 200)) GP2 = 0;
-     else if (cnt1 > 200){
-      cnt1 = 0;
-      soundModeSwitch++;
-      }
+    GP2 = 1;
+    _delay((unsigned long)((120)*(4000000/4000.0)));
+    GP2 = 0;
+    _delay((unsigned long)((80)*(4000000/4000.0)));
 }
 
 void LongSound(){
-   if(cnt1 <= 200) GP2 = 1;
-    else if ((cnt1 > 200) && (cnt1 <= 350)) GP2 = 0;
-     else if (cnt1 > 350){
-      cnt1 = 0;
-      soundModeSwitch++;
-      }
+       GP2 = 1;
+    _delay((unsigned long)((200)*(4000000/4000.0)));
+       GP2 = 0;
+    _delay((unsigned long)((80)*(4000000/4000.0)));
 }
 
 void TimeOut(){
-   if (cnt1 <= 1000) GP2 = 0;
-    else {
+   while (cnt1 <= 1000) GP2 = 0;
     cnt1 = 0;
-    soundModeSwitch = 0;
-    }
 }
 
 
 void TwoShortOneLong(){
-
-       if (soundModeSwitch == 0){
-          ShortSound();
-       }
-       if (soundModeSwitch == 1){
-          ShortSound();
-       }
-       if (soundModeSwitch == 2){
-          LongSound();
-       }
-       if (soundModeSwitch > 2) {
-       TimeOut();
-       }
-
+   ShortSound();
+   ShortSound();
+   LongSound();
+   cnt1 = 0;
+   TimeOut();
 }
 
 void TwoShortTwoLong(){
 
-       if (soundModeSwitch == 0){
-          ShortSound();
-       }
-       if (soundModeSwitch == 1){
-          ShortSound();
-       }
-       if (soundModeSwitch == 2){
-          LongSound();
-       }
-       if (soundModeSwitch == 3){
-          LongSound();
-       }
-       if (soundModeSwitch > 3) {
-         TimeOut();
-        }
+   ShortSound();
+   ShortSound();
+   LongSound();
+   LongSound();
+   cnt1 = 0;
+   TimeOut();
 }
 
 void ThreeShort(){
-
-       if (soundModeSwitch == 0){
-          ShortSound();
-       }
-       if (soundModeSwitch == 1){
-          ShortSound();
-       }
-       if (soundModeSwitch == 2){
-          ShortSound();
-       }
-       if (soundModeSwitch > 2) {
-         TimeOut();
-        }
+   ShortSound();
+   ShortSound();
+   ShortSound();
+   cnt1 = 0;
+   TimeOut();
 }

@@ -1,10 +1,14 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"5 sounds.c
-[; ;sounds.c: 5: extern uint16_t cnt1;
-[v _cnt1 `ui ~T0 @X0 0 e ]
 "1591 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\pic\include\proc\pic12f675.h
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\pic\include\proc\pic12f675.h: 1591: extern volatile __bit GP2 __attribute__((address(0x2A)));
 [v _GP2 `Vb ~T0 @X0 0 e@42 ]
+[v F537 `(v ~T0 @X0 1 tf1`ul ]
+"92 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\pic\include\pic.h
+[v __delay `JF537 ~T0 @X0 0 e ]
+[p i __delay ]
+"7 sounds.c
+[; ;sounds.c: 7: extern uint16_t cnt1;
+[v _cnt1 `ui ~T0 @X0 0 e ]
 "54 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\pic\include\proc\pic12f675.h
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\pic\include\proc\pic12f675.h: 54: __asm("INDF equ 00h");
 [; <" INDF equ 00h ;# ">
@@ -101,287 +105,146 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1406
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\pic\include\proc\pic12f675.h: 1406: __asm("ANSEL equ 09Fh");
 [; <" ANSEL equ 09Fh ;# ">
-"6 sounds.c
-[; ;sounds.c: 6: volatile uint8_t soundModeSwitch = 0;
-[v _soundModeSwitch `Vuc ~T0 @X0 1 e ]
-[i _soundModeSwitch
--> -> 0 `i `uc
-]
-"8
-[; ;sounds.c: 8: void ShortSound(){
+"9 sounds.c
+[; ;sounds.c: 9: void ShortSound(){
 [v _ShortSound `(v ~T0 @X0 1 ef ]
 {
 [e :U _ShortSound ]
 [f ]
-"9
-[; ;sounds.c: 9:    if(cnt1 <= 120) GP2 = 1;
-[e $ ! <= _cnt1 -> -> 120 `i `ui 82  ]
-[e = _GP2 -> -> 1 `i `b ]
-[e $U 83  ]
 "10
-[; ;sounds.c: 10:     else if ((cnt1 > 120) && (cnt1 <= 200)) GP2 = 0;
-[e :U 82 ]
-[e $ ! && > _cnt1 -> -> 120 `i `ui <= _cnt1 -> -> 200 `i `ui 84  ]
-[e = _GP2 -> -> 0 `i `b ]
-[e $U 85  ]
+[; ;sounds.c: 10:     GP2 = 1;
+[e = _GP2 -> -> 1 `i `b ]
 "11
-[; ;sounds.c: 11:      else if (cnt1 > 200){
-[e :U 84 ]
-[e $ ! > _cnt1 -> -> 200 `i `ui 86  ]
-{
+[; ;sounds.c: 11:     _delay((unsigned long)((120)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 120 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
 "12
-[; ;sounds.c: 12:       cnt1 = 0;
-[e = _cnt1 -> -> 0 `i `ui ]
+[; ;sounds.c: 12:     GP2 = 0;
+[e = _GP2 -> -> 0 `i `b ]
 "13
-[; ;sounds.c: 13:       soundModeSwitch++;
-[e ++ _soundModeSwitch -> -> 1 `i `Vuc ]
+[; ;sounds.c: 13:     _delay((unsigned long)((80)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 80 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
 "14
-[; ;sounds.c: 14:       }
-}
-[e :U 86 ]
-[e :U 85 ]
-[e :U 83 ]
-"15
-[; ;sounds.c: 15: }
+[; ;sounds.c: 14: }
 [e :UE 81 ]
 }
-"17
-[; ;sounds.c: 17: void LongSound(){
+"16
+[; ;sounds.c: 16: void LongSound(){
 [v _LongSound `(v ~T0 @X0 1 ef ]
 {
 [e :U _LongSound ]
 [f ]
-"18
-[; ;sounds.c: 18:    if(cnt1 <= 200) GP2 = 1;
-[e $ ! <= _cnt1 -> -> 200 `i `ui 88  ]
+"17
+[; ;sounds.c: 17:        GP2 = 1;
 [e = _GP2 -> -> 1 `i `b ]
-[e $U 89  ]
+"18
+[; ;sounds.c: 18:     _delay((unsigned long)((200)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
 "19
-[; ;sounds.c: 19:     else if ((cnt1 > 200) && (cnt1 <= 350)) GP2 = 0;
-[e :U 88 ]
-[e $ ! && > _cnt1 -> -> 200 `i `ui <= _cnt1 -> -> 350 `i `ui 90  ]
+[; ;sounds.c: 19:        GP2 = 0;
 [e = _GP2 -> -> 0 `i `b ]
-[e $U 91  ]
 "20
-[; ;sounds.c: 20:      else if (cnt1 > 350){
-[e :U 90 ]
-[e $ ! > _cnt1 -> -> 350 `i `ui 92  ]
-{
+[; ;sounds.c: 20:     _delay((unsigned long)((80)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 80 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
 "21
-[; ;sounds.c: 21:       cnt1 = 0;
-[e = _cnt1 -> -> 0 `i `ui ]
-"22
-[; ;sounds.c: 22:       soundModeSwitch++;
-[e ++ _soundModeSwitch -> -> 1 `i `Vuc ]
+[; ;sounds.c: 21: }
+[e :UE 82 ]
+}
 "23
-[; ;sounds.c: 23:       }
-}
-[e :U 92 ]
-[e :U 91 ]
-[e :U 89 ]
-"24
-[; ;sounds.c: 24: }
-[e :UE 87 ]
-}
-"26
-[; ;sounds.c: 26: void TimeOut(){
+[; ;sounds.c: 23: void TimeOut(){
 [v _TimeOut `(v ~T0 @X0 1 ef ]
 {
 [e :U _TimeOut ]
 [f ]
-"27
-[; ;sounds.c: 27:    if (cnt1 <= 1000) GP2 = 0;
-[e $ ! <= _cnt1 -> -> 1000 `i `ui 94  ]
+"24
+[; ;sounds.c: 24:    while (cnt1 <= 1000) GP2 = 0;
+[e $U 84  ]
+[e :U 85 ]
 [e = _GP2 -> -> 0 `i `b ]
-[e $U 95  ]
-"28
-[; ;sounds.c: 28:     else {
-[e :U 94 ]
-{
-"29
-[; ;sounds.c: 29:     cnt1 = 0;
+[e :U 84 ]
+[e $ <= _cnt1 -> -> 1000 `i `ui 85  ]
+[e :U 86 ]
+"25
+[; ;sounds.c: 25:     cnt1 = 0;
 [e = _cnt1 -> -> 0 `i `ui ]
-"30
-[; ;sounds.c: 30:     soundModeSwitch = 0;
-[e = _soundModeSwitch -> -> 0 `i `uc ]
-"31
-[; ;sounds.c: 31:     }
+"26
+[; ;sounds.c: 26: }
+[e :UE 83 ]
 }
-[e :U 95 ]
-"32
-[; ;sounds.c: 32: }
-[e :UE 93 ]
-}
-"35
-[; ;sounds.c: 35: void TwoShortOneLong(){
+"29
+[; ;sounds.c: 29: void TwoShortOneLong(){
 [v _TwoShortOneLong `(v ~T0 @X0 1 ef ]
 {
 [e :U _TwoShortOneLong ]
 [f ]
-"37
-[; ;sounds.c: 37:        if (soundModeSwitch == 0){
-[e $ ! == -> _soundModeSwitch `i -> 0 `i 97  ]
-{
-"38
-[; ;sounds.c: 38:           ShortSound();
+"30
+[; ;sounds.c: 30:    ShortSound();
 [e ( _ShortSound ..  ]
-"39
-[; ;sounds.c: 39:        }
-}
-[e :U 97 ]
-"40
-[; ;sounds.c: 40:        if (soundModeSwitch == 1){
-[e $ ! == -> _soundModeSwitch `i -> 1 `i 98  ]
-{
-"41
-[; ;sounds.c: 41:           ShortSound();
+"31
+[; ;sounds.c: 31:    ShortSound();
 [e ( _ShortSound ..  ]
-"42
-[; ;sounds.c: 42:        }
-}
-[e :U 98 ]
-"43
-[; ;sounds.c: 43:        if (soundModeSwitch == 2){
-[e $ ! == -> _soundModeSwitch `i -> 2 `i 99  ]
-{
-"44
-[; ;sounds.c: 44:           LongSound();
+"32
+[; ;sounds.c: 32:    LongSound();
 [e ( _LongSound ..  ]
-"45
-[; ;sounds.c: 45:        }
-}
-[e :U 99 ]
-"46
-[; ;sounds.c: 46:        if (soundModeSwitch > 2) {
-[e $ ! > -> _soundModeSwitch `i -> 2 `i 100  ]
-{
-"47
-[; ;sounds.c: 47:        TimeOut();
+"33
+[; ;sounds.c: 33:    cnt1 = 0;
+[e = _cnt1 -> -> 0 `i `ui ]
+"34
+[; ;sounds.c: 34:    TimeOut();
 [e ( _TimeOut ..  ]
-"48
-[; ;sounds.c: 48:        }
+"35
+[; ;sounds.c: 35: }
+[e :UE 87 ]
 }
-[e :U 100 ]
-"50
-[; ;sounds.c: 50: }
-[e :UE 96 ]
-}
-"52
-[; ;sounds.c: 52: void TwoShortTwoLong(){
+"37
+[; ;sounds.c: 37: void TwoShortTwoLong(){
 [v _TwoShortTwoLong `(v ~T0 @X0 1 ef ]
 {
 [e :U _TwoShortTwoLong ]
 [f ]
-"54
-[; ;sounds.c: 54:        if (soundModeSwitch == 0){
-[e $ ! == -> _soundModeSwitch `i -> 0 `i 102  ]
-{
-"55
-[; ;sounds.c: 55:           ShortSound();
+"39
+[; ;sounds.c: 39:    ShortSound();
 [e ( _ShortSound ..  ]
-"56
-[; ;sounds.c: 56:        }
-}
-[e :U 102 ]
-"57
-[; ;sounds.c: 57:        if (soundModeSwitch == 1){
-[e $ ! == -> _soundModeSwitch `i -> 1 `i 103  ]
-{
-"58
-[; ;sounds.c: 58:           ShortSound();
+"40
+[; ;sounds.c: 40:    ShortSound();
 [e ( _ShortSound ..  ]
-"59
-[; ;sounds.c: 59:        }
-}
-[e :U 103 ]
-"60
-[; ;sounds.c: 60:        if (soundModeSwitch == 2){
-[e $ ! == -> _soundModeSwitch `i -> 2 `i 104  ]
-{
-"61
-[; ;sounds.c: 61:           LongSound();
+"41
+[; ;sounds.c: 41:    LongSound();
 [e ( _LongSound ..  ]
-"62
-[; ;sounds.c: 62:        }
-}
-[e :U 104 ]
-"63
-[; ;sounds.c: 63:        if (soundModeSwitch == 3){
-[e $ ! == -> _soundModeSwitch `i -> 3 `i 105  ]
-{
-"64
-[; ;sounds.c: 64:           LongSound();
+"42
+[; ;sounds.c: 42:    LongSound();
 [e ( _LongSound ..  ]
-"65
-[; ;sounds.c: 65:        }
-}
-[e :U 105 ]
-"66
-[; ;sounds.c: 66:        if (soundModeSwitch > 3) {
-[e $ ! > -> _soundModeSwitch `i -> 3 `i 106  ]
-{
-"67
-[; ;sounds.c: 67:          TimeOut();
+"43
+[; ;sounds.c: 43:    cnt1 = 0;
+[e = _cnt1 -> -> 0 `i `ui ]
+"44
+[; ;sounds.c: 44:    TimeOut();
 [e ( _TimeOut ..  ]
-"68
-[; ;sounds.c: 68:         }
+"45
+[; ;sounds.c: 45: }
+[e :UE 88 ]
 }
-[e :U 106 ]
-"69
-[; ;sounds.c: 69: }
-[e :UE 101 ]
-}
-"71
-[; ;sounds.c: 71: void ThreeShort(){
+"47
+[; ;sounds.c: 47: void ThreeShort(){
 [v _ThreeShort `(v ~T0 @X0 1 ef ]
 {
 [e :U _ThreeShort ]
 [f ]
-"73
-[; ;sounds.c: 73:        if (soundModeSwitch == 0){
-[e $ ! == -> _soundModeSwitch `i -> 0 `i 108  ]
-{
-"74
-[; ;sounds.c: 74:           ShortSound();
+"48
+[; ;sounds.c: 48:    ShortSound();
 [e ( _ShortSound ..  ]
-"75
-[; ;sounds.c: 75:        }
-}
-[e :U 108 ]
-"76
-[; ;sounds.c: 76:        if (soundModeSwitch == 1){
-[e $ ! == -> _soundModeSwitch `i -> 1 `i 109  ]
-{
-"77
-[; ;sounds.c: 77:           ShortSound();
+"49
+[; ;sounds.c: 49:    ShortSound();
 [e ( _ShortSound ..  ]
-"78
-[; ;sounds.c: 78:        }
-}
-[e :U 109 ]
-"79
-[; ;sounds.c: 79:        if (soundModeSwitch == 2){
-[e $ ! == -> _soundModeSwitch `i -> 2 `i 110  ]
-{
-"80
-[; ;sounds.c: 80:           ShortSound();
+"50
+[; ;sounds.c: 50:    ShortSound();
 [e ( _ShortSound ..  ]
-"81
-[; ;sounds.c: 81:        }
-}
-[e :U 110 ]
-"82
-[; ;sounds.c: 82:        if (soundModeSwitch > 2) {
-[e $ ! > -> _soundModeSwitch `i -> 2 `i 111  ]
-{
-"83
-[; ;sounds.c: 83:          TimeOut();
+"51
+[; ;sounds.c: 51:    cnt1 = 0;
+[e = _cnt1 -> -> 0 `i `ui ]
+"52
+[; ;sounds.c: 52:    TimeOut();
 [e ( _TimeOut ..  ]
-"84
-[; ;sounds.c: 84:         }
-}
-[e :U 111 ]
-"85
-[; ;sounds.c: 85: }
-[e :UE 107 ]
+"53
+[; ;sounds.c: 53: }
+[e :UE 89 ]
 }

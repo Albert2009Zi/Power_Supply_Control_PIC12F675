@@ -12,8 +12,8 @@ uint16_t cnt1             = 0;
 uint8_t  cnt0             = 0;
 uint16_t adcValue         = 0;
 
-uint8_t  measureType      = 1;
-volatile uint8_t  errorType        = ERROR_OK;
+uint8_t measureType = VOLTAGE_MEASURE;
+uint8_t errorType   = ERROR_OK;
 
 void __interrupt() ISR(void)
 {       
@@ -35,7 +35,7 @@ void __interrupt() ISR(void)
     
          cnt1++;
 	 
-         TMR1IF = 0;  // ?????????? ???? ?????????? ??????? 1
+        TMR1IF = 0;   // ?????????? ???? ?????????? ??????? 1
     }
 
 
@@ -59,12 +59,6 @@ void __interrupt() ISR(void)
 	   errorType = ERROR_OVER_VOLTAGE; 
            }    
 	   
-       if(errorType != ERROR_OK){
-            do{
-	    DataProcessing();} 
-	    while (errorType != ERROR_OK); 	    
-          }
-	  
           MuxTemp();
         break;
 	
@@ -91,17 +85,9 @@ void __interrupt() ISR(void)
 	                GP5       = 1;
                         errorType = ERROR_TMP_HIGH;  		
 		   }
-	
-
-        if(errorType != ERROR_OK){
-            do{
-	    DataProcessing();} 
-	    while (errorType != ERROR_OK); 	    
-          }
 		
 	    MuxVoltage();
-	    
-	    
+	    	    
 	break;
 	
 	default:
@@ -120,8 +106,6 @@ void MuxVoltage(void){
        CHS0   = 1;                     /* Enable ADC channel 1 (AN1) "Power ON button", ADC is ON */    
        measureType = VOLTAGE_MEASURE; 
        ADIF   = 0;
-//       while (cnt0 < 50);
-//       cnt0   = 0;
        __delay_us(50);
        GO     = 1; 
 }
@@ -135,36 +119,6 @@ void MuxTemp(void){
        CHS0        = 0;                   /* Enable ADC channel 0 (AN0) "Temperature control", ADC is ON    */ 
        measureType = TEMPERATURE_MEASURE;
        ADIF        = 0;
- //      while (cnt0 < 50)
- //      cnt0        = 0;
        __delay_us(50);
        GO          = 1;    
-}
-
-
-void DataProcessing(void){
-    
-    	 switch(errorType){
-	 
-	 case ERROR_OK:
-	    break;
-	 
-	 case ERROR_UNDER_VOLTAGE:
-	   TwoShortOneLong();
-	   errorType = ERROR_OK;
-	    break;
-	    
-	 case ERROR_OVER_VOLTAGE:
-           TwoShortTwoLong();
-	   errorType = ERROR_OK;
-	    break;
-	 
-	 case ERROR_TMP_HIGH:
-           ThreeShort();
-	   errorType = ERROR_OK;
-	    break;      
-	    
-	 default:
-            break;	 
-	}
 }

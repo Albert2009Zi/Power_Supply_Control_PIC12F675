@@ -1161,8 +1161,6 @@ void __attribute__((picinterrupt(("")))) ISR(void);
 void MuxVoltage(void);
 
 void MuxTemp(void);
-
-void DataProcessing(void);
 # 4 "init_periphery.c" 2
 
 # 1 "./sounds.h" 1

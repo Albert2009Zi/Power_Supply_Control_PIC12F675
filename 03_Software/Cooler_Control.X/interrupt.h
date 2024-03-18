@@ -14,7 +14,5 @@ void MuxVoltage(void);
 
 void MuxTemp(void);
 
-void DataProcessing(void);
-
 #endif	/* INTERRUPT_H */
 

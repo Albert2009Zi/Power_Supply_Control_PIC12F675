@@ -60,6 +60,11 @@
 __CONFIG(FOSC_INTRCIO & WDTE_OFF & PWRTE_ON & MCLRE_OFF & BOREN_ON & CP_OFF & CPD_OFF);
 
 #endif
+
+extern uint8_t errorType;
+extern uint8_t measureType;
+
+void DataProcessing(void);
    
 // Main function
 void main()          //its app whichmakes on uc alone and not needs return somthing in OS
@@ -68,7 +73,36 @@ void main()          //its app whichmakes on uc alone and not needs return somth
     InitTimer1();
     Init_uC();
     
-    while(1){             
+    while(1){    
+     DataProcessing();   
     }   
 }
 
+void DataProcessing(void){
+    
+    switch(errorType){ 
+	 case ERROR_OK:
+	    break;
+	 
+	 case ERROR_UNDER_VOLTAGE:	 
+	  if (measureType != VOLTAGE_MEASURE){
+	   TwoShortOneLong();}
+	   errorType = ERROR_OK;
+	    break;
+	    
+	 case ERROR_OVER_VOLTAGE:
+	   if (measureType != VOLTAGE_MEASURE){
+            TwoShortTwoLong();}
+	   errorType = ERROR_OK;
+	    break;
+	 
+	 case ERROR_TMP_HIGH:
+	  if (measureType != TEMPERATURE_MEASURE){
+           ThreeShort();}
+	   errorType = ERROR_OK;
+	    break;      
+	    
+	 default:
+            break;	 
+	}
+}
