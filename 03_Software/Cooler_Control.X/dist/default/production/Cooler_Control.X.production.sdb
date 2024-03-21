@@ -11,17 +11,17 @@
 [v ___eecpymem __eecpymem `(v  1 e 1 0 ]
 "39
 [v ___memcpyee __memcpyee `(v  1 e 1 0 ]
-"12 C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\init_periphery.c
+"11 C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\init_periphery.c
 [v _InitTimer0 InitTimer0 `(v  1 e 1 0 ]
-"21
+"20
 [v _InitTimer1 InitTimer1 `(v  1 e 1 0 ]
-"33
+"32
 [v _Init_uC Init_uC `(v  1 e 1 0 ]
-"18 C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\interrupt.c
+"17 C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\interrupt.c
 [v _ISR ISR `II(v  1 e 1 0 ]
-"101
+"99
 [v _MuxVoltage MuxVoltage `(v  1 e 1 0 ]
-"114
+"111
 [v _MuxTemp MuxTemp `(v  1 e 1 0 ]
 "70 C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\main.c
 [v _main main `(v  1 e 1 0 ]
@@ -61,8 +61,6 @@
 [v _TRISIO TRISIO `VEuc  1 e 1 @133 ]
 "1208
 [v _VRCON VRCON `VEuc  1 e 1 @153 ]
-"1384
-[v _ADRESL ADRESL `VEuc  1 e 1 @158 ]
 "1404
 [v _ANSEL ANSEL `VEuc  1 e 1 @159 ]
 "1489
@@ -111,31 +109,29 @@
 [v _cnt1 cnt1 `ui  1 e 2 0 ]
 "12
 [v _cnt0 cnt0 `uc  1 e 1 0 ]
-"13
-[v _adcValue adcValue `ui  1 e 2 0 ]
-"15
+"14
 [v _measureType measureType `uc  1 e 1 0 ]
-"16
+"15
 [v _errorType errorType `uc  1 e 1 0 ]
 "70 C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\main.c
 [v _main main `(v  1 e 1 0 ]
 {
 "79
 } 0
-"33 C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\init_periphery.c
+"32 C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\init_periphery.c
 [v _Init_uC Init_uC `(v  1 e 1 0 ]
 {
-"74
+"73
 } 0
-"21
+"20
 [v _InitTimer1 InitTimer1 `(v  1 e 1 0 ]
 {
-"31
+"30
 } 0
-"12
+"11
 [v _InitTimer0 InitTimer0 `(v  1 e 1 0 ]
 {
-"19
+"18
 } 0
 "81 C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\main.c
 [v _DataProcessing DataProcessing `(v  1 e 1 0 ]
@@ -172,18 +168,18 @@
 {
 "14
 } 0
-"18 C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\interrupt.c
+"17 C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\interrupt.c
 [v _ISR ISR `II(v  1 e 1 0 ]
 {
-"99
+"97
 } 0
-"101
+"99
 [v _MuxVoltage MuxVoltage `(v  1 e 1 0 ]
 {
-"111
+"109
 } 0
-"114
+"111
 [v _MuxTemp MuxTemp `(v  1 e 1 0 ]
 {
-"124
+"121
 } 0

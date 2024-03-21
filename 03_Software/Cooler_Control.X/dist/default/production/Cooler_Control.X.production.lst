@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.36 build 20220127204148 
-                                                                                               Mon Mar 18 20:40:31 2024
+                                                                                               Thu Mar 21 20:28:55 2024
 
 Microchip MPLAB XC8 C Compiler v2.36 (Free license) build 20220127204148 Og1 
      1                           	processor	12F675
@@ -235,13 +235,13 @@ Microchip MPLAB XC8 C Compiler v2.36 (Free license) build 20220127204148 Og1
    221  009F                     	;# 
    222                           
    223                           	psect	idataBANK0
-   224  01C5                     __pidataBANK0:
+   224  01A0                     __pidataBANK0:
    225                           
    226                           ;initializer for _errorType
-   227  01C5  3401               	retlw	1
+   227  01A0  3401               	retlw	1
    228                           
    229                           ;initializer for _measureType
-   230  01C6  3401               	retlw	1
+   230  01A1  3401               	retlw	1
    231  0005                     _GPIO	set	5
    232  0019                     _CMCON	set	25
    233  0010                     _T1CON	set	16
@@ -269,1649 +269,1601 @@ Microchip MPLAB XC8 C Compiler v2.36 (Free license) build 20220127204148 Og1
    255  0085                     _TRISIO	set	133
    256  0099                     _VRCON	set	153
    257  0081                     _OPTION_REG	set	129
-   258  009E                     _ADRESL	set	158
-   259  0429                     _TRISIO1	set	1065
-   260  0428                     _TRISIO0	set	1064
-   261  042C                     _TRISIO4	set	1068
-   262  042D                     _TRISIO5	set	1069
-   263  042A                     _TRISIO2	set	1066
-   264  0460                     _TMR1IE	set	1120
-   265                           
-   266                           	psect	cinit
-   267  000E                     start_initialization:	
-   268                           ; #config settings
-   269                           
-   270  000E                     __initialization:
-   271                           
-   272                           ; Initialize objects allocated to BANK0
-   273  000E  21C5               	fcall	__pidataBANK0	;fetch initializer
-   274  000F  00B0               	movwf	__pdataBANK0& (0+127)
-   275  0010  21C6               	fcall	__pidataBANK0+1	;fetch initializer
-   276  0011  00B1               	movwf	(__pdataBANK0+1)& (0+127)
-   277                           
-   278                           ; Clear objects allocated to BANK0
-   279  0012  01AB               	clrf	__pbssBANK0& (0+127)
-   280  0013  01AC               	clrf	(__pbssBANK0+1)& (0+127)
-   281  0014  01AD               	clrf	(__pbssBANK0+2)& (0+127)
-   282  0015  01AE               	clrf	(__pbssBANK0+3)& (0+127)
-   283  0016  01AF               	clrf	(__pbssBANK0+4)& (0+127)
-   284  0017                     end_of_initialization:	
-   285                           ;End of C runtime variable initialization code
-   286                           
-   287  0017                     __end_of__initialization:
-   288  0017  0183               	clrf	3
-   289  0018  29BF               	ljmp	_main	;jump to C main() function
-   290                           
-   291                           	psect	bssBANK0
-   292  002B                     __pbssBANK0:
-   293  002B                     _adcValue:
-   294  002B                     	ds	2
-   295  002D                     _cnt1:
-   296  002D                     	ds	2
-   297  002F                     _cnt0:
-   298  002F                     	ds	1
-   299                           
-   300                           	psect	dataBANK0
-   301  0030                     __pdataBANK0:
-   302  0030                     _errorType:
-   303  0030                     	ds	1
-   304  0031                     _measureType:
-   305  0031                     	ds	1
-   306                           
-   307                           	psect	cstackCOMMON
-   308  0000                     __pcstackCOMMON:
-   309  0000                     ??_InitTimer0:
-   310  0000                     ??_InitTimer1:	
-   311                           ; 1 bytes @ 0x0
-   312                           
-   313  0000                     ??_Init_uC:	
-   314                           ; 1 bytes @ 0x0
-   315                           
-   316  0000                     ??_TwoShortOneLong:	
-   317                           ; 1 bytes @ 0x0
-   318                           
-   319  0000                     ??_TwoShortTwoLong:	
-   320                           ; 1 bytes @ 0x0
-   321                           
-   322  0000                     ??_ThreeShort:	
-   323                           ; 1 bytes @ 0x0
-   324                           
-   325  0000                     ??_main:	
-   326                           ; 1 bytes @ 0x0
-   327                           
-   328  0000                     ??_TimeOut:	
+   258  0429                     _TRISIO1	set	1065
+   259  0428                     _TRISIO0	set	1064
+   260  042C                     _TRISIO4	set	1068
+   261  042D                     _TRISIO5	set	1069
+   262  042A                     _TRISIO2	set	1066
+   263  0460                     _TMR1IE	set	1120
+   264                           
+   265                           	psect	cinit
+   266  000E                     start_initialization:	
+   267                           ; #config settings
+   268                           
+   269  000E                     __initialization:
+   270                           
+   271                           ; Initialize objects allocated to BANK0
+   272  000E  21A0               	fcall	__pidataBANK0	;fetch initializer
+   273  000F  00AE               	movwf	__pdataBANK0& (0+127)
+   274  0010  21A1               	fcall	__pidataBANK0+1	;fetch initializer
+   275  0011  00AF               	movwf	(__pdataBANK0+1)& (0+127)
+   276                           
+   277                           ; Clear objects allocated to BANK0
+   278  0012  01AB               	clrf	__pbssBANK0& (0+127)
+   279  0013  01AC               	clrf	(__pbssBANK0+1)& (0+127)
+   280  0014  01AD               	clrf	(__pbssBANK0+2)& (0+127)
+   281  0015                     end_of_initialization:	
+   282                           ;End of C runtime variable initialization code
+   283                           
+   284  0015                     __end_of__initialization:
+   285  0015  0183               	clrf	3
+   286  0016  299A               	ljmp	_main	;jump to C main() function
+   287                           
+   288                           	psect	bssBANK0
+   289  002B                     __pbssBANK0:
+   290  002B                     _cnt1:
+   291  002B                     	ds	2
+   292  002D                     _cnt0:
+   293  002D                     	ds	1
+   294                           
+   295                           	psect	dataBANK0
+   296  002E                     __pdataBANK0:
+   297  002E                     _errorType:
+   298  002E                     	ds	1
+   299  002F                     _measureType:
+   300  002F                     	ds	1
+   301                           
+   302                           	psect	cstackCOMMON
+   303  0000                     __pcstackCOMMON:
+   304  0000                     ??_InitTimer0:
+   305  0000                     ??_InitTimer1:	
+   306                           ; 1 bytes @ 0x0
+   307                           
+   308  0000                     ??_Init_uC:	
+   309                           ; 1 bytes @ 0x0
+   310                           
+   311  0000                     ??_TwoShortOneLong:	
+   312                           ; 1 bytes @ 0x0
+   313                           
+   314  0000                     ??_TwoShortTwoLong:	
+   315                           ; 1 bytes @ 0x0
+   316                           
+   317  0000                     ??_ThreeShort:	
+   318                           ; 1 bytes @ 0x0
+   319                           
+   320  0000                     ??_main:	
+   321                           ; 1 bytes @ 0x0
+   322                           
+   323  0000                     ??_TimeOut:	
+   324                           ; 1 bytes @ 0x0
+   325                           
+   326                           
+   327                           	psect	cstackBANK0
+   328  0020                     __pcstackBANK0:	
    329                           ; 1 bytes @ 0x0
    330                           
-   331                           
-   332                           	psect	cstackBANK0
-   333  0020                     __pcstackBANK0:	
-   334                           ; 1 bytes @ 0x0
-   335                           
-   336  0020                     ?_MuxTemp:
-   337  0020                     ??_MuxTemp:	
-   338                           ; 1 bytes @ 0x0
-   339                           
-   340  0020                     ?_MuxVoltage:	
-   341                           ; 1 bytes @ 0x0
-   342                           
-   343  0020                     ??_MuxVoltage:	
-   344                           ; 1 bytes @ 0x0
-   345                           
-   346  0020                     ?_InitTimer0:	
-   347                           ; 1 bytes @ 0x0
-   348                           
-   349  0020                     ?_InitTimer1:	
-   350                           ; 1 bytes @ 0x0
-   351                           
-   352  0020                     ?_Init_uC:	
-   353                           ; 1 bytes @ 0x0
-   354                           
-   355  0020                     ?_DataProcessing:	
-   356                           ; 1 bytes @ 0x0
-   357                           
-   358  0020                     ?_TwoShortOneLong:	
-   359                           ; 1 bytes @ 0x0
-   360                           
-   361  0020                     ?_TwoShortTwoLong:	
-   362                           ; 1 bytes @ 0x0
-   363                           
-   364  0020                     ?_ThreeShort:	
-   365                           ; 1 bytes @ 0x0
-   366                           
-   367  0020                     ?_ISR:	
-   368                           ; 1 bytes @ 0x0
-   369                           
-   370  0020                     ?_main:	
-   371                           ; 1 bytes @ 0x0
-   372                           
-   373  0020                     ?_ShortSound:	
-   374                           ; 1 bytes @ 0x0
-   375                           
-   376  0020                     ?_LongSound:	
-   377                           ; 1 bytes @ 0x0
-   378                           
-   379  0020                     ?_TimeOut:	
-   380                           ; 1 bytes @ 0x0
+   331  0020                     ?_MuxTemp:
+   332  0020                     ??_MuxTemp:	
+   333                           ; 1 bytes @ 0x0
+   334                           
+   335  0020                     ?_MuxVoltage:	
+   336                           ; 1 bytes @ 0x0
+   337                           
+   338  0020                     ??_MuxVoltage:	
+   339                           ; 1 bytes @ 0x0
+   340                           
+   341  0020                     ?_InitTimer0:	
+   342                           ; 1 bytes @ 0x0
+   343                           
+   344  0020                     ?_InitTimer1:	
+   345                           ; 1 bytes @ 0x0
+   346                           
+   347  0020                     ?_Init_uC:	
+   348                           ; 1 bytes @ 0x0
+   349                           
+   350  0020                     ?_DataProcessing:	
+   351                           ; 1 bytes @ 0x0
+   352                           
+   353  0020                     ?_TwoShortOneLong:	
+   354                           ; 1 bytes @ 0x0
+   355                           
+   356  0020                     ?_TwoShortTwoLong:	
+   357                           ; 1 bytes @ 0x0
+   358                           
+   359  0020                     ?_ThreeShort:	
+   360                           ; 1 bytes @ 0x0
+   361                           
+   362  0020                     ?_ISR:	
+   363                           ; 1 bytes @ 0x0
+   364                           
+   365  0020                     ?_main:	
+   366                           ; 1 bytes @ 0x0
+   367                           
+   368  0020                     ?_ShortSound:	
+   369                           ; 1 bytes @ 0x0
+   370                           
+   371  0020                     ?_LongSound:	
+   372                           ; 1 bytes @ 0x0
+   373                           
+   374  0020                     ?_TimeOut:	
+   375                           ; 1 bytes @ 0x0
+   376                           
+   377                           
+   378                           ; 1 bytes @ 0x0
+   379  0020                     	ds	1
+   380  0021                     ??_ISR:
    381                           
-   382                           
-   383                           ; 1 bytes @ 0x0
-   384  0020                     	ds	1
-   385  0021                     ??_ISR:
-   386                           
-   387                           ; 1 bytes @ 0x1
-   388  0021                     	ds	5
-   389  0026                     ??_ShortSound:
-   390  0026                     ??_LongSound:	
-   391                           ; 1 bytes @ 0x6
+   382                           ; 1 bytes @ 0x1
+   383  0021                     	ds	5
+   384  0026                     ??_ShortSound:
+   385  0026                     ??_LongSound:	
+   386                           ; 1 bytes @ 0x6
+   387                           
+   388                           
+   389                           ; 1 bytes @ 0x6
+   390  0026                     	ds	3
+   391  0029                     ??_DataProcessing:
    392                           
-   393                           
-   394                           ; 1 bytes @ 0x6
-   395  0026                     	ds	3
-   396  0029                     ??_DataProcessing:
-   397                           
-   398                           ; 1 bytes @ 0x9
-   399  0029                     	ds	2
-   400                           
-   401                           	psect	maintext
-   402  01BF                     __pmaintext:	
-   403 ;;
-   404 ;;Main: autosize = 0, tempsize = 0, incstack = 0, save=0
-   405 ;;
-   406 ;; *************** function _main *****************
-   407 ;; Defined at:
-   408 ;;		line 70 in file "main.c"
-   409 ;; Parameters:    Size  Location     Type
-   410 ;;		None
-   411 ;; Auto vars:     Size  Location     Type
-   412 ;;		None
-   413 ;; Return value:  Size  Location     Type
-   414 ;;                  1    wreg      void 
-   415 ;; Registers used:
-   416 ;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
-   417 ;; Tracked objects:
-   418 ;;		On entry : B00/0
-   419 ;;		On exit  : 0/0
-   420 ;;		Unchanged: 0/0
-   421 ;; Data sizes:     COMMON   BANK0
-   422 ;;      Params:         0       0
-   423 ;;      Locals:         0       0
-   424 ;;      Temps:          0       0
-   425 ;;      Totals:         0       0
-   426 ;;Total ram usage:        0 bytes
-   427 ;; Hardware stack levels required when called: 5
-   428 ;; This function calls:
-   429 ;;		_DataProcessing
-   430 ;;		_InitTimer0
-   431 ;;		_InitTimer1
-   432 ;;		_Init_uC
-   433 ;; This function is called by:
-   434 ;;		Startup code after reset
-   435 ;; This function uses a non-reentrant model
-   436 ;;
-   437                           
-   438  01BF                     _main:	
-   439                           ;psect for function _main
-   440                           
-   441  01BF                     l1331:	
-   442                           ;incstack = 0
-   443                           ; Regs used in _main: [wreg-fsr0h+status,2+status,0+pclath+cstack]
-   444                           
-   445  01BF  21A7               	fcall	_InitTimer0
-   446  01C0  2193               	fcall	_InitTimer1
-   447  01C1  2105               	fcall	_Init_uC
-   448  01C2                     l1333:
-   449  01C2  20D3               	fcall	_DataProcessing
-   450  01C3  29C2               	goto	l1333
-   451  01C4  280D               	ljmp	start
-   452  01C5                     __end_of_main:
-   453                           
-   454                           	psect	text1
-   455  0105                     __ptext1:	
-   456 ;; *************** function _Init_uC *****************
-   457 ;; Defined at:
-   458 ;;		line 33 in file "init_periphery.c"
-   459 ;; Parameters:    Size  Location     Type
-   460 ;;		None
-   461 ;; Auto vars:     Size  Location     Type
-   462 ;;		None
-   463 ;; Return value:  Size  Location     Type
-   464 ;;                  1    wreg      void 
-   465 ;; Registers used:
-   466 ;;		wreg, status,2, status,0, pclath, cstack
-   467 ;; Tracked objects:
-   468 ;;		On entry : 0/0
-   469 ;;		On exit  : 0/0
-   470 ;;		Unchanged: 0/0
-   471 ;; Data sizes:     COMMON   BANK0
-   472 ;;      Params:         0       0
-   473 ;;      Locals:         0       0
-   474 ;;      Temps:          0       0
-   475 ;;      Totals:         0       0
-   476 ;;Total ram usage:        0 bytes
-   477 ;; Hardware stack levels used: 1
-   478 ;; Hardware stack levels required when called: 3
-   479 ;; This function calls:
-   480 ;;		_LongSound
-   481 ;; This function is called by:
-   482 ;;		_main
-   483 ;; This function uses a non-reentrant model
-   484 ;;
-   485                           
-   486  0105                     _Init_uC:	
-   487                           ;psect for function _Init_uC
+   393                           ; 1 bytes @ 0x9
+   394  0029                     	ds	2
+   395                           
+   396                           	psect	maintext
+   397  019A                     __pmaintext:	
+   398 ;;
+   399 ;;Main: autosize = 0, tempsize = 0, incstack = 0, save=0
+   400 ;;
+   401 ;; *************** function _main *****************
+   402 ;; Defined at:
+   403 ;;		line 70 in file "main.c"
+   404 ;; Parameters:    Size  Location     Type
+   405 ;;		None
+   406 ;; Auto vars:     Size  Location     Type
+   407 ;;		None
+   408 ;; Return value:  Size  Location     Type
+   409 ;;                  1    wreg      void 
+   410 ;; Registers used:
+   411 ;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+   412 ;; Tracked objects:
+   413 ;;		On entry : B00/0
+   414 ;;		On exit  : 0/0
+   415 ;;		Unchanged: 0/0
+   416 ;; Data sizes:     COMMON   BANK0
+   417 ;;      Params:         0       0
+   418 ;;      Locals:         0       0
+   419 ;;      Temps:          0       0
+   420 ;;      Totals:         0       0
+   421 ;;Total ram usage:        0 bytes
+   422 ;; Hardware stack levels required when called: 5
+   423 ;; This function calls:
+   424 ;;		_DataProcessing
+   425 ;;		_InitTimer0
+   426 ;;		_InitTimer1
+   427 ;;		_Init_uC
+   428 ;; This function is called by:
+   429 ;;		Startup code after reset
+   430 ;; This function uses a non-reentrant model
+   431 ;;
+   432                           
+   433  019A                     _main:	
+   434                           ;psect for function _main
+   435                           
+   436  019A                     l1321:	
+   437                           ;incstack = 0
+   438                           ; Regs used in _main: [wreg-fsr0h+status,2+status,0+pclath+cstack]
+   439                           
+   440  019A  2182               	fcall	_InitTimer0
+   441  019B  216E               	fcall	_InitTimer1
+   442  019C  20E2               	fcall	_Init_uC
+   443  019D                     l1323:
+   444  019D  20B0               	fcall	_DataProcessing
+   445  019E  299D               	goto	l1323
+   446  019F  280D               	ljmp	start
+   447  01A0                     __end_of_main:
+   448                           
+   449                           	psect	text1
+   450  00E2                     __ptext1:	
+   451 ;; *************** function _Init_uC *****************
+   452 ;; Defined at:
+   453 ;;		line 32 in file "init_periphery.c"
+   454 ;; Parameters:    Size  Location     Type
+   455 ;;		None
+   456 ;; Auto vars:     Size  Location     Type
+   457 ;;		None
+   458 ;; Return value:  Size  Location     Type
+   459 ;;                  1    wreg      void 
+   460 ;; Registers used:
+   461 ;;		wreg, status,2, status,0, pclath, cstack
+   462 ;; Tracked objects:
+   463 ;;		On entry : 0/0
+   464 ;;		On exit  : 0/0
+   465 ;;		Unchanged: 0/0
+   466 ;; Data sizes:     COMMON   BANK0
+   467 ;;      Params:         0       0
+   468 ;;      Locals:         0       0
+   469 ;;      Temps:          0       0
+   470 ;;      Totals:         0       0
+   471 ;;Total ram usage:        0 bytes
+   472 ;; Hardware stack levels used: 1
+   473 ;; Hardware stack levels required when called: 3
+   474 ;; This function calls:
+   475 ;;		_LongSound
+   476 ;; This function is called by:
+   477 ;;		_main
+   478 ;; This function uses a non-reentrant model
+   479 ;;
+   480                           
+   481  00E2                     _Init_uC:	
+   482                           ;psect for function _Init_uC
+   483                           
+   484  00E2                     l1173:	
+   485                           ;incstack = 0
+   486                           ; Regs used in _Init_uC: [wreg+status,2+status,0+pclath+cstack]
+   487                           
    488                           
-   489  0105                     l1181:	
-   490                           ;incstack = 0
-   491                           ; Regs used in _Init_uC: [wreg+status,2+status,0+pclath+cstack]
-   492                           
-   493                           
-   494                           ;init_periphery.c: 34:     CMCON = 0x07;
-   495  0105  3007               	movlw	7
-   496  0106  1283               	bcf	3,5	;RP0=0, select bank0
-   497  0107  0099               	movwf	25	;volatile
-   498  0108                     l1183:
+   489                           ;init_periphery.c: 33:     CMCON = 0x07;
+   490  00E2  3007               	movlw	7
+   491  00E3  1283               	bcf	3,5	;RP0=0, select bank0
+   492  00E4  0099               	movwf	25	;volatile
+   493  00E5                     l1175:
+   494                           
+   495                           ;init_periphery.c: 34:     VRCON = 0x00;
+   496  00E5  1683               	bsf	3,5	;RP0=1, select bank1
+   497  00E6  0199               	clrf	25	;volatile
+   498  00E7                     l1177:
    499                           
-   500                           ;init_periphery.c: 35:     VRCON = 0x00;
-   501  0108  1683               	bsf	3,5	;RP0=1, select bank1
-   502  0109  0199               	clrf	25	;volatile
-   503  010A                     l1185:
-   504                           
-   505                           ;init_periphery.c: 38:     TRISIO = 0;
-   506  010A  0185               	clrf	5	;volatile
-   507  010B                     l1187:
+   500                           ;init_periphery.c: 37:     TRISIO = 0;
+   501  00E7  0185               	clrf	5	;volatile
+   502  00E8                     l1179:
+   503                           
+   504                           ;init_periphery.c: 38:     GPIO = 0;
+   505  00E8  1283               	bcf	3,5	;RP0=0, select bank0
+   506  00E9  0185               	clrf	5	;volatile
+   507  00EA                     l1181:
    508                           
-   509                           ;init_periphery.c: 39:     GPIO = 0;
-   510  010B  1283               	bcf	3,5	;RP0=0, select bank0
-   511  010C  0185               	clrf	5	;volatile
-   512  010D                     l1189:
+   509                           ;init_periphery.c: 41:     TRISIO2 = 0;
+   510  00EA  1683               	bsf	3,5	;RP0=1, select bank1
+   511  00EB  1105               	bcf	5,2	;volatile
+   512  00EC                     l1183:
    513                           
-   514                           ;init_periphery.c: 42:     TRISIO2 = 0;
-   515  010D  1683               	bsf	3,5	;RP0=1, select bank1
-   516  010E  1105               	bcf	5,2	;volatile
-   517  010F                     l1191:
+   514                           ;init_periphery.c: 42:     GP2 = 0;
+   515  00EC  1283               	bcf	3,5	;RP0=0, select bank0
+   516  00ED  1105               	bcf	5,2	;volatile
+   517  00EE                     l1185:
    518                           
-   519                           ;init_periphery.c: 43:     GP2 = 0;
-   520  010F  1283               	bcf	3,5	;RP0=0, select bank0
-   521  0110  1105               	bcf	5,2	;volatile
-   522  0111                     l1193:
+   519                           ;init_periphery.c: 45:     TRISIO5 = 0;
+   520  00EE  1683               	bsf	3,5	;RP0=1, select bank1
+   521  00EF  1285               	bcf	5,5	;volatile
+   522  00F0                     l1187:
    523                           
-   524                           ;init_periphery.c: 46:     TRISIO5 = 0;
-   525  0111  1683               	bsf	3,5	;RP0=1, select bank1
-   526  0112  1285               	bcf	5,5	;volatile
-   527  0113                     l1195:
+   524                           ;init_periphery.c: 46:     GP5 = 1;
+   525  00F0  1283               	bcf	3,5	;RP0=0, select bank0
+   526  00F1  1685               	bsf	5,5	;volatile
+   527  00F2                     l1189:
    528                           
-   529                           ;init_periphery.c: 47:     GP5 = 1;
-   530  0113  1283               	bcf	3,5	;RP0=0, select bank0
-   531  0114  1685               	bsf	5,5	;volatile
-   532  0115                     l1197:
+   529                           ;init_periphery.c: 49:     TRISIO4 = 0;
+   530  00F2  1683               	bsf	3,5	;RP0=1, select bank1
+   531  00F3  1205               	bcf	5,4	;volatile
+   532  00F4                     l1191:
    533                           
-   534                           ;init_periphery.c: 50:     TRISIO4 = 0;
-   535  0115  1683               	bsf	3,5	;RP0=1, select bank1
-   536  0116  1205               	bcf	5,4	;volatile
-   537  0117                     l1199:
+   534                           ;init_periphery.c: 50:     GP4 = 0;
+   535  00F4  1283               	bcf	3,5	;RP0=0, select bank0
+   536  00F5  1205               	bcf	5,4	;volatile
+   537  00F6                     l1193:
    538                           
-   539                           ;init_periphery.c: 51:     GP4 = 0;
-   540  0117  1283               	bcf	3,5	;RP0=0, select bank0
-   541  0118  1205               	bcf	5,4	;volatile
-   542  0119                     l1201:
-   543                           
-   544                           ;init_periphery.c: 54:     VCFG = 1;
-   545  0119  171F               	bsf	31,6	;volatile
-   546  011A                     l1203:
+   539                           ;init_periphery.c: 53:     VCFG = 1;
+   540  00F6  171F               	bsf	31,6	;volatile
+   541  00F7                     l1195:
+   542                           
+   543                           ;init_periphery.c: 54:     TRISIO0 = 1;
+   544  00F7  1683               	bsf	3,5	;RP0=1, select bank1
+   545  00F8  1405               	bsf	5,0	;volatile
+   546  00F9                     l1197:
    547                           
-   548                           ;init_periphery.c: 55:     TRISIO0 = 1;
-   549  011A  1683               	bsf	3,5	;RP0=1, select bank1
-   550  011B  1405               	bsf	5,0	;volatile
-   551  011C                     l1205:
-   552                           
-   553                           ;init_periphery.c: 56:     TRISIO1 = 1;
-   554  011C  1485               	bsf	5,1	;volatile
-   555  011D                     l1207:
+   548                           ;init_periphery.c: 55:     TRISIO1 = 1;
+   549  00F9  1485               	bsf	5,1	;volatile
+   550  00FA                     l1199:
+   551                           
+   552                           ;init_periphery.c: 57:     ANSEL = 0b00110011;
+   553  00FA  3033               	movlw	51
+   554  00FB  009F               	movwf	31	;volatile
+   555  00FC                     l1201:
    556                           
-   557                           ;init_periphery.c: 58:     ANSEL = 0b00110011;
-   558  011D  3033               	movlw	51
-   559  011E  009F               	movwf	31	;volatile
-   560  011F                     l1209:
-   561                           
-   562                           ;init_periphery.c: 60:     PEIE = 1;
-   563  011F  170B               	bsf	11,6	;volatile
-   564  0120                     l1211:
-   565                           
-   566                           ;init_periphery.c: 61:     GIE = 1;
-   567  0120  178B               	bsf	11,7	;volatile
-   568  0121                     l1213:
-   569                           
-   570                           ;init_periphery.c: 63:     LongSound();
-   571  0121  212F               	fcall	_LongSound
-   572  0122                     l1215:
+   557                           ;init_periphery.c: 59:     PEIE = 1;
+   558  00FC  170B               	bsf	11,6	;volatile
+   559  00FD                     l1203:
+   560                           
+   561                           ;init_periphery.c: 60:     GIE = 1;
+   562  00FD  178B               	bsf	11,7	;volatile
+   563  00FE                     l1205:
+   564                           
+   565                           ;init_periphery.c: 62:     LongSound();
+   566  00FE  210A               	fcall	_LongSound
+   567  00FF                     l1207:
+   568                           
+   569                           ;init_periphery.c: 64:     ADCON0 = 0;
+   570  00FF  1283               	bcf	3,5	;RP0=0, select bank0
+   571  0100  019F               	clrf	31	;volatile
+   572  0101                     l1209:
    573                           
-   574                           ;init_periphery.c: 64:     adcValue = 0;
-   575  0122  1283               	bcf	3,5	;RP0=0, select bank0
-   576  0123  01AB               	clrf	_adcValue
-   577  0124  01AC               	clrf	_adcValue+1
-   578  0125                     l1217:
-   579                           
-   580                           ;init_periphery.c: 66:     ADCON0 = 0;
-   581  0125  019F               	clrf	31	;volatile
-   582  0126                     l1219:
-   583                           
-   584                           ;init_periphery.c: 67:     ADON = 1;
-   585  0126  141F               	bsf	31,0	;volatile
-   586  0127                     l1221:
-   587                           
-   588                           ;init_periphery.c: 68:     ADFM = 1;
-   589  0127  179F               	bsf	31,7	;volatile
-   590  0128                     l1223:
-   591                           
-   592                           ;init_periphery.c: 69:     CHS1 = 0;
-   593  0128  119F               	bcf	31,3	;volatile
-   594  0129                     l1225:
-   595                           
-   596                           ;init_periphery.c: 70:     CHS0 = 1;
-   597  0129  151F               	bsf	31,2	;volatile
-   598  012A                     l1227:
-   599                           
-   600                           ;init_periphery.c: 71:     measureType = 1;
-   601  012A  01B1               	clrf	_measureType
-   602  012B  0AB1               	incf	_measureType,f
-   603  012C                     l1229:
+   574                           ;init_periphery.c: 65:     ADON = 1;
+   575  0101  141F               	bsf	31,0	;volatile
+   576  0102                     l1211:
+   577                           
+   578                           ;init_periphery.c: 66:     ADFM = 1;
+   579  0102  179F               	bsf	31,7	;volatile
+   580  0103                     l1213:
+   581                           
+   582                           ;init_periphery.c: 67:     CHS1 = 0;
+   583  0103  119F               	bcf	31,3	;volatile
+   584  0104                     l1215:
+   585                           
+   586                           ;init_periphery.c: 68:     CHS0 = 1;
+   587  0104  151F               	bsf	31,2	;volatile
+   588  0105                     l1217:
+   589                           
+   590                           ;init_periphery.c: 69:     measureType = 1;
+   591  0105  01AF               	clrf	_measureType
+   592  0106  0AAF               	incf	_measureType,f
+   593  0107                     l1219:
+   594                           
+   595                           ;init_periphery.c: 70:     ADIF = 0;
+   596  0107  130C               	bcf	12,6	;volatile
+   597  0108                     l1221:
+   598                           
+   599                           ;init_periphery.c: 71:     GO = 1;
+   600  0108  149F               	bsf	31,1	;volatile
+   601  0109                     l219:
+   602  0109  0008               	return
+   603  010A                     __end_of_Init_uC:
    604                           
-   605                           ;init_periphery.c: 72:     ADIF = 0;
-   606  012C  130C               	bcf	12,6	;volatile
-   607  012D                     l1231:
-   608                           
-   609                           ;init_periphery.c: 73:     GO = 1;
-   610  012D  149F               	bsf	31,1	;volatile
-   611  012E                     l225:
-   612  012E  0008               	return
-   613  012F                     __end_of_Init_uC:
-   614                           
-   615                           	psect	text2
-   616  0193                     __ptext2:	
-   617 ;; *************** function _InitTimer1 *****************
-   618 ;; Defined at:
-   619 ;;		line 21 in file "init_periphery.c"
-   620 ;; Parameters:    Size  Location     Type
-   621 ;;		None
-   622 ;; Auto vars:     Size  Location     Type
-   623 ;;		None
-   624 ;; Return value:  Size  Location     Type
-   625 ;;                  1    wreg      void 
-   626 ;; Registers used:
-   627 ;;		wreg
-   628 ;; Tracked objects:
-   629 ;;		On entry : 0/0
-   630 ;;		On exit  : 0/0
-   631 ;;		Unchanged: 0/0
-   632 ;; Data sizes:     COMMON   BANK0
-   633 ;;      Params:         0       0
-   634 ;;      Locals:         0       0
-   635 ;;      Temps:          0       0
-   636 ;;      Totals:         0       0
-   637 ;;Total ram usage:        0 bytes
-   638 ;; Hardware stack levels used: 1
-   639 ;; Hardware stack levels required when called: 2
-   640 ;; This function calls:
-   641 ;;		Nothing
-   642 ;; This function is called by:
-   643 ;;		_main
-   644 ;; This function uses a non-reentrant model
-   645 ;;
-   646                           
-   647  0193                     _InitTimer1:	
-   648                           ;psect for function _InitTimer1
+   605                           	psect	text2
+   606  016E                     __ptext2:	
+   607 ;; *************** function _InitTimer1 *****************
+   608 ;; Defined at:
+   609 ;;		line 20 in file "init_periphery.c"
+   610 ;; Parameters:    Size  Location     Type
+   611 ;;		None
+   612 ;; Auto vars:     Size  Location     Type
+   613 ;;		None
+   614 ;; Return value:  Size  Location     Type
+   615 ;;                  1    wreg      void 
+   616 ;; Registers used:
+   617 ;;		wreg
+   618 ;; Tracked objects:
+   619 ;;		On entry : 0/0
+   620 ;;		On exit  : 0/0
+   621 ;;		Unchanged: 0/0
+   622 ;; Data sizes:     COMMON   BANK0
+   623 ;;      Params:         0       0
+   624 ;;      Locals:         0       0
+   625 ;;      Temps:          0       0
+   626 ;;      Totals:         0       0
+   627 ;;Total ram usage:        0 bytes
+   628 ;; Hardware stack levels used: 1
+   629 ;; Hardware stack levels required when called: 2
+   630 ;; This function calls:
+   631 ;;		Nothing
+   632 ;; This function is called by:
+   633 ;;		_main
+   634 ;; This function uses a non-reentrant model
+   635 ;;
+   636                           
+   637  016E                     _InitTimer1:	
+   638                           ;psect for function _InitTimer1
+   639                           
+   640  016E                     l1167:	
+   641                           ;incstack = 0
+   642                           ; Regs used in _InitTimer1: [wreg]
+   643                           
+   644                           
+   645                           ;init_periphery.c: 22:      TMR1H = 0xFC;
+   646  016E  30FC               	movlw	252
+   647  016F  1283               	bcf	3,5	;RP0=0, select bank0
+   648  0170  008F               	movwf	15	;volatile
    649                           
-   650  0193                     l1175:	
-   651                           ;incstack = 0
-   652                           ; Regs used in _InitTimer1: [wreg]
+   650                           ;init_periphery.c: 23:   TMR1L = 0x17;
+   651  0171  3017               	movlw	23
+   652  0172  008E               	movwf	14	;volatile
    653                           
-   654                           
-   655                           ;init_periphery.c: 23:      TMR1H = 0xFC;
-   656  0193  30FC               	movlw	252
-   657  0194  1283               	bcf	3,5	;RP0=0, select bank0
-   658  0195  008F               	movwf	15	;volatile
-   659                           
-   660                           ;init_periphery.c: 24:   TMR1L = 0x17;
-   661  0196  3017               	movlw	23
-   662  0197  008E               	movwf	14	;volatile
-   663                           
-   664                           ;init_periphery.c: 26:   T1CON = 0x01;
-   665  0198  3001               	movlw	1
-   666  0199  0090               	movwf	16	;volatile
-   667  019A                     l1177:
-   668                           
-   669                           ;init_periphery.c: 28:   TMR1IF = 0;
-   670  019A  100C               	bcf	12,0	;volatile
-   671  019B                     l1179:
-   672                           
-   673                           ;init_periphery.c: 29:   TMR1IE = 1;
-   674  019B  1683               	bsf	3,5	;RP0=1, select bank1
-   675  019C  140C               	bsf	12,0	;volatile
-   676  019D                     l222:
-   677  019D  0008               	return
-   678  019E                     __end_of_InitTimer1:
-   679                           
-   680                           	psect	text3
-   681  01A7                     __ptext3:	
-   682 ;; *************** function _InitTimer0 *****************
-   683 ;; Defined at:
-   684 ;;		line 12 in file "init_periphery.c"
-   685 ;; Parameters:    Size  Location     Type
-   686 ;;		None
-   687 ;; Auto vars:     Size  Location     Type
-   688 ;;		None
-   689 ;; Return value:  Size  Location     Type
-   690 ;;                  1    wreg      void 
-   691 ;; Registers used:
-   692 ;;		wreg, status,2
-   693 ;; Tracked objects:
-   694 ;;		On entry : 0/0
-   695 ;;		On exit  : 0/0
-   696 ;;		Unchanged: 0/0
-   697 ;; Data sizes:     COMMON   BANK0
-   698 ;;      Params:         0       0
-   699 ;;      Locals:         0       0
-   700 ;;      Temps:          0       0
-   701 ;;      Totals:         0       0
-   702 ;;Total ram usage:        0 bytes
-   703 ;; Hardware stack levels used: 1
-   704 ;; Hardware stack levels required when called: 2
-   705 ;; This function calls:
-   706 ;;		Nothing
-   707 ;; This function is called by:
-   708 ;;		_main
-   709 ;; This function uses a non-reentrant model
-   710 ;;
-   711                           
-   712  01A7                     _InitTimer0:	
-   713                           ;psect for function _InitTimer0
-   714                           
-   715  01A7                     l1167:	
-   716                           ;incstack = 0
-   717                           ; Regs used in _InitTimer0: [wreg+status,2]
-   718                           
-   719                           
-   720                           ;init_periphery.c: 14:     OPTION_REG = 0b11000001;
-   721  01A7  30C1               	movlw	193
-   722  01A8  1683               	bsf	3,5	;RP0=1, select bank1
-   723  01A9  0081               	movwf	1	;volatile
-   724  01AA                     l1169:
-   725                           
-   726                           ;init_periphery.c: 15:     TMR0 = 0;
-   727  01AA  1283               	bcf	3,5	;RP0=0, select bank0
-   728  01AB  0181               	clrf	1	;volatile
-   729  01AC                     l1171:
+   654                           ;init_periphery.c: 25:   T1CON = 0x01;
+   655  0173  3001               	movlw	1
+   656  0174  0090               	movwf	16	;volatile
+   657  0175                     l1169:
+   658                           
+   659                           ;init_periphery.c: 27:   TMR1IF = 0;
+   660  0175  100C               	bcf	12,0	;volatile
+   661  0176                     l1171:
+   662                           
+   663                           ;init_periphery.c: 28:   TMR1IE = 1;
+   664  0176  1683               	bsf	3,5	;RP0=1, select bank1
+   665  0177  140C               	bsf	12,0	;volatile
+   666  0178                     l216:
+   667  0178  0008               	return
+   668  0179                     __end_of_InitTimer1:
+   669                           
+   670                           	psect	text3
+   671  0182                     __ptext3:	
+   672 ;; *************** function _InitTimer0 *****************
+   673 ;; Defined at:
+   674 ;;		line 11 in file "init_periphery.c"
+   675 ;; Parameters:    Size  Location     Type
+   676 ;;		None
+   677 ;; Auto vars:     Size  Location     Type
+   678 ;;		None
+   679 ;; Return value:  Size  Location     Type
+   680 ;;                  1    wreg      void 
+   681 ;; Registers used:
+   682 ;;		wreg, status,2
+   683 ;; Tracked objects:
+   684 ;;		On entry : 0/0
+   685 ;;		On exit  : 0/0
+   686 ;;		Unchanged: 0/0
+   687 ;; Data sizes:     COMMON   BANK0
+   688 ;;      Params:         0       0
+   689 ;;      Locals:         0       0
+   690 ;;      Temps:          0       0
+   691 ;;      Totals:         0       0
+   692 ;;Total ram usage:        0 bytes
+   693 ;; Hardware stack levels used: 1
+   694 ;; Hardware stack levels required when called: 2
+   695 ;; This function calls:
+   696 ;;		Nothing
+   697 ;; This function is called by:
+   698 ;;		_main
+   699 ;; This function uses a non-reentrant model
+   700 ;;
+   701                           
+   702  0182                     _InitTimer0:	
+   703                           ;psect for function _InitTimer0
+   704                           
+   705  0182                     l1159:	
+   706                           ;incstack = 0
+   707                           ; Regs used in _InitTimer0: [wreg+status,2]
+   708                           
+   709                           
+   710                           ;init_periphery.c: 13:     OPTION_REG = 0b11000001;
+   711  0182  30C1               	movlw	193
+   712  0183  1683               	bsf	3,5	;RP0=1, select bank1
+   713  0184  0081               	movwf	1	;volatile
+   714  0185                     l1161:
+   715                           
+   716                           ;init_periphery.c: 14:     TMR0 = 0;
+   717  0185  1283               	bcf	3,5	;RP0=0, select bank0
+   718  0186  0181               	clrf	1	;volatile
+   719  0187                     l1163:
+   720                           
+   721                           ;init_periphery.c: 15:     TMR0IF = 0;
+   722  0187  110B               	bcf	11,2	;volatile
+   723  0188                     l1165:
+   724                           
+   725                           ;init_periphery.c: 16:     TMR0IE = 1;
+   726  0188  168B               	bsf	11,5	;volatile
+   727  0189                     l213:
+   728  0189  0008               	return
+   729  018A                     __end_of_InitTimer0:
    730                           
-   731                           ;init_periphery.c: 16:     TMR0IF = 0;
-   732  01AC  110B               	bcf	11,2	;volatile
-   733  01AD                     l1173:
-   734                           
-   735                           ;init_periphery.c: 17:     TMR0IE = 1;
-   736  01AD  168B               	bsf	11,5	;volatile
-   737  01AE                     l219:
-   738  01AE  0008               	return
-   739  01AF                     __end_of_InitTimer0:
-   740                           
-   741                           	psect	text4
-   742  00D3                     __ptext4:	
-   743 ;; *************** function _DataProcessing *****************
-   744 ;; Defined at:
-   745 ;;		line 81 in file "main.c"
-   746 ;; Parameters:    Size  Location     Type
-   747 ;;		None
-   748 ;; Auto vars:     Size  Location     Type
-   749 ;;		None
-   750 ;; Return value:  Size  Location     Type
-   751 ;;                  1    wreg      void 
-   752 ;; Registers used:
-   753 ;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
-   754 ;; Tracked objects:
-   755 ;;		On entry : 0/0
-   756 ;;		On exit  : 0/0
-   757 ;;		Unchanged: 0/0
-   758 ;; Data sizes:     COMMON   BANK0
-   759 ;;      Params:         0       0
-   760 ;;      Locals:         0       0
-   761 ;;      Temps:          0       2
-   762 ;;      Totals:         0       2
-   763 ;;Total ram usage:        2 bytes
-   764 ;; Hardware stack levels used: 1
-   765 ;; Hardware stack levels required when called: 4
-   766 ;; This function calls:
-   767 ;;		_ThreeShort
-   768 ;;		_TwoShortOneLong
-   769 ;;		_TwoShortTwoLong
-   770 ;; This function is called by:
-   771 ;;		_main
-   772 ;; This function uses a non-reentrant model
-   773 ;;
-   774                           
-   775  00D3                     _DataProcessing:	
-   776                           ;psect for function _DataProcessing
-   777                           
-   778  00D3                     l1233:	
-   779                           ;incstack = 0
-   780                           ; Regs used in _DataProcessing: [wreg-fsr0h+status,2+status,0+pclath+cstack]
-   781                           
-   782  00D3  28ED               	goto	l1255
-   783  00D4                     l1235:
-   784  00D4  0331               	decf	_measureType,w
-   785  00D5  1903               	btfsc	3,2
-   786  00D6  28D8               	goto	u191
-   787  00D7  28D9               	goto	u190
-   788  00D8                     u191:
-   789  00D8  28DA               	goto	l1239
-   790  00D9                     u190:
-   791  00D9                     l1237:
-   792  00D9  21AF               	fcall	_TwoShortOneLong
-   793  00DA                     l1239:
-   794  00DA  1283               	bcf	3,5	;RP0=0, select bank0
-   795  00DB  01B0               	clrf	_errorType
-   796  00DC  0AB0               	incf	_errorType,f
-   797  00DD  2904               	goto	l119
-   798  00DE                     l1241:
-   799  00DE  0331               	decf	_measureType,w
-   800  00DF  1903               	btfsc	3,2
-   801  00E0  28E2               	goto	u201
-   802  00E1  28E3               	goto	u200
-   803  00E2                     u201:
-   804  00E2  28DA               	goto	l1239
-   805  00E3                     u200:
-   806  00E3                     l1243:
-   807  00E3  219E               	fcall	_TwoShortTwoLong
-   808  00E4  28DA               	goto	l1239
-   809  00E5                     l1247:
-   810  00E5  3002               	movlw	2
-   811  00E6  0631               	xorwf	_measureType,w
-   812  00E7  1903               	btfsc	3,2
-   813  00E8  28EA               	goto	u211
-   814  00E9  28EB               	goto	u210
-   815  00EA                     u211:
-   816  00EA  28DA               	goto	l1239
-   817  00EB                     u210:
-   818  00EB                     l1249:
-   819  00EB  21B7               	fcall	_ThreeShort
-   820  00EC  28DA               	goto	l1239
-   821  00ED                     l1255:
-   822  00ED  1283               	bcf	3,5	;RP0=0, select bank0
-   823  00EE  0830               	movf	_errorType,w
-   824  00EF  00A9               	movwf	??_DataProcessing
-   825  00F0  01AA               	clrf	??_DataProcessing+1
-   826                           
-   827                           ; Switch on 2 bytes has been partitioned into a top level switch of size 1, and 1 sub-sw
+   731                           	psect	text4
+   732  00B0                     __ptext4:	
+   733 ;; *************** function _DataProcessing *****************
+   734 ;; Defined at:
+   735 ;;		line 81 in file "main.c"
+   736 ;; Parameters:    Size  Location     Type
+   737 ;;		None
+   738 ;; Auto vars:     Size  Location     Type
+   739 ;;		None
+   740 ;; Return value:  Size  Location     Type
+   741 ;;                  1    wreg      void 
+   742 ;; Registers used:
+   743 ;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+   744 ;; Tracked objects:
+   745 ;;		On entry : 0/0
+   746 ;;		On exit  : 0/0
+   747 ;;		Unchanged: 0/0
+   748 ;; Data sizes:     COMMON   BANK0
+   749 ;;      Params:         0       0
+   750 ;;      Locals:         0       0
+   751 ;;      Temps:          0       2
+   752 ;;      Totals:         0       2
+   753 ;;Total ram usage:        2 bytes
+   754 ;; Hardware stack levels used: 1
+   755 ;; Hardware stack levels required when called: 4
+   756 ;; This function calls:
+   757 ;;		_ThreeShort
+   758 ;;		_TwoShortOneLong
+   759 ;;		_TwoShortTwoLong
+   760 ;; This function is called by:
+   761 ;;		_main
+   762 ;; This function uses a non-reentrant model
+   763 ;;
+   764                           
+   765  00B0                     _DataProcessing:	
+   766                           ;psect for function _DataProcessing
+   767                           
+   768  00B0                     l1223:	
+   769                           ;incstack = 0
+   770                           ; Regs used in _DataProcessing: [wreg-fsr0h+status,2+status,0+pclath+cstack]
+   771                           
+   772  00B0  28CA               	goto	l1245
+   773  00B1                     l1225:
+   774  00B1  032F               	decf	_measureType,w
+   775  00B2  1903               	btfsc	3,2
+   776  00B3  28B5               	goto	u191
+   777  00B4  28B6               	goto	u190
+   778  00B5                     u191:
+   779  00B5  28B7               	goto	l1229
+   780  00B6                     u190:
+   781  00B6                     l1227:
+   782  00B6  218A               	fcall	_TwoShortOneLong
+   783  00B7                     l1229:
+   784  00B7  1283               	bcf	3,5	;RP0=0, select bank0
+   785  00B8  01AE               	clrf	_errorType
+   786  00B9  0AAE               	incf	_errorType,f
+   787  00BA  28E1               	goto	l115
+   788  00BB                     l1231:
+   789  00BB  032F               	decf	_measureType,w
+   790  00BC  1903               	btfsc	3,2
+   791  00BD  28BF               	goto	u201
+   792  00BE  28C0               	goto	u200
+   793  00BF                     u201:
+   794  00BF  28B7               	goto	l1229
+   795  00C0                     u200:
+   796  00C0                     l1233:
+   797  00C0  2179               	fcall	_TwoShortTwoLong
+   798  00C1  28B7               	goto	l1229
+   799  00C2                     l1237:
+   800  00C2  3002               	movlw	2
+   801  00C3  062F               	xorwf	_measureType,w
+   802  00C4  1903               	btfsc	3,2
+   803  00C5  28C7               	goto	u211
+   804  00C6  28C8               	goto	u210
+   805  00C7                     u211:
+   806  00C7  28B7               	goto	l1229
+   807  00C8                     u210:
+   808  00C8                     l1239:
+   809  00C8  2192               	fcall	_ThreeShort
+   810  00C9  28B7               	goto	l1229
+   811  00CA                     l1245:
+   812  00CA  1283               	bcf	3,5	;RP0=0, select bank0
+   813  00CB  082E               	movf	_errorType,w
+   814  00CC  00A9               	movwf	??_DataProcessing
+   815  00CD  01AA               	clrf	??_DataProcessing+1
+   816                           
+   817                           ; Switch on 2 bytes has been partitioned into a top level switch of size 1, and 1 sub-sw
       +                          itches
-   828                           ; Switch size 1, requested type "simple"
-   829                           ; Number of cases is 1, Range of values is 0 to 0
-   830                           ; switch strategies available:
-   831                           ; Name         Instructions Cycles
-   832                           ; simple_byte            4     3 (average)
-   833                           ; direct_byte            7     6 (fixed)
-   834                           ; jumptable            260     6 (fixed)
-   835                           ;	Chosen strategy is simple_byte
-   836  00F1  082A               	movf	??_DataProcessing+1,w
-   837  00F2  3A00               	xorlw	0	; case 0
-   838  00F3  1903               	skipnz
-   839  00F4  28F6               	goto	l1385
-   840  00F5  2904               	goto	l119
-   841  00F6                     l1385:
-   842                           
-   843                           ; Switch size 1, requested type "simple"
-   844                           ; Number of cases is 4, Range of values is 1 to 5
-   845                           ; switch strategies available:
-   846                           ; Name         Instructions Cycles
-   847                           ; simple_byte           13     7 (average)
-   848                           ; direct_byte           14     9 (fixed)
-   849                           ; jumptable            263     9 (fixed)
-   850                           ;	Chosen strategy is simple_byte
-   851  00F6  0829               	movf	??_DataProcessing,w
-   852  00F7  3A01               	xorlw	1	; case 1
-   853  00F8  1903               	skipnz
-   854  00F9  2904               	goto	l119
-   855  00FA  3A03               	xorlw	3	; case 2
-   856  00FB  1903               	skipnz
-   857  00FC  28D4               	goto	l1235
-   858  00FD  3A01               	xorlw	1	; case 3
-   859  00FE  1903               	skipnz
-   860  00FF  28DE               	goto	l1241
-   861  0100  3A06               	xorlw	6	; case 5
-   862  0101  1903               	skipnz
-   863  0102  28E5               	goto	l1247
-   864  0103  2904               	goto	l119
-   865  0104                     l119:
-   866  0104  0008               	return
-   867  0105                     __end_of_DataProcessing:
-   868                           
-   869                           	psect	text5
-   870  019E                     __ptext5:	
-   871 ;; *************** function _TwoShortTwoLong *****************
-   872 ;; Defined at:
-   873 ;;		line 37 in file "sounds.c"
-   874 ;; Parameters:    Size  Location     Type
-   875 ;;		None
-   876 ;; Auto vars:     Size  Location     Type
-   877 ;;		None
-   878 ;; Return value:  Size  Location     Type
-   879 ;;                  1    wreg      void 
-   880 ;; Registers used:
-   881 ;;		wreg, status,2, status,0, pclath, cstack
-   882 ;; Tracked objects:
-   883 ;;		On entry : 0/0
-   884 ;;		On exit  : 0/0
-   885 ;;		Unchanged: 0/0
-   886 ;; Data sizes:     COMMON   BANK0
-   887 ;;      Params:         0       0
-   888 ;;      Locals:         0       0
-   889 ;;      Temps:          0       0
-   890 ;;      Totals:         0       0
-   891 ;;Total ram usage:        0 bytes
-   892 ;; Hardware stack levels used: 1
-   893 ;; Hardware stack levels required when called: 3
-   894 ;; This function calls:
-   895 ;;		_LongSound
-   896 ;;		_ShortSound
-   897 ;;		_TimeOut
-   898 ;; This function is called by:
-   899 ;;		_DataProcessing
-   900 ;; This function uses a non-reentrant model
-   901 ;;
-   902                           
-   903  019E                     _TwoShortTwoLong:	
-   904                           ;psect for function _TwoShortTwoLong
-   905                           
-   906  019E                     l1119:	
-   907                           ;incstack = 0
-   908                           ; Regs used in _TwoShortTwoLong: [wreg+status,2+status,0+pclath+cstack]
+   818                           ; Switch size 1, requested type "simple"
+   819                           ; Number of cases is 1, Range of values is 0 to 0
+   820                           ; switch strategies available:
+   821                           ; Name         Instructions Cycles
+   822                           ; simple_byte            4     3 (average)
+   823                           ; direct_byte            7     6 (fixed)
+   824                           ; jumptable            260     6 (fixed)
+   825                           ;	Chosen strategy is simple_byte
+   826  00CE  082A               	movf	??_DataProcessing+1,w
+   827  00CF  3A00               	xorlw	0	; case 0
+   828  00D0  1903               	skipnz
+   829  00D1  28D3               	goto	l1375
+   830  00D2  28E1               	goto	l115
+   831  00D3                     l1375:
+   832                           
+   833                           ; Switch size 1, requested type "simple"
+   834                           ; Number of cases is 4, Range of values is 1 to 5
+   835                           ; switch strategies available:
+   836                           ; Name         Instructions Cycles
+   837                           ; simple_byte           13     7 (average)
+   838                           ; direct_byte           14     9 (fixed)
+   839                           ; jumptable            263     9 (fixed)
+   840                           ;	Chosen strategy is simple_byte
+   841  00D3  0829               	movf	??_DataProcessing,w
+   842  00D4  3A01               	xorlw	1	; case 1
+   843  00D5  1903               	skipnz
+   844  00D6  28E1               	goto	l115
+   845  00D7  3A03               	xorlw	3	; case 2
+   846  00D8  1903               	skipnz
+   847  00D9  28B1               	goto	l1225
+   848  00DA  3A01               	xorlw	1	; case 3
+   849  00DB  1903               	skipnz
+   850  00DC  28BB               	goto	l1231
+   851  00DD  3A06               	xorlw	6	; case 5
+   852  00DE  1903               	skipnz
+   853  00DF  28C2               	goto	l1237
+   854  00E0  28E1               	goto	l115
+   855  00E1                     l115:
+   856  00E1  0008               	return
+   857  00E2                     __end_of_DataProcessing:
+   858                           
+   859                           	psect	text5
+   860  0179                     __ptext5:	
+   861 ;; *************** function _TwoShortTwoLong *****************
+   862 ;; Defined at:
+   863 ;;		line 37 in file "sounds.c"
+   864 ;; Parameters:    Size  Location     Type
+   865 ;;		None
+   866 ;; Auto vars:     Size  Location     Type
+   867 ;;		None
+   868 ;; Return value:  Size  Location     Type
+   869 ;;                  1    wreg      void 
+   870 ;; Registers used:
+   871 ;;		wreg, status,2, status,0, pclath, cstack
+   872 ;; Tracked objects:
+   873 ;;		On entry : 0/0
+   874 ;;		On exit  : 0/0
+   875 ;;		Unchanged: 0/0
+   876 ;; Data sizes:     COMMON   BANK0
+   877 ;;      Params:         0       0
+   878 ;;      Locals:         0       0
+   879 ;;      Temps:          0       0
+   880 ;;      Totals:         0       0
+   881 ;;Total ram usage:        0 bytes
+   882 ;; Hardware stack levels used: 1
+   883 ;; Hardware stack levels required when called: 3
+   884 ;; This function calls:
+   885 ;;		_LongSound
+   886 ;;		_ShortSound
+   887 ;;		_TimeOut
+   888 ;; This function is called by:
+   889 ;;		_DataProcessing
+   890 ;; This function uses a non-reentrant model
+   891 ;;
+   892                           
+   893  0179                     _TwoShortTwoLong:	
+   894                           ;psect for function _TwoShortTwoLong
+   895                           
+   896  0179                     l1111:	
+   897                           ;incstack = 0
+   898                           ; Regs used in _TwoShortTwoLong: [wreg+status,2+status,0+pclath+cstack]
+   899                           
+   900                           
+   901                           ;sounds.c: 39:    ShortSound();
+   902  0179  2125               	fcall	_ShortSound
+   903                           
+   904                           ;sounds.c: 40:    ShortSound();
+   905  017A  2125               	fcall	_ShortSound
+   906                           
+   907                           ;sounds.c: 41:    LongSound();
+   908  017B  210A               	fcall	_LongSound
    909                           
-   910                           
-   911                           ;sounds.c: 39:    ShortSound();
-   912  019E  214A               	fcall	_ShortSound
+   910                           ;sounds.c: 42:    LongSound();
+   911  017C  210A               	fcall	_LongSound
+   912  017D                     l1113:
    913                           
-   914                           ;sounds.c: 40:    ShortSound();
-   915  019F  214A               	fcall	_ShortSound
-   916                           
-   917                           ;sounds.c: 41:    LongSound();
-   918  01A0  212F               	fcall	_LongSound
+   914                           ;sounds.c: 43:    cnt1 = 0;
+   915  017D  1283               	bcf	3,5	;RP0=0, select bank0
+   916  017E  01AB               	clrf	_cnt1
+   917  017F  01AC               	clrf	_cnt1+1
+   918  0180                     l1115:
    919                           
-   920                           ;sounds.c: 42:    LongSound();
-   921  01A1  212F               	fcall	_LongSound
-   922  01A2                     l1121:
-   923                           
-   924                           ;sounds.c: 43:    cnt1 = 0;
-   925  01A2  1283               	bcf	3,5	;RP0=0, select bank0
-   926  01A3  01AD               	clrf	_cnt1
-   927  01A4  01AE               	clrf	_cnt1+1
-   928  01A5                     l1123:
-   929                           
-   930                           ;sounds.c: 44:    TimeOut();
-   931  01A5  2184               	fcall	_TimeOut
-   932  01A6                     l143:
-   933  01A6  0008               	return
-   934  01A7                     __end_of_TwoShortTwoLong:
-   935                           
-   936                           	psect	text6
-   937  01AF                     __ptext6:	
-   938 ;; *************** function _TwoShortOneLong *****************
-   939 ;; Defined at:
-   940 ;;		line 29 in file "sounds.c"
-   941 ;; Parameters:    Size  Location     Type
-   942 ;;		None
-   943 ;; Auto vars:     Size  Location     Type
-   944 ;;		None
-   945 ;; Return value:  Size  Location     Type
-   946 ;;                  1    wreg      void 
-   947 ;; Registers used:
-   948 ;;		wreg, status,2, status,0, pclath, cstack
-   949 ;; Tracked objects:
-   950 ;;		On entry : 0/0
-   951 ;;		On exit  : 0/0
-   952 ;;		Unchanged: 0/0
-   953 ;; Data sizes:     COMMON   BANK0
-   954 ;;      Params:         0       0
-   955 ;;      Locals:         0       0
-   956 ;;      Temps:          0       0
-   957 ;;      Totals:         0       0
-   958 ;;Total ram usage:        0 bytes
-   959 ;; Hardware stack levels used: 1
-   960 ;; Hardware stack levels required when called: 3
-   961 ;; This function calls:
-   962 ;;		_LongSound
-   963 ;;		_ShortSound
-   964 ;;		_TimeOut
-   965 ;; This function is called by:
-   966 ;;		_DataProcessing
-   967 ;; This function uses a non-reentrant model
-   968 ;;
-   969                           
-   970  01AF                     _TwoShortOneLong:	
-   971                           ;psect for function _TwoShortOneLong
-   972                           
-   973  01AF                     l1113:	
-   974                           ;incstack = 0
-   975                           ; Regs used in _TwoShortOneLong: [wreg+status,2+status,0+pclath+cstack]
-   976                           
+   920                           ;sounds.c: 44:    TimeOut();
+   921  0180  215F               	fcall	_TimeOut
+   922  0181                     l139:
+   923  0181  0008               	return
+   924  0182                     __end_of_TwoShortTwoLong:
+   925                           
+   926                           	psect	text6
+   927  018A                     __ptext6:	
+   928 ;; *************** function _TwoShortOneLong *****************
+   929 ;; Defined at:
+   930 ;;		line 29 in file "sounds.c"
+   931 ;; Parameters:    Size  Location     Type
+   932 ;;		None
+   933 ;; Auto vars:     Size  Location     Type
+   934 ;;		None
+   935 ;; Return value:  Size  Location     Type
+   936 ;;                  1    wreg      void 
+   937 ;; Registers used:
+   938 ;;		wreg, status,2, status,0, pclath, cstack
+   939 ;; Tracked objects:
+   940 ;;		On entry : 0/0
+   941 ;;		On exit  : 0/0
+   942 ;;		Unchanged: 0/0
+   943 ;; Data sizes:     COMMON   BANK0
+   944 ;;      Params:         0       0
+   945 ;;      Locals:         0       0
+   946 ;;      Temps:          0       0
+   947 ;;      Totals:         0       0
+   948 ;;Total ram usage:        0 bytes
+   949 ;; Hardware stack levels used: 1
+   950 ;; Hardware stack levels required when called: 3
+   951 ;; This function calls:
+   952 ;;		_LongSound
+   953 ;;		_ShortSound
+   954 ;;		_TimeOut
+   955 ;; This function is called by:
+   956 ;;		_DataProcessing
+   957 ;; This function uses a non-reentrant model
+   958 ;;
+   959                           
+   960  018A                     _TwoShortOneLong:	
+   961                           ;psect for function _TwoShortOneLong
+   962                           
+   963  018A                     l1105:	
+   964                           ;incstack = 0
+   965                           ; Regs used in _TwoShortOneLong: [wreg+status,2+status,0+pclath+cstack]
+   966                           
+   967                           
+   968                           ;sounds.c: 30:    ShortSound();
+   969  018A  2125               	fcall	_ShortSound
+   970                           
+   971                           ;sounds.c: 31:    ShortSound();
+   972  018B  2125               	fcall	_ShortSound
+   973                           
+   974                           ;sounds.c: 32:    LongSound();
+   975  018C  210A               	fcall	_LongSound
+   976  018D                     l1107:
    977                           
-   978                           ;sounds.c: 30:    ShortSound();
-   979  01AF  214A               	fcall	_ShortSound
-   980                           
-   981                           ;sounds.c: 31:    ShortSound();
-   982  01B0  214A               	fcall	_ShortSound
+   978                           ;sounds.c: 33:    cnt1 = 0;
+   979  018D  1283               	bcf	3,5	;RP0=0, select bank0
+   980  018E  01AB               	clrf	_cnt1
+   981  018F  01AC               	clrf	_cnt1+1
+   982  0190                     l1109:
    983                           
-   984                           ;sounds.c: 32:    LongSound();
-   985  01B1  212F               	fcall	_LongSound
-   986  01B2                     l1115:
-   987                           
-   988                           ;sounds.c: 33:    cnt1 = 0;
-   989  01B2  1283               	bcf	3,5	;RP0=0, select bank0
-   990  01B3  01AD               	clrf	_cnt1
-   991  01B4  01AE               	clrf	_cnt1+1
-   992  01B5                     l1117:
-   993                           
-   994                           ;sounds.c: 34:    TimeOut();
-   995  01B5  2184               	fcall	_TimeOut
-   996  01B6                     l140:
-   997  01B6  0008               	return
-   998  01B7                     __end_of_TwoShortOneLong:
-   999                           
-  1000                           	psect	text7
-  1001  012F                     __ptext7:	
-  1002 ;; *************** function _LongSound *****************
-  1003 ;; Defined at:
-  1004 ;;		line 16 in file "sounds.c"
-  1005 ;; Parameters:    Size  Location     Type
-  1006 ;;		None
-  1007 ;; Auto vars:     Size  Location     Type
-  1008 ;;		None
-  1009 ;; Return value:  Size  Location     Type
-  1010 ;;                  1    wreg      void 
-  1011 ;; Registers used:
-  1012 ;;		wreg
-  1013 ;; Tracked objects:
-  1014 ;;		On entry : 0/0
-  1015 ;;		On exit  : 0/0
-  1016 ;;		Unchanged: 0/0
-  1017 ;; Data sizes:     COMMON   BANK0
-  1018 ;;      Params:         0       0
-  1019 ;;      Locals:         0       0
-  1020 ;;      Temps:          0       3
-  1021 ;;      Totals:         0       3
-  1022 ;;Total ram usage:        3 bytes
-  1023 ;; Hardware stack levels used: 1
-  1024 ;; Hardware stack levels required when called: 2
-  1025 ;; This function calls:
-  1026 ;;		Nothing
-  1027 ;; This function is called by:
-  1028 ;;		_TwoShortOneLong
-  1029 ;;		_TwoShortTwoLong
-  1030 ;;		_Init_uC
-  1031 ;; This function uses a non-reentrant model
-  1032 ;;
-  1033                           
-  1034  012F                     _LongSound:	
-  1035                           ;psect for function _LongSound
+   984                           ;sounds.c: 34:    TimeOut();
+   985  0190  215F               	fcall	_TimeOut
+   986  0191                     l136:
+   987  0191  0008               	return
+   988  0192                     __end_of_TwoShortOneLong:
+   989                           
+   990                           	psect	text7
+   991  010A                     __ptext7:	
+   992 ;; *************** function _LongSound *****************
+   993 ;; Defined at:
+   994 ;;		line 16 in file "sounds.c"
+   995 ;; Parameters:    Size  Location     Type
+   996 ;;		None
+   997 ;; Auto vars:     Size  Location     Type
+   998 ;;		None
+   999 ;; Return value:  Size  Location     Type
+  1000 ;;                  1    wreg      void 
+  1001 ;; Registers used:
+  1002 ;;		wreg
+  1003 ;; Tracked objects:
+  1004 ;;		On entry : 0/0
+  1005 ;;		On exit  : 0/0
+  1006 ;;		Unchanged: 0/0
+  1007 ;; Data sizes:     COMMON   BANK0
+  1008 ;;      Params:         0       0
+  1009 ;;      Locals:         0       0
+  1010 ;;      Temps:          0       3
+  1011 ;;      Totals:         0       3
+  1012 ;;Total ram usage:        3 bytes
+  1013 ;; Hardware stack levels used: 1
+  1014 ;; Hardware stack levels required when called: 2
+  1015 ;; This function calls:
+  1016 ;;		Nothing
+  1017 ;; This function is called by:
+  1018 ;;		_TwoShortOneLong
+  1019 ;;		_TwoShortTwoLong
+  1020 ;;		_Init_uC
+  1021 ;; This function uses a non-reentrant model
+  1022 ;;
+  1023                           
+  1024  010A                     _LongSound:	
+  1025                           ;psect for function _LongSound
+  1026                           
+  1027  010A                     l1093:	
+  1028                           ;incstack = 0
+  1029                           ; Regs used in _LongSound: [wreg]
+  1030                           
+  1031                           
+  1032                           ;sounds.c: 17:        GP2 = 1;
+  1033  010A  1283               	bcf	3,5	;RP0=0, select bank0
+  1034  010B  1505               	bsf	5,2	;volatile
+  1035  010C                     l1095:
   1036                           
-  1037  012F                     l1101:	
-  1038                           ;incstack = 0
-  1039                           ; Regs used in _LongSound: [wreg]
-  1040                           
-  1041                           
-  1042                           ;sounds.c: 17:        GP2 = 1;
-  1043  012F  1283               	bcf	3,5	;RP0=0, select bank0
-  1044  0130  1505               	bsf	5,2	;volatile
-  1045  0131                     l1103:
-  1046                           
-  1047                           ;sounds.c: 18:     _delay((unsigned long)((200)*(4000000/4000.0)));
-  1048  0131  3002               	movlw	2
-  1049  0132  00A8               	movwf	??_LongSound+2
-  1050  0133  3004               	movlw	4
-  1051  0134  00A7               	movwf	??_LongSound+1
-  1052  0135  30BA               	movlw	186
-  1053  0136  00A6               	movwf	??_LongSound
-  1054  0137                     u357:
-  1055  0137  0BA6               	decfsz	??_LongSound,f
-  1056  0138  2937               	goto	u357
-  1057  0139  0BA7               	decfsz	??_LongSound+1,f
-  1058  013A  2937               	goto	u357
-  1059  013B  0BA8               	decfsz	??_LongSound+2,f
-  1060  013C  2937               	goto	u357
-  1061  013D  0000               	nop
-  1062  013E                     l1105:
-  1063                           
-  1064                           ;sounds.c: 19:        GP2 = 0;
-  1065  013E  1283               	bcf	3,5	;RP0=0, select bank0
-  1066  013F  1105               	bcf	5,2	;volatile
-  1067                           
-  1068                           ;sounds.c: 20:     _delay((unsigned long)((80)*(4000000/4000.0)));
-  1069  0140  3068               	movlw	104
-  1070  0141  00A7               	movwf	??_LongSound+1
-  1071  0142  30E4               	movlw	228
-  1072  0143  00A6               	movwf	??_LongSound
-  1073  0144                     u367:
-  1074  0144  0BA6               	decfsz	??_LongSound,f
-  1075  0145  2944               	goto	u367
-  1076  0146  0BA7               	decfsz	??_LongSound+1,f
-  1077  0147  2944               	goto	u367
-  1078  0148  0000               	nop
-  1079  0149                     l131:
-  1080  0149  0008               	return
-  1081  014A                     __end_of_LongSound:
-  1082                           
-  1083                           	psect	text8
-  1084  01B7                     __ptext8:	
-  1085 ;; *************** function _ThreeShort *****************
-  1086 ;; Defined at:
-  1087 ;;		line 47 in file "sounds.c"
-  1088 ;; Parameters:    Size  Location     Type
-  1089 ;;		None
-  1090 ;; Auto vars:     Size  Location     Type
-  1091 ;;		None
-  1092 ;; Return value:  Size  Location     Type
-  1093 ;;                  1    wreg      void 
-  1094 ;; Registers used:
-  1095 ;;		wreg, status,2, status,0, pclath, cstack
-  1096 ;; Tracked objects:
-  1097 ;;		On entry : 0/0
-  1098 ;;		On exit  : 0/0
-  1099 ;;		Unchanged: 0/0
-  1100 ;; Data sizes:     COMMON   BANK0
-  1101 ;;      Params:         0       0
-  1102 ;;      Locals:         0       0
-  1103 ;;      Temps:          0       0
-  1104 ;;      Totals:         0       0
-  1105 ;;Total ram usage:        0 bytes
-  1106 ;; Hardware stack levels used: 1
-  1107 ;; Hardware stack levels required when called: 3
-  1108 ;; This function calls:
-  1109 ;;		_ShortSound
-  1110 ;;		_TimeOut
-  1111 ;; This function is called by:
-  1112 ;;		_DataProcessing
-  1113 ;; This function uses a non-reentrant model
-  1114 ;;
-  1115                           
-  1116  01B7                     _ThreeShort:	
-  1117                           ;psect for function _ThreeShort
-  1118                           
-  1119  01B7                     l1125:	
-  1120                           ;incstack = 0
-  1121                           ; Regs used in _ThreeShort: [wreg+status,2+status,0+pclath+cstack]
-  1122                           
+  1037                           ;sounds.c: 18:     _delay((unsigned long)((200)*(4000000/4000.0)));
+  1038  010C  3002               	movlw	2
+  1039  010D  00A8               	movwf	??_LongSound+2
+  1040  010E  3004               	movlw	4
+  1041  010F  00A7               	movwf	??_LongSound+1
+  1042  0110  30BA               	movlw	186
+  1043  0111  00A6               	movwf	??_LongSound
+  1044  0112                     u357:
+  1045  0112  0BA6               	decfsz	??_LongSound,f
+  1046  0113  2912               	goto	u357
+  1047  0114  0BA7               	decfsz	??_LongSound+1,f
+  1048  0115  2912               	goto	u357
+  1049  0116  0BA8               	decfsz	??_LongSound+2,f
+  1050  0117  2912               	goto	u357
+  1051  0118  0000               	nop
+  1052  0119                     l1097:
+  1053                           
+  1054                           ;sounds.c: 19:        GP2 = 0;
+  1055  0119  1283               	bcf	3,5	;RP0=0, select bank0
+  1056  011A  1105               	bcf	5,2	;volatile
+  1057                           
+  1058                           ;sounds.c: 20:     _delay((unsigned long)((80)*(4000000/4000.0)));
+  1059  011B  3068               	movlw	104
+  1060  011C  00A7               	movwf	??_LongSound+1
+  1061  011D  30E4               	movlw	228
+  1062  011E  00A6               	movwf	??_LongSound
+  1063  011F                     u367:
+  1064  011F  0BA6               	decfsz	??_LongSound,f
+  1065  0120  291F               	goto	u367
+  1066  0121  0BA7               	decfsz	??_LongSound+1,f
+  1067  0122  291F               	goto	u367
+  1068  0123  0000               	nop
+  1069  0124                     l127:
+  1070  0124  0008               	return
+  1071  0125                     __end_of_LongSound:
+  1072                           
+  1073                           	psect	text8
+  1074  0192                     __ptext8:	
+  1075 ;; *************** function _ThreeShort *****************
+  1076 ;; Defined at:
+  1077 ;;		line 47 in file "sounds.c"
+  1078 ;; Parameters:    Size  Location     Type
+  1079 ;;		None
+  1080 ;; Auto vars:     Size  Location     Type
+  1081 ;;		None
+  1082 ;; Return value:  Size  Location     Type
+  1083 ;;                  1    wreg      void 
+  1084 ;; Registers used:
+  1085 ;;		wreg, status,2, status,0, pclath, cstack
+  1086 ;; Tracked objects:
+  1087 ;;		On entry : 0/0
+  1088 ;;		On exit  : 0/0
+  1089 ;;		Unchanged: 0/0
+  1090 ;; Data sizes:     COMMON   BANK0
+  1091 ;;      Params:         0       0
+  1092 ;;      Locals:         0       0
+  1093 ;;      Temps:          0       0
+  1094 ;;      Totals:         0       0
+  1095 ;;Total ram usage:        0 bytes
+  1096 ;; Hardware stack levels used: 1
+  1097 ;; Hardware stack levels required when called: 3
+  1098 ;; This function calls:
+  1099 ;;		_ShortSound
+  1100 ;;		_TimeOut
+  1101 ;; This function is called by:
+  1102 ;;		_DataProcessing
+  1103 ;; This function uses a non-reentrant model
+  1104 ;;
+  1105                           
+  1106  0192                     _ThreeShort:	
+  1107                           ;psect for function _ThreeShort
+  1108                           
+  1109  0192                     l1117:	
+  1110                           ;incstack = 0
+  1111                           ; Regs used in _ThreeShort: [wreg+status,2+status,0+pclath+cstack]
+  1112                           
+  1113                           
+  1114                           ;sounds.c: 48:    ShortSound();
+  1115  0192  2125               	fcall	_ShortSound
+  1116                           
+  1117                           ;sounds.c: 49:    ShortSound();
+  1118  0193  2125               	fcall	_ShortSound
+  1119                           
+  1120                           ;sounds.c: 50:    ShortSound();
+  1121  0194  2125               	fcall	_ShortSound
+  1122  0195                     l1119:
   1123                           
-  1124                           ;sounds.c: 48:    ShortSound();
-  1125  01B7  214A               	fcall	_ShortSound
-  1126                           
-  1127                           ;sounds.c: 49:    ShortSound();
-  1128  01B8  214A               	fcall	_ShortSound
+  1124                           ;sounds.c: 51:    cnt1 = 0;
+  1125  0195  1283               	bcf	3,5	;RP0=0, select bank0
+  1126  0196  01AB               	clrf	_cnt1
+  1127  0197  01AC               	clrf	_cnt1+1
+  1128  0198                     l1121:
   1129                           
-  1130                           ;sounds.c: 50:    ShortSound();
-  1131  01B9  214A               	fcall	_ShortSound
-  1132  01BA                     l1127:
-  1133                           
-  1134                           ;sounds.c: 51:    cnt1 = 0;
-  1135  01BA  1283               	bcf	3,5	;RP0=0, select bank0
-  1136  01BB  01AD               	clrf	_cnt1
-  1137  01BC  01AE               	clrf	_cnt1+1
-  1138  01BD                     l1129:
-  1139                           
-  1140                           ;sounds.c: 52:    TimeOut();
-  1141  01BD  2184               	fcall	_TimeOut
-  1142  01BE                     l146:
-  1143  01BE  0008               	return
-  1144  01BF                     __end_of_ThreeShort:
-  1145                           
-  1146                           	psect	text9
-  1147  0184                     __ptext9:	
-  1148 ;; *************** function _TimeOut *****************
-  1149 ;; Defined at:
-  1150 ;;		line 23 in file "sounds.c"
-  1151 ;; Parameters:    Size  Location     Type
-  1152 ;;		None
-  1153 ;; Auto vars:     Size  Location     Type
-  1154 ;;		None
-  1155 ;; Return value:  Size  Location     Type
-  1156 ;;                  1    wreg      void 
-  1157 ;; Registers used:
-  1158 ;;		wreg, status,2
-  1159 ;; Tracked objects:
-  1160 ;;		On entry : 0/0
-  1161 ;;		On exit  : 0/0
-  1162 ;;		Unchanged: 0/0
-  1163 ;; Data sizes:     COMMON   BANK0
-  1164 ;;      Params:         0       0
-  1165 ;;      Locals:         0       0
-  1166 ;;      Temps:          0       0
-  1167 ;;      Totals:         0       0
-  1168 ;;Total ram usage:        0 bytes
-  1169 ;; Hardware stack levels used: 1
-  1170 ;; Hardware stack levels required when called: 2
-  1171 ;; This function calls:
-  1172 ;;		Nothing
-  1173 ;; This function is called by:
-  1174 ;;		_TwoShortOneLong
-  1175 ;;		_TwoShortTwoLong
-  1176 ;;		_ThreeShort
-  1177 ;; This function uses a non-reentrant model
-  1178 ;;
-  1179                           
-  1180  0184                     _TimeOut:	
-  1181                           ;psect for function _TimeOut
-  1182                           
-  1183  0184                     l1107:	
-  1184                           ;incstack = 0
-  1185                           ; Regs used in _TimeOut: [wreg+status,2]
-  1186                           
-  1187                           
-  1188                           ;sounds.c: 24:    while (cnt1 <= 1000) GP2 = 0;
-  1189  0184  2986               	goto	l1109
-  1190  0185                     l135:
-  1191  0185  1105               	bcf	5,2	;volatile
-  1192  0186                     l1109:
-  1193  0186  3003               	movlw	3
-  1194  0187  1283               	bcf	3,5	;RP0=0, select bank0
-  1195  0188  022E               	subwf	_cnt1+1,w
-  1196  0189  30E9               	movlw	233
-  1197  018A  1903               	skipnz
-  1198  018B  022D               	subwf	_cnt1,w
-  1199  018C  1C03               	skipc
-  1200  018D  298F               	goto	u181
-  1201  018E  2990               	goto	u180
-  1202  018F                     u181:
-  1203  018F  2985               	goto	l135
-  1204  0190                     u180:
-  1205  0190                     l1111:
-  1206                           
-  1207                           ;sounds.c: 25:     cnt1 = 0;
-  1208  0190  01AD               	clrf	_cnt1
-  1209  0191  01AE               	clrf	_cnt1+1
-  1210  0192                     l137:
-  1211  0192  0008               	return
-  1212  0193                     __end_of_TimeOut:
-  1213                           
-  1214                           	psect	text10
-  1215  014A                     __ptext10:	
-  1216 ;; *************** function _ShortSound *****************
-  1217 ;; Defined at:
-  1218 ;;		line 9 in file "sounds.c"
-  1219 ;; Parameters:    Size  Location     Type
-  1220 ;;		None
-  1221 ;; Auto vars:     Size  Location     Type
-  1222 ;;		None
-  1223 ;; Return value:  Size  Location     Type
-  1224 ;;                  1    wreg      void 
-  1225 ;; Registers used:
-  1226 ;;		wreg
-  1227 ;; Tracked objects:
-  1228 ;;		On entry : 0/0
-  1229 ;;		On exit  : 0/0
-  1230 ;;		Unchanged: 0/0
-  1231 ;; Data sizes:     COMMON   BANK0
-  1232 ;;      Params:         0       0
-  1233 ;;      Locals:         0       0
-  1234 ;;      Temps:          0       2
-  1235 ;;      Totals:         0       2
-  1236 ;;Total ram usage:        2 bytes
-  1237 ;; Hardware stack levels used: 1
-  1238 ;; Hardware stack levels required when called: 2
-  1239 ;; This function calls:
-  1240 ;;		Nothing
-  1241 ;; This function is called by:
-  1242 ;;		_TwoShortOneLong
-  1243 ;;		_TwoShortTwoLong
-  1244 ;;		_ThreeShort
-  1245 ;; This function uses a non-reentrant model
-  1246 ;;
-  1247                           
-  1248  014A                     _ShortSound:	
-  1249                           ;psect for function _ShortSound
+  1130                           ;sounds.c: 52:    TimeOut();
+  1131  0198  215F               	fcall	_TimeOut
+  1132  0199                     l142:
+  1133  0199  0008               	return
+  1134  019A                     __end_of_ThreeShort:
+  1135                           
+  1136                           	psect	text9
+  1137  015F                     __ptext9:	
+  1138 ;; *************** function _TimeOut *****************
+  1139 ;; Defined at:
+  1140 ;;		line 23 in file "sounds.c"
+  1141 ;; Parameters:    Size  Location     Type
+  1142 ;;		None
+  1143 ;; Auto vars:     Size  Location     Type
+  1144 ;;		None
+  1145 ;; Return value:  Size  Location     Type
+  1146 ;;                  1    wreg      void 
+  1147 ;; Registers used:
+  1148 ;;		wreg, status,2
+  1149 ;; Tracked objects:
+  1150 ;;		On entry : 0/0
+  1151 ;;		On exit  : 0/0
+  1152 ;;		Unchanged: 0/0
+  1153 ;; Data sizes:     COMMON   BANK0
+  1154 ;;      Params:         0       0
+  1155 ;;      Locals:         0       0
+  1156 ;;      Temps:          0       0
+  1157 ;;      Totals:         0       0
+  1158 ;;Total ram usage:        0 bytes
+  1159 ;; Hardware stack levels used: 1
+  1160 ;; Hardware stack levels required when called: 2
+  1161 ;; This function calls:
+  1162 ;;		Nothing
+  1163 ;; This function is called by:
+  1164 ;;		_TwoShortOneLong
+  1165 ;;		_TwoShortTwoLong
+  1166 ;;		_ThreeShort
+  1167 ;; This function uses a non-reentrant model
+  1168 ;;
+  1169                           
+  1170  015F                     _TimeOut:	
+  1171                           ;psect for function _TimeOut
+  1172                           
+  1173  015F                     l1099:	
+  1174                           ;incstack = 0
+  1175                           ; Regs used in _TimeOut: [wreg+status,2]
+  1176                           
+  1177                           
+  1178                           ;sounds.c: 24:    while (cnt1 <= 1000) GP2 = 0;
+  1179  015F  2961               	goto	l1101
+  1180  0160                     l131:
+  1181  0160  1105               	bcf	5,2	;volatile
+  1182  0161                     l1101:
+  1183  0161  3003               	movlw	3
+  1184  0162  1283               	bcf	3,5	;RP0=0, select bank0
+  1185  0163  022C               	subwf	_cnt1+1,w
+  1186  0164  30E9               	movlw	233
+  1187  0165  1903               	skipnz
+  1188  0166  022B               	subwf	_cnt1,w
+  1189  0167  1C03               	skipc
+  1190  0168  296A               	goto	u181
+  1191  0169  296B               	goto	u180
+  1192  016A                     u181:
+  1193  016A  2960               	goto	l131
+  1194  016B                     u180:
+  1195  016B                     l1103:
+  1196                           
+  1197                           ;sounds.c: 25:     cnt1 = 0;
+  1198  016B  01AB               	clrf	_cnt1
+  1199  016C  01AC               	clrf	_cnt1+1
+  1200  016D                     l133:
+  1201  016D  0008               	return
+  1202  016E                     __end_of_TimeOut:
+  1203                           
+  1204                           	psect	text10
+  1205  0125                     __ptext10:	
+  1206 ;; *************** function _ShortSound *****************
+  1207 ;; Defined at:
+  1208 ;;		line 9 in file "sounds.c"
+  1209 ;; Parameters:    Size  Location     Type
+  1210 ;;		None
+  1211 ;; Auto vars:     Size  Location     Type
+  1212 ;;		None
+  1213 ;; Return value:  Size  Location     Type
+  1214 ;;                  1    wreg      void 
+  1215 ;; Registers used:
+  1216 ;;		wreg
+  1217 ;; Tracked objects:
+  1218 ;;		On entry : 0/0
+  1219 ;;		On exit  : 0/0
+  1220 ;;		Unchanged: 0/0
+  1221 ;; Data sizes:     COMMON   BANK0
+  1222 ;;      Params:         0       0
+  1223 ;;      Locals:         0       0
+  1224 ;;      Temps:          0       2
+  1225 ;;      Totals:         0       2
+  1226 ;;Total ram usage:        2 bytes
+  1227 ;; Hardware stack levels used: 1
+  1228 ;; Hardware stack levels required when called: 2
+  1229 ;; This function calls:
+  1230 ;;		Nothing
+  1231 ;; This function is called by:
+  1232 ;;		_TwoShortOneLong
+  1233 ;;		_TwoShortTwoLong
+  1234 ;;		_ThreeShort
+  1235 ;; This function uses a non-reentrant model
+  1236 ;;
+  1237                           
+  1238  0125                     _ShortSound:	
+  1239                           ;psect for function _ShortSound
+  1240                           
+  1241  0125                     l1087:	
+  1242                           ;incstack = 0
+  1243                           ; Regs used in _ShortSound: [wreg]
+  1244                           
+  1245                           
+  1246                           ;sounds.c: 10:     GP2 = 1;
+  1247  0125  1283               	bcf	3,5	;RP0=0, select bank0
+  1248  0126  1505               	bsf	5,2	;volatile
+  1249  0127                     l1089:
   1250                           
-  1251  014A                     l1095:	
-  1252                           ;incstack = 0
-  1253                           ; Regs used in _ShortSound: [wreg]
-  1254                           
-  1255                           
-  1256                           ;sounds.c: 10:     GP2 = 1;
-  1257  014A  1283               	bcf	3,5	;RP0=0, select bank0
-  1258  014B  1505               	bsf	5,2	;volatile
-  1259  014C                     l1097:
-  1260                           
-  1261                           ;sounds.c: 11:     _delay((unsigned long)((120)*(4000000/4000.0)));
-  1262  014C  309C               	movlw	156
-  1263  014D  00A7               	movwf	??_ShortSound+1
-  1264  014E  30D7               	movlw	215
-  1265  014F  00A6               	movwf	??_ShortSound
-  1266  0150                     u377:
-  1267  0150  0BA6               	decfsz	??_ShortSound,f
-  1268  0151  2950               	goto	u377
-  1269  0152  0BA7               	decfsz	??_ShortSound+1,f
-  1270  0153  2950               	goto	u377
-  1271  0154                     l1099:
-  1272                           
-  1273                           ;sounds.c: 12:     GP2 = 0;
-  1274  0154  1283               	bcf	3,5	;RP0=0, select bank0
-  1275  0155  1105               	bcf	5,2	;volatile
-  1276                           
-  1277                           ;sounds.c: 13:     _delay((unsigned long)((80)*(4000000/4000.0)));
-  1278  0156  3068               	movlw	104
-  1279  0157  00A7               	movwf	??_ShortSound+1
-  1280  0158  30E4               	movlw	228
-  1281  0159  00A6               	movwf	??_ShortSound
-  1282  015A                     u387:
-  1283  015A  0BA6               	decfsz	??_ShortSound,f
-  1284  015B  295A               	goto	u387
-  1285  015C  0BA7               	decfsz	??_ShortSound+1,f
-  1286  015D  295A               	goto	u387
-  1287  015E  0000               	nop
-  1288  015F                     l128:
-  1289  015F  0008               	return
-  1290  0160                     __end_of_ShortSound:
-  1291                           
-  1292                           	psect	text11
-  1293  0019                     __ptext11:	
-  1294 ;; *************** function _ISR *****************
-  1295 ;; Defined at:
-  1296 ;;		line 18 in file "interrupt.c"
-  1297 ;; Parameters:    Size  Location     Type
-  1298 ;;		None
-  1299 ;; Auto vars:     Size  Location     Type
-  1300 ;;		None
-  1301 ;; Return value:  Size  Location     Type
-  1302 ;;                  1    wreg      void 
-  1303 ;; Registers used:
-  1304 ;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
-  1305 ;; Tracked objects:
-  1306 ;;		On entry : 0/0
-  1307 ;;		On exit  : 0/0
-  1308 ;;		Unchanged: 0/0
-  1309 ;; Data sizes:     COMMON   BANK0
-  1310 ;;      Params:         0       0
-  1311 ;;      Locals:         0       0
-  1312 ;;      Temps:          0       5
-  1313 ;;      Totals:         0       5
-  1314 ;;Total ram usage:        5 bytes
-  1315 ;; Hardware stack levels used: 1
-  1316 ;; Hardware stack levels required when called: 1
-  1317 ;; This function calls:
-  1318 ;;		_MuxTemp
-  1319 ;;		_MuxVoltage
-  1320 ;; This function is called by:
-  1321 ;;		Interrupt level 1
-  1322 ;; This function uses a non-reentrant model
-  1323 ;;
-  1324                           
-  1325  0019                     _ISR:	
-  1326                           ;psect for function _ISR
-  1327                           
-  1328  0019                     i1l1261:
-  1329                           
-  1330                           ;interrupt.c: 22:     if (TMR0IF == 1){
-  1331  0019  1D0B               	btfss	11,2	;volatile
-  1332  001A  281C               	goto	u22_21
-  1333  001B  281D               	goto	u22_20
-  1334  001C                     u22_21:
-  1335  001C  2824               	goto	i1l1269
-  1336  001D                     u22_20:
-  1337  001D                     i1l1263:
-  1338                           
-  1339                           ;interrupt.c: 24:         TMR0 = 6;
-  1340  001D  3006               	movlw	6
-  1341  001E  0081               	movwf	1	;volatile
-  1342  001F                     i1l1265:
-  1343                           
-  1344                           ;interrupt.c: 25:  cnt0++;
-  1345  001F  3001               	movlw	1
-  1346  0020  00A1               	movwf	??_ISR
-  1347  0021  0821               	movf	??_ISR,w
-  1348  0022  07AF               	addwf	_cnt0,f
-  1349  0023                     i1l1267:
-  1350                           
-  1351                           ;interrupt.c: 26:  TMR0IF = 0;
-  1352  0023  110B               	bcf	11,2	;volatile
-  1353  0024                     i1l1269:
-  1354                           
-  1355                           ;interrupt.c: 31:     if (TMR1IF == 1){
-  1356  0024  1C0C               	btfss	12,0	;volatile
-  1357  0025  2827               	goto	u23_21
-  1358  0026  2828               	goto	u23_20
-  1359  0027                     u23_21:
-  1360  0027  2833               	goto	i1l1275
-  1361  0028                     u23_20:
-  1362  0028                     i1l1271:
-  1363                           
-  1364                           ;interrupt.c: 33:   TMR1H = 0xFC;
-  1365  0028  30FC               	movlw	252
-  1366  0029  008F               	movwf	15	;volatile
-  1367                           
-  1368                           ;interrupt.c: 34:   TMR1L = 0x17;
-  1369  002A  3017               	movlw	23
-  1370  002B  008E               	movwf	14	;volatile
-  1371                           
-  1372                           ;interrupt.c: 36:          cnt1++;
-  1373  002C  3001               	movlw	1
-  1374  002D  07AD               	addwf	_cnt1,f
-  1375  002E  1803               	skipnc
-  1376  002F  0AAE               	incf	_cnt1+1,f
-  1377  0030  3000               	movlw	0
-  1378  0031  07AE               	addwf	_cnt1+1,f
-  1379  0032                     i1l1273:
-  1380                           
-  1381                           ;interrupt.c: 38:         TMR1IF = 0;
-  1382  0032  100C               	bcf	12,0	;volatile
-  1383  0033                     i1l1275:
+  1251                           ;sounds.c: 11:     _delay((unsigned long)((120)*(4000000/4000.0)));
+  1252  0127  309C               	movlw	156
+  1253  0128  00A7               	movwf	??_ShortSound+1
+  1254  0129  30D7               	movlw	215
+  1255  012A  00A6               	movwf	??_ShortSound
+  1256  012B                     u377:
+  1257  012B  0BA6               	decfsz	??_ShortSound,f
+  1258  012C  292B               	goto	u377
+  1259  012D  0BA7               	decfsz	??_ShortSound+1,f
+  1260  012E  292B               	goto	u377
+  1261  012F                     l1091:
+  1262                           
+  1263                           ;sounds.c: 12:     GP2 = 0;
+  1264  012F  1283               	bcf	3,5	;RP0=0, select bank0
+  1265  0130  1105               	bcf	5,2	;volatile
+  1266                           
+  1267                           ;sounds.c: 13:     _delay((unsigned long)((80)*(4000000/4000.0)));
+  1268  0131  3068               	movlw	104
+  1269  0132  00A7               	movwf	??_ShortSound+1
+  1270  0133  30E4               	movlw	228
+  1271  0134  00A6               	movwf	??_ShortSound
+  1272  0135                     u387:
+  1273  0135  0BA6               	decfsz	??_ShortSound,f
+  1274  0136  2935               	goto	u387
+  1275  0137  0BA7               	decfsz	??_ShortSound+1,f
+  1276  0138  2935               	goto	u387
+  1277  0139  0000               	nop
+  1278  013A                     l124:
+  1279  013A  0008               	return
+  1280  013B                     __end_of_ShortSound:
+  1281                           
+  1282                           	psect	text11
+  1283  0017                     __ptext11:	
+  1284 ;; *************** function _ISR *****************
+  1285 ;; Defined at:
+  1286 ;;		line 17 in file "interrupt.c"
+  1287 ;; Parameters:    Size  Location     Type
+  1288 ;;		None
+  1289 ;; Auto vars:     Size  Location     Type
+  1290 ;;		None
+  1291 ;; Return value:  Size  Location     Type
+  1292 ;;                  1    wreg      void 
+  1293 ;; Registers used:
+  1294 ;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+  1295 ;; Tracked objects:
+  1296 ;;		On entry : 0/0
+  1297 ;;		On exit  : 0/0
+  1298 ;;		Unchanged: 0/0
+  1299 ;; Data sizes:     COMMON   BANK0
+  1300 ;;      Params:         0       0
+  1301 ;;      Locals:         0       0
+  1302 ;;      Temps:          0       5
+  1303 ;;      Totals:         0       5
+  1304 ;;Total ram usage:        5 bytes
+  1305 ;; Hardware stack levels used: 1
+  1306 ;; Hardware stack levels required when called: 1
+  1307 ;; This function calls:
+  1308 ;;		_MuxTemp
+  1309 ;;		_MuxVoltage
+  1310 ;; This function is called by:
+  1311 ;;		Interrupt level 1
+  1312 ;; This function uses a non-reentrant model
+  1313 ;;
+  1314                           
+  1315  0017                     _ISR:	
+  1316                           ;psect for function _ISR
+  1317                           
+  1318  0017                     i1l1251:
+  1319                           
+  1320                           ;interrupt.c: 21:     if (TMR0IF == 1){
+  1321  0017  1D0B               	btfss	11,2	;volatile
+  1322  0018  281A               	goto	u22_21
+  1323  0019  281B               	goto	u22_20
+  1324  001A                     u22_21:
+  1325  001A  2822               	goto	i1l1259
+  1326  001B                     u22_20:
+  1327  001B                     i1l1253:
+  1328                           
+  1329                           ;interrupt.c: 23:         TMR0 = 6;
+  1330  001B  3006               	movlw	6
+  1331  001C  0081               	movwf	1	;volatile
+  1332  001D                     i1l1255:
+  1333                           
+  1334                           ;interrupt.c: 24:  cnt0++;
+  1335  001D  3001               	movlw	1
+  1336  001E  00A1               	movwf	??_ISR
+  1337  001F  0821               	movf	??_ISR,w
+  1338  0020  07AD               	addwf	_cnt0,f
+  1339  0021                     i1l1257:
+  1340                           
+  1341                           ;interrupt.c: 25:  TMR0IF = 0;
+  1342  0021  110B               	bcf	11,2	;volatile
+  1343  0022                     i1l1259:
+  1344                           
+  1345                           ;interrupt.c: 30:     if (TMR1IF == 1){
+  1346  0022  1C0C               	btfss	12,0	;volatile
+  1347  0023  2825               	goto	u23_21
+  1348  0024  2826               	goto	u23_20
+  1349  0025                     u23_21:
+  1350  0025  2831               	goto	i1l1265
+  1351  0026                     u23_20:
+  1352  0026                     i1l1261:
+  1353                           
+  1354                           ;interrupt.c: 32:   TMR1H = 0xFC;
+  1355  0026  30FC               	movlw	252
+  1356  0027  008F               	movwf	15	;volatile
+  1357                           
+  1358                           ;interrupt.c: 33:   TMR1L = 0x17;
+  1359  0028  3017               	movlw	23
+  1360  0029  008E               	movwf	14	;volatile
+  1361                           
+  1362                           ;interrupt.c: 35:          cnt1++;
+  1363  002A  3001               	movlw	1
+  1364  002B  07AB               	addwf	_cnt1,f
+  1365  002C  1803               	skipnc
+  1366  002D  0AAC               	incf	_cnt1+1,f
+  1367  002E  3000               	movlw	0
+  1368  002F  07AC               	addwf	_cnt1+1,f
+  1369  0030                     i1l1263:
+  1370                           
+  1371                           ;interrupt.c: 37:         TMR1IF = 0;
+  1372  0030  100C               	bcf	12,0	;volatile
+  1373  0031                     i1l1265:
+  1374                           
+  1375                           ;interrupt.c: 42:    if (ADIF == 1){
+  1376  0031  1F0C               	btfss	12,6	;volatile
+  1377  0032  2834               	goto	u24_21
+  1378  0033  2835               	goto	u24_20
+  1379  0034                     u24_21:
+  1380  0034  28A6               	goto	i1l70
+  1381  0035                     u24_20:
+  1382  0035  2896               	goto	i1l1313
+  1383  0036                     i1l1269:
   1384                           
-  1385                           ;interrupt.c: 43:    if (ADIF == 1){
-  1386  0033  1F0C               	btfss	12,6	;volatile
-  1387  0034  2836               	goto	u24_21
-  1388  0035  2837               	goto	u24_20
-  1389  0036                     u24_21:
-  1390  0036  28C9               	goto	i1l74
-  1391  0037                     u24_20:
-  1392  0037                     i1l1277:
-  1393                           
-  1394                           ;interrupt.c: 44:      adcValue = (uint16_t) ((ADRESH << 8) + ADRESL);
-  1395  0037  081E               	movf	30,w	;volatile
-  1396  0038  00AC               	movwf	_adcValue+1
-  1397  0039  1683               	bsf	3,5	;RP0=1, select bank1
-  1398  003A  081E               	movf	30,w	;volatile
-  1399  003B  1283               	bcf	3,5	;RP0=0, select bank0
-  1400  003C  00AB               	movwf	_adcValue
-  1401                           
-  1402                           ;interrupt.c: 46:       switch (measureType){
-  1403  003D  28B9               	goto	i1l1323
-  1404  003E                     i1l1279:
-  1405                           
-  1406                           ;interrupt.c: 49:  if ((adcValue > 190) && (adcValue < 285) && (errorType == 1)){
-  1407  003E  3000               	movlw	0
-  1408  003F  022C               	subwf	_adcValue+1,w
-  1409  0040  30BF               	movlw	191
-  1410  0041  1903               	skipnz
-  1411  0042  022B               	subwf	_adcValue,w
-  1412  0043  1C03               	skipc
-  1413  0044  2846               	goto	u25_21
-  1414  0045  2847               	goto	u25_20
-  1415  0046                     u25_21:
-  1416  0046  2858               	goto	i1l1287
-  1417  0047                     u25_20:
-  1418  0047                     i1l1281:
-  1419  0047  3001               	movlw	1
-  1420  0048  022C               	subwf	_adcValue+1,w
-  1421  0049  301D               	movlw	29
-  1422  004A  1903               	skipnz
-  1423  004B  022B               	subwf	_adcValue,w
+  1385                           ;interrupt.c: 47:  if ((ADRESH > 47) && (ADRESH < 71) && (errorType == 1)){
+  1386  0036  3030               	movlw	48
+  1387  0037  021E               	subwf	30,w	;volatile
+  1388  0038  1C03               	skipc
+  1389  0039  283B               	goto	u25_21
+  1390  003A  283C               	goto	u25_20
+  1391  003B                     u25_21:
+  1392  003B  284A               	goto	i1l1277
+  1393  003C                     u25_20:
+  1394  003C                     i1l1271:
+  1395  003C  3047               	movlw	71
+  1396  003D  021E               	subwf	30,w	;volatile
+  1397  003E  1803               	skipnc
+  1398  003F  2841               	goto	u26_21
+  1399  0040  2842               	goto	u26_20
+  1400  0041                     u26_21:
+  1401  0041  284A               	goto	i1l1277
+  1402  0042                     u26_20:
+  1403  0042                     i1l1273:
+  1404  0042  032E               	decf	_errorType,w
+  1405  0043  1D03               	btfss	3,2
+  1406  0044  2846               	goto	u27_21
+  1407  0045  2847               	goto	u27_20
+  1408  0046                     u27_21:
+  1409  0046  284A               	goto	i1l1277
+  1410  0047                     u27_20:
+  1411  0047                     i1l1275:
+  1412                           
+  1413                           ;interrupt.c: 48:            GP5 = 0;
+  1414  0047  1285               	bcf	5,5	;volatile
+  1415                           
+  1416                           ;interrupt.c: 49:     GP2 = 0;
+  1417  0048  1105               	bcf	5,2	;volatile
+  1418                           
+  1419                           ;interrupt.c: 50:            }
+  1420  0049  2861               	goto	i1l1289
+  1421  004A                     i1l1277:
+  1422  004A  3030               	movlw	48
+  1423  004B  021E               	subwf	30,w	;volatile
   1424  004C  1803               	skipnc
-  1425  004D  284F               	goto	u26_21
-  1426  004E  2850               	goto	u26_20
-  1427  004F                     u26_21:
-  1428  004F  2858               	goto	i1l1287
-  1429  0050                     u26_20:
-  1430  0050                     i1l1283:
-  1431  0050  0330               	decf	_errorType,w
-  1432  0051  1D03               	btfss	3,2
-  1433  0052  2854               	goto	u27_21
-  1434  0053  2855               	goto	u27_20
-  1435  0054                     u27_21:
-  1436  0054  2858               	goto	i1l1287
-  1437  0055                     u27_20:
-  1438  0055                     i1l1285:
-  1439                           
-  1440                           ;interrupt.c: 50:            GP5 = 0;
-  1441  0055  1285               	bcf	5,5	;volatile
-  1442                           
-  1443                           ;interrupt.c: 51:     GP2 = 0;
-  1444  0056  1105               	bcf	5,2	;volatile
-  1445                           
-  1446                           ;interrupt.c: 52:            }
-  1447  0057  2875               	goto	i1l1299
-  1448  0058                     i1l1287:
-  1449  0058  3000               	movlw	0
-  1450  0059  022C               	subwf	_adcValue+1,w
-  1451  005A  30BF               	movlw	191
-  1452  005B  1903               	skipnz
-  1453  005C  022B               	subwf	_adcValue,w
-  1454  005D  1803               	skipnc
-  1455  005E  2860               	goto	u28_21
-  1456  005F  2861               	goto	u28_20
-  1457  0060                     u28_21:
-  1458  0060  2867               	goto	i1l1293
-  1459  0061                     u28_20:
-  1460  0061                     i1l1289:
-  1461                           
-  1462                           ;interrupt.c: 54:            GP5 = 1;
-  1463  0061  1685               	bsf	5,5	;volatile
-  1464  0062                     i1l1291:
+  1425  004D  284F               	goto	u28_21
+  1426  004E  2850               	goto	u28_20
+  1427  004F                     u28_21:
+  1428  004F  2856               	goto	i1l1283
+  1429  0050                     u28_20:
+  1430  0050                     i1l1279:
+  1431                           
+  1432                           ;interrupt.c: 53:            GP5 = 1;
+  1433  0050  1685               	bsf	5,5	;volatile
+  1434  0051                     i1l1281:
+  1435                           
+  1436                           ;interrupt.c: 54:     errorType = 2;
+  1437  0051  3002               	movlw	2
+  1438  0052  00A1               	movwf	??_ISR
+  1439  0053  0821               	movf	??_ISR,w
+  1440  0054  00AE               	movwf	_errorType
+  1441                           
+  1442                           ;interrupt.c: 55:            }
+  1443  0055  2861               	goto	i1l1289
+  1444  0056                     i1l1283:
+  1445  0056  3047               	movlw	71
+  1446  0057  021E               	subwf	30,w	;volatile
+  1447  0058  1C03               	skipc
+  1448  0059  285B               	goto	u29_21
+  1449  005A  285C               	goto	u29_20
+  1450  005B                     u29_21:
+  1451  005B  2861               	goto	i1l1289
+  1452  005C                     u29_20:
+  1453  005C                     i1l1285:
+  1454                           
+  1455                           ;interrupt.c: 58:            GP5 = 1;
+  1456  005C  1685               	bsf	5,5	;volatile
+  1457  005D                     i1l1287:
+  1458                           
+  1459                           ;interrupt.c: 59:     errorType = 3;
+  1460  005D  3003               	movlw	3
+  1461  005E  00A1               	movwf	??_ISR
+  1462  005F  0821               	movf	??_ISR,w
+  1463  0060  00AE               	movwf	_errorType
+  1464  0061                     i1l1289:
   1465                           
-  1466                           ;interrupt.c: 55:     errorType = 2;
-  1467  0062  3002               	movlw	2
-  1468  0063  00A1               	movwf	??_ISR
-  1469  0064  0821               	movf	??_ISR,w
-  1470  0065  00B0               	movwf	_errorType
-  1471                           
-  1472                           ;interrupt.c: 56:            }
-  1473  0066  2875               	goto	i1l1299
-  1474  0067                     i1l1293:
-  1475  0067  3001               	movlw	1
-  1476  0068  022C               	subwf	_adcValue+1,w
-  1477  0069  301D               	movlw	29
-  1478  006A  1903               	skipnz
-  1479  006B  022B               	subwf	_adcValue,w
-  1480  006C  1C03               	skipc
-  1481  006D  286F               	goto	u29_21
-  1482  006E  2870               	goto	u29_20
-  1483  006F                     u29_21:
-  1484  006F  2875               	goto	i1l1299
-  1485  0070                     u29_20:
-  1486  0070                     i1l1295:
-  1487                           
-  1488                           ;interrupt.c: 58:            GP5 = 1;
-  1489  0070  1685               	bsf	5,5	;volatile
-  1490  0071                     i1l1297:
-  1491                           
-  1492                           ;interrupt.c: 59:     errorType = 3;
-  1493  0071  3003               	movlw	3
-  1494  0072  00A1               	movwf	??_ISR
-  1495  0073  0821               	movf	??_ISR,w
-  1496  0074  00B0               	movwf	_errorType
-  1497  0075                     i1l1299:
-  1498                           
-  1499                           ;interrupt.c: 62:           MuxTemp();
-  1500  0075  2160               	fcall	_MuxTemp
-  1501                           
-  1502                           ;interrupt.c: 63:         break;
-  1503  0076  28C9               	goto	i1l74
-  1504  0077                     i1l1301:
-  1505                           
-  1506                           ;interrupt.c: 68:       if (adcValue < 200){
-  1507  0077  3000               	movlw	0
-  1508  0078  022C               	subwf	_adcValue+1,w
-  1509  0079  30C8               	movlw	200
-  1510  007A  1903               	skipnz
-  1511  007B  022B               	subwf	_adcValue,w
-  1512  007C  1803               	skipnc
-  1513  007D  287F               	goto	u30_21
-  1514  007E  2880               	goto	u30_20
-  1515  007F                     u30_21:
-  1516  007F  2885               	goto	i1l1305
-  1517  0080                     u30_20:
-  1518  0080                     i1l1303:
-  1519                           
-  1520                           ;interrupt.c: 69:         GP5 = 1;
-  1521  0080  1685               	bsf	5,5	;volatile
+  1466                           ;interrupt.c: 62:           MuxTemp();
+  1467  0061  213B               	fcall	_MuxTemp
+  1468                           
+  1469                           ;interrupt.c: 63:         break;
+  1470  0062  28A6               	goto	i1l70
+  1471  0063                     i1l1291:
+  1472                           
+  1473                           ;interrupt.c: 69:              if (ADRESH < 50){
+  1474  0063  3032               	movlw	50
+  1475  0064  021E               	subwf	30,w	;volatile
+  1476  0065  1803               	skipnc
+  1477  0066  2868               	goto	u30_21
+  1478  0067  2869               	goto	u30_20
+  1479  0068                     u30_21:
+  1480  0068  286E               	goto	i1l1295
+  1481  0069                     u30_20:
+  1482  0069                     i1l1293:
+  1483                           
+  1484                           ;interrupt.c: 70:         GP5 = 1;
+  1485  0069  1685               	bsf	5,5	;volatile
+  1486                           
+  1487                           ;interrupt.c: 71:         GP4 = 0;
+  1488  006A  1205               	bcf	5,4	;volatile
+  1489                           
+  1490                           ;interrupt.c: 72:                   errorType = 1;
+  1491  006B  01AE               	clrf	_errorType
+  1492  006C  0AAE               	incf	_errorType,f
+  1493                           
+  1494                           ;interrupt.c: 73:     }
+  1495  006D  2894               	goto	i1l1309
+  1496  006E                     i1l1295:
+  1497  006E  3032               	movlw	50
+  1498  006F  021E               	subwf	30,w	;volatile
+  1499  0070  1C03               	skipc
+  1500  0071  2873               	goto	u31_21
+  1501  0072  2874               	goto	u31_20
+  1502  0073                     u31_21:
+  1503  0073  287E               	goto	i1l1301
+  1504  0074                     u31_20:
+  1505  0074                     i1l1297:
+  1506  0074  30E8               	movlw	232
+  1507  0075  021E               	subwf	30,w	;volatile
+  1508  0076  1803               	skipnc
+  1509  0077  2879               	goto	u32_21
+  1510  0078  287A               	goto	u32_20
+  1511  0079                     u32_21:
+  1512  0079  287E               	goto	i1l1301
+  1513  007A                     u32_20:
+  1514  007A                     i1l1299:
+  1515                           
+  1516                           ;interrupt.c: 76:           GP4 = 0;
+  1517  007A  1205               	bcf	5,4	;volatile
+  1518                           
+  1519                           ;interrupt.c: 77:    errorType = 1;
+  1520  007B  01AE               	clrf	_errorType
+  1521  007C  0AAE               	incf	_errorType,f
   1522                           
-  1523                           ;interrupt.c: 70:         GP4 = 0;
-  1524  0081  1205               	bcf	5,4	;volatile
-  1525                           
-  1526                           ;interrupt.c: 71:                   errorType = 1;
-  1527  0082  01B0               	clrf	_errorType
-  1528  0083  0AB0               	incf	_errorType,f
-  1529                           
-  1530                           ;interrupt.c: 72:     }
-  1531  0084  28B7               	goto	i1l1319
-  1532  0085                     i1l1305:
-  1533  0085  3000               	movlw	0
-  1534  0086  022C               	subwf	_adcValue+1,w
-  1535  0087  30C8               	movlw	200
-  1536  0088  1903               	skipnz
-  1537  0089  022B               	subwf	_adcValue,w
-  1538  008A  1C03               	skipc
-  1539  008B  288D               	goto	u31_21
-  1540  008C  288E               	goto	u31_20
-  1541  008D                     u31_21:
-  1542  008D  289B               	goto	i1l1311
-  1543  008E                     u31_20:
-  1544  008E                     i1l1307:
-  1545  008E  3003               	movlw	3
-  1546  008F  022C               	subwf	_adcValue+1,w
-  1547  0090  30A2               	movlw	162
-  1548  0091  1903               	skipnz
-  1549  0092  022B               	subwf	_adcValue,w
-  1550  0093  1803               	skipnc
-  1551  0094  2896               	goto	u32_21
-  1552  0095  2897               	goto	u32_20
-  1553  0096                     u32_21:
-  1554  0096  289B               	goto	i1l1311
-  1555  0097                     u32_20:
-  1556  0097                     i1l1309:
+  1523                           ;interrupt.c: 78:                        }
+  1524  007D  2894               	goto	i1l1309
+  1525  007E                     i1l1301:
+  1526  007E  30E8               	movlw	232
+  1527  007F  021E               	subwf	30,w	;volatile
+  1528  0080  1C03               	skipc
+  1529  0081  2883               	goto	u33_21
+  1530  0082  2884               	goto	u33_20
+  1531  0083                     u33_21:
+  1532  0083  288E               	goto	i1l67
+  1533  0084                     u33_20:
+  1534  0084                     i1l1303:
+  1535  0084  30F2               	movlw	242
+  1536  0085  021E               	subwf	30,w	;volatile
+  1537  0086  1803               	skipnc
+  1538  0087  2889               	goto	u34_21
+  1539  0088  288A               	goto	u34_20
+  1540  0089                     u34_21:
+  1541  0089  288E               	goto	i1l67
+  1542  008A                     u34_20:
+  1543  008A                     i1l1305:
+  1544                           
+  1545                           ;interrupt.c: 81:           GP4 = 1;
+  1546  008A  1605               	bsf	5,4	;volatile
+  1547                           
+  1548                           ;interrupt.c: 82:    errorType = 1;
+  1549  008B  01AE               	clrf	_errorType
+  1550  008C  0AAE               	incf	_errorType,f
+  1551                           
+  1552                           ;interrupt.c: 83:                        }
+  1553  008D  2894               	goto	i1l1309
+  1554  008E                     i1l67:	
+  1555                           ;interrupt.c: 84:              else {
+  1556                           
   1557                           
-  1558                           ;interrupt.c: 75:           GP4 = 0;
-  1559  0097  1205               	bcf	5,4	;volatile
+  1558                           ;interrupt.c: 85:           GP4 = 1;
+  1559  008E  1605               	bsf	5,4	;volatile
   1560                           
-  1561                           ;interrupt.c: 76:    errorType = 1;
-  1562  0098  01B0               	clrf	_errorType
-  1563  0099  0AB0               	incf	_errorType,f
+  1561                           ;interrupt.c: 86:                  GP5 = 1;
+  1562  008F  1685               	bsf	5,5	;volatile
+  1563  0090                     i1l1307:
   1564                           
-  1565                           ;interrupt.c: 77:                        }
-  1566  009A  28B7               	goto	i1l1319
-  1567  009B                     i1l1311:
-  1568  009B  3003               	movlw	3
-  1569  009C  022C               	subwf	_adcValue+1,w
-  1570  009D  30A2               	movlw	162
-  1571  009E  1903               	skipnz
-  1572  009F  022B               	subwf	_adcValue,w
-  1573  00A0  1C03               	skipc
-  1574  00A1  28A3               	goto	u33_21
-  1575  00A2  28A4               	goto	u33_20
-  1576  00A3                     u33_21:
-  1577  00A3  28B1               	goto	i1l71
-  1578  00A4                     u33_20:
-  1579  00A4                     i1l1313:
-  1580  00A4  3003               	movlw	3
-  1581  00A5  022C               	subwf	_adcValue+1,w
-  1582  00A6  30CA               	movlw	202
-  1583  00A7  1903               	skipnz
-  1584  00A8  022B               	subwf	_adcValue,w
-  1585  00A9  1803               	skipnc
-  1586  00AA  28AC               	goto	u34_21
-  1587  00AB  28AD               	goto	u34_20
-  1588  00AC                     u34_21:
-  1589  00AC  28B1               	goto	i1l71
-  1590  00AD                     u34_20:
-  1591  00AD                     i1l1315:
-  1592                           
-  1593                           ;interrupt.c: 80:           GP4 = 1;
-  1594  00AD  1605               	bsf	5,4	;volatile
-  1595                           
-  1596                           ;interrupt.c: 81:    errorType = 1;
-  1597  00AE  01B0               	clrf	_errorType
-  1598  00AF  0AB0               	incf	_errorType,f
-  1599                           
-  1600                           ;interrupt.c: 82:                        }
-  1601  00B0  28B7               	goto	i1l1319
-  1602  00B1                     i1l71:	
-  1603                           ;interrupt.c: 83:              else {
-  1604                           
-  1605                           
-  1606                           ;interrupt.c: 84:           GP4 = 1;
-  1607  00B1  1605               	bsf	5,4	;volatile
-  1608                           
-  1609                           ;interrupt.c: 85:                  GP5 = 1;
-  1610  00B2  1685               	bsf	5,5	;volatile
-  1611  00B3                     i1l1317:
-  1612                           
-  1613                           ;interrupt.c: 86:                         errorType = 5;
-  1614  00B3  3005               	movlw	5
-  1615  00B4  00A1               	movwf	??_ISR
-  1616  00B5  0821               	movf	??_ISR,w
-  1617  00B6  00B0               	movwf	_errorType
-  1618  00B7                     i1l1319:
-  1619                           
-  1620                           ;interrupt.c: 89:      MuxVoltage();
-  1621  00B7  2173               	fcall	_MuxVoltage
-  1622                           
-  1623                           ;interrupt.c: 91:  break;
-  1624  00B8  28C9               	goto	i1l74
-  1625  00B9                     i1l1323:
-  1626  00B9  0831               	movf	_measureType,w
-  1627  00BA  00A1               	movwf	??_ISR
-  1628  00BB  01A2               	clrf	??_ISR+1
-  1629                           
-  1630                           ; Switch on 2 bytes has been partitioned into a top level switch of size 1, and 1 sub-sw
+  1565                           ;interrupt.c: 87:                         errorType = 5;
+  1566  0090  3005               	movlw	5
+  1567  0091  00A1               	movwf	??_ISR
+  1568  0092  0821               	movf	??_ISR,w
+  1569  0093  00AE               	movwf	_errorType
+  1570  0094                     i1l1309:
+  1571                           
+  1572                           ;interrupt.c: 90:      MuxVoltage();
+  1573  0094  214E               	fcall	_MuxVoltage
+  1574                           
+  1575                           ;interrupt.c: 91:  break;
+  1576  0095  28A6               	goto	i1l70
+  1577  0096                     i1l1313:
+  1578  0096  082F               	movf	_measureType,w
+  1579  0097  00A1               	movwf	??_ISR
+  1580  0098  01A2               	clrf	??_ISR+1
+  1581                           
+  1582                           ; Switch on 2 bytes has been partitioned into a top level switch of size 1, and 1 sub-sw
       +                          itches
-  1631                           ; Switch size 1, requested type "simple"
-  1632                           ; Number of cases is 1, Range of values is 0 to 0
-  1633                           ; switch strategies available:
-  1634                           ; Name         Instructions Cycles
-  1635                           ; simple_byte            4     3 (average)
-  1636                           ; direct_byte            7     6 (fixed)
-  1637                           ; jumptable            260     6 (fixed)
-  1638                           ;	Chosen strategy is simple_byte
-  1639  00BC  0822               	movf	??_ISR+1,w
-  1640  00BD  3A00               	xorlw	0	; case 0
-  1641  00BE  1903               	skipnz
-  1642  00BF  28C1               	goto	i1l1387
-  1643  00C0  28C9               	goto	i1l74
-  1644  00C1                     i1l1387:
-  1645                           
-  1646                           ; Switch size 1, requested type "simple"
-  1647                           ; Number of cases is 2, Range of values is 1 to 2
-  1648                           ; switch strategies available:
-  1649                           ; Name         Instructions Cycles
-  1650                           ; simple_byte            7     4 (average)
-  1651                           ; direct_byte           11     9 (fixed)
-  1652                           ; jumptable            263     9 (fixed)
-  1653                           ;	Chosen strategy is simple_byte
-  1654  00C1  0821               	movf	??_ISR,w
-  1655  00C2  3A01               	xorlw	1	; case 1
-  1656  00C3  1903               	skipnz
-  1657  00C4  283E               	goto	i1l1279
-  1658  00C5  3A03               	xorlw	3	; case 2
-  1659  00C6  1903               	skipnz
-  1660  00C7  2877               	goto	i1l1301
-  1661  00C8  28C9               	goto	i1l74
-  1662  00C9                     i1l74:
-  1663  00C9  1283               	bcf	3,5	;RP0=0, select bank0
-  1664  00CA  0825               	movf	??_ISR+4,w
-  1665  00CB  008A               	movwf	10
-  1666  00CC  0824               	movf	??_ISR+3,w
-  1667  00CD  0084               	movwf	4
-  1668  00CE  0E23               	swapf	??_ISR+2,w
-  1669  00CF  0083               	movwf	3
-  1670  00D0  0EDE               	swapf	btemp,f
-  1671  00D1  0E5E               	swapf	btemp,w
-  1672  00D2  0009               	retfie
-  1673  00D3                     __end_of_ISR:
+  1583                           ; Switch size 1, requested type "simple"
+  1584                           ; Number of cases is 1, Range of values is 0 to 0
+  1585                           ; switch strategies available:
+  1586                           ; Name         Instructions Cycles
+  1587                           ; simple_byte            4     3 (average)
+  1588                           ; direct_byte            7     6 (fixed)
+  1589                           ; jumptable            260     6 (fixed)
+  1590                           ;	Chosen strategy is simple_byte
+  1591  0099  0822               	movf	??_ISR+1,w
+  1592  009A  3A00               	xorlw	0	; case 0
+  1593  009B  1903               	skipnz
+  1594  009C  289E               	goto	i1l1377
+  1595  009D  28A6               	goto	i1l70
+  1596  009E                     i1l1377:
+  1597                           
+  1598                           ; Switch size 1, requested type "simple"
+  1599                           ; Number of cases is 2, Range of values is 1 to 2
+  1600                           ; switch strategies available:
+  1601                           ; Name         Instructions Cycles
+  1602                           ; simple_byte            7     4 (average)
+  1603                           ; direct_byte           11     9 (fixed)
+  1604                           ; jumptable            263     9 (fixed)
+  1605                           ;	Chosen strategy is simple_byte
+  1606  009E  0821               	movf	??_ISR,w
+  1607  009F  3A01               	xorlw	1	; case 1
+  1608  00A0  1903               	skipnz
+  1609  00A1  2836               	goto	i1l1269
+  1610  00A2  3A03               	xorlw	3	; case 2
+  1611  00A3  1903               	skipnz
+  1612  00A4  2863               	goto	i1l1291
+  1613  00A5  28A6               	goto	i1l70
+  1614  00A6                     i1l70:
+  1615  00A6  1283               	bcf	3,5	;RP0=0, select bank0
+  1616  00A7  0825               	movf	??_ISR+4,w
+  1617  00A8  008A               	movwf	10
+  1618  00A9  0824               	movf	??_ISR+3,w
+  1619  00AA  0084               	movwf	4
+  1620  00AB  0E23               	swapf	??_ISR+2,w
+  1621  00AC  0083               	movwf	3
+  1622  00AD  0EDE               	swapf	btemp,f
+  1623  00AE  0E5E               	swapf	btemp,w
+  1624  00AF  0009               	retfie
+  1625  00B0                     __end_of_ISR:
+  1626                           
+  1627                           	psect	intentry
+  1628  0004                     __pintentry:	
+  1629                           ;incstack = 0
+  1630                           ; Regs used in _ISR: [wreg-fsr0h+status,2+status,0+pclath+cstack]
+  1631                           
+  1632  0004                     interrupt_function:
+  1633  005E                     saved_w	set	btemp
+  1634  0004  00DE               	movwf	btemp
+  1635  0005  0E03               	swapf	3,w
+  1636  0006  1283               	bcf	3,5	;RP0=0, select bank0
+  1637  0007  00A3               	movwf	??_ISR+2
+  1638  0008  0804               	movf	4,w
+  1639  0009  00A4               	movwf	??_ISR+3
+  1640  000A  080A               	movf	10,w
+  1641  000B  00A5               	movwf	??_ISR+4
+  1642  000C  2817               	ljmp	_ISR
+  1643                           
+  1644                           	psect	text12
+  1645  014E                     __ptext12:	
+  1646 ;; *************** function _MuxVoltage *****************
+  1647 ;; Defined at:
+  1648 ;;		line 99 in file "interrupt.c"
+  1649 ;; Parameters:    Size  Location     Type
+  1650 ;;		None
+  1651 ;; Auto vars:     Size  Location     Type
+  1652 ;;		None
+  1653 ;; Return value:  Size  Location     Type
+  1654 ;;                  1    wreg      void 
+  1655 ;; Registers used:
+  1656 ;;		wreg, status,2
+  1657 ;; Tracked objects:
+  1658 ;;		On entry : 0/0
+  1659 ;;		On exit  : 0/0
+  1660 ;;		Unchanged: 0/0
+  1661 ;; Data sizes:     COMMON   BANK0
+  1662 ;;      Params:         0       0
+  1663 ;;      Locals:         0       0
+  1664 ;;      Temps:          0       1
+  1665 ;;      Totals:         0       1
+  1666 ;;Total ram usage:        1 bytes
+  1667 ;; Hardware stack levels used: 1
+  1668 ;; This function calls:
+  1669 ;;		Nothing
+  1670 ;; This function is called by:
+  1671 ;;		_ISR
+  1672 ;; This function uses a non-reentrant model
+  1673 ;;
   1674                           
-  1675                           	psect	intentry
-  1676  0004                     __pintentry:	
-  1677                           ;incstack = 0
-  1678                           ; Regs used in _ISR: [wreg-fsr0h+status,2+status,0+pclath+cstack]
-  1679                           
-  1680  0004                     interrupt_function:
-  1681  005E                     saved_w	set	btemp
-  1682  0004  00DE               	movwf	btemp
-  1683  0005  0E03               	swapf	3,w
-  1684  0006  1283               	bcf	3,5	;RP0=0, select bank0
-  1685  0007  00A3               	movwf	??_ISR+2
-  1686  0008  0804               	movf	4,w
-  1687  0009  00A4               	movwf	??_ISR+3
-  1688  000A  080A               	movf	10,w
-  1689  000B  00A5               	movwf	??_ISR+4
-  1690  000C  2819               	ljmp	_ISR
+  1675  014E                     _MuxVoltage:	
+  1676                           ;psect for function _MuxVoltage
+  1677                           
+  1678  014E                     i1l1141:	
+  1679                           ;incstack = 0
+  1680                           ; Regs used in _MuxVoltage: [wreg+status,2]
+  1681                           
+  1682                           
+  1683                           ;interrupt.c: 100:        ADCON0 = 0;
+  1684  014E  1283               	bcf	3,5	;RP0=0, select bank0
+  1685  014F  019F               	clrf	31	;volatile
+  1686  0150                     i1l1143:
+  1687                           
+  1688                           ;interrupt.c: 101:        ADON = 1;
+  1689  0150  141F               	bsf	31,0	;volatile
+  1690  0151                     i1l1145:
   1691                           
-  1692                           	psect	text12
-  1693  0173                     __ptext12:	
-  1694 ;; *************** function _MuxVoltage *****************
-  1695 ;; Defined at:
-  1696 ;;		line 101 in file "interrupt.c"
-  1697 ;; Parameters:    Size  Location     Type
-  1698 ;;		None
-  1699 ;; Auto vars:     Size  Location     Type
-  1700 ;;		None
-  1701 ;; Return value:  Size  Location     Type
-  1702 ;;                  1    wreg      void 
-  1703 ;; Registers used:
-  1704 ;;		wreg, status,2
-  1705 ;; Tracked objects:
-  1706 ;;		On entry : 0/0
-  1707 ;;		On exit  : 0/0
-  1708 ;;		Unchanged: 0/0
-  1709 ;; Data sizes:     COMMON   BANK0
-  1710 ;;      Params:         0       0
-  1711 ;;      Locals:         0       0
-  1712 ;;      Temps:          0       1
-  1713 ;;      Totals:         0       1
-  1714 ;;Total ram usage:        1 bytes
-  1715 ;; Hardware stack levels used: 1
-  1716 ;; This function calls:
-  1717 ;;		Nothing
-  1718 ;; This function is called by:
-  1719 ;;		_ISR
-  1720 ;; This function uses a non-reentrant model
-  1721 ;;
-  1722                           
-  1723  0173                     _MuxVoltage:	
-  1724                           ;psect for function _MuxVoltage
-  1725                           
-  1726  0173                     i1l1149:	
-  1727                           ;incstack = 0
-  1728                           ; Regs used in _MuxVoltage: [wreg+status,2]
-  1729                           
-  1730                           
-  1731                           ;interrupt.c: 102:        ADCON0 = 0;
-  1732  0173  1283               	bcf	3,5	;RP0=0, select bank0
-  1733  0174  019F               	clrf	31	;volatile
-  1734  0175                     i1l1151:
-  1735                           
-  1736                           ;interrupt.c: 103:        ADON = 1;
-  1737  0175  141F               	bsf	31,0	;volatile
-  1738  0176                     i1l1153:
-  1739                           
-  1740                           ;interrupt.c: 104:        ADFM = 1;
-  1741  0176  179F               	bsf	31,7	;volatile
-  1742  0177                     i1l1155:
-  1743                           
-  1744                           ;interrupt.c: 105:        CHS1 = 0;
-  1745  0177  119F               	bcf	31,3	;volatile
-  1746  0178                     i1l1157:
-  1747                           
-  1748                           ;interrupt.c: 106:        CHS0 = 1;
-  1749  0178  151F               	bsf	31,2	;volatile
-  1750  0179                     i1l1159:
-  1751                           
-  1752                           ;interrupt.c: 107:        measureType = 1;
-  1753  0179  01B1               	clrf	_measureType
-  1754  017A  0AB1               	incf	_measureType,f
-  1755  017B                     i1l1161:
-  1756                           
-  1757                           ;interrupt.c: 108:        ADIF = 0;
-  1758  017B  130C               	bcf	12,6	;volatile
-  1759  017C                     i1l1163:
-  1760                           
-  1761                           ;interrupt.c: 109:        _delay((unsigned long)((50)*(4000000/4000000.0)));
-  1762  017C  3010               	movlw	16
-  1763  017D  00A0               	movwf	??_MuxVoltage
-  1764  017E                     u39_27:
-  1765  017E  0BA0               	decfsz	??_MuxVoltage,f
-  1766  017F  297E               	goto	u39_27
-  1767  0180  0000               	nop
-  1768  0181                     i1l1165:
-  1769                           
-  1770                           ;interrupt.c: 110:        GO = 1;
-  1771  0181  1283               	bcf	3,5	;RP0=0, select bank0
-  1772  0182  149F               	bsf	31,1	;volatile
-  1773  0183                     i1l77:
-  1774  0183  0008               	return
-  1775  0184                     __end_of_MuxVoltage:
+  1692                           ;interrupt.c: 102:        ADFM = 0;
+  1693  0151  139F               	bcf	31,7	;volatile
+  1694  0152                     i1l1147:
+  1695                           
+  1696                           ;interrupt.c: 103:        CHS1 = 0;
+  1697  0152  119F               	bcf	31,3	;volatile
+  1698  0153                     i1l1149:
+  1699                           
+  1700                           ;interrupt.c: 104:        CHS0 = 1;
+  1701  0153  151F               	bsf	31,2	;volatile
+  1702  0154                     i1l1151:
+  1703                           
+  1704                           ;interrupt.c: 105:        measureType = 1;
+  1705  0154  01AF               	clrf	_measureType
+  1706  0155  0AAF               	incf	_measureType,f
+  1707  0156                     i1l1153:
+  1708                           
+  1709                           ;interrupt.c: 106:        ADIF = 0;
+  1710  0156  130C               	bcf	12,6	;volatile
+  1711  0157                     i1l1155:
+  1712                           
+  1713                           ;interrupt.c: 107:        _delay((unsigned long)((50)*(4000000/4000000.0)));
+  1714  0157  3010               	movlw	16
+  1715  0158  00A0               	movwf	??_MuxVoltage
+  1716  0159                     u39_27:
+  1717  0159  0BA0               	decfsz	??_MuxVoltage,f
+  1718  015A  2959               	goto	u39_27
+  1719  015B  0000               	nop
+  1720  015C                     i1l1157:
+  1721                           
+  1722                           ;interrupt.c: 108:        GO = 1;
+  1723  015C  1283               	bcf	3,5	;RP0=0, select bank0
+  1724  015D  149F               	bsf	31,1	;volatile
+  1725  015E                     i1l73:
+  1726  015E  0008               	return
+  1727  015F                     __end_of_MuxVoltage:
+  1728                           
+  1729                           	psect	text13
+  1730  013B                     __ptext13:	
+  1731 ;; *************** function _MuxTemp *****************
+  1732 ;; Defined at:
+  1733 ;;		line 111 in file "interrupt.c"
+  1734 ;; Parameters:    Size  Location     Type
+  1735 ;;		None
+  1736 ;; Auto vars:     Size  Location     Type
+  1737 ;;		None
+  1738 ;; Return value:  Size  Location     Type
+  1739 ;;                  1    wreg      void 
+  1740 ;; Registers used:
+  1741 ;;		wreg, status,2
+  1742 ;; Tracked objects:
+  1743 ;;		On entry : 0/0
+  1744 ;;		On exit  : 0/0
+  1745 ;;		Unchanged: 0/0
+  1746 ;; Data sizes:     COMMON   BANK0
+  1747 ;;      Params:         0       0
+  1748 ;;      Locals:         0       0
+  1749 ;;      Temps:          0       1
+  1750 ;;      Totals:         0       1
+  1751 ;;Total ram usage:        1 bytes
+  1752 ;; Hardware stack levels used: 1
+  1753 ;; This function calls:
+  1754 ;;		Nothing
+  1755 ;; This function is called by:
+  1756 ;;		_ISR
+  1757 ;; This function uses a non-reentrant model
+  1758 ;;
+  1759                           
+  1760  013B                     _MuxTemp:	
+  1761                           ;psect for function _MuxTemp
+  1762                           
+  1763  013B                     i1l1123:	
+  1764                           ;incstack = 0
+  1765                           ; Regs used in _MuxTemp: [wreg+status,2]
+  1766                           
+  1767                           
+  1768                           ;interrupt.c: 112:        ADCON0 = 0;
+  1769  013B  1283               	bcf	3,5	;RP0=0, select bank0
+  1770  013C  019F               	clrf	31	;volatile
+  1771  013D                     i1l1125:
+  1772                           
+  1773                           ;interrupt.c: 113:        ADON = 1;
+  1774  013D  141F               	bsf	31,0	;volatile
+  1775  013E                     i1l1127:
   1776                           
-  1777                           	psect	text13
-  1778  0160                     __ptext13:	
-  1779 ;; *************** function _MuxTemp *****************
-  1780 ;; Defined at:
-  1781 ;;		line 114 in file "interrupt.c"
-  1782 ;; Parameters:    Size  Location     Type
-  1783 ;;		None
-  1784 ;; Auto vars:     Size  Location     Type
-  1785 ;;		None
-  1786 ;; Return value:  Size  Location     Type
-  1787 ;;                  1    wreg      void 
-  1788 ;; Registers used:
-  1789 ;;		wreg, status,2
-  1790 ;; Tracked objects:
-  1791 ;;		On entry : 0/0
-  1792 ;;		On exit  : 0/0
-  1793 ;;		Unchanged: 0/0
-  1794 ;; Data sizes:     COMMON   BANK0
-  1795 ;;      Params:         0       0
-  1796 ;;      Locals:         0       0
-  1797 ;;      Temps:          0       1
-  1798 ;;      Totals:         0       1
-  1799 ;;Total ram usage:        1 bytes
-  1800 ;; Hardware stack levels used: 1
-  1801 ;; This function calls:
-  1802 ;;		Nothing
-  1803 ;; This function is called by:
-  1804 ;;		_ISR
-  1805 ;; This function uses a non-reentrant model
-  1806 ;;
-  1807                           
-  1808  0160                     _MuxTemp:	
-  1809                           ;psect for function _MuxTemp
-  1810                           
-  1811  0160                     i1l1131:	
-  1812                           ;incstack = 0
-  1813                           ; Regs used in _MuxTemp: [wreg+status,2]
-  1814                           
-  1815                           
-  1816                           ;interrupt.c: 115:        ADCON0 = 0;
-  1817  0160  1283               	bcf	3,5	;RP0=0, select bank0
-  1818  0161  019F               	clrf	31	;volatile
-  1819  0162                     i1l1133:
-  1820                           
-  1821                           ;interrupt.c: 116:        ADON = 1;
-  1822  0162  141F               	bsf	31,0	;volatile
-  1823  0163                     i1l1135:
-  1824                           
-  1825                           ;interrupt.c: 117:        ADFM = 1;
-  1826  0163  179F               	bsf	31,7	;volatile
-  1827  0164                     i1l1137:
-  1828                           
-  1829                           ;interrupt.c: 118:        CHS1 = 0;
-  1830  0164  119F               	bcf	31,3	;volatile
-  1831  0165                     i1l1139:
-  1832                           
-  1833                           ;interrupt.c: 119:        CHS0 = 0;
-  1834  0165  111F               	bcf	31,2	;volatile
-  1835  0166                     i1l1141:
-  1836                           
-  1837                           ;interrupt.c: 120:        measureType = 2;
-  1838  0166  3002               	movlw	2
-  1839  0167  00A0               	movwf	??_MuxTemp
-  1840  0168  0820               	movf	??_MuxTemp,w
-  1841  0169  00B1               	movwf	_measureType
-  1842  016A                     i1l1143:
-  1843                           
-  1844                           ;interrupt.c: 121:        ADIF = 0;
-  1845  016A  130C               	bcf	12,6	;volatile
-  1846  016B                     i1l1145:
-  1847                           
-  1848                           ;interrupt.c: 122:        _delay((unsigned long)((50)*(4000000/4000000.0)));
-  1849  016B  3010               	movlw	16
-  1850  016C  00A0               	movwf	??_MuxTemp
-  1851  016D                     u40_27:
-  1852  016D  0BA0               	decfsz	??_MuxTemp,f
-  1853  016E  296D               	goto	u40_27
-  1854  016F  0000               	nop
-  1855  0170                     i1l1147:
-  1856                           
-  1857                           ;interrupt.c: 123:        GO = 1;
-  1858  0170  1283               	bcf	3,5	;RP0=0, select bank0
-  1859  0171  149F               	bsf	31,1	;volatile
-  1860  0172                     i1l80:
-  1861  0172  0008               	return
-  1862  0173                     __end_of_MuxTemp:
-  1863  005E                     btemp	set	94	;btemp
-  1864  005E                     wtemp0	set	94
-  1865                           
-  1866                           	psect	config
-  1867                           
-  1868                           ;Config register CONFIG @ 0x2007
-  1869                           ;	Oscillator Selection bits
-  1870                           ;	FOSC = INTRCIO, INTOSC oscillator: I/O function on GP4/OSC2/CLKOUT pin, I/O function o
+  1777                           ;interrupt.c: 114:        ADFM = 0;
+  1778  013E  139F               	bcf	31,7	;volatile
+  1779  013F                     i1l1129:
+  1780                           
+  1781                           ;interrupt.c: 115:        CHS1 = 0;
+  1782  013F  119F               	bcf	31,3	;volatile
+  1783  0140                     i1l1131:
+  1784                           
+  1785                           ;interrupt.c: 116:        CHS0 = 0;
+  1786  0140  111F               	bcf	31,2	;volatile
+  1787  0141                     i1l1133:
+  1788                           
+  1789                           ;interrupt.c: 117:        measureType = 2;
+  1790  0141  3002               	movlw	2
+  1791  0142  00A0               	movwf	??_MuxTemp
+  1792  0143  0820               	movf	??_MuxTemp,w
+  1793  0144  00AF               	movwf	_measureType
+  1794  0145                     i1l1135:
+  1795                           
+  1796                           ;interrupt.c: 118:        ADIF = 0;
+  1797  0145  130C               	bcf	12,6	;volatile
+  1798  0146                     i1l1137:
+  1799                           
+  1800                           ;interrupt.c: 119:        _delay((unsigned long)((50)*(4000000/4000000.0)));
+  1801  0146  3010               	movlw	16
+  1802  0147  00A0               	movwf	??_MuxTemp
+  1803  0148                     u40_27:
+  1804  0148  0BA0               	decfsz	??_MuxTemp,f
+  1805  0149  2948               	goto	u40_27
+  1806  014A  0000               	nop
+  1807  014B                     i1l1139:
+  1808                           
+  1809                           ;interrupt.c: 120:        GO = 1;
+  1810  014B  1283               	bcf	3,5	;RP0=0, select bank0
+  1811  014C  149F               	bsf	31,1	;volatile
+  1812  014D                     i1l76:
+  1813  014D  0008               	return
+  1814  014E                     __end_of_MuxTemp:
+  1815  005E                     btemp	set	94	;btemp
+  1816  005E                     wtemp0	set	94
+  1817                           
+  1818                           	psect	config
+  1819                           
+  1820                           ;Config register CONFIG @ 0x2007
+  1821                           ;	Oscillator Selection bits
+  1822                           ;	FOSC = INTRCIO, INTOSC oscillator: I/O function on GP4/OSC2/CLKOUT pin, I/O function o
       +                          n GP5/OSC1/CLKIN
-  1871                           ;	Watchdog Timer Enable bit
-  1872                           ;	WDTE = OFF, WDT disabled
-  1873                           ;	Power-Up Timer Enable bit
-  1874                           ;	PWRTE = OFF, PWRT disabled
-  1875                           ;	GP3/MCLR pin function select
-  1876                           ;	MCLRE = ON, GP3/MCLR pin function is MCLR
-  1877                           ;	Brown-out Detect Enable bit
-  1878                           ;	BOREN = ON, BOD enabled
-  1879                           ;	Code Protection bit
-  1880                           ;	CP = OFF, Program Memory code protection is disabled
-  1881                           ;	Data Code Protection bit
-  1882                           ;	CPD = OFF, Data memory code protection is disabled
-  1883  2007                     	org	8199
-  1884  2007  31F4               	dw	12788
+  1823                           ;	Watchdog Timer Enable bit
+  1824                           ;	WDTE = OFF, WDT disabled
+  1825                           ;	Power-Up Timer Enable bit
+  1826                           ;	PWRTE = OFF, PWRT disabled
+  1827                           ;	GP3/MCLR pin function select
+  1828                           ;	MCLRE = ON, GP3/MCLR pin function is MCLR
+  1829                           ;	Brown-out Detect Enable bit
+  1830                           ;	BOREN = ON, BOD enabled
+  1831                           ;	Code Protection bit
+  1832                           ;	CP = OFF, Program Memory code protection is disabled
+  1833                           ;	Data Code Protection bit
+  1834                           ;	CPD = OFF, Data memory code protection is disabled
+  1835  2007                     	org	8199
+  1836  2007  31F4               	dw	12788
 
 Data Sizes:
     Strings     0
     Constant    0
     Data        2
-    BSS         5
+    BSS         3
     Persistent  0
     Stack       0
 
 Auto Spaces:
     Space          Size  Autos    Used
     COMMON            0      0       0
-    BANK0            62     11      18
+    BANK0            62     11      16
 
 Pointer List with Targets:
 
@@ -2030,119 +1982,118 @@ Call Graph Tables:
 Name               Size   Autos  Total    Cost      Usage
 SFR1                 0      0       0       2        0.0%
 BITSFR1              0      0       0       2        0.0%
-BANK0               3E      B      12       4       29.0%
+BANK0               3E      B      10       4       25.8%
 BITBANK0            3E      0       0       3        0.0%
 SFR0                 0      0       0       1        0.0%
 BITSFR0              0      0       0       1        0.0%
 COMMON               0      0       0       1        0.0%
 BITCOMMON            0      0       0       0        0.0%
 CODE                 0      0       0       0        0.0%
-DATA                 0      0      12       6        0.0%
-ABS                  0      0      12       5        0.0%
+DATA                 0      0      10       6        0.0%
+ABS                  0      0      10       5        0.0%
 NULL                 0      0       0       0        0.0%
 STACK                0      0       0       2        0.0%
 EEDATA              80      0       0       0        0.0%
 
 
 Microchip Technology PIC Macro Assembler V2.36 build 20220127204148 
-Symbol Table                                                                                   Mon Mar 18 20:40:31 2024
+Symbol Table                                                                                   Thu Mar 21 20:28:55 2024
 
-                     _GO 00F9                      l131 0149                      l140 01B6  
-                    l222 019D                      l135 0185                      l143 01A6  
-                    l119 0104                      l128 015F                      l137 0192  
-                    l225 012E                      l146 01BE                      l219 01AE  
+                     _GO 00F9                      l131 0160                      l115 00E1  
+                    l124 013A                      l133 016D                      l213 0189  
+                    l142 0199                      l127 0124                      l136 0191  
+                    l216 0178                      l139 0181                      l219 0109  
                     _GP2 002A                      _GP4 002C                      _GP5 002D  
-                    _GIE 005F                      u200 00E3                      u201 00E2  
-                    u210 00EB                      u211 00EA                      u180 0190  
-                    u181 018F                      u190 00D9                      u191 00D8  
-                    _ISR 0019                      u357 0137                      u367 0144  
-                    u377 0150                      u387 015A                      fsr0 0004  
+                    _GIE 005F                      u200 00C0                      u201 00BF  
+                    u210 00C8                      u211 00C7                      u180 016B  
+                    u181 016A                      u190 00B6                      u191 00B5  
+                    _ISR 0017                      u357 0112                      u367 011F  
+                    u377 012B                      u387 0135                      fsr0 0004  
       ??_TwoShortOneLong 0000                     ?_ISR 0020        ??_TwoShortTwoLong 0000  
-                   l1101 012F                     l1111 0190                     l1103 0131  
-                   l1105 013E                     l1113 01AF                     l1121 01A2  
-                   l1201 0119                     l1107 0184                     l1115 01B2  
-                   l1123 01A5                     l1211 0120                     l1203 011A  
-                   l1109 0186                     l1125 01B7                     l1117 01B5  
-                   l1221 0127                     l1213 0121                     l1205 011C  
-                   l1127 01BA                     l1119 019E                     l1231 012D  
-                   l1223 0128                     l1215 0122                     l1207 011D  
-                   l1129 01BD                     l1241 00DE                     l1233 00D3  
-                   l1225 0129                     l1217 0125                     l1209 011F  
-                   l1243 00E3                     l1235 00D4                     l1171 01AC  
-                   l1227 012A                     l1219 0126                     l1331 01BF  
-                   l1237 00D9                     l1173 01AD                     l1229 012C  
-                   l1181 0105                     l1333 01C2                     l1095 014A  
-                   l1247 00E5                     l1239 00DA                     l1255 00ED  
-                   l1167 01A7                     l1175 0193                     l1191 010F  
-                   l1183 0108                     l1097 014C                     l1249 00EB  
-                   l1169 01AA                     l1177 019A                     l1193 0111  
-                   l1185 010A                     l1099 0154                     l1179 019B  
-                   l1195 0113                     l1187 010B                     l1197 0115  
-                   l1189 010D                     l1199 0117                     l1385 00F6  
-                   _ADIF 0066                     _ADFM 00FF                     _ADON 00F8  
-                   _CHS0 00FA                     _CHS1 00FB                     _GPIO 0005  
-                   _PEIE 005E                     i1l71 00B1                     i1l80 0172  
-                   i1l74 00C9                     i1l77 0183                     _VCFG 00FE  
-                   _TMR0 0001                     _cnt0 002F                     _cnt1 002D  
-                   _main 01BF                     btemp 005E                     start 000D  
-       ??_DataProcessing 0029          __end_of_Init_uC 012F                    ??_ISR 0021  
-        __end_of_TimeOut 0193          __end_of_MuxTemp 0173                    ?_main 0020  
-                  _CMCON 0019                    _ANSEL 009F                    _T1CON 0010  
-                  u30_20 0080                    u22_20 001D                    u30_21 007F  
-                  u22_21 001C                    u31_20 008E                    u23_20 0028  
-                  u31_21 008D                    u23_21 0027                    u32_20 0097  
-                  u24_20 0037                    u32_21 0096                    u24_21 0036  
-                  u40_27 016D                    u33_20 00A4                    u25_20 0047  
-                  u33_21 00A3                    u25_21 0046                    _TMR1H 000F  
-                  _TMR1L 000E                    u34_20 00AD                    u26_20 0050  
-                  u34_21 00AC                    u26_21 004F                    u27_20 0055  
-                  u27_21 0054                    u28_20 0061                    u28_21 0060  
-                  u29_20 0070                    u29_21 006F                    u39_27 017E  
-                  _VRCON 0099                    pclath 000A                    status 0003  
-                  wtemp0 005E          __initialization 000E               _InitTimer0 01A7  
-             _InitTimer1 0193             __end_of_main 01C5                   ??_main 0000  
-                 _ADCON0 001F                   _ADRESH 001E                   _ADRESL 009E  
-                 i1l1131 0160                   i1l1141 0166                   i1l1133 0162  
-                 i1l1301 0077                   i1l1143 016A                   i1l1135 0163  
-                 i1l1151 0175                   i1l1311 009B                   i1l1303 0080  
-                 i1l1145 016B                   i1l1137 0164                   i1l1161 017B  
-                 i1l1153 0176                   i1l1313 00A4                   i1l1305 0085  
-                 i1l1147 0170                   i1l1139 0165                   i1l1163 017C  
-                 i1l1155 0177                   i1l1315 00AD                   i1l1307 008E  
-                 i1l1323 00B9                   i1l1165 0181                   i1l1157 0178  
-                 i1l1149 0173                   i1l1317 00B3                   i1l1309 0097  
-                 i1l1261 0019                   i1l1159 0179                   i1l1319 00B7  
-                 i1l1271 0028                   i1l1263 001D                   i1l1281 0047  
-                 i1l1273 0032                   i1l1265 001F                   i1l1291 0062  
-                 i1l1283 0050                   i1l1275 0033                   i1l1267 0023  
-                 i1l1293 0067                   i1l1285 0055                   i1l1277 0037  
-                 i1l1269 0024                   i1l1295 0070                   i1l1287 0058  
-                 i1l1279 003E                   i1l1297 0071                   i1l1289 0061  
-                 i1l1387 00C1                   i1l1299 0075                   _TMR0IE 005D  
+                   l1101 0161                     l1103 016B                     l1111 0179  
+                   l1121 0198                     l1105 018A                     l1113 017D  
+                   l1201 00FC                     l1107 018D                     l1115 0180  
+                   l1211 0102                     l1203 00FD                     l1117 0192  
+                   l1109 0190                     l1221 0108                     l1213 0103  
+                   l1205 00FE                     l1119 0195                     l1231 00BB  
+                   l1223 00B0                     l1215 0104                     l1207 00FF  
+                   l1233 00C0                     l1225 00B1                     l1161 0185  
+                   l1217 0105                     l1209 0101                     l1321 019A  
+                   l1091 012F                     l1227 00B6                     l1163 0187  
+                   l1171 0176                     l1219 0107                     l1323 019D  
+                   l1093 010A                     l1237 00C2                     l1229 00B7  
+                   l1245 00CA                     l1165 0188                     l1181 00EA  
+                   l1173 00E2                     l1087 0125                     l1095 010C  
+                   l1239 00C8                     l1159 0182                     l1167 016E  
+                   l1191 00F4                     l1183 00EC                     l1175 00E5  
+                   l1089 0127                     l1097 0119                     l1169 0175  
+                   l1193 00F6                     l1185 00EE                     l1177 00E7  
+                   l1099 015F                     l1195 00F7                     l1187 00F0  
+                   l1179 00E8                     l1197 00F9                     l1189 00F2  
+                   l1375 00D3                     l1199 00FA                     _ADIF 0066  
+                   _ADFM 00FF                     _ADON 00F8                     _CHS0 00FA  
+                   _CHS1 00FB                     _GPIO 0005                     _PEIE 005E  
+                   i1l70 00A6                     i1l73 015E                     i1l67 008E  
+                   i1l76 014D                     _VCFG 00FE                     _TMR0 0001  
+                   _cnt0 002D                     _cnt1 002B                     _main 019A  
+                   btemp 005E                     start 000D         ??_DataProcessing 0029  
+        __end_of_Init_uC 010A                    ??_ISR 0021          __end_of_TimeOut 016E  
+        __end_of_MuxTemp 014E                    ?_main 0020                    _CMCON 0019  
+                  _ANSEL 009F                    _T1CON 0010                    u30_20 0069  
+                  u22_20 001B                    u30_21 0068                    u22_21 001A  
+                  u31_20 0074                    u23_20 0026                    u31_21 0073  
+                  u23_21 0025                    u32_20 007A                    u24_20 0035  
+                  u32_21 0079                    u24_21 0034                    u40_27 0148  
+                  u33_20 0084                    u25_20 003C                    u33_21 0083  
+                  u25_21 003B                    _TMR1H 000F                    _TMR1L 000E  
+                  u34_20 008A                    u26_20 0042                    u34_21 0089  
+                  u26_21 0041                    u27_20 0047                    u27_21 0046  
+                  u28_20 0050                    u28_21 004F                    u29_20 005C  
+                  u29_21 005B                    u39_27 0159                    _VRCON 0099  
+                  pclath 000A                    status 0003                    wtemp0 005E  
+        __initialization 000E               _InitTimer0 0182               _InitTimer1 016E  
+           __end_of_main 01A0                   ??_main 0000                   _ADCON0 001F  
+                 _ADRESH 001E                   i1l1131 0140                   i1l1123 013B  
+                 i1l1133 0141                   i1l1125 013D                   i1l1141 014E  
+                 i1l1301 007E                   i1l1135 0145                   i1l1127 013E  
+                 i1l1151 0154                   i1l1143 0150                   i1l1303 0084  
+                 i1l1137 0146                   i1l1129 013F                   i1l1153 0156  
+                 i1l1145 0151                   i1l1305 008A                   i1l1313 0096  
+                 i1l1139 014B                   i1l1155 0157                   i1l1147 0152  
+                 i1l1307 0090                   i1l1251 0017                   i1l1157 015C  
+                 i1l1149 0153                   i1l1309 0094                   i1l1261 0026  
+                 i1l1253 001B                   i1l1271 003C                   i1l1263 0030  
+                 i1l1255 001D                   i1l1281 0051                   i1l1273 0042  
+                 i1l1265 0031                   i1l1257 0021                   i1l1291 0063  
+                 i1l1283 0056                   i1l1275 0047                   i1l1259 0022  
+                 i1l1293 0069                   i1l1285 005C                   i1l1277 004A  
+                 i1l1269 0036                   i1l1295 006E                   i1l1287 005D  
+                 i1l1279 0050                   i1l1377 009E                   i1l1297 0074  
+                 i1l1289 0061                   i1l1299 007A                   _TMR0IE 005D  
                  _TMR0IF 005A                   _TMR1IE 0460                   _TMR1IF 0060  
                  _TRISIO 0085                ??_Init_uC 0000                ??_TimeOut 0000  
-              ??_MuxTemp 0020               _ThreeShort 01B7               _MuxVoltage 0173  
-             _ShortSound 014A                   saved_w 005E  __end_of__initialization 0017  
+              ??_MuxTemp 0020               _ThreeShort 0192               _MuxVoltage 014E  
+             _ShortSound 0125                   saved_w 005E  __end_of__initialization 0015  
             ?_InitTimer0 0020              ?_InitTimer1 0020           __pcstackCOMMON 0000  
-           __pidataBANK0 01C5          _TwoShortOneLong 01AF          _TwoShortTwoLong 019E  
-      __end_of_LongSound 014A               __pbssBANK0 002B               __pmaintext 01BF  
+           __pidataBANK0 01A0          _TwoShortOneLong 018A          _TwoShortTwoLong 0179  
+      __end_of_LongSound 0125               __pbssBANK0 002B               __pmaintext 019A  
              __pintentry 0004              ?_ThreeShort 0020              ?_MuxVoltage 0020  
             ?_ShortSound 0020                  _TRISIO0 0428                  _TRISIO1 0429  
                 _TRISIO2 042A                  _TRISIO4 042C                  _TRISIO5 042D  
-__end_of_TwoShortOneLong 01B7                  _Init_uC 0105                  _TimeOut 0184  
-                _MuxTemp 0160  __end_of_TwoShortTwoLong 01A7                  __ptext1 0105  
-                __ptext2 0193                  __ptext3 01A7                  __ptext4 00D3  
-                __ptext5 019E                  __ptext6 01AF                  __ptext7 012F  
-                __ptext8 01B7                  __ptext9 0184     end_of_initialization 0017  
+__end_of_TwoShortOneLong 0192                  _Init_uC 00E2                  _TimeOut 015F  
+                _MuxTemp 013B  __end_of_TwoShortTwoLong 0182                  __ptext1 00E2  
+                __ptext2 016E                  __ptext3 0182                  __ptext4 00B0  
+                __ptext5 0179                  __ptext6 018A                  __ptext7 010A  
+                __ptext8 0192                  __ptext9 015F     end_of_initialization 0015  
        ?_TwoShortOneLong 0020             ??_InitTimer0 0000             ??_InitTimer1 0000  
-       ?_TwoShortTwoLong 0020      start_initialization 000E              __end_of_ISR 00D3  
-     __end_of_InitTimer0 01AF       __end_of_InitTimer1 019E                _LongSound 012F  
-           ??_ThreeShort 0000              __pdataBANK0 0030             ??_MuxVoltage 0020  
+       ?_TwoShortTwoLong 0020      start_initialization 000E              __end_of_ISR 00B0  
+     __end_of_InitTimer0 018A       __end_of_InitTimer1 0179                _LongSound 010A  
+           ??_ThreeShort 0000              __pdataBANK0 002E             ??_MuxVoltage 0020  
            ??_ShortSound 0026                ___latbits 0000            __pcstackBANK0 0020  
-             ?_LongSound 0020       __end_of_ThreeShort 01BF       __end_of_MuxVoltage 0184  
-               ?_Init_uC 0020       __end_of_ShortSound 0160                 ?_TimeOut 0020  
-               ?_MuxTemp 0020           _DataProcessing 00D3                _errorType 0030  
-      interrupt_function 0004   __end_of_DataProcessing 0105              ??_LongSound 0026  
-            _measureType 0031          ?_DataProcessing 0020                 _adcValue 002B  
-               __ptext10 014A                 __ptext11 0019                 __ptext12 0173  
-               __ptext13 0160                 intlevel1 0000               _OPTION_REG 0081  
+             ?_LongSound 0020       __end_of_ThreeShort 019A       __end_of_MuxVoltage 015F  
+               ?_Init_uC 0020       __end_of_ShortSound 013B                 ?_TimeOut 0020  
+               ?_MuxTemp 0020           _DataProcessing 00B0                _errorType 002E  
+      interrupt_function 0004   __end_of_DataProcessing 00E2              ??_LongSound 0026  
+            _measureType 002F          ?_DataProcessing 0020                 __ptext10 0125  
+               __ptext11 0017                 __ptext12 014E                 __ptext13 013B  
+               intlevel1 0000               _OPTION_REG 0081  

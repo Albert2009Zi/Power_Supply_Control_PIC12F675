@@ -10,7 +10,6 @@
 
 uint16_t cnt1             = 0;
 uint8_t  cnt0             = 0;
-uint16_t adcValue         = 0;
 
 uint8_t measureType = VOLTAGE_MEASURE;
 uint8_t errorType   = ERROR_OK;
@@ -41,20 +40,21 @@ void __interrupt() ISR(void)
 
  //##########################ADC#####################################//      
    if (ADIF == 1){     
-     adcValue = (uint16_t) ((ADRESH << 8) + ADRESL); /* ADC result */    
       
       switch (measureType){
        case VOLTAGE_MEASURE: 
 
-	if ((adcValue > 190) && (adcValue < 285) && (errorType == ERROR_OK)){
+	if ((ADRESH > 47) && (ADRESH < 71) && (errorType == ERROR_OK)){
            GP5 = 0;
 	   GP2 = 0;
            }  	
-        else if (adcValue <= 190) { 
+
+	 else if (ADRESH <= 47) {
            GP5 = 1; 
 	   errorType = ERROR_UNDER_VOLTAGE; 
            }
-	 else if (adcValue >= 285){
+
+         else if (ADRESH >= 71){
            GP5 = 1;
 	   errorType = ERROR_OVER_VOLTAGE; 
            }    
@@ -65,18 +65,19 @@ void __interrupt() ISR(void)
 	
 	case TEMPERATURE_MEASURE:
 	
-	     if (adcValue < 200){
+
+             if (ADRESH < 50){
 		      GP5       = 1;  
 		      GP4       = 0;
            	      errorType = ERROR_OK;
 		  }
                 
-             else if ((adcValue >= 200) && (adcValue < 930)){ 
+              else if ((ADRESH >= 50) && (ADRESH < 232)){
 		        GP4       = 0;
 			errorType = ERROR_OK;
                        }
 	       	       
-	     else if ((adcValue >= 930) && (adcValue < 970)){ 
+	      else if ((ADRESH >= 232) && (ADRESH < 242)){ 
 		        GP4 = 1;
 			errorType = ERROR_OK;
                        }	
@@ -86,22 +87,19 @@ void __interrupt() ISR(void)
                         errorType = ERROR_TMP_HIGH;  		
 		   }
 		
-	    MuxVoltage();
-	    	    
+	    MuxVoltage();   	    
 	break;
 	
 	default:
 	break;
 	}  
-     }
-    
-    
+  }   
 }
 
 void MuxVoltage(void){ 
        ADCON0 = 0;                     /* must after every new switch be                          */ 
        ADON   = 1;                     /* ADC is ON                                               */
-       ADFM   = 1;                     /* ADC results is right justified                          */
+       ADFM   = 0;                     /* ADC results is left justified                          */
        CHS1   = 0;   
        CHS0   = 1;                     /* Enable ADC channel 1 (AN1) "Power ON button", ADC is ON */    
        measureType = VOLTAGE_MEASURE; 
@@ -110,11 +108,10 @@ void MuxVoltage(void){
        GO     = 1; 
 }
 
-
 void MuxTemp(void){
        ADCON0      = 0;                   /* must after every new switch be*/ 
        ADON        = 1;                   /* ADC is ON                                       */
-       ADFM        = 1;                   /* ADC results is right justified                            */
+       ADFM        = 0;                   /* ADC results is left justified                          */
        CHS1        = 0;   
        CHS0        = 0;                   /* Enable ADC channel 0 (AN0) "Temperature control", ADC is ON    */ 
        measureType = TEMPERATURE_MEASURE;

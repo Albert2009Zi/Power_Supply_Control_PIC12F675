@@ -6,7 +6,6 @@
 
 #define _XTAL_FREQ   4000000 
 
-extern uint16_t adcValue;
 extern uint8_t  measureType;
 
 void InitTimer0(void){
@@ -61,7 +60,6 @@ void Init_uC(void){
     GIE  = 1;			   /* Enable global interrupts                        */
     
     LongSound();
-    adcValue = 0;
     
     ADCON0 = 0;
     ADON   = 1;                     /* ADC is ON                                               */
@@ -71,4 +69,5 @@ void Init_uC(void){
     measureType = VOLTAGE_MEASURE; 
     ADIF   = 0;
     GO     = 1;       
+
 }

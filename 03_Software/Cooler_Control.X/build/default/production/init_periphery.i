@@ -1187,7 +1187,6 @@ void ThreeShort(void);
 
 
 
-extern uint16_t adcValue;
 extern uint8_t measureType;
 
 void InitTimer0(void){
@@ -1242,7 +1241,6 @@ void Init_uC(void){
     GIE = 1;
 
     LongSound();
-    adcValue = 0;
 
     ADCON0 = 0;
     ADON = 1;
@@ -1252,4 +1250,5 @@ void Init_uC(void){
     measureType = 1;
     ADIF = 0;
     GO = 1;
+
 }

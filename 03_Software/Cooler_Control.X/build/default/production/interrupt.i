@@ -1191,7 +1191,6 @@ void ThreeShort(void);
 
 uint16_t cnt1 = 0;
 uint8_t cnt0 = 0;
-uint16_t adcValue = 0;
 
 uint8_t measureType = 1;
 uint8_t errorType = 1;
@@ -1222,20 +1221,21 @@ void __attribute__((picinterrupt(("")))) ISR(void)
 
 
    if (ADIF == 1){
-     adcValue = (uint16_t) ((ADRESH << 8) + ADRESL);
 
       switch (measureType){
        case 1:
 
- if ((adcValue > 190) && (adcValue < 285) && (errorType == 1)){
+ if ((ADRESH > 47) && (ADRESH < 71) && (errorType == 1)){
            GP5 = 0;
     GP2 = 0;
            }
-        else if (adcValue <= 190) {
+
+  else if (ADRESH <= 47) {
            GP5 = 1;
     errorType = 2;
            }
-  else if (adcValue >= 285){
+
+         else if (ADRESH >= 71){
            GP5 = 1;
     errorType = 3;
            }
@@ -1246,18 +1246,19 @@ void __attribute__((picinterrupt(("")))) ISR(void)
 
  case 2:
 
-      if (adcValue < 200){
+
+             if (ADRESH < 50){
         GP5 = 1;
         GP4 = 0;
                   errorType = 1;
     }
 
-             else if ((adcValue >= 200) && (adcValue < 930)){
+              else if ((ADRESH >= 50) && (ADRESH < 232)){
           GP4 = 0;
    errorType = 1;
                        }
 
-      else if ((adcValue >= 930) && (adcValue < 970)){
+       else if ((ADRESH >= 232) && (ADRESH < 242)){
           GP4 = 1;
    errorType = 1;
                        }
@@ -1268,21 +1269,18 @@ void __attribute__((picinterrupt(("")))) ISR(void)
      }
 
      MuxVoltage();
-
  break;
 
  default:
  break;
  }
-     }
-
-
+  }
 }
 
 void MuxVoltage(void){
        ADCON0 = 0;
        ADON = 1;
-       ADFM = 1;
+       ADFM = 0;
        CHS1 = 0;
        CHS0 = 1;
        measureType = 1;
@@ -1291,11 +1289,10 @@ void MuxVoltage(void){
        GO = 1;
 }
 
-
 void MuxTemp(void){
        ADCON0 = 0;
        ADON = 1;
-       ADFM = 1;
+       ADFM = 0;
        CHS1 = 0;
        CHS0 = 0;
        measureType = 2;
