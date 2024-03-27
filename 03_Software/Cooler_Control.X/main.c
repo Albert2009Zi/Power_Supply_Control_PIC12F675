@@ -42,7 +42,6 @@
 #include "init_periphery.h"
 #include "sounds.h"
 
-
 //#define SIMULATION
 
 #ifndef SIMULATION
@@ -63,9 +62,10 @@ __CONFIG(FOSC_INTRCIO & WDTE_OFF & PWRTE_ON & MCLRE_OFF & BOREN_ON & CP_OFF & CP
 
 extern uint8_t errorType;
 extern uint8_t measureType;
+volatile uint8_t sndEndFlag = 0;
 
 void DataProcessing(void);
-   
+
 // Main function
 void main()          //its app whichmakes on uc alone and not needs return somthing in OS
 {	
@@ -73,36 +73,36 @@ void main()          //its app whichmakes on uc alone and not needs return somth
     InitTimer1();
     Init_uC();
     
-    while(1){    
-     DataProcessing();   
-    }   
+    while(1){  
+     DataProcessing(); 
+     ADCProcessing();     
+    }  
 }
 
 void DataProcessing(void){
     
-    switch(errorType){ 
+    	 switch(errorType){
+	 
 	 case ERROR_OK:
-	    break;
+	   sndEndFlag = 0;
+	   break;
 	 
 	 case ERROR_UNDER_VOLTAGE:	 
-	  if (measureType != VOLTAGE_MEASURE){
-	   TwoShortOneLong();}
-	   errorType = ERROR_OK;
-	    break;
+	   TwoShortOneLong();
+	   sndEndFlag = 0;
+	   break;
 	    
 	 case ERROR_OVER_VOLTAGE:
-	   if (measureType != VOLTAGE_MEASURE){
-            TwoShortTwoLong();}
-	   errorType = ERROR_OK;
-	    break;
+           TwoShortTwoLong();
+	   sndEndFlag = 0;
+	   break;
 	 
 	 case ERROR_TMP_HIGH:
-	  if (measureType != TEMPERATURE_MEASURE){
-           ThreeShort();}
-	   errorType = ERROR_OK;
-	    break;      
+           ThreeShort();
+	   sndEndFlag = 0;
+	   break;      
 	    
 	 default:
-            break;	 
+           break;	 
 	}
 }

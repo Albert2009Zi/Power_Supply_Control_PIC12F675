@@ -1148,7 +1148,9 @@ typedef int16_t intptr_t;
 
 typedef uint16_t uintptr_t;
 # 4 "./sounds.h" 2
-# 13 "./sounds.h"
+
+
+
 void ShortSound(void);
 
 void LongSound(void);
@@ -1162,15 +1164,6 @@ void TwoShortTwoLong(void);
 
 void ThreeShort(void);
 # 2 "sounds.c" 2
-
-# 1 "./interrupt.h" 1
-# 11 "./interrupt.h"
-void __attribute__((picinterrupt(("")))) ISR(void);
-
-void MuxVoltage(void);
-
-void MuxTemp(void);
-# 3 "sounds.c" 2
 
 
 

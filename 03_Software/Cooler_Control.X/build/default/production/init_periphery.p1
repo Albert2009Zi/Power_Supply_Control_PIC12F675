@@ -74,8 +74,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1573
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\pic\include\proc\pic12f675.h: 1573: extern volatile __bit GIE __attribute__((address(0x5F)));
 [v _GIE `Vb ~T0 @X0 0 e@95 ]
-"15 ./sounds.h
-[; ;./sounds.h: 15: void LongSound(void);
+"9 ./sounds.h
+[; ;./sounds.h: 9: void LongSound(void);
 [v _LongSound `(v ~T0 @X0 0 ef ]
 "643 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\pic\include\proc\pic12f675.h
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\pic\include\proc\pic12f675.h: 643: extern volatile unsigned char ADCON0 __attribute__((address(0x01F)));
@@ -92,10 +92,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1534
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\pic\include\proc\pic12f675.h: 1534: extern volatile __bit CHS0 __attribute__((address(0xFA)));
 [v _CHS0 `Vb ~T0 @X0 0 e@250 ]
-"9 init_periphery.c
-[; ;init_periphery.c: 9: extern uint8_t measureType;
-[v _measureType `uc ~T0 @X0 0 e ]
-"1495 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\pic\include\proc\pic12f675.h
+"1495
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\pic\include\proc\pic12f675.h: 1495: extern volatile __bit ADIF __attribute__((address(0x66)));
 [v _ADIF `Vb ~T0 @X0 0 e@102 ]
 "1576
@@ -197,135 +194,138 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1406
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\pic\include\proc\pic12f675.h: 1406: __asm("ANSEL equ 09Fh");
 [; <" ANSEL equ 09Fh ;# ">
-"11 init_periphery.c
-[; ;init_periphery.c: 11: void InitTimer0(void){
+"8 init_periphery.c
+[; ;init_periphery.c: 8: uint8_t measureType;
+[v _measureType `uc ~T0 @X0 1 e ]
+"10
+[; ;init_periphery.c: 10: void InitTimer0(void){
 [v _InitTimer0 `(v ~T0 @X0 1 ef ]
 {
 [e :U _InitTimer0 ]
 [f ]
-"13
-[; ;init_periphery.c: 13:     OPTION_REG = 0b11000001;
+"12
+[; ;init_periphery.c: 12:     OPTION_REG = 0b11000001;
 [e = _OPTION_REG -> -> 193 `i `uc ]
-"14
-[; ;init_periphery.c: 14:     TMR0 = 0;
+"13
+[; ;init_periphery.c: 13:     TMR0 = 0;
 [e = _TMR0 -> -> 0 `i `uc ]
-"15
-[; ;init_periphery.c: 15:     TMR0IF = 0;
+"14
+[; ;init_periphery.c: 14:     TMR0IF = 0;
 [e = _TMR0IF -> -> 0 `i `b ]
-"16
-[; ;init_periphery.c: 16:     TMR0IE = 1;
+"15
+[; ;init_periphery.c: 15:     TMR0IE = 1;
 [e = _TMR0IE -> -> 1 `i `b ]
-"18
-[; ;init_periphery.c: 18: }
+"17
+[; ;init_periphery.c: 17: }
 [e :UE 81 ]
 }
-"20
-[; ;init_periphery.c: 20: void InitTimer1(void){
+"19
+[; ;init_periphery.c: 19: void InitTimer1(void){
 [v _InitTimer1 `(v ~T0 @X0 1 ef ]
 {
 [e :U _InitTimer1 ]
 [f ]
-"22
-[; ;init_periphery.c: 22:      TMR1H = 0xFC;
+"21
+[; ;init_periphery.c: 21:      TMR1H = 0xFC;
 [e = _TMR1H -> -> 252 `i `uc ]
-"23
-[; ;init_periphery.c: 23:   TMR1L = 0x17;
+"22
+[; ;init_periphery.c: 22:   TMR1L = 0x17;
 [e = _TMR1L -> -> 23 `i `uc ]
-"25
-[; ;init_periphery.c: 25:   T1CON = 0x01;
+"24
+[; ;init_periphery.c: 24:   T1CON = 0x01;
 [e = _T1CON -> -> 1 `i `uc ]
-"27
-[; ;init_periphery.c: 27:   TMR1IF = 0;
+"26
+[; ;init_periphery.c: 26:   TMR1IF = 0;
 [e = _TMR1IF -> -> 0 `i `b ]
-"28
-[; ;init_periphery.c: 28:   TMR1IE = 1;
+"27
+[; ;init_periphery.c: 27:   TMR1IE = 1;
 [e = _TMR1IE -> -> 1 `i `b ]
-"30
-[; ;init_periphery.c: 30: }
+"29
+[; ;init_periphery.c: 29: }
 [e :UE 82 ]
 }
-"32
-[; ;init_periphery.c: 32: void Init_uC(void){
+"31
+[; ;init_periphery.c: 31: void Init_uC(void){
 [v _Init_uC `(v ~T0 @X0 1 ef ]
 {
 [e :U _Init_uC ]
 [f ]
-"33
-[; ;init_periphery.c: 33:     CMCON = 0x07;
+"32
+[; ;init_periphery.c: 32:     CMCON = 0x07;
 [e = _CMCON -> -> 7 `i `uc ]
-"34
-[; ;init_periphery.c: 34:     VRCON = 0x00;
+"33
+[; ;init_periphery.c: 33:     VRCON = 0x00;
 [e = _VRCON -> -> 0 `i `uc ]
-"37
-[; ;init_periphery.c: 37:     TRISIO = 0;
+"36
+[; ;init_periphery.c: 36:     TRISIO = 0;
 [e = _TRISIO -> -> 0 `i `uc ]
-"38
-[; ;init_periphery.c: 38:     GPIO = 0;
+"37
+[; ;init_periphery.c: 37:     GPIO = 0;
 [e = _GPIO -> -> 0 `i `uc ]
-"41
-[; ;init_periphery.c: 41:     TRISIO2 = 0;
+"40
+[; ;init_periphery.c: 40:     TRISIO2 = 0;
 [e = _TRISIO2 -> -> 0 `i `b ]
-"42
-[; ;init_periphery.c: 42:     GP2 = 0;
+"41
+[; ;init_periphery.c: 41:     GP2 = 0;
 [e = _GP2 -> -> 0 `i `b ]
-"45
-[; ;init_periphery.c: 45:     TRISIO5 = 0;
+"44
+[; ;init_periphery.c: 44:     TRISIO5 = 0;
 [e = _TRISIO5 -> -> 0 `i `b ]
-"46
-[; ;init_periphery.c: 46:     GP5 = 1;
+"45
+[; ;init_periphery.c: 45:     GP5 = 1;
 [e = _GP5 -> -> 1 `i `b ]
-"49
-[; ;init_periphery.c: 49:     TRISIO4 = 0;
+"48
+[; ;init_periphery.c: 48:     TRISIO4 = 0;
 [e = _TRISIO4 -> -> 0 `i `b ]
-"50
-[; ;init_periphery.c: 50:     GP4 = 0;
+"49
+[; ;init_periphery.c: 49:     GP4 = 0;
 [e = _GP4 -> -> 0 `i `b ]
-"53
-[; ;init_periphery.c: 53:     VCFG = 1;
+"52
+[; ;init_periphery.c: 52:     VCFG = 1;
 [e = _VCFG -> -> 1 `i `b ]
-"54
-[; ;init_periphery.c: 54:     TRISIO0 = 1;
+"53
+[; ;init_periphery.c: 53:     TRISIO0 = 1;
 [e = _TRISIO0 -> -> 1 `i `b ]
-"55
-[; ;init_periphery.c: 55:     TRISIO1 = 1;
+"54
+[; ;init_periphery.c: 54:     TRISIO1 = 1;
 [e = _TRISIO1 -> -> 1 `i `b ]
-"57
-[; ;init_periphery.c: 57:     ANSEL = 0b00110011;
+"56
+[; ;init_periphery.c: 56:     ANSEL = 0b00110011;
 [e = _ANSEL -> -> 51 `i `uc ]
-"59
-[; ;init_periphery.c: 59:     PEIE = 1;
+"58
+[; ;init_periphery.c: 58:     PEIE = 1;
 [e = _PEIE -> -> 1 `i `b ]
-"60
-[; ;init_periphery.c: 60:     GIE = 1;
+"59
+[; ;init_periphery.c: 59:     GIE = 1;
 [e = _GIE -> -> 1 `i `b ]
-"62
-[; ;init_periphery.c: 62:     LongSound();
+"61
+[; ;init_periphery.c: 61:     LongSound();
 [e ( _LongSound ..  ]
-"64
-[; ;init_periphery.c: 64:     ADCON0 = 0;
+"63
+[; ;init_periphery.c: 63:     ADCON0 = 0;
 [e = _ADCON0 -> -> 0 `i `uc ]
-"65
-[; ;init_periphery.c: 65:     ADON = 1;
+"64
+[; ;init_periphery.c: 64:     ADON = 1;
 [e = _ADON -> -> 1 `i `b ]
-"66
-[; ;init_periphery.c: 66:     ADFM = 1;
+"65
+[; ;init_periphery.c: 65:     ADFM = 1;
 [e = _ADFM -> -> 1 `i `b ]
-"67
-[; ;init_periphery.c: 67:     CHS1 = 0;
+"66
+[; ;init_periphery.c: 66:     CHS1 = 0;
 [e = _CHS1 -> -> 0 `i `b ]
-"68
-[; ;init_periphery.c: 68:     CHS0 = 1;
+"67
+[; ;init_periphery.c: 67:     CHS0 = 1;
 [e = _CHS0 -> -> 1 `i `b ]
-"69
-[; ;init_periphery.c: 69:     measureType = 1;
+"68
+[; ;init_periphery.c: 68:     measureType = 1;
 [e = _measureType -> -> 1 `i `uc ]
-"70
-[; ;init_periphery.c: 70:     ADIF = 0;
+"69
+[; ;init_periphery.c: 69:     ADIF = 0;
 [e = _ADIF -> -> 0 `i `b ]
-"71
-[; ;init_periphery.c: 71:     GO = 1;
+"70
+[; ;init_periphery.c: 70:     GO = 1;
 [e = _GO -> -> 1 `i `b ]
-"73
-[; ;init_periphery.c: 73: }
+"71
+[; ;init_periphery.c: 71: }
 [e :UE 83 ]
 }

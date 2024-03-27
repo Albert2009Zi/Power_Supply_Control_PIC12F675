@@ -1,6 +1,5 @@
 #include <xc.h>
 #include "sounds.h"
-#include "interrupt.h"
 
 #define _XTAL_FREQ   4000000
 

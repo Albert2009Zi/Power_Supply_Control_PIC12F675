@@ -1146,12 +1146,14 @@ typedef uint16_t uintptr_t;
 # 2 "interrupt.c" 2
 
 # 1 "./interrupt.h" 1
-# 11 "./interrupt.h"
-void __attribute__((picinterrupt(("")))) ISR(void);
-
+# 17 "./interrupt.h"
 void MuxVoltage(void);
 
 void MuxTemp(void);
+
+void __attribute__((picinterrupt(("")))) ISR(void);
+
+void ADCProcessing(void);
 # 3 "interrupt.c" 2
 
 # 1 "./init_periphery.h" 1
@@ -1163,27 +1165,6 @@ void InitTimer1(void);
 void Init_uC(void);
 # 4 "interrupt.c" 2
 
-# 1 "./sounds.h" 1
-
-
-
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c90\\stdint.h" 1 3
-# 4 "./sounds.h" 2
-# 13 "./sounds.h"
-void ShortSound(void);
-
-void LongSound(void);
-
-void TimeOut(void);
-
-
-void TwoShortOneLong(void);
-
-void TwoShortTwoLong(void);
-
-void ThreeShort(void);
-# 5 "interrupt.c" 2
-
 
 
 
@@ -1192,8 +1173,39 @@ void ThreeShort(void);
 uint16_t cnt1 = 0;
 uint8_t cnt0 = 0;
 
-uint8_t measureType = 1;
+extern uint8_t measureType;
 uint8_t errorType = 1;
+extern volatile uint8_t sndEndFlag;
+
+
+void MuxVoltage(void){
+       ADCON0 = 0;
+       ADON = 1;
+       ADFM = 0;
+       CHS1 = 0;
+       CHS0 = 1;
+       ADRESH = 0;
+       ADRESL = 0;
+       measureType = 1;
+       ADIF = 0;
+       _delay((unsigned long)((50)*(4000000/4000000.0)));
+       GO = 1;
+}
+
+
+void MuxTemp(void){
+       ADCON0 = 0;
+       ADON = 1;
+       ADFM = 0;
+       CHS1 = 0;
+       CHS0 = 0;
+       ADRESH = 0;
+       ADRESL = 0;
+       measureType = 2;
+       ADIF = 0;
+       _delay((unsigned long)((50)*(4000000/4000000.0)));
+       GO = 1;
+}
 
 void __attribute__((picinterrupt(("")))) ISR(void)
 {
@@ -1217,8 +1229,15 @@ void __attribute__((picinterrupt(("")))) ISR(void)
 
         TMR1IF = 0;
     }
+}
 
 
+
+
+
+
+
+void ADCProcessing(void){
 
    if (ADIF == 1){
 
@@ -1233,14 +1252,17 @@ void __attribute__((picinterrupt(("")))) ISR(void)
   else if (ADRESH <= 47) {
            GP5 = 1;
     errorType = 2;
+    sndEndFlag = 1;
            }
 
          else if (ADRESH >= 71){
            GP5 = 1;
     errorType = 3;
+    sndEndFlag = 1;
            }
 
-          MuxTemp();
+  MuxTemp();
+
         break;
 
 
@@ -1266,37 +1288,15 @@ void __attribute__((picinterrupt(("")))) ISR(void)
           GP4 = 1;
                  GP5 = 1;
                         errorType = 5;
+                 sndEndFlag = 1;
      }
 
-     MuxVoltage();
+   MuxVoltage();
+
  break;
 
  default:
  break;
  }
-  }
-}
-
-void MuxVoltage(void){
-       ADCON0 = 0;
-       ADON = 1;
-       ADFM = 0;
-       CHS1 = 0;
-       CHS0 = 1;
-       measureType = 1;
-       ADIF = 0;
-       _delay((unsigned long)((50)*(4000000/4000000.0)));
-       GO = 1;
-}
-
-void MuxTemp(void){
-       ADCON0 = 0;
-       ADON = 1;
-       ADFM = 0;
-       CHS1 = 0;
-       CHS0 = 0;
-       measureType = 2;
-       ADIF = 0;
-       _delay((unsigned long)((50)*(4000000/4000000.0)));
-       GO = 1;
-}
+    }
+   }

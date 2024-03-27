@@ -1,12 +1,11 @@
 #include <xc.h>
 #include <stdint.h>
 #include "init_periphery.h"
-#include "interrupt.h"
 #include "sounds.h"
 
 #define _XTAL_FREQ   4000000 
 
-extern uint8_t  measureType;
+uint8_t  measureType;
 
 void InitTimer0(void){
 
@@ -69,5 +68,4 @@ void Init_uC(void){
     measureType = VOLTAGE_MEASURE; 
     ADIF   = 0;
     GO     = 1;       
-
 }

@@ -2,7 +2,6 @@
 #include <stdint.h>
 #include "interrupt.h"
 #include "init_periphery.h"
-#include "sounds.h"
 
 #define _XTAL_FREQ   4000000 
 
@@ -11,8 +10,39 @@
 uint16_t cnt1             = 0;
 uint8_t  cnt0             = 0;
 
-uint8_t measureType = VOLTAGE_MEASURE;
-uint8_t errorType   = ERROR_OK;
+extern uint8_t measureType;
+uint8_t errorType = ERROR_OK;
+extern volatile uint8_t sndEndFlag;
+
+
+void MuxVoltage(void){ 
+       ADCON0      = 0;                     /* must after every new switch be                          */ 
+       ADON        = 1;                     /* ADC is ON                                               */
+       ADFM        = 0;                     /* ADC results is left justified                          */
+       CHS1        = 0;   
+       CHS0        = 1;                     /* Enable ADC channel 1 (AN1) "Power ON button", ADC is ON */    
+       ADRESH      = 0;
+       ADRESL      = 0;
+       measureType = VOLTAGE_MEASURE; 
+       ADIF        = 0;
+       __delay_us(50);
+       GO          = 1; 
+}
+
+
+void MuxTemp(void){
+       ADCON0      = 0;                   /* must after every new switch be*/ 
+       ADON        = 1;                   /* ADC is ON                                       */
+       ADFM        = 0;                   /* ADC results is left justified                          */
+       CHS1        = 0;   
+       CHS0        = 0;                   /* Enable ADC channel 0 (AN0) "Temperature control", ADC is ON    */ 
+       ADRESH      = 0;
+       ADRESL      = 0;
+       measureType = TEMPERATURE_MEASURE;
+       ADIF        = 0;
+       __delay_us(50);
+       GO          = 1;    
+}
 
 void __interrupt() ISR(void)
 {       
@@ -36,9 +66,16 @@ void __interrupt() ISR(void)
 	 
         TMR1IF = 0;   // ?????????? ???? ?????????? ??????? 1
     }
+}
 
 
- //##########################ADC#####################################//      
+
+
+
+ //##########################ADC#####################################//  
+
+void ADCProcessing(void){
+
    if (ADIF == 1){     
       
       switch (measureType){
@@ -51,15 +88,18 @@ void __interrupt() ISR(void)
 
 	 else if (ADRESH <= 47) {
            GP5 = 1; 
-	   errorType = ERROR_UNDER_VOLTAGE; 
+	   errorType  = ERROR_UNDER_VOLTAGE; 
+	   sndEndFlag = 1;
            }
 
          else if (ADRESH >= 71){
            GP5 = 1;
-	   errorType = ERROR_OVER_VOLTAGE; 
+	   errorType  = ERROR_OVER_VOLTAGE; 
+	   sndEndFlag = 1;
            }    
-	   
-          MuxTemp();
+	 	
+	 MuxTemp();
+
         break;
 	
 	
@@ -84,38 +124,16 @@ void __interrupt() ISR(void)
              else  {
 		        GP4       = 1;
 	                GP5       = 1;
-                        errorType = ERROR_TMP_HIGH;  		
+                        errorType = ERROR_TMP_HIGH;  
+	                sndEndFlag = 1;		
 		   }
 		
-	    MuxVoltage();   	    
+	  MuxVoltage();
+	    
 	break;
 	
 	default:
 	break;
 	}  
-  }   
-}
-
-void MuxVoltage(void){ 
-       ADCON0 = 0;                     /* must after every new switch be                          */ 
-       ADON   = 1;                     /* ADC is ON                                               */
-       ADFM   = 0;                     /* ADC results is left justified                          */
-       CHS1   = 0;   
-       CHS0   = 1;                     /* Enable ADC channel 1 (AN1) "Power ON button", ADC is ON */    
-       measureType = VOLTAGE_MEASURE; 
-       ADIF   = 0;
-       __delay_us(50);
-       GO     = 1; 
-}
-
-void MuxTemp(void){
-       ADCON0      = 0;                   /* must after every new switch be*/ 
-       ADON        = 1;                   /* ADC is ON                                       */
-       ADFM        = 0;                   /* ADC results is left justified                          */
-       CHS1        = 0;   
-       CHS0        = 0;                   /* Enable ADC channel 0 (AN0) "Temperature control", ADC is ON    */ 
-       measureType = TEMPERATURE_MEASURE;
-       ADIF        = 0;
-       __delay_us(50);
-       GO          = 1;    
-}
+    }   
+   } 

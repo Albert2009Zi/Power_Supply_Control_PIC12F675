@@ -1154,22 +1154,15 @@ void InitTimer1(void);
 void Init_uC(void);
 # 3 "init_periphery.c" 2
 
-# 1 "./interrupt.h" 1
-# 11 "./interrupt.h"
-void __attribute__((picinterrupt(("")))) ISR(void);
-
-void MuxVoltage(void);
-
-void MuxTemp(void);
-# 4 "init_periphery.c" 2
-
 # 1 "./sounds.h" 1
 
 
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c90\\stdint.h" 1 3
 # 4 "./sounds.h" 2
-# 13 "./sounds.h"
+
+
+
 void ShortSound(void);
 
 void LongSound(void);
@@ -1182,12 +1175,12 @@ void TwoShortOneLong(void);
 void TwoShortTwoLong(void);
 
 void ThreeShort(void);
-# 5 "init_periphery.c" 2
+# 4 "init_periphery.c" 2
 
 
 
 
-extern uint8_t measureType;
+uint8_t measureType;
 
 void InitTimer0(void){
 
@@ -1250,5 +1243,4 @@ void Init_uC(void){
     measureType = 1;
     ADIF = 0;
     GO = 1;
-
 }

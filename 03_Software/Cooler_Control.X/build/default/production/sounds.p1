@@ -6,8 +6,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "92 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\pic\include\pic.h
 [v __delay `JF537 ~T0 @X0 0 e ]
 [p i __delay ]
-"7 sounds.c
-[; ;sounds.c: 7: extern uint16_t cnt1;
+"6 sounds.c
+[; ;sounds.c: 6: extern uint16_t cnt1;
 [v _cnt1 `ui ~T0 @X0 0 e ]
 "54 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\pic\include\proc\pic12f675.h
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\pic\include\proc\pic12f675.h: 54: __asm("INDF equ 00h");
@@ -105,130 +105,133 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1406
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\pic\include\proc\pic12f675.h: 1406: __asm("ANSEL equ 09Fh");
 [; <" ANSEL equ 09Fh ;# ">
-"9 sounds.c
-[; ;sounds.c: 9: void ShortSound(){
+"8 sounds.c
+[; ;sounds.c: 8: void ShortSound(){
 [v _ShortSound `(v ~T0 @X0 1 ef ]
 {
 [e :U _ShortSound ]
 [f ]
-"10
-[; ;sounds.c: 10:     GP2 = 1;
+"9
+[; ;sounds.c: 9:     GP2 = 1;
 [e = _GP2 -> -> 1 `i `b ]
-"11
-[; ;sounds.c: 11:     _delay((unsigned long)((120)*(4000000/4000.0)));
+"10
+[; ;sounds.c: 10:     _delay((unsigned long)((120)*(4000000/4000.0)));
 [e ( __delay (1 -> * -> -> 120 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"12
-[; ;sounds.c: 12:     GP2 = 0;
+"11
+[; ;sounds.c: 11:     GP2 = 0;
 [e = _GP2 -> -> 0 `i `b ]
-"13
-[; ;sounds.c: 13:     _delay((unsigned long)((80)*(4000000/4000.0)));
+"12
+[; ;sounds.c: 12:     _delay((unsigned long)((80)*(4000000/4000.0)));
 [e ( __delay (1 -> * -> -> 80 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"14
-[; ;sounds.c: 14: }
+"13
+[; ;sounds.c: 13: }
 [e :UE 81 ]
 }
-"16
-[; ;sounds.c: 16: void LongSound(){
+"15
+[; ;sounds.c: 15: void LongSound(){
 [v _LongSound `(v ~T0 @X0 1 ef ]
 {
 [e :U _LongSound ]
 [f ]
-"17
-[; ;sounds.c: 17:        GP2 = 1;
+"16
+[; ;sounds.c: 16:        GP2 = 1;
 [e = _GP2 -> -> 1 `i `b ]
-"18
-[; ;sounds.c: 18:     _delay((unsigned long)((200)*(4000000/4000.0)));
+"17
+[; ;sounds.c: 17:     _delay((unsigned long)((200)*(4000000/4000.0)));
 [e ( __delay (1 -> * -> -> 200 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"19
-[; ;sounds.c: 19:        GP2 = 0;
+"18
+[; ;sounds.c: 18:        GP2 = 0;
 [e = _GP2 -> -> 0 `i `b ]
-"20
-[; ;sounds.c: 20:     _delay((unsigned long)((80)*(4000000/4000.0)));
+"19
+[; ;sounds.c: 19:     _delay((unsigned long)((80)*(4000000/4000.0)));
 [e ( __delay (1 -> * -> -> 80 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"21
-[; ;sounds.c: 21: }
+"20
+[; ;sounds.c: 20: }
 [e :UE 82 ]
 }
-"23
-[; ;sounds.c: 23: void TimeOut(){
+"22
+[; ;sounds.c: 22: void TimeOut(){
 [v _TimeOut `(v ~T0 @X0 1 ef ]
 {
 [e :U _TimeOut ]
 [f ]
-"24
-[; ;sounds.c: 24:    while (cnt1 <= 1000) GP2 = 0;
+"23
+[; ;sounds.c: 23:    while (cnt1 <= 1000) GP2 = 0;
 [e $U 84  ]
 [e :U 85 ]
 [e = _GP2 -> -> 0 `i `b ]
 [e :U 84 ]
 [e $ <= _cnt1 -> -> 1000 `i `ui 85  ]
 [e :U 86 ]
-"25
-[; ;sounds.c: 25:     cnt1 = 0;
+"24
+[; ;sounds.c: 24:     cnt1 = 0;
 [e = _cnt1 -> -> 0 `i `ui ]
-"26
-[; ;sounds.c: 26: }
+"25
+[; ;sounds.c: 25: }
 [e :UE 83 ]
 }
-"29
-[; ;sounds.c: 29: void TwoShortOneLong(){
+"28
+[; ;sounds.c: 28: void TwoShortOneLong(){
 [v _TwoShortOneLong `(v ~T0 @X0 1 ef ]
 {
 [e :U _TwoShortOneLong ]
 [f ]
+"29
+[; ;sounds.c: 29:    ShortSound();
+[e ( _ShortSound ..  ]
 "30
 [; ;sounds.c: 30:    ShortSound();
 [e ( _ShortSound ..  ]
 "31
-[; ;sounds.c: 31:    ShortSound();
-[e ( _ShortSound ..  ]
-"32
-[; ;sounds.c: 32:    LongSound();
+[; ;sounds.c: 31:    LongSound();
 [e ( _LongSound ..  ]
-"33
-[; ;sounds.c: 33:    cnt1 = 0;
+"32
+[; ;sounds.c: 32:    cnt1 = 0;
 [e = _cnt1 -> -> 0 `i `ui ]
-"34
-[; ;sounds.c: 34:    TimeOut();
+"33
+[; ;sounds.c: 33:    TimeOut();
 [e ( _TimeOut ..  ]
-"35
-[; ;sounds.c: 35: }
+"34
+[; ;sounds.c: 34: }
 [e :UE 87 ]
 }
-"37
-[; ;sounds.c: 37: void TwoShortTwoLong(){
+"36
+[; ;sounds.c: 36: void TwoShortTwoLong(){
 [v _TwoShortTwoLong `(v ~T0 @X0 1 ef ]
 {
 [e :U _TwoShortTwoLong ]
 [f ]
+"38
+[; ;sounds.c: 38:    ShortSound();
+[e ( _ShortSound ..  ]
 "39
 [; ;sounds.c: 39:    ShortSound();
 [e ( _ShortSound ..  ]
 "40
-[; ;sounds.c: 40:    ShortSound();
-[e ( _ShortSound ..  ]
+[; ;sounds.c: 40:    LongSound();
+[e ( _LongSound ..  ]
 "41
 [; ;sounds.c: 41:    LongSound();
 [e ( _LongSound ..  ]
 "42
-[; ;sounds.c: 42:    LongSound();
-[e ( _LongSound ..  ]
-"43
-[; ;sounds.c: 43:    cnt1 = 0;
+[; ;sounds.c: 42:    cnt1 = 0;
 [e = _cnt1 -> -> 0 `i `ui ]
-"44
-[; ;sounds.c: 44:    TimeOut();
+"43
+[; ;sounds.c: 43:    TimeOut();
 [e ( _TimeOut ..  ]
-"45
-[; ;sounds.c: 45: }
+"44
+[; ;sounds.c: 44: }
 [e :UE 88 ]
 }
-"47
-[; ;sounds.c: 47: void ThreeShort(){
+"46
+[; ;sounds.c: 46: void ThreeShort(){
 [v _ThreeShort `(v ~T0 @X0 1 ef ]
 {
 [e :U _ThreeShort ]
 [f ]
+"47
+[; ;sounds.c: 47:    ShortSound();
+[e ( _ShortSound ..  ]
 "48
 [; ;sounds.c: 48:    ShortSound();
 [e ( _ShortSound ..  ]
@@ -236,15 +239,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;sounds.c: 49:    ShortSound();
 [e ( _ShortSound ..  ]
 "50
-[; ;sounds.c: 50:    ShortSound();
-[e ( _ShortSound ..  ]
-"51
-[; ;sounds.c: 51:    cnt1 = 0;
+[; ;sounds.c: 50:    cnt1 = 0;
 [e = _cnt1 -> -> 0 `i `ui ]
-"52
-[; ;sounds.c: 52:    TimeOut();
+"51
+[; ;sounds.c: 51:    TimeOut();
 [e ( _TimeOut ..  ]
-"53
-[; ;sounds.c: 53: }
+"52
+[; ;sounds.c: 52: }
 [e :UE 89 ]
 }

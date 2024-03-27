@@ -11,19 +11,20 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _Init_uC `(v ~T0 @X0 0 ef ]
 "67 main.c
 [v _DataProcessing `(v ~T0 @X0 0 ef ]
-"65
-[v _measureType `uc ~T0 @X0 0 e ]
-"20 ./sounds.h
-[; ;./sounds.h: 20: void TwoShortOneLong(void);
+"23 ./interrupt.h
+[; ;./interrupt.h: 23: void ADCProcessing(void);
+[v _ADCProcessing `(v ~T0 @X0 0 ef ]
+"14 ./sounds.h
+[; ;./sounds.h: 14: void TwoShortOneLong(void);
 [v _TwoShortOneLong `(v ~T0 @X0 0 ef ]
-"64 main.c
-[v _errorType `uc ~T0 @X0 0 e ]
-"22 ./sounds.h
-[; ;./sounds.h: 22: void TwoShortTwoLong(void);
+"16
+[; ;./sounds.h: 16: void TwoShortTwoLong(void);
 [v _TwoShortTwoLong `(v ~T0 @X0 0 ef ]
-"24
-[; ;./sounds.h: 24: void ThreeShort(void);
+"18
+[; ;./sounds.h: 18: void ThreeShort(void);
 [v _ThreeShort `(v ~T0 @X0 0 ef ]
+"63 main.c
+[v _errorType `uc ~T0 @X0 0 e ]
 "54 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\pic\include\proc\pic12f675.h
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\pic\include\proc\pic12f675.h: 54: __asm("INDF equ 00h");
 [; <" INDF equ 00h ;# ">
@@ -120,21 +121,28 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1406
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\pic\include\proc\pic12f675.h: 1406: __asm("ANSEL equ 09Fh");
 [; <" ANSEL equ 09Fh ;# ">
-"50 main.c
-[; ;main.c: 50: }
+"49 main.c
+[; ;main.c: 49:            break;
 [p x FOSC  =  INTRCIO    ]
-"51
+"50
+[; ;main.c: 50:  }
 [p x WDTE  =  OFF        ]
-"52
+"51
+[; ;main.c: 51: }
 [p x PWRTE  =  OFF       ]
-"53
+"52
 [p x MCLRE  =  ON        ]
-"54
+"53
 [p x BOREN  =  ON        ]
-"55
+"54
 [p x CP  =  OFF          ]
-"56
+"55
 [p x CPD  =  OFF         ]
+"65
+[v _sndEndFlag `Vuc ~T0 @X0 1 e ]
+[i _sndEndFlag
+-> -> 0 `i `uc
+]
 [v $root$_main `(v ~T0 @X0 0 e ]
 "70
 [v _main `(v ~T0 @X0 1 ef ]
@@ -154,66 +162,55 @@ Version 4.0 HI-TECH Software Intermediate Code
 "77
 [e ( _DataProcessing ..  ]
 "78
+[e ( _ADCProcessing ..  ]
+"79
 }
 [e :U 82 ]
 [e $U 83  ]
 [e :U 84 ]
-"79
+"80
 [e :UE 81 ]
 }
-"81
+"82
 [v _DataProcessing `(v ~T0 @X0 1 ef ]
 {
 [e :U _DataProcessing ]
 [f ]
-"83
+"84
 [e $U 87  ]
 {
-"84
+"86
 [e :U 88 ]
-"85
-[e $U 86  ]
 "87
-[e :U 89 ]
+[e = _sndEndFlag -> -> 0 `i `uc ]
 "88
-[e $ ! != -> _measureType `i -> 1 `i 90  ]
-{
-"89
-[e ( _TwoShortOneLong ..  ]
-}
-[e :U 90 ]
+[e $U 86  ]
 "90
-[e = _errorType -> -> 1 `i `uc ]
+[e :U 89 ]
 "91
-[e $U 86  ]
+[e ( _TwoShortOneLong ..  ]
+"92
+[e = _sndEndFlag -> -> 0 `i `uc ]
 "93
-[e :U 91 ]
-"94
-[e $ ! != -> _measureType `i -> 1 `i 92  ]
-{
-"95
-[e ( _TwoShortTwoLong ..  ]
-}
-[e :U 92 ]
-"96
-[e = _errorType -> -> 1 `i `uc ]
-"97
 [e $U 86  ]
-"99
-[e :U 93 ]
+"95
+[e :U 90 ]
+"96
+[e ( _TwoShortTwoLong ..  ]
+"97
+[e = _sndEndFlag -> -> 0 `i `uc ]
+"98
+[e $U 86  ]
 "100
-[e $ ! != -> _measureType `i -> 2 `i 94  ]
-{
+[e :U 91 ]
 "101
 [e ( _ThreeShort ..  ]
-}
-[e :U 94 ]
 "102
-[e = _errorType -> -> 1 `i `uc ]
+[e = _sndEndFlag -> -> 0 `i `uc ]
 "103
 [e $U 86  ]
 "105
-[e :U 95 ]
+[e :U 92 ]
 "106
 [e $U 86  ]
 "107
@@ -222,9 +219,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 87 ]
 [e [\ -> _errorType `i , $ -> 1 `i 88
  , $ -> 2 `i 89
- , $ -> 3 `i 91
- , $ -> 5 `i 93
- 95 ]
+ , $ -> 3 `i 90
+ , $ -> 5 `i 91
+ 92 ]
 [e :U 86 ]
 "108
 [e :UE 85 ]

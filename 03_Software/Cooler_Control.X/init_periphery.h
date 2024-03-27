@@ -17,6 +17,5 @@ void InitTimer1(void);
 
 void Init_uC(void);
 
-
 #endif	/* INIT_PERIPHERY_H */
 

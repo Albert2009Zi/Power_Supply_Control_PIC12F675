@@ -1147,12 +1147,14 @@ typedef uint16_t uintptr_t;
 # 40 "main.c" 2
 
 # 1 "./interrupt.h" 1
-# 11 "./interrupt.h"
-void __attribute__((picinterrupt(("")))) ISR(void);
-
+# 17 "./interrupt.h"
 void MuxVoltage(void);
 
 void MuxTemp(void);
+
+void __attribute__((picinterrupt(("")))) ISR(void);
+
+void ADCProcessing(void);
 # 41 "main.c" 2
 
 # 1 "./init_periphery.h" 1
@@ -1170,7 +1172,9 @@ void Init_uC(void);
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c90\\stdint.h" 1 3
 # 4 "./sounds.h" 2
-# 13 "./sounds.h"
+
+
+
 void ShortSound(void);
 
 void LongSound(void);
@@ -1184,7 +1188,6 @@ void TwoShortTwoLong(void);
 
 void ThreeShort(void);
 # 43 "main.c" 2
-
 
 
 
@@ -1207,6 +1210,7 @@ void ThreeShort(void);
 
 extern uint8_t errorType;
 extern uint8_t measureType;
+volatile uint8_t sndEndFlag = 0;
 
 void DataProcessing(void);
 
@@ -1219,34 +1223,34 @@ void main()
 
     while(1){
      DataProcessing();
+     ADCProcessing();
     }
 }
 
 void DataProcessing(void){
 
-    switch(errorType){
+      switch(errorType){
+
   case 1:
-     break;
+    sndEndFlag = 0;
+    break;
 
   case 2:
-   if (measureType != 1){
-    TwoShortOneLong();}
-    errorType = 1;
-     break;
+    TwoShortOneLong();
+    sndEndFlag = 0;
+    break;
 
   case 3:
-    if (measureType != 1){
-            TwoShortTwoLong();}
-    errorType = 1;
-     break;
+           TwoShortTwoLong();
+    sndEndFlag = 0;
+    break;
 
   case 5:
-   if (measureType != 2){
-           ThreeShort();}
-    errorType = 1;
-     break;
+           ThreeShort();
+    sndEndFlag = 0;
+    break;
 
   default:
-            break;
+           break;
  }
 }
