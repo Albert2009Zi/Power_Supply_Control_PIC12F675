@@ -14,10 +14,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1534
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\pic\include\proc\pic12f675.h: 1534: extern volatile __bit CHS0 __attribute__((address(0xFA)));
 [v _CHS0 `Vb ~T0 @X0 0 e@250 ]
-"14 interrupt.c
-[; ;interrupt.c: 14: extern uint8_t measureType;
-[v _measureType `uc ~T0 @X0 0 e ]
-"1495 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\pic\include\proc\pic12f675.h
+"1495
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\pic\include\proc\pic12f675.h: 1495: extern volatile __bit ADIF __attribute__((address(0x66)));
 [v _ADIF `Vb ~T0 @X0 0 e@102 ]
 [v F537 `(v ~T0 @X0 1 tf1`ul ]
@@ -47,6 +44,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "623
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\pic\include\proc\pic12f675.h: 623: extern volatile unsigned char ADRESH __attribute__((address(0x01E)));
 [v _ADRESH `Vuc ~T0 @X0 0 e@30 ]
+"1384
+[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\pic\include\proc\pic12f675.h: 1384: extern volatile unsigned char ADRESL __attribute__((address(0x09E)));
+[v _ADRESL `Vuc ~T0 @X0 0 e@158 ]
 "1600
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\pic\include\proc\pic12f675.h: 1600: extern volatile __bit GP5 __attribute__((address(0x2D)));
 [v _GP5 `Vb ~T0 @X0 0 e@45 ]
@@ -164,17 +164,23 @@ Version 4.0 HI-TECH Software Intermediate Code
 [i _cnt0
 -> -> 0 `i `uc
 ]
-"12
-[; ;interrupt.c: 12: uint8_t adcValue = 0;
-[v _adcValue `uc ~T0 @X0 1 e ]
-[i _adcValue
--> -> 0 `i `uc
+"13
+[; ;interrupt.c: 13: uint8_t measureType = 1;
+[v _measureType `uc ~T0 @X0 1 e ]
+[i _measureType
+-> -> 1 `i `uc
 ]
-"15
-[; ;interrupt.c: 15: uint8_t errorType = 1;
+"14
+[; ;interrupt.c: 14: uint8_t errorType = 1;
 [v _errorType `uc ~T0 @X0 1 e ]
 [i _errorType
 -> -> 1 `i `uc
+]
+"15
+[; ;interrupt.c: 15: uint16_t adcValue = 0;
+[v _adcValue `ui ~T0 @X0 1 e ]
+[i _adcValue
+-> -> 0 `i `ui
 ]
 "17
 [; ;interrupt.c: 17: void MuxVoltage(void){
@@ -189,8 +195,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;interrupt.c: 19:        ADON = 1;
 [e = _ADON -> -> 1 `i `b ]
 "20
-[; ;interrupt.c: 20:        ADFM = 0;
-[e = _ADFM -> -> 0 `i `b ]
+[; ;interrupt.c: 20:        ADFM = 1;
+[e = _ADFM -> -> 1 `i `b ]
 "21
 [; ;interrupt.c: 21:        CHS1 = 0;
 [e = _CHS1 -> -> 0 `i `b ]
@@ -204,8 +210,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;interrupt.c: 24:        ADIF = 0;
 [e = _ADIF -> -> 0 `i `b ]
 "25
-[; ;interrupt.c: 25:        _delay((unsigned long)((1)*(4000000/4000.0)));
-[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+[; ;interrupt.c: 25:        _delay((unsigned long)((50)*(4000000/4000000.0)));
+[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 4000000 `l `d .4000000.0 `ul ]
 "26
 [; ;interrupt.c: 26:        GO = 1;
 [e = _GO -> -> 1 `i `b ]
@@ -226,8 +232,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;interrupt.c: 32:        ADON = 1;
 [e = _ADON -> -> 1 `i `b ]
 "33
-[; ;interrupt.c: 33:        ADFM = 0;
-[e = _ADFM -> -> 0 `i `b ]
+[; ;interrupt.c: 33:        ADFM = 1;
+[e = _ADFM -> -> 1 `i `b ]
 "34
 [; ;interrupt.c: 34:        CHS1 = 0;
 [e = _CHS1 -> -> 0 `i `b ]
@@ -241,8 +247,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;interrupt.c: 37:        ADIF = 0;
 [e = _ADIF -> -> 0 `i `b ]
 "38
-[; ;interrupt.c: 38:        _delay((unsigned long)((1)*(4000000/4000.0)));
-[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+[; ;interrupt.c: 38:        _delay((unsigned long)((50)*(4000000/4000000.0)));
+[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 4000000 `l `d .4000000.0 `ul ]
 "39
 [; ;interrupt.c: 39:        GO = 1;
 [e = _GO -> -> 1 `i `b ]
@@ -264,7 +270,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $ ! == -> _TMR0IF `i -> 1 `i 84  ]
 {
 "48
-[; ;interrupt.c: 48:     TMR0 = 6;
+[; ;interrupt.c: 48:         TMR0 = 6;
 [e = _TMR0 -> -> 6 `i `uc ]
 "49
 [; ;interrupt.c: 49:  cnt0++;
@@ -300,164 +306,161 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;interrupt.c: 64: }
 [e :UE 83 ]
 }
-"68
-[; ;interrupt.c: 68: void ADCProcessing(void){
+"72
+[; ;interrupt.c: 72: void ADCProcessing(void){
 [v _ADCProcessing `(v ~T0 @X0 1 ef ]
 {
 [e :U _ADCProcessing ]
 [f ]
-"70
-[; ;interrupt.c: 70:    if (ADIF == 1){
+"74
+[; ;interrupt.c: 74:     if (ADIF == 1){
 [e $ ! == -> _ADIF `i -> 1 `i 87  ]
 {
-"72
-[; ;interrupt.c: 72:        adcValue = ADRESH;
-[e = _adcValue _ADRESH ]
-"74
-[; ;interrupt.c: 74:       switch (measureType){
+"75
+[; ;interrupt.c: 75:      adcValue = (uint16_t) ((ADRESH << 8) + ADRESL);
+[e = _adcValue -> + << -> _ADRESH `i -> 8 `i -> _ADRESL `i `ui ]
+"77
+[; ;interrupt.c: 77:       switch (measureType){
 [e $U 89  ]
 {
-"75
-[; ;interrupt.c: 75:        case 1:
-[e :U 90 ]
-"77
-[; ;interrupt.c: 77:  if ((adcValue > 47) && (adcValue < 71)){
-[e $ ! && > -> _adcValue `i -> 47 `i < -> _adcValue `i -> 71 `i 91  ]
-{
 "78
-[; ;interrupt.c: 78:        GP5 = 0;
-[e = _GP5 -> -> 0 `i `b ]
-"79
-[; ;interrupt.c: 79:     GP2 = 0;
-[e = _GP2 -> -> 0 `i `b ]
+[; ;interrupt.c: 78:        case 1:
+[e :U 90 ]
 "80
-[; ;interrupt.c: 80:        errorType = 1;
-[e = _errorType -> -> 1 `i `uc ]
+[; ;interrupt.c: 80:  if ((adcValue > 190) && (adcValue < 285) && (errorType == 1)){
+[e $ ! && && > _adcValue -> -> 190 `i `ui < _adcValue -> -> 285 `i `ui == -> _errorType `i -> 1 `i 91  ]
+{
 "81
-[; ;interrupt.c: 81:            }
+[; ;interrupt.c: 81:            GP5 = 0;
+[e = _GP5 -> -> 0 `i `b ]
+"82
+[; ;interrupt.c: 82:     GP2 = 0;
+[e = _GP2 -> -> 0 `i `b ]
+"83
+[; ;interrupt.c: 83:            }
 }
 [e $U 92  ]
-"82
-[; ;interrupt.c: 82:   else if (adcValue <= 47) {
-[e :U 91 ]
-[e $ ! <= -> _adcValue `i -> 47 `i 93  ]
-{
-"83
-[; ;interrupt.c: 83:        GP5 = 1;
-[e = _GP5 -> -> 1 `i `b ]
 "84
-[; ;interrupt.c: 84:     errorType = 2;
-[e = _errorType -> -> 2 `i `uc ]
+[; ;interrupt.c: 84:         else if (adcValue <= 190) {
+[e :U 91 ]
+[e $ ! <= _adcValue -> -> 190 `i `ui 93  ]
+{
 "85
-[; ;interrupt.c: 85:            }
+[; ;interrupt.c: 85:            GP5 = 1;
+[e = _GP5 -> -> 1 `i `b ]
+"86
+[; ;interrupt.c: 86:     errorType = 2;
+[e = _errorType -> -> 2 `i `uc ]
+"87
+[; ;interrupt.c: 87:            }
 }
 [e $U 94  ]
-"86
-[; ;interrupt.c: 86:          else if (adcValue >= 71){
-[e :U 93 ]
-[e $ ! >= -> _adcValue `i -> 71 `i 95  ]
-{
-"87
-[; ;interrupt.c: 87:            GP5 = 1;
-[e = _GP5 -> -> 1 `i `b ]
 "88
-[; ;interrupt.c: 88:         errorType = 3;
-[e = _errorType -> -> 3 `i `uc ]
+[; ;interrupt.c: 88:   else if (adcValue >= 285){
+[e :U 93 ]
+[e $ ! >= _adcValue -> -> 285 `i `ui 95  ]
+{
 "89
-[; ;interrupt.c: 89:            }
+[; ;interrupt.c: 89:            GP5 = 1;
+[e = _GP5 -> -> 1 `i `b ]
+"90
+[; ;interrupt.c: 90:     errorType = 3;
+[e = _errorType -> -> 3 `i `uc ]
+"91
+[; ;interrupt.c: 91:            }
 }
 [e :U 95 ]
 [e :U 94 ]
 [e :U 92 ]
-"90
-[; ;interrupt.c: 90:   MuxTemp();
+"93
+[; ;interrupt.c: 93:           MuxTemp();
 [e ( _MuxTemp ..  ]
-"91
-[; ;interrupt.c: 91:         break;
-[e $U 88  ]
 "94
-[; ;interrupt.c: 94:  case 2:
-[e :U 96 ]
-"96
-[; ;interrupt.c: 96:              if (adcValue < 50){
-[e $ ! < -> _adcValue `i -> 50 `i 97  ]
-{
+[; ;interrupt.c: 94:         break;
+[e $U 88  ]
 "97
-[; ;interrupt.c: 97:         GP5 = 1;
-[e = _GP5 -> -> 1 `i `b ]
-"98
-[; ;interrupt.c: 98:         GP4 = 0;
-[e = _GP4 -> -> 0 `i `b ]
+[; ;interrupt.c: 97:  case 2:
+[e :U 96 ]
 "99
-[; ;interrupt.c: 99:               errorType = 1;
-[e = _errorType -> -> 1 `i `uc ]
+[; ;interrupt.c: 99:       if (adcValue < 200){
+[e $ ! < _adcValue -> -> 200 `i `ui 97  ]
+{
 "100
-[; ;interrupt.c: 100:     }
+[; ;interrupt.c: 100:         GP5 = 1;
+[e = _GP5 -> -> 1 `i `b ]
+"101
+[; ;interrupt.c: 101:         GP4 = 0;
+[e = _GP4 -> -> 0 `i `b ]
+"102
+[; ;interrupt.c: 102:                   errorType = 1;
+[e = _errorType -> -> 1 `i `uc ]
+"103
+[; ;interrupt.c: 103:     }
 }
 [e $U 98  ]
-"102
-[; ;interrupt.c: 102:               else if ((adcValue >= 50) && (adcValue < 232)){
-[e :U 97 ]
-[e $ ! && >= -> _adcValue `i -> 50 `i < -> _adcValue `i -> 232 `i 99  ]
-{
-"103
-[; ;interrupt.c: 103:           GP4 = 0;
-[e = _GP4 -> -> 0 `i `b ]
-"104
-[; ;interrupt.c: 104:    errorType = 1;
-[e = _errorType -> -> 1 `i `uc ]
 "105
-[; ;interrupt.c: 105:                        }
+[; ;interrupt.c: 105:              else if ((adcValue >= 200) && (adcValue < 930)){
+[e :U 97 ]
+[e $ ! && >= _adcValue -> -> 200 `i `ui < _adcValue -> -> 930 `i `ui 99  ]
+{
+"106
+[; ;interrupt.c: 106:           GP4 = 0;
+[e = _GP4 -> -> 0 `i `b ]
+"107
+[; ;interrupt.c: 107:    errorType = 1;
+[e = _errorType -> -> 1 `i `uc ]
+"108
+[; ;interrupt.c: 108:                        }
 }
 [e $U 100  ]
-"107
-[; ;interrupt.c: 107:        else if ((adcValue >= 232) && (adcValue < 242)){
-[e :U 99 ]
-[e $ ! && >= -> _adcValue `i -> 232 `i < -> _adcValue `i -> 242 `i 101  ]
-{
-"108
-[; ;interrupt.c: 108:           GP4 = 1;
-[e = _GP4 -> -> 1 `i `b ]
-"109
-[; ;interrupt.c: 109:    errorType = 1;
-[e = _errorType -> -> 1 `i `uc ]
 "110
-[; ;interrupt.c: 110:                        }
+[; ;interrupt.c: 110:       else if ((adcValue >= 930) && (adcValue < 970)){
+[e :U 99 ]
+[e $ ! && >= _adcValue -> -> 930 `i `ui < _adcValue -> -> 970 `i `ui 101  ]
+{
+"111
+[; ;interrupt.c: 111:           GP4 = 1;
+[e = _GP4 -> -> 1 `i `b ]
+"112
+[; ;interrupt.c: 112:    errorType = 1;
+[e = _errorType -> -> 1 `i `uc ]
+"113
+[; ;interrupt.c: 113:                        }
 }
 [e $U 102  ]
-"111
-[; ;interrupt.c: 111:              else {
+"114
+[; ;interrupt.c: 114:              else {
 [e :U 101 ]
 {
-"112
-[; ;interrupt.c: 112:           GP4 = 1;
-[e = _GP4 -> -> 1 `i `b ]
-"113
-[; ;interrupt.c: 113:                  GP5 = 1;
-[e = _GP5 -> -> 1 `i `b ]
-"114
-[; ;interrupt.c: 114:                         errorType = 5;
-[e = _errorType -> -> 5 `i `uc ]
 "115
-[; ;interrupt.c: 115:      }
+[; ;interrupt.c: 115:           GP4 = 1;
+[e = _GP4 -> -> 1 `i `b ]
+"116
+[; ;interrupt.c: 116:                  GP5 = 1;
+[e = _GP5 -> -> 1 `i `b ]
+"117
+[; ;interrupt.c: 117:                         errorType = 5;
+[e = _errorType -> -> 5 `i `uc ]
+"118
+[; ;interrupt.c: 118:      }
 }
 [e :U 102 ]
 [e :U 100 ]
 [e :U 98 ]
-"117
-[; ;interrupt.c: 117:    MuxVoltage();
+"120
+[; ;interrupt.c: 120:      MuxVoltage();
 [e ( _MuxVoltage ..  ]
-"119
-[; ;interrupt.c: 119:  break;
-[e $U 88  ]
-"121
-[; ;interrupt.c: 121:  default:
-[e :U 103 ]
 "122
 [; ;interrupt.c: 122:  break;
 [e $U 88  ]
-"123
-[; ;interrupt.c: 123:  }
+"124
+[; ;interrupt.c: 124:  default:
+[e :U 103 ]
+"125
+[; ;interrupt.c: 125:  break;
+[e $U 88  ]
+"126
+[; ;interrupt.c: 126:  }
 }
 [e $U 88  ]
 [e :U 89 ]
@@ -465,11 +468,11 @@ Version 4.0 HI-TECH Software Intermediate Code
  , $ -> 2 `i 96
  103 ]
 [e :U 88 ]
-"124
-[; ;interrupt.c: 124:     }
+"127
+[; ;interrupt.c: 127:      }
 }
 [e :U 87 ]
-"125
-[; ;interrupt.c: 125:    }
+"128
+[; ;interrupt.c: 128: }
 [e :UE 86 ]
 }

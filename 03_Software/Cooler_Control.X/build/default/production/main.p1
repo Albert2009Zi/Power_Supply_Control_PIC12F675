@@ -12,7 +12,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "23 ./interrupt.h
 [; ;./interrupt.h: 23: void ADCProcessing(void);
 [v _ADCProcessing `(v ~T0 @X0 0 ef ]
-"66 main.c
+"65 main.c
 [v _DataProcessing `(v ~T0 @X0 0 ef ]
 "14 ./sounds.h
 [; ;./sounds.h: 14: void TwoShortOneLong(void);
@@ -136,68 +136,68 @@ Version 4.0 HI-TECH Software Intermediate Code
 "55
 [p x CPD  =  OFF         ]
 [v $root$_main `(v ~T0 @X0 0 e ]
-"69
+"68
 [v _main `(v ~T0 @X0 1 ef ]
-"70
+"69
 {
 [e :U _main ]
 [f ]
-"71
+"70
 [e ( _InitTimer0 ..  ]
-"72
+"71
 [e ( _InitTimer1 ..  ]
-"73
+"72
 [e ( _Init_uC ..  ]
-"75
+"74
 [e :U 83 ]
 {
-"76
+"75
 [e ( _ADCProcessing ..  ]
-"77
+"76
 [e ( _DataProcessing ..  ]
-"78
+"77
 }
 [e :U 82 ]
 [e $U 83  ]
 [e :U 84 ]
-"79
+"78
 [e :UE 81 ]
 }
-"81
+"80
 [v _DataProcessing `(v ~T0 @X0 1 ef ]
 {
 [e :U _DataProcessing ]
 [f ]
-"83
+"82
 [e $U 87  ]
 {
-"85
+"84
 [e :U 88 ]
-"86
+"85
 [e $U 86  ]
-"88
+"87
 [e :U 89 ]
-"89
+"88
 [e ( _TwoShortOneLong ..  ]
-"90
+"89
 [e $U 86  ]
-"92
+"91
 [e :U 90 ]
-"93
+"92
 [e ( _TwoShortTwoLong ..  ]
-"94
+"93
 [e $U 86  ]
-"96
+"95
 [e :U 91 ]
-"97
+"96
 [e ( _ThreeShort ..  ]
-"98
+"97
 [e $U 86  ]
-"100
+"99
 [e :U 92 ]
-"101
+"100
 [e $U 86  ]
-"102
+"101
 }
 [e $U 86  ]
 [e :U 87 ]
@@ -207,6 +207,6 @@ Version 4.0 HI-TECH Software Intermediate Code
  , $ -> 5 `i 91
  92 ]
 [e :U 86 ]
-"103
+"102
 [e :UE 85 ]
 }

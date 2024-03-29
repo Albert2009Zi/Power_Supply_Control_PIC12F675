@@ -61,7 +61,6 @@ __CONFIG(FOSC_INTRCIO & WDTE_OFF & PWRTE_ON & MCLRE_OFF & BOREN_ON & CP_OFF & CP
 #endif
 
 extern uint8_t errorType;
-extern uint8_t measureType;
 
 void DataProcessing(void);
 

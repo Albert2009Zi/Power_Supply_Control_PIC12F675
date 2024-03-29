@@ -5,7 +5,7 @@
 
 #define _XTAL_FREQ   4000000 
 
-uint8_t  measureType;
+extern uint8_t  measureType;
 
 void InitTimer0(void){
 
@@ -18,7 +18,7 @@ void InitTimer0(void){
 
 void InitTimer1(void){
 
-     TMR1H = 0xFC;
+         TMR1H = 0xFC;
 	 TMR1L = 0x17;         // Interrupt after 1ms 0x03E8 = 1000, 1000000/1000 = 1000Hz, 1/1000Hz = 1ms
 	 
 	 T1CON = 0x01;         //Enable Timer 1
@@ -62,7 +62,7 @@ void Init_uC(void){
     
     ADCON0 = 0;
     ADON   = 1;                     /* ADC is ON                                               */
-    ADFM   = 0;                     /* ADC results is left justified                          */
+    ADFM   = 1;                     /* ADC results is right justified                          */
     CHS1   = 0;   
     CHS0   = 1;                     /* Enable ADC channel 1 (AN1) "Power ON button", ADC is ON */    
     measureType = VOLTAGE_MEASURE; 

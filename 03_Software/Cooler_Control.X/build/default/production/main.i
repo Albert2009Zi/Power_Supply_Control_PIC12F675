@@ -1209,7 +1209,6 @@ void ThreeShort(void);
 
 
 extern uint8_t errorType;
-extern uint8_t measureType;
 
 void DataProcessing(void);
 
