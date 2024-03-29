@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.36 build 20220127204148 
-                                                                                               Wed Mar 27 21:15:13 2024
+                                                                                               Fri Mar 29 13:58:16 2024
 
 Microchip MPLAB XC8 C Compiler v2.36 (Free license) build 20220127204148 Og1 
      1                           	processor	12F675
@@ -455,18 +455,18 @@ Microchip MPLAB XC8 C Compiler v2.36 (Free license) build 20220127204148 Og1
    441  019B                     _main:	
    442                           ;psect for function _main
    443                           
-   444  019B                     l1389:	
+   444  019B                     l1387:	
    445                           ;incstack = 0
    446                           ; Regs used in _main: [wreg-fsr0h+status,2+status,0+pclath+cstack]
    447                           
    448  019B  2183               	fcall	_InitTimer0
    449  019C  216F               	fcall	_InitTimer1
    450  019D  2098               	fcall	_Init_uC
-   451  019E                     l1391:
-   452  019E  20C0               	fcall	_DataProcessing
-   453  019F                     l1393:
-   454  019F  2015               	fcall	_ADCProcessing
-   455  01A0  299E               	goto	l1391
+   451  019E                     l1389:
+   452  019E  2015               	fcall	_ADCProcessing
+   453  019F                     l1391:
+   454  019F  20C0               	fcall	_DataProcessing
+   455  01A0  299E               	goto	l1389
    456  01A1  280B               	ljmp	start
    457  01A2                     __end_of_main:
    458                           
@@ -505,7 +505,7 @@ Microchip MPLAB XC8 C Compiler v2.36 (Free license) build 20220127204148 Og1
    491  0098                     _Init_uC:	
    492                           ;psect for function _Init_uC
    493                           
-   494  0098                     l1339:	
+   494  0098                     l1337:	
    495                           ;incstack = 0
    496                           ; Regs used in _Init_uC: [wreg+status,2+status,0+pclath+cstack]
    497                           
@@ -514,111 +514,111 @@ Microchip MPLAB XC8 C Compiler v2.36 (Free license) build 20220127204148 Og1
    500  0098  3007               	movlw	7
    501  0099  1283               	bcf	3,5	;RP0=0, select bank0
    502  009A  0099               	movwf	25	;volatile
-   503  009B                     l1341:
+   503  009B                     l1339:
    504                           
    505                           ;init_periphery.c: 33:     VRCON = 0x00;
    506  009B  1683               	bsf	3,5	;RP0=1, select bank1
    507  009C  0199               	clrf	25	;volatile
-   508  009D                     l1343:
+   508  009D                     l1341:
    509                           
    510                           ;init_periphery.c: 36:     TRISIO = 0;
    511  009D  0185               	clrf	5	;volatile
-   512  009E                     l1345:
+   512  009E                     l1343:
    513                           
    514                           ;init_periphery.c: 37:     GPIO = 0;
    515  009E  1283               	bcf	3,5	;RP0=0, select bank0
    516  009F  0185               	clrf	5	;volatile
-   517  00A0                     l1347:
+   517  00A0                     l1345:
    518                           
    519                           ;init_periphery.c: 40:     TRISIO2 = 0;
    520  00A0  1683               	bsf	3,5	;RP0=1, select bank1
    521  00A1  1105               	bcf	5,2	;volatile
-   522  00A2                     l1349:
+   522  00A2                     l1347:
    523                           
    524                           ;init_periphery.c: 41:     GP2 = 0;
    525  00A2  1283               	bcf	3,5	;RP0=0, select bank0
    526  00A3  1105               	bcf	5,2	;volatile
-   527  00A4                     l1351:
+   527  00A4                     l1349:
    528                           
    529                           ;init_periphery.c: 44:     TRISIO5 = 0;
    530  00A4  1683               	bsf	3,5	;RP0=1, select bank1
    531  00A5  1285               	bcf	5,5	;volatile
-   532  00A6                     l1353:
+   532  00A6                     l1351:
    533                           
    534                           ;init_periphery.c: 45:     GP5 = 1;
    535  00A6  1283               	bcf	3,5	;RP0=0, select bank0
    536  00A7  1685               	bsf	5,5	;volatile
-   537  00A8                     l1355:
+   537  00A8                     l1353:
    538                           
    539                           ;init_periphery.c: 48:     TRISIO4 = 0;
    540  00A8  1683               	bsf	3,5	;RP0=1, select bank1
    541  00A9  1205               	bcf	5,4	;volatile
-   542  00AA                     l1357:
+   542  00AA                     l1355:
    543                           
    544                           ;init_periphery.c: 49:     GP4 = 0;
    545  00AA  1283               	bcf	3,5	;RP0=0, select bank0
    546  00AB  1205               	bcf	5,4	;volatile
-   547  00AC                     l1359:
+   547  00AC                     l1357:
    548                           
    549                           ;init_periphery.c: 52:     VCFG = 1;
    550  00AC  171F               	bsf	31,6	;volatile
-   551  00AD                     l1361:
+   551  00AD                     l1359:
    552                           
    553                           ;init_periphery.c: 53:     TRISIO0 = 1;
    554  00AD  1683               	bsf	3,5	;RP0=1, select bank1
    555  00AE  1405               	bsf	5,0	;volatile
-   556  00AF                     l1363:
+   556  00AF                     l1361:
    557                           
    558                           ;init_periphery.c: 54:     TRISIO1 = 1;
    559  00AF  1485               	bsf	5,1	;volatile
-   560  00B0                     l1365:
+   560  00B0                     l1363:
    561                           
    562                           ;init_periphery.c: 56:     ANSEL = 0b00110011;
    563  00B0  3033               	movlw	51
    564  00B1  009F               	movwf	31	;volatile
-   565  00B2                     l1367:
+   565  00B2                     l1365:
    566                           
    567                           ;init_periphery.c: 58:     PEIE = 1;
    568  00B2  170B               	bsf	11,6	;volatile
-   569  00B3                     l1369:
+   569  00B3                     l1367:
    570                           
    571                           ;init_periphery.c: 59:     GIE = 1;
    572  00B3  178B               	bsf	11,7	;volatile
-   573  00B4                     l1371:
+   573  00B4                     l1369:
    574                           
    575                           ;init_periphery.c: 61:     LongSound();
    576  00B4  2103               	fcall	_LongSound
-   577  00B5                     l1373:
+   577  00B5                     l1371:
    578                           
    579                           ;init_periphery.c: 63:     ADCON0 = 0;
    580  00B5  1283               	bcf	3,5	;RP0=0, select bank0
    581  00B6  019F               	clrf	31	;volatile
-   582  00B7                     l1375:
+   582  00B7                     l1373:
    583                           
    584                           ;init_periphery.c: 64:     ADON = 1;
    585  00B7  141F               	bsf	31,0	;volatile
-   586  00B8                     l1377:
+   586  00B8                     l1375:
    587                           
-   588                           ;init_periphery.c: 65:     ADFM = 1;
-   589  00B8  179F               	bsf	31,7	;volatile
-   590  00B9                     l1379:
+   588                           ;init_periphery.c: 65:     ADFM = 0;
+   589  00B8  139F               	bcf	31,7	;volatile
+   590  00B9                     l1377:
    591                           
    592                           ;init_periphery.c: 66:     CHS1 = 0;
    593  00B9  119F               	bcf	31,3	;volatile
-   594  00BA                     l1381:
+   594  00BA                     l1379:
    595                           
    596                           ;init_periphery.c: 67:     CHS0 = 1;
    597  00BA  151F               	bsf	31,2	;volatile
-   598  00BB                     l1383:
+   598  00BB                     l1381:
    599                           
    600                           ;init_periphery.c: 68:     measureType = 1;
    601  00BB  01AC               	clrf	_measureType
    602  00BC  0AAC               	incf	_measureType,f
-   603  00BD                     l1385:
+   603  00BD                     l1383:
    604                           
    605                           ;init_periphery.c: 69:     ADIF = 0;
    606  00BD  130C               	bcf	12,6	;volatile
-   607  00BE                     l1387:
+   607  00BE                     l1385:
    608                           
    609                           ;init_periphery.c: 70:     GO = 1;
    610  00BE  149F               	bsf	31,1	;volatile
@@ -661,12 +661,12 @@ Microchip MPLAB XC8 C Compiler v2.36 (Free license) build 20220127204148 Og1
    647  016F                     _InitTimer1:	
    648                           ;psect for function _InitTimer1
    649                           
-   650  016F                     l1199:	
+   650  016F                     l1197:	
    651                           ;incstack = 0
    652                           ; Regs used in _InitTimer1: [wreg]
    653                           
    654                           
-   655                           ;init_periphery.c: 21:      TMR1H = 0xFC;
+   655                           ;init_periphery.c: 21:          TMR1H = 0xFC;
    656  016F  30FC               	movlw	252
    657  0170  1283               	bcf	3,5	;RP0=0, select bank0
    658  0171  008F               	movwf	15	;volatile
@@ -678,11 +678,11 @@ Microchip MPLAB XC8 C Compiler v2.36 (Free license) build 20220127204148 Og1
    664                           ;init_periphery.c: 24:   T1CON = 0x01;
    665  0174  3001               	movlw	1
    666  0175  0090               	movwf	16	;volatile
-   667  0176                     l1201:
+   667  0176                     l1199:
    668                           
    669                           ;init_periphery.c: 26:   TMR1IF = 0;
    670  0176  100C               	bcf	12,0	;volatile
-   671  0177                     l1203:
+   671  0177                     l1201:
    672                           
    673                           ;init_periphery.c: 27:   TMR1IE = 1;
    674  0177  1683               	bsf	3,5	;RP0=1, select bank1
@@ -726,7 +726,7 @@ Microchip MPLAB XC8 C Compiler v2.36 (Free license) build 20220127204148 Og1
    712  0183                     _InitTimer0:	
    713                           ;psect for function _InitTimer0
    714                           
-   715  0183                     l1191:	
+   715  0183                     l1189:	
    716                           ;incstack = 0
    717                           ; Regs used in _InitTimer0: [wreg+status,2]
    718                           
@@ -735,16 +735,16 @@ Microchip MPLAB XC8 C Compiler v2.36 (Free license) build 20220127204148 Og1
    721  0183  30C1               	movlw	193
    722  0184  1683               	bsf	3,5	;RP0=1, select bank1
    723  0185  0081               	movwf	1	;volatile
-   724  0186                     l1193:
+   724  0186                     l1191:
    725                           
    726                           ;init_periphery.c: 13:     TMR0 = 0;
    727  0186  1283               	bcf	3,5	;RP0=0, select bank0
    728  0187  0181               	clrf	1	;volatile
-   729  0188                     l1195:
+   729  0188                     l1193:
    730                           
    731                           ;init_periphery.c: 14:     TMR0IF = 0;
    732  0188  110B               	bcf	11,2	;volatile
-   733  0189                     l1197:
+   733  0189                     l1195:
    734                           
    735                           ;init_periphery.c: 15:     TMR0IE = 1;
    736  0189  168B               	bsf	11,5	;volatile
@@ -789,25 +789,25 @@ Microchip MPLAB XC8 C Compiler v2.36 (Free license) build 20220127204148 Og1
    775  00C0                     _DataProcessing:	
    776                           ;psect for function _DataProcessing
    777                           
-   778  00C0                     l1255:	
+   778  00C0                     l1253:	
    779                           ;incstack = 0
    780                           ; Regs used in _DataProcessing: [wreg-fsr0h+status,2+status,0+pclath+cstack]
    781                           
-   782  00C0  28CA               	goto	l1273
-   783  00C1                     l1257:
+   782  00C0  28CA               	goto	l1271
+   783  00C1                     l1255:
    784  00C1  1283               	bcf	3,5	;RP0=0, select bank0
    785  00C2  01AB               	clrf	_sndEndFlag	;volatile
    786  00C3  28E1               	goto	l117
-   787  00C4                     l1259:
+   787  00C4                     l1257:
    788  00C4  218B               	fcall	_TwoShortOneLong
-   789  00C5  28C1               	goto	l1257
-   790  00C6                     l1263:
+   789  00C5  28C1               	goto	l1255
+   790  00C6                     l1261:
    791  00C6  217A               	fcall	_TwoShortTwoLong
-   792  00C7  28C1               	goto	l1257
-   793  00C8                     l1267:
+   792  00C7  28C1               	goto	l1255
+   793  00C8                     l1265:
    794  00C8  2193               	fcall	_ThreeShort
-   795  00C9  28C1               	goto	l1257
-   796  00CA                     l1273:
+   795  00C9  28C1               	goto	l1255
+   796  00CA                     l1271:
    797  00CA  1283               	bcf	3,5	;RP0=0, select bank0
    798  00CB  082D               	movf	_errorType,w
    799  00CC  00A6               	movwf	??_DataProcessing
@@ -826,9 +826,9 @@ Microchip MPLAB XC8 C Compiler v2.36 (Free license) build 20220127204148 Og1
    811  00CE  0827               	movf	??_DataProcessing+1,w
    812  00CF  3A00               	xorlw	0	; case 0
    813  00D0  1903               	skipnz
-   814  00D1  28D3               	goto	l1435
+   814  00D1  28D3               	goto	l1433
    815  00D2  28E1               	goto	l117
-   816  00D3                     l1435:
+   816  00D3                     l1433:
    817                           
    818                           ; Switch size 1, requested type "simple"
    819                           ; Number of cases is 4, Range of values is 1 to 5
@@ -841,16 +841,16 @@ Microchip MPLAB XC8 C Compiler v2.36 (Free license) build 20220127204148 Og1
    826  00D3  0826               	movf	??_DataProcessing,w
    827  00D4  3A01               	xorlw	1	; case 1
    828  00D5  1903               	skipnz
-   829  00D6  28C1               	goto	l1257
+   829  00D6  28C1               	goto	l1255
    830  00D7  3A03               	xorlw	3	; case 2
    831  00D8  1903               	skipnz
-   832  00D9  28C4               	goto	l1259
+   832  00D9  28C4               	goto	l1257
    833  00DA  3A01               	xorlw	1	; case 3
    834  00DB  1903               	skipnz
-   835  00DC  28C6               	goto	l1263
+   835  00DC  28C6               	goto	l1261
    836  00DD  3A06               	xorlw	6	; case 5
    837  00DE  1903               	skipnz
-   838  00DF  28C8               	goto	l1267
+   838  00DF  28C8               	goto	l1265
    839  00E0  28E1               	goto	l117
    840  00E1                     l117:
    841  00E1  0008               	return
@@ -893,7 +893,7 @@ Microchip MPLAB XC8 C Compiler v2.36 (Free license) build 20220127204148 Og1
    878  017A                     _TwoShortTwoLong:	
    879                           ;psect for function _TwoShortTwoLong
    880                           
-   881  017A                     l1125:	
+   881  017A                     l1123:	
    882                           ;incstack = 0
    883                           ; Regs used in _TwoShortTwoLong: [wreg+status,2+status,0+pclath+cstack]
    884                           
@@ -909,13 +909,13 @@ Microchip MPLAB XC8 C Compiler v2.36 (Free license) build 20220127204148 Og1
    894                           
    895                           ;sounds.c: 41:    LongSound();
    896  017D  2103               	fcall	_LongSound
-   897  017E                     l1127:
+   897  017E                     l1125:
    898                           
    899                           ;sounds.c: 42:    cnt1 = 0;
    900  017E  1283               	bcf	3,5	;RP0=0, select bank0
    901  017F  01A8               	clrf	_cnt1
    902  0180  01A9               	clrf	_cnt1+1
-   903  0181                     l1129:
+   903  0181                     l1127:
    904                           
    905                           ;sounds.c: 43:    TimeOut();
    906  0181  2160               	fcall	_TimeOut
@@ -960,7 +960,7 @@ Microchip MPLAB XC8 C Compiler v2.36 (Free license) build 20220127204148 Og1
    945  018B                     _TwoShortOneLong:	
    946                           ;psect for function _TwoShortOneLong
    947                           
-   948  018B                     l1119:	
+   948  018B                     l1117:	
    949                           ;incstack = 0
    950                           ; Regs used in _TwoShortOneLong: [wreg+status,2+status,0+pclath+cstack]
    951                           
@@ -973,13 +973,13 @@ Microchip MPLAB XC8 C Compiler v2.36 (Free license) build 20220127204148 Og1
    958                           
    959                           ;sounds.c: 31:    LongSound();
    960  018D  2103               	fcall	_LongSound
-   961  018E                     l1121:
+   961  018E                     l1119:
    962                           
    963                           ;sounds.c: 32:    cnt1 = 0;
    964  018E  1283               	bcf	3,5	;RP0=0, select bank0
    965  018F  01A8               	clrf	_cnt1
    966  0190  01A9               	clrf	_cnt1+1
-   967  0191                     l1123:
+   967  0191                     l1121:
    968                           
    969                           ;sounds.c: 33:    TimeOut();
    970  0191  2160               	fcall	_TimeOut
@@ -1024,7 +1024,7 @@ Microchip MPLAB XC8 C Compiler v2.36 (Free license) build 20220127204148 Og1
   1009  0103                     _LongSound:	
   1010                           ;psect for function _LongSound
   1011                           
-  1012  0103                     l1071:	
+  1012  0103                     l1069:	
   1013                           ;incstack = 0
   1014                           ; Regs used in _LongSound: [wreg]
   1015                           
@@ -1032,7 +1032,7 @@ Microchip MPLAB XC8 C Compiler v2.36 (Free license) build 20220127204148 Og1
   1017                           ;sounds.c: 16:        GP2 = 1;
   1018  0103  1283               	bcf	3,5	;RP0=0, select bank0
   1019  0104  1505               	bsf	5,2	;volatile
-  1020  0105                     l1073:
+  1020  0105                     l1071:
   1021                           
   1022                           ;sounds.c: 17:     _delay((unsigned long)((200)*(4000000/4000.0)));
   1023  0105  3002               	movlw	2
@@ -1049,7 +1049,7 @@ Microchip MPLAB XC8 C Compiler v2.36 (Free license) build 20220127204148 Og1
   1034  010F  0BA5               	decfsz	??_LongSound+2,f
   1035  0110  290B               	goto	u297
   1036  0111  0000               	nop
-  1037  0112                     l1075:
+  1037  0112                     l1073:
   1038                           
   1039                           ;sounds.c: 18:        GP2 = 0;
   1040  0112  1283               	bcf	3,5	;RP0=0, select bank0
@@ -1106,7 +1106,7 @@ Microchip MPLAB XC8 C Compiler v2.36 (Free license) build 20220127204148 Og1
   1091  0193                     _ThreeShort:	
   1092                           ;psect for function _ThreeShort
   1093                           
-  1094  0193                     l1131:	
+  1094  0193                     l1129:	
   1095                           ;incstack = 0
   1096                           ; Regs used in _ThreeShort: [wreg+status,2+status,0+pclath+cstack]
   1097                           
@@ -1119,13 +1119,13 @@ Microchip MPLAB XC8 C Compiler v2.36 (Free license) build 20220127204148 Og1
   1104                           
   1105                           ;sounds.c: 49:    ShortSound();
   1106  0195  2135               	fcall	_ShortSound
-  1107  0196                     l1133:
+  1107  0196                     l1131:
   1108                           
   1109                           ;sounds.c: 50:    cnt1 = 0;
   1110  0196  1283               	bcf	3,5	;RP0=0, select bank0
   1111  0197  01A8               	clrf	_cnt1
   1112  0198  01A9               	clrf	_cnt1+1
-  1113  0199                     l1135:
+  1113  0199                     l1133:
   1114                           
   1115                           ;sounds.c: 51:    TimeOut();
   1116  0199  2160               	fcall	_TimeOut
@@ -1170,16 +1170,16 @@ Microchip MPLAB XC8 C Compiler v2.36 (Free license) build 20220127204148 Og1
   1155  0160                     _TimeOut:	
   1156                           ;psect for function _TimeOut
   1157                           
-  1158  0160                     l1077:	
+  1158  0160                     l1075:	
   1159                           ;incstack = 0
   1160                           ; Regs used in _TimeOut: [wreg+status,2]
   1161                           
   1162                           
   1163                           ;sounds.c: 23:    while (cnt1 <= 1000) GP2 = 0;
-  1164  0160  2962               	goto	l1079
+  1164  0160  2962               	goto	l1077
   1165  0161                     l133:
   1166  0161  1105               	bcf	5,2	;volatile
-  1167  0162                     l1079:
+  1167  0162                     l1077:
   1168  0162  3003               	movlw	3
   1169  0163  1283               	bcf	3,5	;RP0=0, select bank0
   1170  0164  0229               	subwf	_cnt1+1,w
@@ -1192,7 +1192,7 @@ Microchip MPLAB XC8 C Compiler v2.36 (Free license) build 20220127204148 Og1
   1177  016B                     u151:
   1178  016B  2961               	goto	l133
   1179  016C                     u150:
-  1180  016C                     l1081:
+  1180  016C                     l1079:
   1181                           
   1182                           ;sounds.c: 24:     cnt1 = 0;
   1183  016C  01A8               	clrf	_cnt1
@@ -1238,7 +1238,7 @@ Microchip MPLAB XC8 C Compiler v2.36 (Free license) build 20220127204148 Og1
   1223  0135                     _ShortSound:	
   1224                           ;psect for function _ShortSound
   1225                           
-  1226  0135                     l1065:	
+  1226  0135                     l1063:	
   1227                           ;incstack = 0
   1228                           ; Regs used in _ShortSound: [wreg]
   1229                           
@@ -1246,7 +1246,7 @@ Microchip MPLAB XC8 C Compiler v2.36 (Free license) build 20220127204148 Og1
   1231                           ;sounds.c: 9:     GP2 = 1;
   1232  0135  1283               	bcf	3,5	;RP0=0, select bank0
   1233  0136  1505               	bsf	5,2	;volatile
-  1234  0137                     l1067:
+  1234  0137                     l1065:
   1235                           
   1236                           ;sounds.c: 10:     _delay((unsigned long)((120)*(4000000/4000.0)));
   1237  0137  309C               	movlw	156
@@ -1258,7 +1258,7 @@ Microchip MPLAB XC8 C Compiler v2.36 (Free license) build 20220127204148 Og1
   1243  013C  293B               	goto	u317
   1244  013D  0BA4               	decfsz	??_ShortSound+1,f
   1245  013E  293B               	goto	u317
-  1246  013F                     l1069:
+  1246  013F                     l1067:
   1247                           
   1248                           ;sounds.c: 11:     GP2 = 0;
   1249  013F  1283               	bcf	3,5	;RP0=0, select bank0
@@ -1315,7 +1315,7 @@ Microchip MPLAB XC8 C Compiler v2.36 (Free license) build 20220127204148 Og1
   1300  0015                     _ADCProcessing:	
   1301                           ;psect for function _ADCProcessing
   1302                           
-  1303  0015                     l1137:	
+  1303  0015                     l1135:	
   1304                           ;incstack = 0
   1305                           ; Regs used in _ADCProcessing: [wreg-fsr0h+status,2+status,0+pclath+cstack]
   1306                           
@@ -1328,8 +1328,8 @@ Microchip MPLAB XC8 C Compiler v2.36 (Free license) build 20220127204148 Og1
   1313  0019                     u161:
   1314  0019  2897               	goto	l79
   1315  001A                     u160:
-  1316  001A  2887               	goto	l1185
-  1317  001B                     l1141:
+  1316  001A  2887               	goto	l1183
+  1317  001B                     l1139:
   1318                           
   1319                           ;interrupt.c: 84:  if ((ADRESH > 47) && (ADRESH < 71) && (errorType == 1)){
   1320  001B  3030               	movlw	48
@@ -1338,26 +1338,26 @@ Microchip MPLAB XC8 C Compiler v2.36 (Free license) build 20220127204148 Og1
   1323  001E  2820               	goto	u171
   1324  001F  2821               	goto	u170
   1325  0020                     u171:
-  1326  0020  282F               	goto	l1149
+  1326  0020  282F               	goto	l1147
   1327  0021                     u170:
-  1328  0021                     l1143:
+  1328  0021                     l1141:
   1329  0021  3047               	movlw	71
   1330  0022  021E               	subwf	30,w	;volatile
   1331  0023  1803               	skipnc
   1332  0024  2826               	goto	u181
   1333  0025  2827               	goto	u180
   1334  0026                     u181:
-  1335  0026  282F               	goto	l1149
+  1335  0026  282F               	goto	l1147
   1336  0027                     u180:
-  1337  0027                     l1145:
+  1337  0027                     l1143:
   1338  0027  032D               	decf	_errorType,w
   1339  0028  1D03               	btfss	3,2
   1340  0029  282B               	goto	u191
   1341  002A  282C               	goto	u190
   1342  002B                     u191:
-  1343  002B  282F               	goto	l1149
+  1343  002B  282F               	goto	l1147
   1344  002C                     u190:
-  1345  002C                     l1147:
+  1345  002C                     l1145:
   1346                           
   1347                           ;interrupt.c: 85:            GP5 = 0;
   1348  002C  1285               	bcf	5,5	;volatile
@@ -1366,21 +1366,21 @@ Microchip MPLAB XC8 C Compiler v2.36 (Free license) build 20220127204148 Og1
   1351  002D  1105               	bcf	5,2	;volatile
   1352                           
   1353                           ;interrupt.c: 87:            }
-  1354  002E  284E               	goto	l1161
-  1355  002F                     l1149:
+  1354  002E  284E               	goto	l1159
+  1355  002F                     l1147:
   1356  002F  3030               	movlw	48
   1357  0030  021E               	subwf	30,w	;volatile
   1358  0031  1803               	skipnc
   1359  0032  2834               	goto	u201
   1360  0033  2835               	goto	u200
   1361  0034                     u201:
-  1362  0034  283F               	goto	l1155
+  1362  0034  283F               	goto	l1153
   1363  0035                     u200:
-  1364  0035                     l1151:
+  1364  0035                     l1149:
   1365                           
   1366                           ;interrupt.c: 90:            GP5 = 1;
   1367  0035  1685               	bsf	5,5	;volatile
-  1368  0036                     l1153:
+  1368  0036                     l1151:
   1369                           
   1370                           ;interrupt.c: 91:     errorType = 2;
   1371  0036  3002               	movlw	2
@@ -1395,21 +1395,21 @@ Microchip MPLAB XC8 C Compiler v2.36 (Free license) build 20220127204148 Og1
   1380  003D  00AB               	movwf	_sndEndFlag	;volatile
   1381                           
   1382                           ;interrupt.c: 93:            }
-  1383  003E  284E               	goto	l1161
-  1384  003F                     l1155:
+  1383  003E  284E               	goto	l1159
+  1384  003F                     l1153:
   1385  003F  3047               	movlw	71
   1386  0040  021E               	subwf	30,w	;volatile
   1387  0041  1C03               	skipc
   1388  0042  2844               	goto	u211
   1389  0043  2845               	goto	u210
   1390  0044                     u211:
-  1391  0044  284E               	goto	l1161
+  1391  0044  284E               	goto	l1159
   1392  0045                     u210:
-  1393  0045                     l1157:
+  1393  0045                     l1155:
   1394                           
   1395                           ;interrupt.c: 96:            GP5 = 1;
   1396  0045  1685               	bsf	5,5	;volatile
-  1397  0046                     l1159:
+  1397  0046                     l1157:
   1398                           
   1399                           ;interrupt.c: 97:     errorType = 3;
   1400  0046  3003               	movlw	3
@@ -1422,14 +1422,14 @@ Microchip MPLAB XC8 C Compiler v2.36 (Free license) build 20220127204148 Og1
   1407  004B  00A4               	movwf	??_ADCProcessing
   1408  004C  0824               	movf	??_ADCProcessing,w
   1409  004D  00AB               	movwf	_sndEndFlag	;volatile
-  1410  004E                     l1161:
+  1410  004E                     l1159:
   1411                           
   1412                           ;interrupt.c: 101:   MuxTemp();
   1413  004E  211E               	fcall	_MuxTemp
   1414                           
   1415                           ;interrupt.c: 103:         break;
   1416  004F  2897               	goto	l79
-  1417  0050                     l1163:
+  1417  0050                     l1161:
   1418                           
   1419                           ;interrupt.c: 109:              if (ADRESH < 50){
   1420  0050  3032               	movlw	50
@@ -1438,9 +1438,9 @@ Microchip MPLAB XC8 C Compiler v2.36 (Free license) build 20220127204148 Og1
   1423  0053  2855               	goto	u221
   1424  0054  2856               	goto	u220
   1425  0055                     u221:
-  1426  0055  285B               	goto	l1167
+  1426  0055  285B               	goto	l1165
   1427  0056                     u220:
-  1428  0056                     l1165:
+  1428  0056                     l1163:
   1429                           
   1430                           ;interrupt.c: 110:         GP5 = 1;
   1431  0056  1685               	bsf	5,5	;volatile
@@ -1453,26 +1453,26 @@ Microchip MPLAB XC8 C Compiler v2.36 (Free license) build 20220127204148 Og1
   1438  0059  0AAD               	incf	_errorType,f
   1439                           
   1440                           ;interrupt.c: 113:     }
-  1441  005A  2885               	goto	l1181
-  1442  005B                     l1167:
+  1441  005A  2885               	goto	l1179
+  1442  005B                     l1165:
   1443  005B  3032               	movlw	50
   1444  005C  021E               	subwf	30,w	;volatile
   1445  005D  1C03               	skipc
   1446  005E  2860               	goto	u231
   1447  005F  2861               	goto	u230
   1448  0060                     u231:
-  1449  0060  286B               	goto	l1173
+  1449  0060  286B               	goto	l1171
   1450  0061                     u230:
-  1451  0061                     l1169:
+  1451  0061                     l1167:
   1452  0061  30E8               	movlw	232
   1453  0062  021E               	subwf	30,w	;volatile
   1454  0063  1803               	skipnc
   1455  0064  2866               	goto	u241
   1456  0065  2867               	goto	u240
   1457  0066                     u241:
-  1458  0066  286B               	goto	l1173
+  1458  0066  286B               	goto	l1171
   1459  0067                     u240:
-  1460  0067                     l1171:
+  1460  0067                     l1169:
   1461                           
   1462                           ;interrupt.c: 116:           GP4 = 0;
   1463  0067  1205               	bcf	5,4	;volatile
@@ -1482,8 +1482,8 @@ Microchip MPLAB XC8 C Compiler v2.36 (Free license) build 20220127204148 Og1
   1467  0069  0AAD               	incf	_errorType,f
   1468                           
   1469                           ;interrupt.c: 118:                        }
-  1470  006A  2885               	goto	l1181
-  1471  006B                     l1173:
+  1470  006A  2885               	goto	l1179
+  1471  006B                     l1171:
   1472  006B  30E8               	movlw	232
   1473  006C  021E               	subwf	30,w	;volatile
   1474  006D  1C03               	skipc
@@ -1492,7 +1492,7 @@ Microchip MPLAB XC8 C Compiler v2.36 (Free license) build 20220127204148 Og1
   1477  0070                     u251:
   1478  0070  287B               	goto	l76
   1479  0071                     u250:
-  1480  0071                     l1175:
+  1480  0071                     l1173:
   1481  0071  30F2               	movlw	242
   1482  0072  021E               	subwf	30,w	;volatile
   1483  0073  1803               	skipnc
@@ -1501,7 +1501,7 @@ Microchip MPLAB XC8 C Compiler v2.36 (Free license) build 20220127204148 Og1
   1486  0076                     u261:
   1487  0076  287B               	goto	l76
   1488  0077                     u260:
-  1489  0077                     l1177:
+  1489  0077                     l1175:
   1490                           
   1491                           ;interrupt.c: 121:           GP4 = 1;
   1492  0077  1605               	bsf	5,4	;volatile
@@ -1511,7 +1511,7 @@ Microchip MPLAB XC8 C Compiler v2.36 (Free license) build 20220127204148 Og1
   1496  0079  0AAD               	incf	_errorType,f
   1497                           
   1498                           ;interrupt.c: 123:                        }
-  1499  007A  2885               	goto	l1181
+  1499  007A  2885               	goto	l1179
   1500  007B                     l76:	
   1501                           ;interrupt.c: 124:              else {
   1502                           
@@ -1521,7 +1521,7 @@ Microchip MPLAB XC8 C Compiler v2.36 (Free license) build 20220127204148 Og1
   1506                           
   1507                           ;interrupt.c: 126:                  GP5 = 1;
   1508  007C  1685               	bsf	5,5	;volatile
-  1509  007D                     l1179:
+  1509  007D                     l1177:
   1510                           
   1511                           ;interrupt.c: 127:                         errorType = 5;
   1512  007D  3005               	movlw	5
@@ -1534,14 +1534,14 @@ Microchip MPLAB XC8 C Compiler v2.36 (Free license) build 20220127204148 Og1
   1519  0082  00A4               	movwf	??_ADCProcessing
   1520  0083  0824               	movf	??_ADCProcessing,w
   1521  0084  00AB               	movwf	_sndEndFlag	;volatile
-  1522  0085                     l1181:
+  1522  0085                     l1179:
   1523                           
   1524                           ;interrupt.c: 131:    MuxVoltage();
   1525  0085  214B               	fcall	_MuxVoltage
   1526                           
   1527                           ;interrupt.c: 133:  break;
   1528  0086  2897               	goto	l79
-  1529  0087                     l1185:
+  1529  0087                     l1183:
   1530  0087  082C               	movf	_measureType,w
   1531  0088  00A4               	movwf	??_ADCProcessing
   1532  0089  01A5               	clrf	??_ADCProcessing+1
@@ -1559,9 +1559,9 @@ Microchip MPLAB XC8 C Compiler v2.36 (Free license) build 20220127204148 Og1
   1543  008A  0825               	movf	??_ADCProcessing+1,w
   1544  008B  3A00               	xorlw	0	; case 0
   1545  008C  1903               	skipnz
-  1546  008D  288F               	goto	l1437
+  1546  008D  288F               	goto	l1435
   1547  008E  2897               	goto	l79
-  1548  008F                     l1437:
+  1548  008F                     l1435:
   1549                           
   1550                           ; Switch size 1, requested type "simple"
   1551                           ; Number of cases is 2, Range of values is 1 to 2
@@ -1574,10 +1574,10 @@ Microchip MPLAB XC8 C Compiler v2.36 (Free license) build 20220127204148 Og1
   1558  008F  0824               	movf	??_ADCProcessing,w
   1559  0090  3A01               	xorlw	1	; case 1
   1560  0091  1903               	skipnz
-  1561  0092  281B               	goto	l1141
+  1561  0092  281B               	goto	l1139
   1562  0093  3A03               	xorlw	3	; case 2
   1563  0094  1903               	skipnz
-  1564  0095  2850               	goto	l1163
+  1564  0095  2850               	goto	l1161
   1565  0096  2897               	goto	l79
   1566  0097                     l79:
   1567  0097  0008               	return
@@ -1618,7 +1618,7 @@ Microchip MPLAB XC8 C Compiler v2.36 (Free license) build 20220127204148 Og1
   1602  014B                     _MuxVoltage:	
   1603                           ;psect for function _MuxVoltage
   1604                           
-  1605  014B                     l1083:	
+  1605  014B                     l1081:	
   1606                           ;incstack = 0
   1607                           ; Regs used in _MuxVoltage: [wreg+status,2]
   1608                           
@@ -1626,19 +1626,19 @@ Microchip MPLAB XC8 C Compiler v2.36 (Free license) build 20220127204148 Og1
   1610                           ;interrupt.c: 19:        ADCON0 = 0;
   1611  014B  1283               	bcf	3,5	;RP0=0, select bank0
   1612  014C  019F               	clrf	31	;volatile
-  1613  014D                     l1085:
+  1613  014D                     l1083:
   1614                           
   1615                           ;interrupt.c: 20:        ADON = 1;
   1616  014D  141F               	bsf	31,0	;volatile
-  1617  014E                     l1087:
+  1617  014E                     l1085:
   1618                           
   1619                           ;interrupt.c: 21:        ADFM = 0;
   1620  014E  139F               	bcf	31,7	;volatile
-  1621  014F                     l1089:
+  1621  014F                     l1087:
   1622                           
   1623                           ;interrupt.c: 22:        CHS1 = 0;
   1624  014F  119F               	bcf	31,3	;volatile
-  1625  0150                     l1091:
+  1625  0150                     l1089:
   1626                           
   1627                           ;interrupt.c: 23:        CHS0 = 1;
   1628  0150  151F               	bsf	31,2	;volatile
@@ -1649,17 +1649,17 @@ Microchip MPLAB XC8 C Compiler v2.36 (Free license) build 20220127204148 Og1
   1633                           ;interrupt.c: 25:        ADRESL = 0;
   1634  0152  1683               	bsf	3,5	;RP0=1, select bank1
   1635  0153  019E               	clrf	30	;volatile
-  1636  0154                     l1093:
+  1636  0154                     l1091:
   1637                           
   1638                           ;interrupt.c: 26:        measureType = 1;
   1639  0154  1283               	bcf	3,5	;RP0=0, select bank0
   1640  0155  01AC               	clrf	_measureType
   1641  0156  0AAC               	incf	_measureType,f
-  1642  0157                     l1095:
+  1642  0157                     l1093:
   1643                           
   1644                           ;interrupt.c: 27:        ADIF = 0;
   1645  0157  130C               	bcf	12,6	;volatile
-  1646  0158                     l1097:
+  1646  0158                     l1095:
   1647                           
   1648                           ;interrupt.c: 28:        _delay((unsigned long)((50)*(4000000/4000000.0)));
   1649  0158  3010               	movlw	16
@@ -1668,7 +1668,7 @@ Microchip MPLAB XC8 C Compiler v2.36 (Free license) build 20220127204148 Og1
   1652  015A  0BA3               	decfsz	??_MuxVoltage,f
   1653  015B  295A               	goto	u337
   1654  015C  0000               	nop
-  1655  015D                     l1099:
+  1655  015D                     l1097:
   1656                           
   1657                           ;interrupt.c: 29:        GO = 1;
   1658  015D  1283               	bcf	3,5	;RP0=0, select bank0
@@ -1712,7 +1712,7 @@ Microchip MPLAB XC8 C Compiler v2.36 (Free license) build 20220127204148 Og1
   1696  011E                     _MuxTemp:	
   1697                           ;psect for function _MuxTemp
   1698                           
-  1699  011E                     l1101:	
+  1699  011E                     l1099:	
   1700                           ;incstack = 0
   1701                           ; Regs used in _MuxTemp: [wreg+status,2]
   1702                           
@@ -1720,19 +1720,19 @@ Microchip MPLAB XC8 C Compiler v2.36 (Free license) build 20220127204148 Og1
   1704                           ;interrupt.c: 34:        ADCON0 = 0;
   1705  011E  1283               	bcf	3,5	;RP0=0, select bank0
   1706  011F  019F               	clrf	31	;volatile
-  1707  0120                     l1103:
+  1707  0120                     l1101:
   1708                           
   1709                           ;interrupt.c: 35:        ADON = 1;
   1710  0120  141F               	bsf	31,0	;volatile
-  1711  0121                     l1105:
+  1711  0121                     l1103:
   1712                           
   1713                           ;interrupt.c: 36:        ADFM = 0;
   1714  0121  139F               	bcf	31,7	;volatile
-  1715  0122                     l1107:
+  1715  0122                     l1105:
   1716                           
   1717                           ;interrupt.c: 37:        CHS1 = 0;
   1718  0122  119F               	bcf	31,3	;volatile
-  1719  0123                     l1109:
+  1719  0123                     l1107:
   1720                           
   1721                           ;interrupt.c: 38:        CHS0 = 0;
   1722  0123  111F               	bcf	31,2	;volatile
@@ -1743,7 +1743,7 @@ Microchip MPLAB XC8 C Compiler v2.36 (Free license) build 20220127204148 Og1
   1727                           ;interrupt.c: 40:        ADRESL = 0;
   1728  0125  1683               	bsf	3,5	;RP0=1, select bank1
   1729  0126  019E               	clrf	30	;volatile
-  1730  0127                     l1111:
+  1730  0127                     l1109:
   1731                           
   1732                           ;interrupt.c: 41:        measureType = 2;
   1733  0127  3002               	movlw	2
@@ -1751,11 +1751,11 @@ Microchip MPLAB XC8 C Compiler v2.36 (Free license) build 20220127204148 Og1
   1735  0129  00A3               	movwf	??_MuxTemp
   1736  012A  0823               	movf	??_MuxTemp,w
   1737  012B  00AC               	movwf	_measureType
-  1738  012C                     l1113:
+  1738  012C                     l1111:
   1739                           
   1740                           ;interrupt.c: 42:        ADIF = 0;
   1741  012C  130C               	bcf	12,6	;volatile
-  1742  012D                     l1115:
+  1742  012D                     l1113:
   1743                           
   1744                           ;interrupt.c: 43:        _delay((unsigned long)((50)*(4000000/4000000.0)));
   1745  012D  3010               	movlw	16
@@ -1764,7 +1764,7 @@ Microchip MPLAB XC8 C Compiler v2.36 (Free license) build 20220127204148 Og1
   1748  012F  0BA3               	decfsz	??_MuxTemp,f
   1749  0130  292F               	goto	u347
   1750  0131  0000               	nop
-  1751  0132                     l1117:
+  1751  0132                     l1115:
   1752                           
   1753                           ;interrupt.c: 44:        GO = 1;
   1754  0132  1283               	bcf	3,5	;RP0=0, select bank0
@@ -1807,32 +1807,32 @@ Microchip MPLAB XC8 C Compiler v2.36 (Free license) build 20220127204148 Og1
   1791  00E2                     _ISR:	
   1792                           ;psect for function _ISR
   1793                           
-  1794  00E2                     i1l1279:
+  1794  00E2                     i1l1277:
   1795                           
   1796                           ;interrupt.c: 51:     if (TMR0IF == 1){
   1797  00E2  1D0B               	btfss	11,2	;volatile
   1798  00E3  28E5               	goto	u27_21
   1799  00E4  28E6               	goto	u27_20
   1800  00E5                     u27_21:
-  1801  00E5  28ED               	goto	i1l1287
+  1801  00E5  28ED               	goto	i1l1285
   1802  00E6                     u27_20:
-  1803  00E6                     i1l1281:
+  1803  00E6                     i1l1279:
   1804                           
   1805                           ;interrupt.c: 53:         TMR0 = 6;
   1806  00E6  3006               	movlw	6
   1807  00E7  0081               	movwf	1	;volatile
-  1808  00E8                     i1l1283:
+  1808  00E8                     i1l1281:
   1809                           
   1810                           ;interrupt.c: 54:  cnt0++;
   1811  00E8  3001               	movlw	1
   1812  00E9  00A0               	movwf	??_ISR
   1813  00EA  0820               	movf	??_ISR,w
   1814  00EB  07AA               	addwf	_cnt0,f
-  1815  00EC                     i1l1285:
+  1815  00EC                     i1l1283:
   1816                           
   1817                           ;interrupt.c: 55:  TMR0IF = 0;
   1818  00EC  110B               	bcf	11,2	;volatile
-  1819  00ED                     i1l1287:
+  1819  00ED                     i1l1285:
   1820                           
   1821                           ;interrupt.c: 60:     if (TMR1IF == 1){
   1822  00ED  1C0C               	btfss	12,0	;volatile
@@ -1841,7 +1841,7 @@ Microchip MPLAB XC8 C Compiler v2.36 (Free license) build 20220127204148 Og1
   1825  00F0                     u28_21:
   1826  00F0  28FC               	goto	i1l59
   1827  00F1                     u28_20:
-  1828  00F1                     i1l1289:
+  1828  00F1                     i1l1287:
   1829                           
   1830                           ;interrupt.c: 62:   TMR1H = 0xFC;
   1831  00F1  30FC               	movlw	252
@@ -1858,7 +1858,7 @@ Microchip MPLAB XC8 C Compiler v2.36 (Free license) build 20220127204148 Og1
   1842  00F8  0AA9               	incf	_cnt1+1,f
   1843  00F9  3000               	movlw	0
   1844  00FA  07A9               	addwf	_cnt1+1,f
-  1845  00FB                     i1l1291:
+  1845  00FB                     i1l1289:
   1846                           
   1847                           ;interrupt.c: 67:         TMR1IF = 0;
   1848  00FB  100C               	bcf	12,0	;volatile
@@ -2061,7 +2061,7 @@ EEDATA              80      0       0       0        0.0%
 
 
 Microchip Technology PIC Macro Assembler V2.36 build 20220127204148 
-Symbol Table                                                                                   Wed Mar 27 21:15:13 2024
+Symbol Table                                                                                   Fri Mar 29 13:58:16 2024
 
                      l52 0134                       l49 015F                       l76 007B  
                      l79 0097                       _GO 00F9                      l133 0161  
@@ -2081,40 +2081,40 @@ Symbol Table                                                                    
                     u191 002B                      u327 0145                      u337 015A  
                     u347 012F                      _ISR 00E2                      u297 010B  
       ??_TwoShortOneLong 0000                     ?_ISR 0020        ??_TwoShortTwoLong 0000  
-                   l1101 011E                     l1111 0127                     l1103 0120  
-                   l1113 012C                     l1105 0121                     l1121 018E  
-                   l1201 0176                     l1115 012D                     l1107 0122  
-                   l1131 0193                     l1123 0191                     l1203 0177  
-                   l1117 0132                     l1109 0123                     l1141 001B  
-                   l1133 0196                     l1125 017A                     l1151 0035  
-                   l1143 0021                     l1135 0199                     l1071 0103  
-                   l1119 018B                     l1127 017E                     l1153 0036  
-                   l1161 004E                     l1145 0027                     l1137 0015  
-                   l1065 0135                     l1081 016C                     l1073 0105  
-                   l1129 0181                     l1091 0150                     l1083 014B  
-                   l1171 0067                     l1163 0050                     l1155 003F  
-                   l1147 002C                     l1067 0137                     l1075 0112  
-                   l1093 0154                     l1085 014D                     l1173 006B  
-                   l1181 0085                     l1165 0056                     l1157 0045  
-                   l1149 002F                     l1069 013F                     l1077 0160  
-                   l1341 009B                     l1095 0157                     l1087 014E  
-                   l1175 0071                     l1167 005B                     l1159 0046  
-                   l1079 0162                     l1263 00C6                     l1255 00C0  
-                   l1191 0183                     l1351 00A4                     l1343 009D  
-                   l1097 0158                     l1089 014F                     l1177 0077  
-                   l1169 0061                     l1185 0087                     l1257 00C1  
-                   l1273 00CA                     l1193 0186                     l1361 00AD  
-                   l1353 00A6                     l1345 009E                     l1099 015D  
-                   l1179 007D                     l1435 00D3                     l1267 00C8  
-                   l1259 00C4                     l1195 0188                     l1371 00B4  
-                   l1363 00AF                     l1355 00A8                     l1347 00A0  
-                   l1339 0098                     l1437 008F                     l1197 0189  
-                   l1381 00BA                     l1373 00B5                     l1365 00B0  
-                   l1357 00AA                     l1349 00A2                     l1199 016F  
-                   l1383 00BB                     l1375 00B7                     l1367 00B2  
-                   l1359 00AC                     l1391 019E                     l1385 00BD  
-                   l1377 00B8                     l1369 00B3                     l1393 019F  
-                   l1387 00BE                     l1379 00B9                     l1389 019B  
+                   l1101 0120                     l1111 012C                     l1103 0121  
+                   l1113 012D                     l1105 0122                     l1121 0191  
+                   l1201 0177                     l1115 0132                     l1107 0123  
+                   l1131 0196                     l1123 017A                     l1109 0127  
+                   l1141 0021                     l1133 0199                     l1117 018B  
+                   l1125 017E                     l1151 0036                     l1143 0027  
+                   l1135 0015                     l1063 0135                     l1071 0105  
+                   l1119 018E                     l1127 0181                     l1081 014B  
+                   l1161 0050                     l1153 003F                     l1145 002C  
+                   l1065 0137                     l1129 0193                     l1073 0112  
+                   l1091 0154                     l1083 014D                     l1171 006B  
+                   l1163 0056                     l1155 0045                     l1147 002F  
+                   l1139 001B                     l1067 013F                     l1075 0160  
+                   l1093 0157                     l1085 014E                     l1173 0071  
+                   l1165 005B                     l1157 0046                     l1149 0035  
+                   l1077 0162                     l1069 0103                     l1261 00C6  
+                   l1253 00C0                     l1341 009D                     l1095 0158  
+                   l1087 014F                     l1175 0077                     l1167 0061  
+                   l1159 004E                     l1183 0087                     l1079 016C  
+                   l1255 00C1                     l1271 00CA                     l1191 0186  
+                   l1351 00A6                     l1343 009E                     l1097 015D  
+                   l1089 0150                     l1177 007D                     l1169 0067  
+                   l1433 00D3                     l1265 00C8                     l1257 00C4  
+                   l1193 0188                     l1361 00AF                     l1353 00A8  
+                   l1345 00A0                     l1337 0098                     l1099 011E  
+                   l1435 008F                     l1179 0085                     l1195 0189  
+                   l1371 00B5                     l1363 00B0                     l1355 00AA  
+                   l1347 00A2                     l1339 009B                     l1189 0183  
+                   l1197 016F                     l1381 00BB                     l1373 00B7  
+                   l1365 00B2                     l1357 00AC                     l1349 00A4  
+                   l1199 0176                     l1383 00BD                     l1375 00B8  
+                   l1367 00B3                     l1359 00AD                     l1391 019F  
+                   l1385 00BE                     l1377 00B9                     l1369 00B4  
+                   l1379 00BA                     l1387 019B                     l1389 019E  
                    _ADIF 0066                     _ADFM 00FF                     _ADON 00F8  
                    _CHS0 00FA                     _CHS1 00FB                     _GPIO 0005  
                    _PEIE 005E                     i1l59 00FC                     _VCFG 00FE  
@@ -2129,9 +2129,9 @@ Symbol Table                                                                    
                   wtemp0 005E          __initialization 000C               _InitTimer0 0183  
              _InitTimer1 016F             __end_of_main 01A2                   ??_main 0000  
                  _ADCON0 001F                   _ADRESH 001E                   _ADRESL 009E  
-                 i1l1281 00E6                   i1l1291 00FB                   i1l1283 00E8  
-                 i1l1285 00EC                   i1l1287 00ED                   i1l1279 00E2  
-                 i1l1289 00F1                   _TMR0IE 005D                   _TMR0IF 005A  
+                 i1l1281 00E8                   i1l1283 00EC                   i1l1285 00ED  
+                 i1l1277 00E2                   i1l1287 00F1                   i1l1279 00E6  
+                 i1l1289 00FB                   _TMR0IE 005D                   _TMR0IF 005A  
                  _TMR1IE 0460                   _TMR1IF 0060                   _TRISIO 0085  
               ??_Init_uC 0000                ??_TimeOut 0000                ??_MuxTemp 0023  
              _ThreeShort 0193               _MuxVoltage 014B               _ShortSound 0135  

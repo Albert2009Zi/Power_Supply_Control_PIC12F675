@@ -73,9 +73,9 @@ void main()          //its app whichmakes on uc alone and not needs return somth
     InitTimer1();
     Init_uC();
     
-    while(1){  
+    while(1){ 
+     ADCProcessing();    
      DataProcessing(); 
-     ADCProcessing();     
     }  
 }
 

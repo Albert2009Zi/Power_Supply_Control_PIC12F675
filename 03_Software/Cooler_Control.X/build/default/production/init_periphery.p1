@@ -226,7 +226,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U _InitTimer1 ]
 [f ]
 "21
-[; ;init_periphery.c: 21:      TMR1H = 0xFC;
+[; ;init_periphery.c: 21:          TMR1H = 0xFC;
 [e = _TMR1H -> -> 252 `i `uc ]
 "22
 [; ;init_periphery.c: 22:   TMR1L = 0x17;
@@ -308,8 +308,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;init_periphery.c: 64:     ADON = 1;
 [e = _ADON -> -> 1 `i `b ]
 "65
-[; ;init_periphery.c: 65:     ADFM = 1;
-[e = _ADFM -> -> 1 `i `b ]
+[; ;init_periphery.c: 65:     ADFM = 0;
+[e = _ADFM -> -> 0 `i `b ]
 "66
 [; ;init_periphery.c: 66:     CHS1 = 0;
 [e = _CHS1 -> -> 0 `i `b ]

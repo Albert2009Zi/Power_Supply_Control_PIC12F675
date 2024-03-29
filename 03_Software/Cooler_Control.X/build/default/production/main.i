@@ -1222,8 +1222,8 @@ void main()
     Init_uC();
 
     while(1){
-     DataProcessing();
      ADCProcessing();
+     DataProcessing();
     }
 }
 

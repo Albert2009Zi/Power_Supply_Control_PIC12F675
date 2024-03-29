@@ -9,11 +9,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 "18
 [; ;./init_periphery.h: 18: void Init_uC(void);
 [v _Init_uC `(v ~T0 @X0 0 ef ]
-"67 main.c
-[v _DataProcessing `(v ~T0 @X0 0 ef ]
 "23 ./interrupt.h
 [; ;./interrupt.h: 23: void ADCProcessing(void);
 [v _ADCProcessing `(v ~T0 @X0 0 ef ]
+"67 main.c
+[v _DataProcessing `(v ~T0 @X0 0 ef ]
 "14 ./sounds.h
 [; ;./sounds.h: 14: void TwoShortOneLong(void);
 [v _TwoShortOneLong `(v ~T0 @X0 0 ef ]
@@ -160,9 +160,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 83 ]
 {
 "77
-[e ( _DataProcessing ..  ]
-"78
 [e ( _ADCProcessing ..  ]
+"78
+[e ( _DataProcessing ..  ]
 "79
 }
 [e :U 82 ]

@@ -1193,7 +1193,7 @@ void InitTimer0(void){
 
 void InitTimer1(void){
 
-     TMR1H = 0xFC;
+         TMR1H = 0xFC;
   TMR1L = 0x17;
 
   T1CON = 0x01;
@@ -1237,7 +1237,7 @@ void Init_uC(void){
 
     ADCON0 = 0;
     ADON = 1;
-    ADFM = 1;
+    ADFM = 0;
     CHS1 = 0;
     CHS0 = 1;
     measureType = 1;
