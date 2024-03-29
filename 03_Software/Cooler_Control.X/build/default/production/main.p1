@@ -12,7 +12,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "23 ./interrupt.h
 [; ;./interrupt.h: 23: void ADCProcessing(void);
 [v _ADCProcessing `(v ~T0 @X0 0 ef ]
-"67 main.c
+"66 main.c
 [v _DataProcessing `(v ~T0 @X0 0 ef ]
 "14 ./sounds.h
 [; ;./sounds.h: 14: void TwoShortOneLong(void);
@@ -122,13 +122,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\pic\include\proc\pic12f675.h: 1406: __asm("ANSEL equ 09Fh");
 [; <" ANSEL equ 09Fh ;# ">
 "49 main.c
-[; ;main.c: 49:            break;
 [p x FOSC  =  INTRCIO    ]
 "50
-[; ;main.c: 50:  }
 [p x WDTE  =  OFF        ]
 "51
-[; ;main.c: 51: }
 [p x PWRTE  =  OFF       ]
 "52
 [p x MCLRE  =  ON        ]
@@ -138,82 +135,69 @@ Version 4.0 HI-TECH Software Intermediate Code
 [p x CP  =  OFF          ]
 "55
 [p x CPD  =  OFF         ]
-"65
-[v _sndEndFlag `Vuc ~T0 @X0 1 e ]
-[i _sndEndFlag
--> -> 0 `i `uc
-]
 [v $root$_main `(v ~T0 @X0 0 e ]
-"70
+"69
 [v _main `(v ~T0 @X0 1 ef ]
-"71
+"70
 {
 [e :U _main ]
 [f ]
-"72
+"71
 [e ( _InitTimer0 ..  ]
-"73
+"72
 [e ( _InitTimer1 ..  ]
-"74
+"73
 [e ( _Init_uC ..  ]
-"76
+"75
 [e :U 83 ]
 {
-"77
+"76
 [e ( _ADCProcessing ..  ]
-"78
+"77
 [e ( _DataProcessing ..  ]
-"79
+"78
 }
 [e :U 82 ]
 [e $U 83  ]
 [e :U 84 ]
-"80
+"79
 [e :UE 81 ]
 }
-"82
+"81
 [v _DataProcessing `(v ~T0 @X0 1 ef ]
 {
 [e :U _DataProcessing ]
 [f ]
-"84
+"83
 [e $U 87  ]
 {
-"86
+"85
 [e :U 88 ]
-"87
-[e = _sndEndFlag -> -> 0 `i `uc ]
+"86
+[e $U 86  ]
 "88
-[e $U 86  ]
-"90
 [e :U 89 ]
-"91
+"89
 [e ( _TwoShortOneLong ..  ]
-"92
-[e = _sndEndFlag -> -> 0 `i `uc ]
-"93
+"90
 [e $U 86  ]
-"95
+"92
 [e :U 90 ]
-"96
+"93
 [e ( _TwoShortTwoLong ..  ]
+"94
+[e $U 86  ]
+"96
+[e :U 91 ]
 "97
-[e = _sndEndFlag -> -> 0 `i `uc ]
+[e ( _ThreeShort ..  ]
 "98
 [e $U 86  ]
 "100
-[e :U 91 ]
-"101
-[e ( _ThreeShort ..  ]
-"102
-[e = _sndEndFlag -> -> 0 `i `uc ]
-"103
-[e $U 86  ]
-"105
 [e :U 92 ]
-"106
+"101
 [e $U 86  ]
-"107
+"102
 }
 [e $U 86  ]
 [e :U 87 ]
@@ -223,6 +207,6 @@ Version 4.0 HI-TECH Software Intermediate Code
  , $ -> 5 `i 91
  92 ]
 [e :U 86 ]
-"108
+"103
 [e :UE 85 ]
 }

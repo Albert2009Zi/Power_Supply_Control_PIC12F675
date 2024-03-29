@@ -226,7 +226,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U _InitTimer1 ]
 [f ]
 "21
-[; ;init_periphery.c: 21:          TMR1H = 0xFC;
+[; ;init_periphery.c: 21:      TMR1H = 0xFC;
 [e = _TMR1H -> -> 252 `i `uc ]
 "22
 [; ;init_periphery.c: 22:   TMR1L = 0x17;

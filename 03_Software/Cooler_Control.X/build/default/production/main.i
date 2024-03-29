@@ -1210,7 +1210,6 @@ void ThreeShort(void);
 
 extern uint8_t errorType;
 extern uint8_t measureType;
-volatile uint8_t sndEndFlag = 0;
 
 void DataProcessing(void);
 
@@ -1229,28 +1228,24 @@ void main()
 
 void DataProcessing(void){
 
-      switch(errorType){
+    switch(errorType){
 
   case 1:
-    sndEndFlag = 0;
     break;
 
   case 2:
     TwoShortOneLong();
-    sndEndFlag = 0;
     break;
 
   case 3:
-           TwoShortTwoLong();
-    sndEndFlag = 0;
+       TwoShortTwoLong();
     break;
 
   case 5:
-           ThreeShort();
-    sndEndFlag = 0;
+       ThreeShort();
     break;
 
   default:
-           break;
+       break;
  }
 }

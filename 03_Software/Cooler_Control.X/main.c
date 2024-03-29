@@ -62,7 +62,6 @@ __CONFIG(FOSC_INTRCIO & WDTE_OFF & PWRTE_ON & MCLRE_OFF & BOREN_ON & CP_OFF & CP
 
 extern uint8_t errorType;
 extern uint8_t measureType;
-volatile uint8_t sndEndFlag = 0;
 
 void DataProcessing(void);
 
@@ -81,28 +80,24 @@ void main()          //its app whichmakes on uc alone and not needs return somth
 
 void DataProcessing(void){
     
-    	 switch(errorType){
+    switch(errorType){
 	 
 	 case ERROR_OK:
-	   sndEndFlag = 0;
 	   break;
 	 
 	 case ERROR_UNDER_VOLTAGE:	 
 	   TwoShortOneLong();
-	   sndEndFlag = 0;
 	   break;
 	    
 	 case ERROR_OVER_VOLTAGE:
-           TwoShortTwoLong();
-	   sndEndFlag = 0;
+       TwoShortTwoLong();
 	   break;
 	 
 	 case ERROR_TMP_HIGH:
-           ThreeShort();
-	   sndEndFlag = 0;
+       ThreeShort();
 	   break;      
 	    
 	 default:
-           break;	 
+       break;	 
 	}
 }

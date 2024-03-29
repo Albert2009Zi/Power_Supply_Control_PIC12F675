@@ -1172,11 +1172,10 @@ void Init_uC(void);
 
 uint16_t cnt1 = 0;
 uint8_t cnt0 = 0;
+uint8_t adcValue = 0;
 
 extern uint8_t measureType;
 uint8_t errorType = 1;
-extern volatile uint8_t sndEndFlag;
-
 
 void MuxVoltage(void){
        ADCON0 = 0;
@@ -1184,11 +1183,9 @@ void MuxVoltage(void){
        ADFM = 0;
        CHS1 = 0;
        CHS0 = 1;
-       ADRESH = 0;
-       ADRESL = 0;
        measureType = 1;
        ADIF = 0;
-       _delay((unsigned long)((50)*(4000000/4000000.0)));
+       _delay((unsigned long)((1)*(4000000/4000.0)));
        GO = 1;
 }
 
@@ -1199,11 +1196,9 @@ void MuxTemp(void){
        ADFM = 0;
        CHS1 = 0;
        CHS0 = 0;
-       ADRESH = 0;
-       ADRESL = 0;
        measureType = 2;
        ADIF = 0;
-       _delay((unsigned long)((50)*(4000000/4000000.0)));
+       _delay((unsigned long)((1)*(4000000/4000.0)));
        GO = 1;
 }
 
@@ -1213,7 +1208,7 @@ void __attribute__((picinterrupt(("")))) ISR(void)
 
     if (TMR0IF == 1){
 
-        TMR0 = 6;
+    TMR0 = 6;
  cnt0++;
  TMR0IF = 0;
      }
@@ -1233,54 +1228,46 @@ void __attribute__((picinterrupt(("")))) ISR(void)
 
 
 
-
-
-
-
 void ADCProcessing(void){
 
    if (ADIF == 1){
 
+       adcValue = ADRESH;
+
       switch (measureType){
        case 1:
 
- if ((ADRESH > 47) && (ADRESH < 71) && (errorType == 1)){
-           GP5 = 0;
+ if ((adcValue > 47) && (adcValue < 71)){
+       GP5 = 0;
     GP2 = 0;
+       errorType = 1;
            }
-
-  else if (ADRESH <= 47) {
-           GP5 = 1;
+  else if (adcValue <= 47) {
+       GP5 = 1;
     errorType = 2;
-    sndEndFlag = 1;
            }
-
-         else if (ADRESH >= 71){
+         else if (adcValue >= 71){
            GP5 = 1;
-    errorType = 3;
-    sndEndFlag = 1;
+        errorType = 3;
            }
-
   MuxTemp();
-
         break;
 
 
  case 2:
 
-
-             if (ADRESH < 50){
+             if (adcValue < 50){
         GP5 = 1;
         GP4 = 0;
-                  errorType = 1;
+              errorType = 1;
     }
 
-              else if ((ADRESH >= 50) && (ADRESH < 232)){
+              else if ((adcValue >= 50) && (adcValue < 232)){
           GP4 = 0;
    errorType = 1;
                        }
 
-       else if ((ADRESH >= 232) && (ADRESH < 242)){
+       else if ((adcValue >= 232) && (adcValue < 242)){
           GP4 = 1;
    errorType = 1;
                        }
@@ -1288,7 +1275,6 @@ void ADCProcessing(void){
           GP4 = 1;
                  GP5 = 1;
                         errorType = 5;
-                 sndEndFlag = 1;
      }
 
    MuxVoltage();

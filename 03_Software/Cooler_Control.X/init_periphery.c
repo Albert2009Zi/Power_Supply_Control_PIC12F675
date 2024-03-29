@@ -18,7 +18,7 @@ void InitTimer0(void){
 
 void InitTimer1(void){
 
-         TMR1H = 0xFC;
+     TMR1H = 0xFC;
 	 TMR1L = 0x17;         // Interrupt after 1ms 0x03E8 = 1000, 1000000/1000 = 1000Hz, 1/1000Hz = 1ms
 	 
 	 T1CON = 0x01;         //Enable Timer 1
