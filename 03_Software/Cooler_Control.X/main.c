@@ -42,6 +42,8 @@
 #include "init_periphery.h"
 #include "sounds.h"
 
+#define _XTAL_FREQ   4000000 
+
 //#define SIMULATION
 
 #ifndef SIMULATION
@@ -70,6 +72,7 @@ void main()          //its app whichmakes on uc alone and not needs return somth
     InitTimer0();
     InitTimer1();
     Init_uC();
+    __delay_ms(2500);
     errorType   = ERROR_OK;
     
     while(1){ 

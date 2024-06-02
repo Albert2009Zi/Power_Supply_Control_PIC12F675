@@ -9,10 +9,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 "18
 [; ;./init_periphery.h: 18: void Init_uC(void);
 [v _Init_uC `(v ~T0 @X0 0 ef ]
+[v F537 `(v ~T0 @X0 1 tf1`ul ]
+"92 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\pic\include\pic.h
+[v __delay `JF537 ~T0 @X0 0 e ]
+[p i __delay ]
 "23 ./interrupt.h
 [; ;./interrupt.h: 23: void ADCProcessing(void);
 [v _ADCProcessing `(v ~T0 @X0 0 ef ]
-"65 main.c
+"67 main.c
 [v _DataProcessing `(v ~T0 @X0 0 ef ]
 "14 ./sounds.h
 [; ;./sounds.h: 14: void TwoShortOneLong(void);
@@ -119,90 +123,92 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1406
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\pic\include\proc\pic12f675.h: 1406: __asm("ANSEL equ 09Fh");
 [; <" ANSEL equ 09Fh ;# ">
-"49 main.c
+"51 main.c
 [p x FOSC  =  INTRCIO    ]
-"50
-[p x WDTE  =  OFF        ]
-"51
-[p x PWRTE  =  OFF       ]
 "52
-[p x MCLRE  =  ON        ]
+[p x WDTE  =  OFF        ]
 "53
-[p x BOREN  =  ON        ]
+[p x PWRTE  =  OFF       ]
 "54
-[p x CP  =  OFF          ]
+[p x MCLRE  =  ON        ]
 "55
+[p x BOREN  =  ON        ]
+"56
+[p x CP  =  OFF          ]
+"57
 [p x CPD  =  OFF         ]
-"63
+"65
 [v _errorType `uc ~T0 @X0 1 e ]
 [i _errorType
 -> -> 0 `i `uc
 ]
 [v $root$_main `(v ~T0 @X0 0 e ]
-"68
+"70
 [v _main `(v ~T0 @X0 1 ef ]
-"69
+"71
 {
 [e :U _main ]
 [f ]
-"70
-[e ( _InitTimer0 ..  ]
-"71
-[e ( _InitTimer1 ..  ]
 "72
-[e ( _Init_uC ..  ]
+[e ( _InitTimer0 ..  ]
 "73
-[e = _errorType -> -> 1 `i `uc ]
+[e ( _InitTimer1 ..  ]
+"74
+[e ( _Init_uC ..  ]
 "75
+[e ( __delay (1 -> * -> -> 2500 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"76
+[e = _errorType -> -> 1 `i `uc ]
+"78
 [e :U 83 ]
 {
-"76
+"79
 [e ( _ADCProcessing ..  ]
-"77
+"80
 [e ( _DataProcessing ..  ]
-"78
+"81
 }
 [e :U 82 ]
 [e $U 83  ]
 [e :U 84 ]
-"79
+"82
 [e :UE 81 ]
 }
-"81
+"84
 [v _DataProcessing `(v ~T0 @X0 1 ef ]
 {
 [e :U _DataProcessing ]
 [f ]
-"83
+"86
 [e $U 87  ]
 {
-"85
-[e :U 88 ]
-"86
-[e $U 86  ]
 "88
-[e :U 89 ]
+[e :U 88 ]
 "89
-[e ( _TwoShortOneLong ..  ]
-"90
 [e $U 86  ]
+"91
+[e :U 89 ]
 "92
-[e :U 90 ]
+[e ( _TwoShortOneLong ..  ]
 "93
-[e ( _TwoShortTwoLong ..  ]
-"94
 [e $U 86  ]
+"95
+[e :U 90 ]
 "96
-[e :U 91 ]
+[e ( _TwoShortTwoLong ..  ]
 "97
-[e ( _ThreeShort ..  ]
-"98
 [e $U 86  ]
+"99
+[e :U 91 ]
 "100
-[e :U 92 ]
+[e ( _ThreeShort ..  ]
 "101
 [e $U 86  ]
-"102
+"103
+[e :U 92 ]
+"104
+[e $U 86  ]
+"105
 }
 [e $U 86  ]
 [e :U 87 ]
@@ -212,6 +218,6 @@ Version 4.0 HI-TECH Software Intermediate Code
  , $ -> 5 `i 91
  92 ]
 [e :U 86 ]
-"103
+"106
 [e :UE 85 ]
 }

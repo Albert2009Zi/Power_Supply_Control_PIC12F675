@@ -14,26 +14,26 @@
 $dist/default/production\Cooler_Control.X.production.o
 cinit CODE 0 C C A 2 1
 text1 CODE 0 57 57 28 2 1
-text2 CODE 0 110 110 B 2 1
-text3 CODE 0 12E 12E 8 2 1
+text2 CODE 0 128 128 B 2 1
+text3 CODE 0 13C 13C 8 2 1
 text4 CODE 0 A0 A0 1F 2 1
-text5 CODE 0 125 125 9 2 1
-text6 CODE 0 136 136 8 2 1
+text5 CODE 0 133 133 9 2 1
+text6 CODE 0 144 144 8 2 1
 text7 CODE 0 BF BF 1B 2 1
-text8 CODE 0 13E 13E 8 2 1
-text9 CODE 0 101 101 F 2 1
-text10 CODE 0 DA DA 16 2 1
+text8 CODE 0 14C 14C 8 2 1
+text9 CODE 0 119 119 F 2 1
+text10 CODE 0 F2 F2 16 2 1
 text11 CODE 0 16 16 41 2 1
-text12 CODE 0 F0 F0 11 2 1
+text12 CODE 0 108 108 11 2 1
 text13 CODE 0 7F 7F 21 2 1
-maintext CODE 0 11B 11B A 2 1
-cstackBANK0 BANK0 1 20 20 8 1 1
+maintext CODE 0 DA DA 18 2 1
+cstackBANK0 BANK0 1 20 20 B 1 1
 intentry CODE 0 4 4 7 2 1
-bssBANK0 BANK0 1 28 28 6 1 1
-idataBANK0 CODE 0 146 146 1 2 1
-dataBANK0 BANK0 1 2E 2E 1 1 1
+bssBANK0 BANK0 1 2B 2B 6 1 1
+idataBANK0 CODE 0 154 154 1 2 1
+dataBANK0 BANK0 1 31 31 1 1 1
 config CONFIG 4 2007 2007 1 2 1
-$C:\Users\ziatd\AppData\Local\Temp\xcAsdsk.o
+$C:\Users\ziatd\AppData\Local\Temp\xcAsegg.o
 reset_vec CODE 0 0 0 1 2 1
 end_init CODE 0 B B 1 2 1
 config CONFIG 4 2007 2007 1 2 1
@@ -43,22 +43,22 @@ config CONFIG 4 2007 2007 1 2 1
 #    <class name> <range> <delta>
 # Addresses given in the range are in hexadecimal and units of delta.
 %UNUSED
-RAM 2F-5D 1
-BANK0 2F-5D 1
+RAM 32-5D 1
+BANK0 32-5D 1
 CONST 1-3 2
-CONST 147-3FE 2
+CONST 155-3FE 2
 ENTRY 1-3 2
-ENTRY 147-3FE 2
+ENTRY 155-3FE 2
 IDLOC 2000-2003 2
 CODE 1-3 2
-CODE 147-3FE 2
+CODE 155-3FE 2
 SFR0 0-1F 1
 SFR1 80-DD 1
 EEDATA 2100-217F 2
 STRCODE 1-3 2
-STRCODE 147-3FE 2
+STRCODE 155-3FE 2
 STRING 1-3 2
-STRING 147-3FE 2
+STRING 155-3FE 2
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
 # The beginning of the section is indicated by %LINETAB.
@@ -73,19 +73,19 @@ STRING 147-3FE 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\Cooler_Control.X.production.o
-C cinit CODE >529:C:\Users\ziatd\AppData\Local\Temp\xcAsdsk.s
-C cinit CODE >532:C:\Users\ziatd\AppData\Local\Temp\xcAsdsk.s
-C cinit CODE >561:C:\Users\ziatd\AppData\Local\Temp\xcAsdsk.s
-D cinit CODE >562:C:\Users\ziatd\AppData\Local\Temp\xcAsdsk.s
-E cinit CODE >566:C:\Users\ziatd\AppData\Local\Temp\xcAsdsk.s
-F cinit CODE >567:C:\Users\ziatd\AppData\Local\Temp\xcAsdsk.s
-10 cinit CODE >568:C:\Users\ziatd\AppData\Local\Temp\xcAsdsk.s
-11 cinit CODE >569:C:\Users\ziatd\AppData\Local\Temp\xcAsdsk.s
-12 cinit CODE >570:C:\Users\ziatd\AppData\Local\Temp\xcAsdsk.s
-13 cinit CODE >571:C:\Users\ziatd\AppData\Local\Temp\xcAsdsk.s
-14 cinit CODE >577:C:\Users\ziatd\AppData\Local\Temp\xcAsdsk.s
-14 cinit CODE >579:C:\Users\ziatd\AppData\Local\Temp\xcAsdsk.s
-15 cinit CODE >580:C:\Users\ziatd\AppData\Local\Temp\xcAsdsk.s
+C cinit CODE >529:C:\Users\ziatd\AppData\Local\Temp\xcAsegg.s
+C cinit CODE >532:C:\Users\ziatd\AppData\Local\Temp\xcAsegg.s
+C cinit CODE >561:C:\Users\ziatd\AppData\Local\Temp\xcAsegg.s
+D cinit CODE >562:C:\Users\ziatd\AppData\Local\Temp\xcAsegg.s
+E cinit CODE >566:C:\Users\ziatd\AppData\Local\Temp\xcAsegg.s
+F cinit CODE >567:C:\Users\ziatd\AppData\Local\Temp\xcAsegg.s
+10 cinit CODE >568:C:\Users\ziatd\AppData\Local\Temp\xcAsegg.s
+11 cinit CODE >569:C:\Users\ziatd\AppData\Local\Temp\xcAsegg.s
+12 cinit CODE >570:C:\Users\ziatd\AppData\Local\Temp\xcAsegg.s
+13 cinit CODE >571:C:\Users\ziatd\AppData\Local\Temp\xcAsegg.s
+14 cinit CODE >577:C:\Users\ziatd\AppData\Local\Temp\xcAsegg.s
+14 cinit CODE >579:C:\Users\ziatd\AppData\Local\Temp\xcAsegg.s
+15 cinit CODE >580:C:\Users\ziatd\AppData\Local\Temp\xcAsegg.s
 4 intentry CODE >43:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\interrupt.c
 7F text13 CODE >43:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\interrupt.c
 7F text13 CODE >47:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\interrupt.c
@@ -99,17 +99,17 @@ F cinit CODE >567:C:\Users\ziatd\AppData\Local\Temp\xcAsdsk.s
 94 text13 CODE >61:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\interrupt.c
 98 text13 CODE >63:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\interrupt.c
 99 text13 CODE >65:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\interrupt.c
-F0 text12 CODE >18:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\interrupt.c
-F0 text12 CODE >19:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\interrupt.c
-F2 text12 CODE >20:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\interrupt.c
-F3 text12 CODE >21:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\interrupt.c
-F4 text12 CODE >22:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\interrupt.c
-F5 text12 CODE >23:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\interrupt.c
-F6 text12 CODE >24:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\interrupt.c
-F8 text12 CODE >25:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\interrupt.c
-F9 text12 CODE >26:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\interrupt.c
-FE text12 CODE >27:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\interrupt.c
-100 text12 CODE >28:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\interrupt.c
+108 text12 CODE >18:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\interrupt.c
+108 text12 CODE >19:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\interrupt.c
+10A text12 CODE >20:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\interrupt.c
+10B text12 CODE >21:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\interrupt.c
+10C text12 CODE >22:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\interrupt.c
+10D text12 CODE >23:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\interrupt.c
+10E text12 CODE >24:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\interrupt.c
+110 text12 CODE >25:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\interrupt.c
+111 text12 CODE >26:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\interrupt.c
+116 text12 CODE >27:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\interrupt.c
+118 text12 CODE >28:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\interrupt.c
 16 text11 CODE >73:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\interrupt.c
 16 text11 CODE >75:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\interrupt.c
 1B text11 CODE >76:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\interrupt.c
@@ -135,74 +135,74 @@ FE text12 CODE >27:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Contro
 51 text11 CODE >106:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\interrupt.c
 55 text11 CODE >108:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\interrupt.c
 56 text11 CODE >143:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\interrupt.c
-DA text10 CODE >8:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\sounds.c
-DA text10 CODE >9:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\sounds.c
-DC text10 CODE >10:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\sounds.c
-E4 text10 CODE >11:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\sounds.c
-E6 text10 CODE >12:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\sounds.c
-EF text10 CODE >13:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\sounds.c
-101 text9 CODE >22:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\sounds.c
-101 text9 CODE >23:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\sounds.c
-107 text9 CODE >23:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\sounds.c
-109 text9 CODE >23:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\sounds.c
-10D text9 CODE >24:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\sounds.c
-10F text9 CODE >25:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\sounds.c
-13E text8 CODE >46:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\sounds.c
-13E text8 CODE >47:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\sounds.c
-13F text8 CODE >48:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\sounds.c
-140 text8 CODE >49:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\sounds.c
-141 text8 CODE >50:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\sounds.c
-144 text8 CODE >51:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\sounds.c
-145 text8 CODE >52:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\sounds.c
+F2 text10 CODE >8:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\sounds.c
+F2 text10 CODE >9:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\sounds.c
+F4 text10 CODE >10:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\sounds.c
+FC text10 CODE >11:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\sounds.c
+FE text10 CODE >12:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\sounds.c
+107 text10 CODE >13:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\sounds.c
+119 text9 CODE >22:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\sounds.c
+119 text9 CODE >23:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\sounds.c
+11F text9 CODE >23:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\sounds.c
+121 text9 CODE >23:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\sounds.c
+125 text9 CODE >24:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\sounds.c
+127 text9 CODE >25:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\sounds.c
+14C text8 CODE >46:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\sounds.c
+14C text8 CODE >47:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\sounds.c
+14D text8 CODE >48:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\sounds.c
+14E text8 CODE >49:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\sounds.c
+14F text8 CODE >50:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\sounds.c
+152 text8 CODE >51:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\sounds.c
+153 text8 CODE >52:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\sounds.c
 BF text7 CODE >15:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\sounds.c
 BF text7 CODE >16:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\sounds.c
 C1 text7 CODE >17:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\sounds.c
 CE text7 CODE >18:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\sounds.c
 D0 text7 CODE >19:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\sounds.c
 D9 text7 CODE >20:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\sounds.c
-136 text6 CODE >28:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\sounds.c
-136 text6 CODE >29:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\sounds.c
-137 text6 CODE >30:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\sounds.c
-138 text6 CODE >31:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\sounds.c
-139 text6 CODE >32:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\sounds.c
-13C text6 CODE >33:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\sounds.c
-13D text6 CODE >34:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\sounds.c
-125 text5 CODE >36:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\sounds.c
-125 text5 CODE >38:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\sounds.c
-126 text5 CODE >39:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\sounds.c
-127 text5 CODE >40:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\sounds.c
-128 text5 CODE >41:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\sounds.c
-129 text5 CODE >42:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\sounds.c
-12C text5 CODE >43:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\sounds.c
-12D text5 CODE >44:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\sounds.c
-A0 text4 CODE >81:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\main.c
-A0 text4 CODE >83:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\main.c
-A1 text4 CODE >89:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\main.c
-A2 text4 CODE >90:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\main.c
-A3 text4 CODE >93:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\main.c
-A4 text4 CODE >94:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\main.c
-A5 text4 CODE >97:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\main.c
-A6 text4 CODE >98:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\main.c
-A7 text4 CODE >102:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\main.c
-AD text4 CODE >102:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\main.c
-B2 text4 CODE >102:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\main.c
-B5 text4 CODE >102:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\main.c
-B8 text4 CODE >102:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\main.c
-BB text4 CODE >102:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\main.c
-BE text4 CODE >103:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\main.c
-12E text3 CODE >10:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\init_periphery.c
-12E text3 CODE >12:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\init_periphery.c
-131 text3 CODE >13:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\init_periphery.c
-133 text3 CODE >14:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\init_periphery.c
-134 text3 CODE >15:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\init_periphery.c
-135 text3 CODE >17:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\init_periphery.c
-110 text2 CODE >19:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\init_periphery.c
-110 text2 CODE >21:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\init_periphery.c
-113 text2 CODE >22:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\init_periphery.c
-115 text2 CODE >24:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\init_periphery.c
-117 text2 CODE >26:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\init_periphery.c
-118 text2 CODE >27:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\init_periphery.c
-11A text2 CODE >29:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\init_periphery.c
+144 text6 CODE >28:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\sounds.c
+144 text6 CODE >29:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\sounds.c
+145 text6 CODE >30:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\sounds.c
+146 text6 CODE >31:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\sounds.c
+147 text6 CODE >32:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\sounds.c
+14A text6 CODE >33:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\sounds.c
+14B text6 CODE >34:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\sounds.c
+133 text5 CODE >36:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\sounds.c
+133 text5 CODE >38:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\sounds.c
+134 text5 CODE >39:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\sounds.c
+135 text5 CODE >40:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\sounds.c
+136 text5 CODE >41:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\sounds.c
+137 text5 CODE >42:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\sounds.c
+13A text5 CODE >43:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\sounds.c
+13B text5 CODE >44:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\sounds.c
+A0 text4 CODE >84:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\main.c
+A0 text4 CODE >86:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\main.c
+A1 text4 CODE >92:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\main.c
+A2 text4 CODE >93:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\main.c
+A3 text4 CODE >96:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\main.c
+A4 text4 CODE >97:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\main.c
+A5 text4 CODE >100:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\main.c
+A6 text4 CODE >101:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\main.c
+A7 text4 CODE >105:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\main.c
+AD text4 CODE >105:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\main.c
+B2 text4 CODE >105:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\main.c
+B5 text4 CODE >105:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\main.c
+B8 text4 CODE >105:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\main.c
+BB text4 CODE >105:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\main.c
+BE text4 CODE >106:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\main.c
+13C text3 CODE >10:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\init_periphery.c
+13C text3 CODE >12:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\init_periphery.c
+13F text3 CODE >13:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\init_periphery.c
+141 text3 CODE >14:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\init_periphery.c
+142 text3 CODE >15:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\init_periphery.c
+143 text3 CODE >17:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\init_periphery.c
+128 text2 CODE >19:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\init_periphery.c
+128 text2 CODE >21:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\init_periphery.c
+12B text2 CODE >22:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\init_periphery.c
+12D text2 CODE >24:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\init_periphery.c
+12F text2 CODE >26:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\init_periphery.c
+130 text2 CODE >27:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\init_periphery.c
+132 text2 CODE >29:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\init_periphery.c
 57 text1 CODE >31:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\init_periphery.c
 57 text1 CODE >32:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\init_periphery.c
 5A text1 CODE >33:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\init_periphery.c
@@ -230,14 +230,14 @@ BE text4 CODE >103:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Contro
 7C text1 CODE >69:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\init_periphery.c
 7D text1 CODE >70:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\init_periphery.c
 7E text1 CODE >71:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\init_periphery.c
-11B maintext CODE >68:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\main.c
-11B maintext CODE >70:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\main.c
-11C maintext CODE >71:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\main.c
-11D maintext CODE >72:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\main.c
-11E maintext CODE >73:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\main.c
-121 maintext CODE >75:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\main.c
-121 maintext CODE >76:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\main.c
-122 maintext CODE >77:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\main.c
+DA maintext CODE >70:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\main.c
+DA maintext CODE >72:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\main.c
+DB maintext CODE >73:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\main.c
+DC maintext CODE >74:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\main.c
+DD maintext CODE >75:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\main.c
+EB maintext CODE >76:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\main.c
+EE maintext CODE >79:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\main.c
+EF maintext CODE >80:C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\main.c
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -260,7 +260,7 @@ __Hspace_4 400F 0 ABS 0 - -
 _DataProcessing 140 0 CODE 0 text4 dist/default/production\Cooler_Control.X.production.o
 __HidataBANK0 7FE 0 ABS 0 idataBANK0 -
 __Heeprom_data 0 0 EEDATA 3 eeprom_data -
-__end_of_TimeOut 220 0 CODE 0 text9 dist/default/production\Cooler_Control.X.production.o
+__end_of_TimeOut 250 0 CODE 0 text9 dist/default/production\Cooler_Control.X.production.o
 _GO F9 0 ABS 0 - dist/default/production\Cooler_Control.X.production.o
 __Hstrings 7FE 0 ABS 0 strings -
 _ADFM FF 0 ABS 0 - dist/default/production\Cooler_Control.X.production.o
@@ -272,21 +272,21 @@ _GPIO 5 0 ABS 0 - dist/default/production\Cooler_Control.X.production.o
 _PEIE 5E 0 ABS 0 - dist/default/production\Cooler_Control.X.production.o
 _TMR0 1 0 ABS 0 - dist/default/production\Cooler_Control.X.production.o
 _VCFG FE 0 ABS 0 - dist/default/production\Cooler_Control.X.production.o
-___sp 7FE 0 STACK 2 stack C:\Users\ziatd\AppData\Local\Temp\xcAsdsk.o
-_cnt0 2C 0 BANK0 1 bssBANK0 dist/default/production\Cooler_Control.X.production.o
-_cnt1 2A 0 BANK0 1 bssBANK0 dist/default/production\Cooler_Control.X.production.o
-_main 236 0 CODE 0 maintext dist/default/production\Cooler_Control.X.production.o
+___sp 7FE 0 STACK 2 stack C:\Users\ziatd\AppData\Local\Temp\xcAsegg.o
+_cnt0 2F 0 BANK0 1 bssBANK0 dist/default/production\Cooler_Control.X.production.o
+_cnt1 2D 0 BANK0 1 bssBANK0 dist/default/production\Cooler_Control.X.production.o
+_main 1B4 0 CODE 0 maintext dist/default/production\Cooler_Control.X.production.o
 btemp 5E 0 ABS 0 - dist/default/production\Cooler_Control.X.production.o
-start 16 0 CODE 0 init C:\Users\ziatd\AppData\Local\Temp\xcAsdsk.o
+start 16 0 CODE 0 init C:\Users\ziatd\AppData\Local\Temp\xcAsegg.o
 __LidataBANK0 7FE 0 ABS 0 idataBANK0 -
 __Hpowerup 0 0 CODE 0 powerup -
 __end_of_DataProcessing 17E 0 CODE 0 text4 dist/default/production\Cooler_Control.X.production.o
-intlevel0 0 0 ENTRY 0 functab C:\Users\ziatd\AppData\Local\Temp\xcAsdsk.o
-intlevel1 0 0 ENTRY 0 functab C:\Users\ziatd\AppData\Local\Temp\xcAsdsk.o
-intlevel2 0 0 ENTRY 0 functab C:\Users\ziatd\AppData\Local\Temp\xcAsdsk.o
-intlevel3 0 0 ENTRY 0 functab C:\Users\ziatd\AppData\Local\Temp\xcAsdsk.o
-intlevel4 0 0 ENTRY 0 functab C:\Users\ziatd\AppData\Local\Temp\xcAsdsk.o
-intlevel5 0 0 ENTRY 0 functab C:\Users\ziatd\AppData\Local\Temp\xcAsdsk.o
+intlevel0 0 0 ENTRY 0 functab C:\Users\ziatd\AppData\Local\Temp\xcAsegg.o
+intlevel1 0 0 ENTRY 0 functab C:\Users\ziatd\AppData\Local\Temp\xcAsegg.o
+intlevel2 0 0 ENTRY 0 functab C:\Users\ziatd\AppData\Local\Temp\xcAsegg.o
+intlevel3 0 0 ENTRY 0 functab C:\Users\ziatd\AppData\Local\Temp\xcAsegg.o
+intlevel4 0 0 ENTRY 0 functab C:\Users\ziatd\AppData\Local\Temp\xcAsegg.o
+intlevel5 0 0 ENTRY 0 functab C:\Users\ziatd\AppData\Local\Temp\xcAsegg.o
 _Init_uC AE 0 CODE 0 text1 dist/default/production\Cooler_Control.X.production.o
 wtemp0 5E 0 ABS 0 - dist/default/production\Cooler_Control.X.production.o
 __Hfunctab 0 0 ENTRY 0 functab -
@@ -299,18 +299,18 @@ _TRISIO5 42D 0 ABS 0 - dist/default/production\Cooler_Control.X.production.o
 _ADCON0 1F 0 ABS 0 - dist/default/production\Cooler_Control.X.production.o
 _ADRESH 1E 0 ABS 0 - dist/default/production\Cooler_Control.X.production.o
 _ADRESL 9E 0 ABS 0 - dist/default/production\Cooler_Control.X.production.o
-_InitTimer0 25C 0 CODE 0 text3 dist/default/production\Cooler_Control.X.production.o
-_InitTimer1 220 0 CODE 0 text2 dist/default/production\Cooler_Control.X.production.o
-_errorType 2D 0 BANK0 1 bssBANK0 dist/default/production\Cooler_Control.X.production.o
-__end_of_TwoShortOneLong 27C 0 CODE 0 text6 dist/default/production\Cooler_Control.X.production.o
+_InitTimer0 278 0 CODE 0 text3 dist/default/production\Cooler_Control.X.production.o
+_InitTimer1 250 0 CODE 0 text2 dist/default/production\Cooler_Control.X.production.o
+_errorType 30 0 BANK0 1 bssBANK0 dist/default/production\Cooler_Control.X.production.o
+__end_of_TwoShortOneLong 298 0 CODE 0 text6 dist/default/production\Cooler_Control.X.production.o
 __Lmaintext 7FE 0 ABS 0 maintext -
 _OPTION_REG 81 0 ABS 0 - dist/default/production\Cooler_Control.X.production.o
-___stackhi 0 0 ABS 0 - C:\Users\ziatd\AppData\Local\Temp\xcAsdsk.o
-___stacklo 0 0 ABS 0 - C:\Users\ziatd\AppData\Local\Temp\xcAsdsk.o
+___stackhi 0 0 ABS 0 - C:\Users\ziatd\AppData\Local\Temp\xcAsegg.o
+___stacklo 0 0 ABS 0 - C:\Users\ziatd\AppData\Local\Temp\xcAsegg.o
 start_initialization 18 0 CODE 0 cinit dist/default/production\Cooler_Control.X.production.o
-_TwoShortOneLong 26C 0 CODE 0 text6 dist/default/production\Cooler_Control.X.production.o
-__end_of_InitTimer0 26C 0 CODE 0 text3 dist/default/production\Cooler_Control.X.production.o
-__end_of_InitTimer1 236 0 CODE 0 text2 dist/default/production\Cooler_Control.X.production.o
+_TwoShortOneLong 288 0 CODE 0 text6 dist/default/production\Cooler_Control.X.production.o
+__end_of_InitTimer0 288 0 CODE 0 text3 dist/default/production\Cooler_Control.X.production.o
+__end_of_InitTimer1 266 0 CODE 0 text2 dist/default/production\Cooler_Control.X.production.o
 __pcstackBANK0 20 0 BANK0 1 cstackBANK0 dist/default/production\Cooler_Control.X.production.o
 _TMR0IE 5D 0 ABS 0 - dist/default/production\Cooler_Control.X.production.o
 _TMR0IF 5A 0 ABS 0 - dist/default/production\Cooler_Control.X.production.o
@@ -318,9 +318,9 @@ _TMR1IE 460 0 ABS 0 - dist/default/production\Cooler_Control.X.production.o
 _TMR1IF 60 0 ABS 0 - dist/default/production\Cooler_Control.X.production.o
 _TRISIO 85 0 ABS 0 - dist/default/production\Cooler_Control.X.production.o
 _ADCProcessing 2C 0 CODE 0 text11 dist/default/production\Cooler_Control.X.production.o
-___int_sp 7FE 0 STACK 2 stack C:\Users\ziatd\AppData\Local\Temp\xcAsdsk.o
-_TimeOut 202 0 CODE 0 text9 dist/default/production\Cooler_Control.X.production.o
-_measureType 2E 0 BANK0 1 dataBANK0 dist/default/production\Cooler_Control.X.production.o
+___int_sp 7FE 0 STACK 2 stack C:\Users\ziatd\AppData\Local\Temp\xcAsegg.o
+_TimeOut 232 0 CODE 0 text9 dist/default/production\Cooler_Control.X.production.o
+_measureType 31 0 BANK0 1 dataBANK0 dist/default/production\Cooler_Control.X.production.o
 __Hbank0 7FE 0 ABS 0 bank0 -
 __Hbank1 7FE 0 BANK1 1 bank1 -
 __Hcinit 2C 0 CODE 0 cinit -
@@ -351,29 +351,29 @@ _GP2 2A 0 ABS 0 - dist/default/production\Cooler_Control.X.production.o
 _GP4 2C 0 ABS 0 - dist/default/production\Cooler_Control.X.production.o
 _GP5 2D 0 ABS 0 - dist/default/production\Cooler_Control.X.production.o
 _ISR FE 0 CODE 0 text13 dist/default/production\Cooler_Control.X.production.o
-__S0 147 0 ABS 0 - -
-__S1 2F 0 ABS 0 - -
+__S0 155 0 ABS 0 - -
+__S1 32 0 ABS 0 - -
 __S3 0 0 ABS 0 - -
-_MuxVoltage 1E0 0 CODE 0 text12 dist/default/production\Cooler_Control.X.production.o
+_MuxVoltage 210 0 CODE 0 text12 dist/default/production\Cooler_Control.X.production.o
 saved_w 5E 0 ABS 0 - dist/default/production\Cooler_Control.X.production.o
 __Hosccal 7FE 0 CODE 0 osccal -
 __end_of_ISR 140 0 CODE 0 text13 dist/default/production\Cooler_Control.X.production.o
 __Lintentry 8 0 CODE 0 intentry -
-reset_vec 0 0 CODE 0 reset_vec C:\Users\ziatd\AppData\Local\Temp\xcAsdsk.o
-__pdataBANK0 2E 0 BANK0 1 dataBANK0 dist/default/production\Cooler_Control.X.production.o
+reset_vec 0 0 CODE 0 reset_vec C:\Users\ziatd\AppData\Local\Temp\xcAsegg.o
+__pdataBANK0 31 0 BANK0 1 dataBANK0 dist/default/production\Cooler_Control.X.production.o
 __LbssBANK0 7FE 0 ABS 0 bssBANK0 -
-_ThreeShort 27C 0 CODE 0 text8 dist/default/production\Cooler_Control.X.production.o
-__ptext10 1B4 0 CODE 0 text10 dist/default/production\Cooler_Control.X.production.o
+_ThreeShort 298 0 CODE 0 text8 dist/default/production\Cooler_Control.X.production.o
+__ptext10 1E4 0 CODE 0 text10 dist/default/production\Cooler_Control.X.production.o
 __ptext11 2C 0 CODE 0 text11 dist/default/production\Cooler_Control.X.production.o
-__ptext12 1E0 0 CODE 0 text12 dist/default/production\Cooler_Control.X.production.o
+__ptext12 210 0 CODE 0 text12 dist/default/production\Cooler_Control.X.production.o
 __ptext13 FE 0 CODE 0 text13 dist/default/production\Cooler_Control.X.production.o
-__pmaintext 236 0 CODE 0 maintext dist/default/production\Cooler_Control.X.production.o
+__pmaintext 1B4 0 CODE 0 maintext dist/default/production\Cooler_Control.X.production.o
 __Lcommon 7FE 0 ABS 0 common -
 __Lconfig 0 0 CONFIG 4 config -
-__end_of_MuxVoltage 202 0 CODE 0 text12 dist/default/production\Cooler_Control.X.production.o
-___osccal_val 7FE 0 CODE 0 osccal C:\Users\ziatd\AppData\Local\Temp\xcAsdsk.o
+__end_of_MuxVoltage 232 0 CODE 0 text12 dist/default/production\Cooler_Control.X.production.o
+___osccal_val 7FE 0 CODE 0 osccal C:\Users\ziatd\AppData\Local\Temp\xcAsegg.o
 __end_of_ADCProcessing AE 0 CODE 0 text11 dist/default/production\Cooler_Control.X.production.o
-_adcValue 28 0 BANK0 1 bssBANK0 dist/default/production\Cooler_Control.X.production.o
+_adcValue 2B 0 BANK0 1 bssBANK0 dist/default/production\Cooler_Control.X.production.o
 __Lspace_0 0 0 ABS 0 - -
 __Lspace_1 0 0 ABS 0 - -
 __Lspace_2 0 0 ABS 0 - -
@@ -381,7 +381,7 @@ __Lspace_3 0 0 ABS 0 - -
 __Lspace_4 0 0 ABS 0 - -
 __HcstackBANK0 7FE 0 ABS 0 cstackBANK0 -
 __end_of_LongSound 1B4 0 CODE 0 text7 dist/default/production\Cooler_Control.X.production.o
-__end_of_ThreeShort 28C 0 CODE 0 text8 dist/default/production\Cooler_Control.X.production.o
+__end_of_ThreeShort 2A8 0 CODE 0 text8 dist/default/production\Cooler_Control.X.production.o
 __Lend_init 16 0 CODE 0 end_init -
 __LcstackCOMMON 7FE 0 ABS 0 cstackCOMMON -
 end_of_initialization 28 0 CODE 0 cinit dist/default/production\Cooler_Control.X.production.o
@@ -392,28 +392,28 @@ __Hreset_vec 2 0 CODE 0 reset_vec -
 __HbssBANK0 7FE 0 ABS 0 bssBANK0 -
 _LongSound 17E 0 CODE 0 text7 dist/default/production\Cooler_Control.X.production.o
 __ptext1 AE 0 CODE 0 text1 dist/default/production\Cooler_Control.X.production.o
-__ptext2 220 0 CODE 0 text2 dist/default/production\Cooler_Control.X.production.o
-__ptext3 25C 0 CODE 0 text3 dist/default/production\Cooler_Control.X.production.o
+__ptext2 250 0 CODE 0 text2 dist/default/production\Cooler_Control.X.production.o
+__ptext3 278 0 CODE 0 text3 dist/default/production\Cooler_Control.X.production.o
 __ptext4 140 0 CODE 0 text4 dist/default/production\Cooler_Control.X.production.o
-__ptext5 24A 0 CODE 0 text5 dist/default/production\Cooler_Control.X.production.o
-__ptext6 26C 0 CODE 0 text6 dist/default/production\Cooler_Control.X.production.o
+__ptext5 266 0 CODE 0 text5 dist/default/production\Cooler_Control.X.production.o
+__ptext6 288 0 CODE 0 text6 dist/default/production\Cooler_Control.X.production.o
 __ptext7 17E 0 CODE 0 text7 dist/default/production\Cooler_Control.X.production.o
-__ptext8 27C 0 CODE 0 text8 dist/default/production\Cooler_Control.X.production.o
-__ptext9 202 0 CODE 0 text9 dist/default/production\Cooler_Control.X.production.o
+__ptext8 298 0 CODE 0 text8 dist/default/production\Cooler_Control.X.production.o
+__ptext9 232 0 CODE 0 text9 dist/default/production\Cooler_Control.X.production.o
 __end_of_Init_uC FE 0 CODE 0 text1 dist/default/production\Cooler_Control.X.production.o
-__end_of_TwoShortTwoLong 25C 0 CODE 0 text5 dist/default/production\Cooler_Control.X.production.o
+__end_of_TwoShortTwoLong 278 0 CODE 0 text5 dist/default/production\Cooler_Control.X.production.o
 __Lpowerup 0 0 CODE 0 powerup -
 __Leeprom_data 0 0 EEDATA 3 eeprom_data -
 __Lreset_vec 0 0 CODE 0 reset_vec -
 __end_of__initialization 28 0 CODE 0 cinit dist/default/production\Cooler_Control.X.production.o
-_ShortSound 1B4 0 CODE 0 text10 dist/default/production\Cooler_Control.X.production.o
+_ShortSound 1E4 0 CODE 0 text10 dist/default/production\Cooler_Control.X.production.o
 __Lfunctab 0 0 ENTRY 0 functab -
-__pidataBANK0 28C 0 CODE 0 idataBANK0 dist/default/production\Cooler_Control.X.production.o
+__pidataBANK0 2A8 0 CODE 0 idataBANK0 dist/default/production\Cooler_Control.X.production.o
 __Lclrtext 7FE 0 ABS 0 clrtext -
 __pcstackCOMMON 0 0 COMMON 1 cstackCOMMON dist/default/production\Cooler_Control.X.production.o
 __Hend_init 18 0 CODE 0 end_init -
-__end_of_main 24A 0 CODE 0 maintext dist/default/production\Cooler_Control.X.production.o
-_TwoShortTwoLong 24A 0 CODE 0 text5 dist/default/production\Cooler_Control.X.production.o
+__end_of_main 1E4 0 CODE 0 maintext dist/default/production\Cooler_Control.X.production.o
+_TwoShortTwoLong 266 0 CODE 0 text5 dist/default/production\Cooler_Control.X.production.o
 _ANSEL 9F 0 ABS 0 - dist/default/production\Cooler_Control.X.production.o
 _CMCON 19 0 ABS 0 - dist/default/production\Cooler_Control.X.production.o
 _T1CON 10 0 ABS 0 - dist/default/production\Cooler_Control.X.production.o
@@ -426,8 +426,8 @@ interrupt_function 8 0 CODE 0 intentry dist/default/production\Cooler_Control.X.
 __pintentry 8 0 CODE 0 intentry dist/default/production\Cooler_Control.X.production.o
 __HdataBANK0 7FE 0 ABS 0 dataBANK0 -
 __initialization 18 0 CODE 0 cinit dist/default/production\Cooler_Control.X.production.o
-__pbssBANK0 28 0 BANK0 1 bssBANK0 dist/default/production\Cooler_Control.X.production.o
-__end_of_ShortSound 1E0 0 CODE 0 text10 dist/default/production\Cooler_Control.X.production.o
+__pbssBANK0 2B 0 BANK0 1 bssBANK0 dist/default/production\Cooler_Control.X.production.o
+__end_of_ShortSound 210 0 CODE 0 text10 dist/default/production\Cooler_Control.X.production.o
 # %SPLITSTAB Section
 # This section enumerates all the psect splits performed by the assembler.
 # The beginning of the section is indicated by %SPLITSTAB.
@@ -453,8 +453,8 @@ __end_of_ShortSound 1E0 0 CODE 0 text10 dist/default/production\Cooler_Control.X
 # and size are in units of delta. The file address is in units of bytes.
 # All other numeric quantities are in decimal.
 %SEGMENTS
-cstackBANK0 1 20 20 F 1
-intentry 0 4 8 143 2
+cstackBANK0 1 20 20 12 1
+intentry 0 4 8 151 2
 reset_vec 0 0 0 1 2
 # %NOTES Section
 # This section contains data of all the note-psects.  The beginning of the section

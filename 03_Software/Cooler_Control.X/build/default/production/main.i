@@ -1194,6 +1194,8 @@ void ThreeShort(void);
 
 
 
+
+
 #pragma config FOSC = INTRCIO
 #pragma config WDTE = OFF
 #pragma config PWRTE = OFF
@@ -1218,6 +1220,7 @@ void main()
     InitTimer0();
     InitTimer1();
     Init_uC();
+    _delay((unsigned long)((2500)*(4000000/4000.0)));
     errorType = 1;
 
     while(1){
