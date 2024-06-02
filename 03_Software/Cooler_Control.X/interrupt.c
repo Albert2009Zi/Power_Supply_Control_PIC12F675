@@ -5,7 +5,8 @@
 
 #define _XTAL_FREQ   4000000 
 
-#define PWM_ON
+#define PROTOTYPE
+
 
 uint16_t cnt1             = 0;
 uint8_t  cnt0             = 0;
@@ -45,7 +46,7 @@ void __interrupt() ISR(void)
 //##########################Timer0#####################################// 
     if (TMR0IF == 1){       // Timer0 is overload 
     
-        TMR0 = 6;      // ???????? ??? ???????????? ????? 1 ?? ??? ???????????? 256
+    TMR0 = 6;      // ???????? ??? ???????????? ????? 1 ?? ??? ???????????? 256
 	cnt0++;
 	TMR0IF   = 0;  // ?????????? ???? ?????????? ??????? 0       
      }
@@ -73,23 +74,24 @@ void ADCProcessing(void){
 
     if (ADIF == 1){     
      adcValue = (uint16_t) ((ADRESH << 8) + ADRESL); /* ADC result */    
-      
+     
  //    switch (measureType){
  //      case VOLTAGE_MEASURE: 
-
-	if ((adcValue > 190) && (adcValue < 285) /*&& (errorType == ERROR_OK)*/){
-//    if ((adcValue > 88) && (adcValue < 138) /*&& (errorType == ERROR_OK)*/){       
+          
+//	if ((adcValue > 190) && (adcValue < 285)){
+    if ((adcValue > 88) && (adcValue < 138)){  
            GP5 = 0;
 	       GP2 = 0;
            errorType = ERROR_OK;
            }  	
-        else if (adcValue <= 190) { 
- //         else if (adcValue <= 88) {
-           GP5 = 1; 
-	       errorType = ERROR_UNDER_VOLTAGE; 
-           }
-	 else if (adcValue >= 285){
-//     else if (adcValue >= 138){
+//        else if (adcValue <= 190) {             
+        else if (adcValue <= 88) {
+             
+        GP5 = 1; 
+	    errorType = ERROR_UNDER_VOLTAGE; 
+         }         
+//     else if (adcValue >= 285){
+     else if (adcValue >= 138){
            GP5 = 1;
 	       errorType = ERROR_OVER_VOLTAGE; 
            }      

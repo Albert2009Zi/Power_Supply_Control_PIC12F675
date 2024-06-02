@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.36 build 20220127204148 
-                                                                                               Sun Jun 02 18:05:19 2024
+                                                                                               Sun Jun 02 18:28:04 2024
 
 Microchip MPLAB XC8 C Compiler v2.36 (Free license) build 20220127204148 Og1 
      1                           	processor	12F675
@@ -1277,7 +1277,7 @@ Microchip MPLAB XC8 C Compiler v2.36 (Free license) build 20220127204148 Og1
   1262  0016                     __ptext11:	
   1263 ;; *************** function _ADCProcessing *****************
   1264 ;; Defined at:
-  1265 ;;		line 72 in file "interrupt.c"
+  1265 ;;		line 73 in file "interrupt.c"
   1266 ;; Parameters:    Size  Location     Type
   1267 ;;		None
   1268 ;; Auto vars:     Size  Location     Type
@@ -1313,7 +1313,7 @@ Microchip MPLAB XC8 C Compiler v2.36 (Free license) build 20220127204148 Og1
   1298                           ; Regs used in _ADCProcessing: [wreg+status,2+status,0+pclath+cstack]
   1299                           
   1300                           
-  1301                           ;interrupt.c: 74:     if (ADIF == 1){
+  1301                           ;interrupt.c: 75:     if (ADIF == 1){
   1302  0016  1283               	bcf	3,5	;RP0=0, select bank0
   1303  0017  1F0C               	btfss	12,6	;volatile
   1304  0018  281A               	goto	u101
@@ -1323,7 +1323,7 @@ Microchip MPLAB XC8 C Compiler v2.36 (Free license) build 20220127204148 Og1
   1308  001B                     u100:
   1309  001B                     l1036:
   1310                           
-  1311                           ;interrupt.c: 75:      adcValue = (uint16_t) ((ADRESH << 8) + ADRESL);
+  1311                           ;interrupt.c: 76:      adcValue = (uint16_t) ((ADRESH << 8) + ADRESL);
   1312  001B  081E               	movf	30,w	;volatile
   1313  001C  00A9               	movwf	_adcValue+1
   1314  001D  1683               	bsf	3,5	;RP0=1, select bank1
@@ -1331,10 +1331,10 @@ Microchip MPLAB XC8 C Compiler v2.36 (Free license) build 20220127204148 Og1
   1316  001F  1283               	bcf	3,5	;RP0=0, select bank0
   1317  0020  00A8               	movwf	_adcValue
   1318                           
-  1319                           ;interrupt.c: 80:  if ((adcValue > 190) && (adcValue < 285) ){
+  1319                           ;interrupt.c: 82:     if ((adcValue > 88) && (adcValue < 138)){
   1320  0021  3000               	movlw	0
   1321  0022  0229               	subwf	_adcValue+1,w
-  1322  0023  30BF               	movlw	191
+  1322  0023  3059               	movlw	89
   1323  0024  1903               	skipnz
   1324  0025  0228               	subwf	_adcValue,w
   1325  0026  1C03               	skipc
@@ -1344,9 +1344,9 @@ Microchip MPLAB XC8 C Compiler v2.36 (Free license) build 20220127204148 Og1
   1329  0029  2838               	goto	l1042
   1330  002A                     u110:
   1331  002A                     l1038:
-  1332  002A  3001               	movlw	1
+  1332  002A  3000               	movlw	0
   1333  002B  0229               	subwf	_adcValue+1,w
-  1334  002C  301D               	movlw	29
+  1334  002C  308A               	movlw	138
   1335  002D  1903               	skipnz
   1336  002E  0228               	subwf	_adcValue,w
   1337  002F  1803               	skipnc
@@ -1357,22 +1357,22 @@ Microchip MPLAB XC8 C Compiler v2.36 (Free license) build 20220127204148 Og1
   1342  0033                     u120:
   1343  0033                     l1040:
   1344                           
-  1345                           ;interrupt.c: 82:            GP5 = 0;
+  1345                           ;interrupt.c: 83:            GP5 = 0;
   1346  0033  1285               	bcf	5,5	;volatile
   1347                           
-  1348                           ;interrupt.c: 83:         GP2 = 0;
+  1348                           ;interrupt.c: 84:         GP2 = 0;
   1349  0034  1105               	bcf	5,2	;volatile
   1350                           
-  1351                           ;interrupt.c: 84:            errorType = 1;
+  1351                           ;interrupt.c: 85:            errorType = 1;
   1352  0035  01AD               	clrf	_errorType
   1353  0036  0AAD               	incf	_errorType,f
   1354                           
-  1355                           ;interrupt.c: 85:            }
+  1355                           ;interrupt.c: 86:            }
   1356  0037  2855               	goto	l1054
   1357  0038                     l1042:
   1358  0038  3000               	movlw	0
   1359  0039  0229               	subwf	_adcValue+1,w
-  1360  003A  30BF               	movlw	191
+  1360  003A  3059               	movlw	89
   1361  003B  1903               	skipnz
   1362  003C  0228               	subwf	_adcValue,w
   1363  003D  1803               	skipnc
@@ -1383,22 +1383,22 @@ Microchip MPLAB XC8 C Compiler v2.36 (Free license) build 20220127204148 Og1
   1368  0041                     u130:
   1369  0041                     l1044:
   1370                           
-  1371                           ;interrupt.c: 88:            GP5 = 1;
+  1371                           ;interrupt.c: 90:         GP5 = 1;
   1372  0041  1685               	bsf	5,5	;volatile
   1373  0042                     l1046:
   1374                           
-  1375                           ;interrupt.c: 89:         errorType = 2;
+  1375                           ;interrupt.c: 91:      errorType = 2;
   1376  0042  3002               	movlw	2
   1377  0043  00A4               	movwf	??_ADCProcessing
   1378  0044  0824               	movf	??_ADCProcessing,w
   1379  0045  00AD               	movwf	_errorType
   1380                           
-  1381                           ;interrupt.c: 90:            }
+  1381                           ;interrupt.c: 92:          }
   1382  0046  2855               	goto	l1054
   1383  0047                     l1048:
-  1384  0047  3001               	movlw	1
+  1384  0047  3000               	movlw	0
   1385  0048  0229               	subwf	_adcValue+1,w
-  1386  0049  301D               	movlw	29
+  1386  0049  308A               	movlw	138
   1387  004A  1903               	skipnz
   1388  004B  0228               	subwf	_adcValue,w
   1389  004C  1C03               	skipc
@@ -1409,18 +1409,18 @@ Microchip MPLAB XC8 C Compiler v2.36 (Free license) build 20220127204148 Og1
   1394  0050                     u140:
   1395  0050                     l1050:
   1396                           
-  1397                           ;interrupt.c: 93:            GP5 = 1;
+  1397                           ;interrupt.c: 95:            GP5 = 1;
   1398  0050  1685               	bsf	5,5	;volatile
   1399  0051                     l1052:
   1400                           
-  1401                           ;interrupt.c: 94:         errorType = 3;
+  1401                           ;interrupt.c: 96:         errorType = 3;
   1402  0051  3003               	movlw	3
   1403  0052  00A4               	movwf	??_ADCProcessing
   1404  0053  0824               	movf	??_ADCProcessing,w
   1405  0054  00AD               	movwf	_errorType
   1406  0055                     l1054:
   1407                           
-  1408                           ;interrupt.c: 96:      MuxVoltage();
+  1408                           ;interrupt.c: 98:      MuxVoltage();
   1409  0055  20F0               	fcall	_MuxVoltage
   1410  0056                     l66:
   1411  0056  0008               	return
@@ -1430,7 +1430,7 @@ Microchip MPLAB XC8 C Compiler v2.36 (Free license) build 20220127204148 Og1
   1415  00F0                     __ptext12:	
   1416 ;; *************** function _MuxVoltage *****************
   1417 ;; Defined at:
-  1418 ;;		line 17 in file "interrupt.c"
+  1418 ;;		line 18 in file "interrupt.c"
   1419 ;; Parameters:    Size  Location     Type
   1420 ;;		None
   1421 ;; Auto vars:     Size  Location     Type
@@ -1466,37 +1466,37 @@ Microchip MPLAB XC8 C Compiler v2.36 (Free license) build 20220127204148 Og1
   1451                           ; Regs used in _MuxVoltage: [wreg+status,2]
   1452                           
   1453                           
-  1454                           ;interrupt.c: 18:        ADCON0 = 0;
+  1454                           ;interrupt.c: 19:        ADCON0 = 0;
   1455  00F0  1283               	bcf	3,5	;RP0=0, select bank0
   1456  00F1  019F               	clrf	31	;volatile
   1457  00F2                     l1000:
   1458                           
-  1459                           ;interrupt.c: 19:        ADON = 1;
+  1459                           ;interrupt.c: 20:        ADON = 1;
   1460  00F2  141F               	bsf	31,0	;volatile
   1461  00F3                     l1002:
   1462                           
-  1463                           ;interrupt.c: 20:        ADFM = 1;
+  1463                           ;interrupt.c: 21:        ADFM = 1;
   1464  00F3  179F               	bsf	31,7	;volatile
   1465  00F4                     l1004:
   1466                           
-  1467                           ;interrupt.c: 21:        CHS1 = 0;
+  1467                           ;interrupt.c: 22:        CHS1 = 0;
   1468  00F4  119F               	bcf	31,3	;volatile
   1469  00F5                     l1006:
   1470                           
-  1471                           ;interrupt.c: 22:        CHS0 = 1;
+  1471                           ;interrupt.c: 23:        CHS0 = 1;
   1472  00F5  151F               	bsf	31,2	;volatile
   1473  00F6                     l1008:
   1474                           
-  1475                           ;interrupt.c: 23:        measureType = 1;
+  1475                           ;interrupt.c: 24:        measureType = 1;
   1476  00F6  01AE               	clrf	_measureType
   1477  00F7  0AAE               	incf	_measureType,f
   1478  00F8                     l1010:
   1479                           
-  1480                           ;interrupt.c: 24:        ADIF = 0;
+  1480                           ;interrupt.c: 25:        ADIF = 0;
   1481  00F8  130C               	bcf	12,6	;volatile
   1482  00F9                     l1012:
   1483                           
-  1484                           ;interrupt.c: 25:        _delay((unsigned long)((50)*(4000000/4000000.0)));
+  1484                           ;interrupt.c: 26:        _delay((unsigned long)((50)*(4000000/4000000.0)));
   1485  00F9  3010               	movlw	16
   1486  00FA  00A3               	movwf	??_MuxVoltage
   1487  00FB                     u217:
@@ -1505,7 +1505,7 @@ Microchip MPLAB XC8 C Compiler v2.36 (Free license) build 20220127204148 Og1
   1490  00FD  0000               	nop
   1491  00FE                     l1014:
   1492                           
-  1493                           ;interrupt.c: 26:        GO = 1;
+  1493                           ;interrupt.c: 27:        GO = 1;
   1494  00FE  1283               	bcf	3,5	;RP0=0, select bank0
   1495  00FF  149F               	bsf	31,1	;volatile
   1496  0100                     l47:
@@ -1516,7 +1516,7 @@ Microchip MPLAB XC8 C Compiler v2.36 (Free license) build 20220127204148 Og1
   1501  007F                     __ptext13:	
   1502 ;; *************** function _ISR *****************
   1503 ;; Defined at:
-  1504 ;;		line 42 in file "interrupt.c"
+  1504 ;;		line 43 in file "interrupt.c"
   1505 ;; Parameters:    Size  Location     Type
   1506 ;;		None
   1507 ;; Auto vars:     Size  Location     Type
@@ -1548,7 +1548,7 @@ Microchip MPLAB XC8 C Compiler v2.36 (Free license) build 20220127204148 Og1
   1533                           
   1534  007F                     i1l1136:
   1535                           
-  1536                           ;interrupt.c: 46:     if (TMR0IF == 1){
+  1536                           ;interrupt.c: 47:     if (TMR0IF == 1){
   1537  007F  1D0B               	btfss	11,2	;volatile
   1538  0080  2882               	goto	u15_21
   1539  0081  2883               	goto	u15_20
@@ -1557,23 +1557,23 @@ Microchip MPLAB XC8 C Compiler v2.36 (Free license) build 20220127204148 Og1
   1542  0083                     u15_20:
   1543  0083                     i1l1138:
   1544                           
-  1545                           ;interrupt.c: 48:         TMR0 = 6;
+  1545                           ;interrupt.c: 49:     TMR0 = 6;
   1546  0083  3006               	movlw	6
   1547  0084  0081               	movwf	1	;volatile
   1548  0085                     i1l1140:
   1549                           
-  1550                           ;interrupt.c: 49:  cnt0++;
+  1550                           ;interrupt.c: 50:  cnt0++;
   1551  0085  3001               	movlw	1
   1552  0086  00A0               	movwf	??_ISR
   1553  0087  0820               	movf	??_ISR,w
   1554  0088  07AC               	addwf	_cnt0,f
   1555  0089                     i1l1142:
   1556                           
-  1557                           ;interrupt.c: 50:  TMR0IF = 0;
+  1557                           ;interrupt.c: 51:  TMR0IF = 0;
   1558  0089  110B               	bcf	11,2	;volatile
   1559  008A                     i1l1144:
   1560                           
-  1561                           ;interrupt.c: 55:     if (TMR1IF == 1){
+  1561                           ;interrupt.c: 56:     if (TMR1IF == 1){
   1562  008A  1C0C               	btfss	12,0	;volatile
   1563  008B  288D               	goto	u16_21
   1564  008C  288E               	goto	u16_20
@@ -1582,15 +1582,15 @@ Microchip MPLAB XC8 C Compiler v2.36 (Free license) build 20220127204148 Og1
   1567  008E                     u16_20:
   1568  008E                     i1l1146:
   1569                           
-  1570                           ;interrupt.c: 57:   TMR1H = 0xFC;
+  1570                           ;interrupt.c: 58:   TMR1H = 0xFC;
   1571  008E  30FC               	movlw	252
   1572  008F  008F               	movwf	15	;volatile
   1573                           
-  1574                           ;interrupt.c: 58:   TMR1L = 0x17;
+  1574                           ;interrupt.c: 59:   TMR1L = 0x17;
   1575  0090  3017               	movlw	23
   1576  0091  008E               	movwf	14	;volatile
   1577                           
-  1578                           ;interrupt.c: 60:          cnt1++;
+  1578                           ;interrupt.c: 61:          cnt1++;
   1579  0092  3001               	movlw	1
   1580  0093  07AA               	addwf	_cnt1,f
   1581  0094  1803               	skipnc
@@ -1599,7 +1599,7 @@ Microchip MPLAB XC8 C Compiler v2.36 (Free license) build 20220127204148 Og1
   1584  0097  07AB               	addwf	_cnt1+1,f
   1585  0098                     i1l1148:
   1586                           
-  1587                           ;interrupt.c: 62:         TMR1IF = 0;
+  1587                           ;interrupt.c: 63:         TMR1IF = 0;
   1588  0098  100C               	bcf	12,0	;volatile
   1589  0099                     i1l57:
   1590  0099  0822               	movf	??_ISR+2,w
@@ -1794,7 +1794,7 @@ EEDATA              80      0       0       0        0.0%
 
 
 Microchip Technology PIC Macro Assembler V2.36 build 20220127204148 
-Symbol Table                                                                                   Sun Jun 02 18:05:19 2024
+Symbol Table                                                                                   Sun Jun 02 18:28:04 2024
 
                      l47 0100                       l66 0056                       l89 0121  
                      _GO 00F9                       u90 010D                       u91 010C  

@@ -1170,6 +1170,7 @@ void Init_uC(void);
 
 
 
+
 uint16_t cnt1 = 0;
 uint8_t cnt0 = 0;
 
@@ -1208,7 +1209,7 @@ void __attribute__((picinterrupt(("")))) ISR(void)
 
     if (TMR0IF == 1){
 
-        TMR0 = 6;
+    TMR0 = 6;
  cnt0++;
  TMR0IF = 0;
      }
@@ -1240,23 +1241,24 @@ void ADCProcessing(void){
 
 
 
- if ((adcValue > 190) && (adcValue < 285) ){
 
+    if ((adcValue > 88) && (adcValue < 138)){
            GP5 = 0;
         GP2 = 0;
            errorType = 1;
            }
-        else if (adcValue <= 190) {
 
-           GP5 = 1;
-        errorType = 2;
-           }
-  else if (adcValue >= 285){
+        else if (adcValue <= 88) {
 
+        GP5 = 1;
+     errorType = 2;
+         }
+
+     else if (adcValue >= 138){
            GP5 = 1;
         errorType = 3;
            }
      MuxVoltage();
-# 130 "interrupt.c"
+# 132 "interrupt.c"
   }
 }
