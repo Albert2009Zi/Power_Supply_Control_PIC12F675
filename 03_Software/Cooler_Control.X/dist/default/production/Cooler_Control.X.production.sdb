@@ -19,15 +19,13 @@
 [v _Init_uC Init_uC `(v  1 e 1 0 ]
 "17 C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\interrupt.c
 [v _MuxVoltage MuxVoltage `(v  1 e 1 0 ]
-"30
-[v _MuxTemp MuxTemp `(v  1 e 1 0 ]
 "42
 [v _ISR ISR `II(v  1 e 1 0 ]
 "72
 [v _ADCProcessing ADCProcessing `(v  1 e 1 0 ]
 "68 C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\main.c
 [v _main main `(v  1 e 1 0 ]
-"80
+"81
 [v _DataProcessing DataProcessing `(v  1 e 1 0 ]
 "8 C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\sounds.c
 [v _ShortSound ShortSound `(v  1 e 1 0 ]
@@ -115,14 +113,14 @@
 [v _cnt0 cnt0 `uc  1 e 1 0 ]
 "13
 [v _measureType measureType `uc  1 e 1 0 ]
-"14
-[v _errorType errorType `uc  1 e 1 0 ]
 "15
 [v _adcValue adcValue `ui  1 e 2 0 ]
-"68 C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\main.c
+"63 C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\main.c
+[v _errorType errorType `uc  1 e 1 0 ]
+"68
 [v _main main `(v  1 e 1 0 ]
 {
-"78
+"79
 } 0
 "31 C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\init_periphery.c
 [v _Init_uC Init_uC `(v  1 e 1 0 ]
@@ -139,10 +137,10 @@
 {
 "17
 } 0
-"80 C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\main.c
+"81 C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\main.c
 [v _DataProcessing DataProcessing `(v  1 e 1 0 ]
 {
-"102
+"103
 } 0
 "36 C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\sounds.c
 [v _TwoShortTwoLong TwoShortTwoLong `(v  1 e 1 0 ]
@@ -177,17 +175,12 @@
 "72 C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\interrupt.c
 [v _ADCProcessing ADCProcessing `(v  1 e 1 0 ]
 {
-"128
+"131
 } 0
 "17
 [v _MuxVoltage MuxVoltage `(v  1 e 1 0 ]
 {
 "27
-} 0
-"30
-[v _MuxTemp MuxTemp `(v  1 e 1 0 ]
-{
-"40
 } 0
 "42
 [v _ISR ISR `II(v  1 e 1 0 ]

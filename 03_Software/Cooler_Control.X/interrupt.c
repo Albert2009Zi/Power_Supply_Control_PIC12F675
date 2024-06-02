@@ -11,7 +11,7 @@ uint16_t cnt1             = 0;
 uint8_t  cnt0             = 0;
 
 uint8_t  measureType = VOLTAGE_MEASURE;
-uint8_t  errorType   = ERROR_OK;
+extern uint8_t  errorType;
 uint16_t adcValue    = 0;
 
 void MuxVoltage(void){ 
@@ -74,56 +74,59 @@ void ADCProcessing(void){
     if (ADIF == 1){     
      adcValue = (uint16_t) ((ADRESH << 8) + ADRESL); /* ADC result */    
       
-      switch (measureType){
-       case VOLTAGE_MEASURE: 
+ //    switch (measureType){
+ //      case VOLTAGE_MEASURE: 
 
 	if ((adcValue > 190) && (adcValue < 285) && (errorType == ERROR_OK)){
+//    if ((adcValue > 88) && (adcValue < 138) /*&& (errorType == ERROR_OK)*/){       
            GP5 = 0;
-	   GP2 = 0;
+	       GP2 = 0;
+           errorType = ERROR_OK;
            }  	
         else if (adcValue <= 190) { 
+ //         else if (adcValue <= 88) {
            GP5 = 1; 
-	   errorType = ERROR_UNDER_VOLTAGE; 
+	       errorType = ERROR_UNDER_VOLTAGE; 
            }
 	 else if (adcValue >= 285){
+//     else if (adcValue >= 138){
            GP5 = 1;
-	   errorType = ERROR_OVER_VOLTAGE; 
-           }    
-	   
-          MuxTemp();
-        break;
+	       errorType = ERROR_OVER_VOLTAGE; 
+           }      
+     MuxVoltage(); //Nur Debug
+//          MuxTemp();
+//        break;
 	
 	
-	case TEMPERATURE_MEASURE:
-	
+/*	case TEMPERATURE_MEASURE:
+        
 	     if (adcValue < 200){
 		      GP5       = 1;  
 		      GP4       = 0;
-           	      errorType = ERROR_OK;
+           	  errorType = ERROR_OK;
 		  }
                 
              else if ((adcValue >= 200) && (adcValue < 930)){ 
 		        GP4       = 0;
-			errorType = ERROR_OK;
+			    errorType = ERROR_OK;
                        }
 	       	       
 	     else if ((adcValue >= 930) && (adcValue < 970)){ 
 		        GP4 = 1;
-			errorType = ERROR_OK;
+			    errorType = ERROR_OK;
                        }	
              else  {
 		        GP4       = 1;
-	                GP5       = 1;
-                        errorType = ERROR_TMP_HIGH;  		
+	            GP5       = 1;
+                errorType = ERROR_TMP_HIGH;  		
 		   }
-		
-	    MuxVoltage();
-	    	    
+         
+	    MuxVoltage();	    	    
 	break;
 	
 	default:
 	break;
-	}  
-     } 
+	}  */
+  } 
 }
 

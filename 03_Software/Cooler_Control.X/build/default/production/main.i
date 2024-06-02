@@ -1208,7 +1208,7 @@ void ThreeShort(void);
 
 
 
-extern uint8_t errorType;
+uint8_t errorType = 0;
 
 void DataProcessing(void);
 
@@ -1218,6 +1218,7 @@ void main()
     InitTimer0();
     InitTimer1();
     Init_uC();
+    errorType = 1;
 
     while(1){
      ADCProcessing();

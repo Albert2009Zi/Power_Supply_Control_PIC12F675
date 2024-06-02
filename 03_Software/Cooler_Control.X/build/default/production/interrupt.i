@@ -1174,7 +1174,7 @@ uint16_t cnt1 = 0;
 uint8_t cnt0 = 0;
 
 uint8_t measureType = 1;
-uint8_t errorType = 1;
+extern uint8_t errorType;
 uint16_t adcValue = 0;
 
 void MuxVoltage(void){
@@ -1237,55 +1237,26 @@ void ADCProcessing(void){
     if (ADIF == 1){
      adcValue = (uint16_t) ((ADRESH << 8) + ADRESL);
 
-      switch (measureType){
-       case 1:
+
+
 
  if ((adcValue > 190) && (adcValue < 285) && (errorType == 1)){
+
            GP5 = 0;
-    GP2 = 0;
+        GP2 = 0;
+           errorType = 1;
            }
         else if (adcValue <= 190) {
+
            GP5 = 1;
-    errorType = 2;
+        errorType = 2;
            }
   else if (adcValue >= 285){
+
            GP5 = 1;
-    errorType = 3;
+        errorType = 3;
            }
-
-          MuxTemp();
-        break;
-
-
- case 2:
-
-      if (adcValue < 200){
-        GP5 = 1;
-        GP4 = 0;
-                  errorType = 1;
-    }
-
-             else if ((adcValue >= 200) && (adcValue < 930)){
-          GP4 = 0;
-   errorType = 1;
-                       }
-
-      else if ((adcValue >= 930) && (adcValue < 970)){
-          GP4 = 1;
-   errorType = 1;
-                       }
-             else {
-          GP4 = 1;
-                 GP5 = 1;
-                        errorType = 5;
-     }
-
      MuxVoltage();
-
- break;
-
- default:
- break;
- }
-     }
+# 130 "interrupt.c"
+  }
 }

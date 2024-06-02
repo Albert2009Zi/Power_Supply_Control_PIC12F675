@@ -60,7 +60,7 @@ __CONFIG(FOSC_INTRCIO & WDTE_OFF & PWRTE_ON & MCLRE_OFF & BOREN_ON & CP_OFF & CP
 
 #endif
 
-extern uint8_t errorType;
+uint8_t errorType = 0;
 
 void DataProcessing(void);
 
@@ -70,6 +70,7 @@ void main()          //its app whichmakes on uc alone and not needs return somth
     InitTimer0();
     InitTimer1();
     Init_uC();
+    errorType   = ERROR_OK;
     
     while(1){ 
      ADCProcessing();    
