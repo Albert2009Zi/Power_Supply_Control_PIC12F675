@@ -1240,7 +1240,7 @@ void ADCProcessing(void){
 
 
 
- if ((adcValue > 190) && (adcValue < 285) && (errorType == 1)){
+ if ((adcValue > 190) && (adcValue < 285) ){
 
            GP5 = 0;
         GP2 = 0;

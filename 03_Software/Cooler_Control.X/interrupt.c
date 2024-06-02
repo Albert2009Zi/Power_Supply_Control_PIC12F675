@@ -77,7 +77,7 @@ void ADCProcessing(void){
  //    switch (measureType){
  //      case VOLTAGE_MEASURE: 
 
-	if ((adcValue > 190) && (adcValue < 285) && (errorType == ERROR_OK)){
+	if ((adcValue > 190) && (adcValue < 285) /*&& (errorType == ERROR_OK)*/){
 //    if ((adcValue > 88) && (adcValue < 138) /*&& (errorType == ERROR_OK)*/){       
            GP5 = 0;
 	       GP2 = 0;
