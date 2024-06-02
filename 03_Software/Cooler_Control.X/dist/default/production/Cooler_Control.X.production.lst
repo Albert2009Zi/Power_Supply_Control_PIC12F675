@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.36 build 20220127204148 
-                                                                                               Sun Jun 02 18:28:04 2024
+                                                                                               Sun Jun 02 20:32:05 2024
 
 Microchip MPLAB XC8 C Compiler v2.36 (Free license) build 20220127204148 Og1 
      1                           	processor	12F675
@@ -1331,10 +1331,10 @@ Microchip MPLAB XC8 C Compiler v2.36 (Free license) build 20220127204148 Og1
   1316  001F  1283               	bcf	3,5	;RP0=0, select bank0
   1317  0020  00A8               	movwf	_adcValue
   1318                           
-  1319                           ;interrupt.c: 82:     if ((adcValue > 88) && (adcValue < 138)){
+  1319                           ;interrupt.c: 82:  if ((adcValue > 184) && (adcValue < 288)){
   1320  0021  3000               	movlw	0
   1321  0022  0229               	subwf	_adcValue+1,w
-  1322  0023  3059               	movlw	89
+  1322  0023  30B9               	movlw	185
   1323  0024  1903               	skipnz
   1324  0025  0228               	subwf	_adcValue,w
   1325  0026  1C03               	skipc
@@ -1344,9 +1344,9 @@ Microchip MPLAB XC8 C Compiler v2.36 (Free license) build 20220127204148 Og1
   1329  0029  2838               	goto	l1042
   1330  002A                     u110:
   1331  002A                     l1038:
-  1332  002A  3000               	movlw	0
+  1332  002A  3001               	movlw	1
   1333  002B  0229               	subwf	_adcValue+1,w
-  1334  002C  308A               	movlw	138
+  1334  002C  3020               	movlw	32
   1335  002D  1903               	skipnz
   1336  002E  0228               	subwf	_adcValue,w
   1337  002F  1803               	skipnc
@@ -1357,22 +1357,22 @@ Microchip MPLAB XC8 C Compiler v2.36 (Free license) build 20220127204148 Og1
   1342  0033                     u120:
   1343  0033                     l1040:
   1344                           
-  1345                           ;interrupt.c: 83:            GP5 = 0;
+  1345                           ;interrupt.c: 86:            GP5 = 0;
   1346  0033  1285               	bcf	5,5	;volatile
   1347                           
-  1348                           ;interrupt.c: 84:         GP2 = 0;
+  1348                           ;interrupt.c: 87:         GP2 = 0;
   1349  0034  1105               	bcf	5,2	;volatile
   1350                           
-  1351                           ;interrupt.c: 85:            errorType = 1;
+  1351                           ;interrupt.c: 88:            errorType = 1;
   1352  0035  01AD               	clrf	_errorType
   1353  0036  0AAD               	incf	_errorType,f
   1354                           
-  1355                           ;interrupt.c: 86:            }
+  1355                           ;interrupt.c: 89:            }
   1356  0037  2855               	goto	l1054
   1357  0038                     l1042:
   1358  0038  3000               	movlw	0
   1359  0039  0229               	subwf	_adcValue+1,w
-  1360  003A  3059               	movlw	89
+  1360  003A  30B9               	movlw	185
   1361  003B  1903               	skipnz
   1362  003C  0228               	subwf	_adcValue,w
   1363  003D  1803               	skipnc
@@ -1383,22 +1383,22 @@ Microchip MPLAB XC8 C Compiler v2.36 (Free license) build 20220127204148 Og1
   1368  0041                     u130:
   1369  0041                     l1044:
   1370                           
-  1371                           ;interrupt.c: 90:         GP5 = 1;
+  1371                           ;interrupt.c: 96:         GP5 = 1;
   1372  0041  1685               	bsf	5,5	;volatile
   1373  0042                     l1046:
   1374                           
-  1375                           ;interrupt.c: 91:      errorType = 2;
+  1375                           ;interrupt.c: 97:      errorType = 2;
   1376  0042  3002               	movlw	2
   1377  0043  00A4               	movwf	??_ADCProcessing
   1378  0044  0824               	movf	??_ADCProcessing,w
   1379  0045  00AD               	movwf	_errorType
   1380                           
-  1381                           ;interrupt.c: 92:          }
+  1381                           ;interrupt.c: 98:          }
   1382  0046  2855               	goto	l1054
   1383  0047                     l1048:
-  1384  0047  3000               	movlw	0
+  1384  0047  3001               	movlw	1
   1385  0048  0229               	subwf	_adcValue+1,w
-  1386  0049  308A               	movlw	138
+  1386  0049  3020               	movlw	32
   1387  004A  1903               	skipnz
   1388  004B  0228               	subwf	_adcValue,w
   1389  004C  1C03               	skipc
@@ -1409,18 +1409,18 @@ Microchip MPLAB XC8 C Compiler v2.36 (Free license) build 20220127204148 Og1
   1394  0050                     u140:
   1395  0050                     l1050:
   1396                           
-  1397                           ;interrupt.c: 95:            GP5 = 1;
+  1397                           ;interrupt.c: 105:            GP5 = 1;
   1398  0050  1685               	bsf	5,5	;volatile
   1399  0051                     l1052:
   1400                           
-  1401                           ;interrupt.c: 96:         errorType = 3;
+  1401                           ;interrupt.c: 106:         errorType = 3;
   1402  0051  3003               	movlw	3
   1403  0052  00A4               	movwf	??_ADCProcessing
   1404  0053  0824               	movf	??_ADCProcessing,w
   1405  0054  00AD               	movwf	_errorType
   1406  0055                     l1054:
   1407                           
-  1408                           ;interrupt.c: 98:      MuxVoltage();
+  1408                           ;interrupt.c: 108:      MuxVoltage();
   1409  0055  20F0               	fcall	_MuxVoltage
   1410  0056                     l66:
   1411  0056  0008               	return
@@ -1794,7 +1794,7 @@ EEDATA              80      0       0       0        0.0%
 
 
 Microchip Technology PIC Macro Assembler V2.36 build 20220127204148 
-Symbol Table                                                                                   Sun Jun 02 18:28:04 2024
+Symbol Table                                                                                   Sun Jun 02 20:32:05 2024
 
                      l47 0100                       l66 0056                       l89 0121  
                      _GO 00F9                       u90 010D                       u91 010C  

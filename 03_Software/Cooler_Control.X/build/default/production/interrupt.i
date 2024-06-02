@@ -1242,23 +1242,33 @@ void ADCProcessing(void){
 
 
 
-    if ((adcValue > 88) && (adcValue < 138)){
+ if ((adcValue > 184) && (adcValue < 288)){
+
+
+
            GP5 = 0;
         GP2 = 0;
            errorType = 1;
            }
 
-        else if (adcValue <= 88) {
+
+        else if (adcValue <= 184) {
+
+
 
         GP5 = 1;
      errorType = 2;
          }
 
-     else if (adcValue >= 138){
+
+     else if (adcValue >= 288){
+
+
+
            GP5 = 1;
         errorType = 3;
            }
      MuxVoltage();
-# 132 "interrupt.c"
+# 142 "interrupt.c"
   }
 }

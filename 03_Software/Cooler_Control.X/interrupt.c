@@ -78,20 +78,30 @@ void ADCProcessing(void){
  //    switch (measureType){
  //      case VOLTAGE_MEASURE: 
           
-//	if ((adcValue > 190) && (adcValue < 285)){
-    if ((adcValue > 88) && (adcValue < 138)){  
+  
+	if ((adcValue > 184) && (adcValue < 288)){
+        
+//    if ((adcValue >= 88) && (adcValue <= 138)){
+       
            GP5 = 0;
 	       GP2 = 0;
            errorType = ERROR_OK;
-           }  	
-//        else if (adcValue <= 190) {             
-        else if (adcValue <= 88) {
-             
+           }  
+	
+     
+        else if (adcValue <= 184) {
+            
+ //       else if (adcValue < 88) {
+         
         GP5 = 1; 
 	    errorType = ERROR_UNDER_VOLTAGE; 
-         }         
-//     else if (adcValue >= 285){
-     else if (adcValue >= 138){
+         }       
+        
+      
+     else if (adcValue >= 288){
+        
+//     else if (adcValue > 138){   
+         
            GP5 = 1;
 	       errorType = ERROR_OVER_VOLTAGE; 
            }      
