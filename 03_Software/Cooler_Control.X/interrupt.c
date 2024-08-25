@@ -3,7 +3,7 @@
 #include "interrupt.h"
 #include "init_periphery.h"
 
-#define _XTAL_FREQ   4000000 
+#define _XTAL_FREQ 4000000 
 
 #define PROTOTYPE
 
@@ -63,10 +63,6 @@ void __interrupt() ISR(void)
         TMR1IF = 0;   // ?????????? ???? ?????????? ??????? 1
     }
 }
-
-
-
-
 
  //##########################ADC#####################################//  
 

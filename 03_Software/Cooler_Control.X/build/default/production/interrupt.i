@@ -1229,10 +1229,6 @@ void __attribute__((picinterrupt(("")))) ISR(void)
 
 
 
-
-
-
-
 void ADCProcessing(void){
 
     if (ADIF == 1){
@@ -1269,6 +1265,6 @@ void ADCProcessing(void){
         errorType = 3;
            }
      MuxVoltage();
-# 142 "interrupt.c"
+# 138 "interrupt.c"
   }
 }

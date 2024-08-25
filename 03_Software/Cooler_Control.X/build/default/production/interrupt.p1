@@ -300,76 +300,76 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;interrupt.c: 65: }
 [e :UE 83 ]
 }
-"73
-[; ;interrupt.c: 73: void ADCProcessing(void){
+"69
+[; ;interrupt.c: 69: void ADCProcessing(void){
 [v _ADCProcessing `(v ~T0 @X0 1 ef ]
 {
 [e :U _ADCProcessing ]
 [f ]
-"75
-[; ;interrupt.c: 75:     if (ADIF == 1){
+"71
+[; ;interrupt.c: 71:     if (ADIF == 1){
 [e $ ! == -> _ADIF `i -> 1 `i 87  ]
 {
-"76
-[; ;interrupt.c: 76:      adcValue = (uint16_t) ((ADRESH << 8) + ADRESL);
+"72
+[; ;interrupt.c: 72:      adcValue = (uint16_t) ((ADRESH << 8) + ADRESL);
 [e = _adcValue -> + << -> _ADRESH `i -> 8 `i -> _ADRESL `i `ui ]
-"82
-[; ;interrupt.c: 82:  if ((adcValue > 184) && (adcValue < 288)){
+"78
+[; ;interrupt.c: 78:  if ((adcValue > 184) && (adcValue < 288)){
 [e $ ! && > _adcValue -> -> 184 `i `ui < _adcValue -> -> 288 `i `ui 88  ]
 {
-"86
-[; ;interrupt.c: 86:            GP5 = 0;
+"82
+[; ;interrupt.c: 82:            GP5 = 0;
 [e = _GP5 -> -> 0 `i `b ]
-"87
-[; ;interrupt.c: 87:         GP2 = 0;
+"83
+[; ;interrupt.c: 83:         GP2 = 0;
 [e = _GP2 -> -> 0 `i `b ]
-"88
-[; ;interrupt.c: 88:            errorType = 1;
+"84
+[; ;interrupt.c: 84:            errorType = 1;
 [e = _errorType -> -> 1 `i `uc ]
-"89
-[; ;interrupt.c: 89:            }
+"85
+[; ;interrupt.c: 85:            }
 }
 [e $U 89  ]
-"92
-[; ;interrupt.c: 92:         else if (adcValue <= 184) {
+"88
+[; ;interrupt.c: 88:         else if (adcValue <= 184) {
 [e :U 88 ]
 [e $ ! <= _adcValue -> -> 184 `i `ui 90  ]
 {
-"96
-[; ;interrupt.c: 96:         GP5 = 1;
+"92
+[; ;interrupt.c: 92:         GP5 = 1;
 [e = _GP5 -> -> 1 `i `b ]
-"97
-[; ;interrupt.c: 97:      errorType = 2;
+"93
+[; ;interrupt.c: 93:      errorType = 2;
 [e = _errorType -> -> 2 `i `uc ]
-"98
-[; ;interrupt.c: 98:          }
+"94
+[; ;interrupt.c: 94:          }
 }
 [e $U 91  ]
-"101
-[; ;interrupt.c: 101:      else if (adcValue >= 288){
+"97
+[; ;interrupt.c: 97:      else if (adcValue >= 288){
 [e :U 90 ]
 [e $ ! >= _adcValue -> -> 288 `i `ui 92  ]
 {
-"105
-[; ;interrupt.c: 105:            GP5 = 1;
+"101
+[; ;interrupt.c: 101:            GP5 = 1;
 [e = _GP5 -> -> 1 `i `b ]
-"106
-[; ;interrupt.c: 106:         errorType = 3;
+"102
+[; ;interrupt.c: 102:         errorType = 3;
 [e = _errorType -> -> 3 `i `uc ]
-"107
-[; ;interrupt.c: 107:            }
+"103
+[; ;interrupt.c: 103:            }
 }
 [e :U 92 ]
 [e :U 91 ]
 [e :U 89 ]
-"108
-[; ;interrupt.c: 108:      MuxVoltage();
+"104
+[; ;interrupt.c: 104:      MuxVoltage();
 [e ( _MuxVoltage ..  ]
-"142
-[; ;interrupt.c: 142:   }
+"138
+[; ;interrupt.c: 138:   }
 }
 [e :U 87 ]
-"143
-[; ;interrupt.c: 143: }
+"139
+[; ;interrupt.c: 139: }
 [e :UE 86 ]
 }
