@@ -1,0 +1,24 @@
+Added Member To Class: ClassName=Filter Member=Component D8 MMSZ4678T1G
+Added Member To Class: ClassName=uCCtrl Member=Component Q1 TP0610K-T1-E3
+Added Member To Class: ClassName=uCCtrl Member=Component Q2 TP0610K-T1-E3
+Added Member To Class: ClassName=uCCtrl Member=Component Q3 BC847
+Added Member To Class: ClassName=uCCtrl Member=Component Q5 BC856
+Added Member To Class: ClassName=uCCtrl Member=Component R4 100R
+Added Member To Class: ClassName=uCCtrl Member=Component R5 41K2
+Added Member To Class: ClassName=uCCtrl Member=Component R7 2K
+Added Member To Class: ClassName=uCCtrl Member=Component R8 100K
+Added Member To Class: ClassName=uCCtrl Member=Component R9 10K
+Added Member To Class: ClassName=uCCtrl Member=Component R10 10K
+Added Member To Class: ClassName=uCCtrl Member=Component R11 100K
+Added Member To Class: ClassName=uCCtrl Member=Component R12 10K
+Added Member To Class: ClassName=uCCtrl Member=Component R13 220R
+Added Member To Class: ClassName=uCCtrl Member=Component R15 10K
+Added Member To Class: ClassName=uCCtrl Member=Component R16 10K
+Added Member To Class: ClassName=uCCtrl Member=Component R17 220R
+Added Member To Class: ClassName=uCCtrl Member=Component R18 4K7
+Added Member To Class: ClassName=uCCtrl Member=Component R19 4K7
+Added Member To Class: ClassName=uCCtrl Member=Component R20 360R
+Added Member To Class: ClassName=uCCtrl Member=Component R21 360R
+Added Room: Name=Filter
+Added Room: Name=power
+Added Room: Name=uCCtrl

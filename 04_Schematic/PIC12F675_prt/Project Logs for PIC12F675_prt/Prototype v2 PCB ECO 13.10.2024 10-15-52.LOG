@@ -1,0 +1,12 @@
+Added Component: Designator=C?(CAPC2013X145X48NL20T23)
+Add component (AddParameter): Name = "Manufacturer"; Value = "Vitramon"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Part Number"; Value = "VJ0805Y104KNAAT"; VariantName = "[No Variations]"
+Added Component: Designator=C?(CAPC2013X145X48NL20T23)
+Add component (AddParameter): Name = "Manufacturer"; Value = "Vitramon"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Part Number"; Value = "VJ0805Y104KNAAT"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=GNDdev Pin=C?-1
+Added Pin To Net: NetName=GNDdev Pin=C?-1
+Added Pin To Net: NetName=ICSPCLK Pin=C?-2
+Added Pin To Net: NetName=ICSPDAT Pin=C?-2
+Added Member To Class: ClassName=Filter Member=Component C? 100nF/50V
+Added Member To Class: ClassName=Filter Member=Component C? 100nF/50V

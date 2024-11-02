@@ -1,0 +1,12 @@
+Output: NC Drill Files
+Type  : NC Drill
+From  : Project [PIC12F675_prt.PrjPcb]
+   Generated File[Prototype v2.TXT]
+   Generated File[Prototype v2.LDP]
+   Generated File[Prototype v2.DRR]
+
+
+Files Generated   : 3
+Documents Printed : 0
+
+Finished Output Generation At 13:34:15 On 02.11.2024

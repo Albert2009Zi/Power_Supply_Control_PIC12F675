@@ -1,0 +1,88 @@
+Removed Pin From Net: NetName=+5Vdev Pin=U2-8
+Removed Member From Class: ClassName=measureSignals Member=C15
+Removed Member From Class: ClassName=measureSignals Member=C18
+Removed Member From Class: ClassName=uCCtrl Member=D1
+Removed Member From Class: ClassName=uCCtrl Member=D4
+Removed Member From Class: ClassName=uCCtrl Member=J1
+Removed Member From Class: ClassName=Filter Member=Q4
+Removed Member From Class: ClassName=measureSignals Member=Q10
+Removed Member From Class: ClassName=Filter Member=R8
+Removed Member From Class: ClassName=measureSignals Member=R8
+Removed Member From Class: ClassName=Filter Member=R20
+Removed Member From Class: ClassName=power Member=R20
+Removed Member From Class: ClassName=uCCtrl Member=R20
+Removed Member From Class: ClassName=measureSignals Member=R32
+Removed Member From Class: ClassName=power Member=R32
+Removed Member From Class: ClassName=uCCtrl Member=R32
+Removed Member From Class: ClassName=measureSignals Member=R40
+Added Pin To Net: NetName=+5V Pin=Q2-2
+Added Pin To Net: NetName=pwrOut Pin=U2-8
+Added Member To Class: ClassName=measureSignals Member=Component C6 680nF/25V
+Added Member To Class: ClassName=measureSignals Member=Component C7 680nF/25V
+Added Member To Class: ClassName=Filter Member=Component C8 100nF/50V
+Added Member To Class: ClassName=Filter Member=Component C9 100nF/50V
+Added Member To Class: ClassName=Filter Member=Component C10 100nF/50V
+Added Member To Class: ClassName=Filter Member=Component C11 100nF/50V
+Added Member To Class: ClassName=Filter Member=Component C12 100nF/50V
+Added Member To Class: ClassName=Filter Member=Component C14 100nF/50V
+Added Member To Class: ClassName=Filter Member=Component C19 680nF/25V
+Added Member To Class: ClassName=Filter Member=Component C20 680nF/25V
+Added Member To Class: ClassName=Filter Member=Component C21 680nF/25V
+Added Member To Class: ClassName=power Member=Component D3 1N4007
+Added Member To Class: ClassName=power Member=Component D4 LGR971
+Added Member To Class: ClassName=uCCtrl Member=Component D5 LS R976-NR-1
+Added Member To Class: ClassName=uCCtrl Member=Component D6 LGR971
+Added Member To Class: ClassName=Filter Member=Component D9 BZT52C5V1-7-F
+Added Member To Class: ClassName=Filter Member=Component D10 Programmer ON
+Added Member To Class: ClassName=uCCtrl Member=Component J2 5-146281-5
+Added Member To Class: ClassName=measureSignals Member=Component Q3 TP0610K-T1-E3
+Added Member To Class: ClassName=measureSignals Member=Component Q5 BC847
+Added Member To Class: ClassName=Filter Member=Component Q6 TP0610K-T1-E3
+Added Member To Class: ClassName=Filter Member=Component Q7 TP0610K-T1-E3
+Added Member To Class: ClassName=Filter Member=Component Q8 BC847
+Added Member To Class: ClassName=Filter Member=Component Q9 BC856
+Added Member To Class: ClassName=Filter Member=Component Q11 TP0610K-T1-E3
+Added Member To Class: ClassName=Filter Member=Component Q12 BC847
+Added Member To Class: ClassName=power Member=Component R1 0R
+Added Member To Class: ClassName=power Member=Component R2 1K2
+Added Member To Class: ClassName=power Member=Component R3 360R
+Added Member To Class: ClassName=uCCtrl Member=Component R4 10K
+Added Member To Class: ClassName=uCCtrl Member=Component R5 100R
+Added Member To Class: ClassName=uCCtrl Member=Component R6 220R
+Added Member To Class: ClassName=uCCtrl Member=Component R7 10K
+Added Member To Class: ClassName=uCCtrl Member=Component R8 4K7
+Added Member To Class: ClassName=uCCtrl Member=Component R9 4K7
+Added Member To Class: ClassName=uCCtrl Member=Component R11 220R
+Added Member To Class: ClassName=uCCtrl Member=Component R12 360R
+Added Member To Class: ClassName=uCCtrl Member=Component R13 360R
+Added Member To Class: ClassName=measureSignals Member=Component R14 41K2
+Added Member To Class: ClassName=measureSignals Member=Component R15 2K
+Added Member To Class: ClassName=measureSignals Member=Component R16 100K
+Added Member To Class: ClassName=measureSignals Member=Component R17 10K
+Added Member To Class: ClassName=measureSignals Member=Component R18 10K
+Added Member To Class: ClassName=measureSignals Member=Component R19 100K
+Added Member To Class: ClassName=measureSignals Member=Component R21 10K
+Added Member To Class: ClassName=Filter Member=Component R22 2K
+Added Member To Class: ClassName=Filter Member=Component R23 2K
+Added Member To Class: ClassName=Filter Member=Component R24 2K
+Added Member To Class: ClassName=Filter Member=Component R25 1K
+Added Member To Class: ClassName=Filter Member=Component R26 1K
+Added Member To Class: ClassName=Filter Member=Component R27 10K
+Added Member To Class: ClassName=Filter Member=Component R28 220R
+Added Member To Class: ClassName=Filter Member=Component R29 220R
+Added Member To Class: ClassName=Filter Member=Component R30 10K
+Added Member To Class: ClassName=Filter Member=Component R31 100K
+Added Member To Class: ClassName=Filter Member=Component R33 100K
+Added Member To Class: ClassName=Filter Member=Component R34 10K
+Added Member To Class: ClassName=Filter Member=Component R35 360R
+Added Member To Class: ClassName=Filter Member=Component R36 360R
+Added Member To Class: ClassName=Filter Member=Component R37 220R
+Added Member To Class: ClassName=Filter Member=Component R38 10K
+Added Member To Class: ClassName=Filter Member=Component R39 1K
+Added Member To Class: ClassName=Filter Member=Component R42 100K
+Added Member To Class: ClassName=Filter Member=Component R43 10K
+Added Member To Class: ClassName=Filter Member=Component R44 10K
+Added Room: Name=Filter
+Added Room: Name=measureSignals
+Added Room: Name=power
+Added Room: Name=uCCtrl

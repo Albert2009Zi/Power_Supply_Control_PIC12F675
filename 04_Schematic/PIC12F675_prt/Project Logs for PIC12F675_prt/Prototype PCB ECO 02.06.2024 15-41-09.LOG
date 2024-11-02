@@ -1,0 +1,10 @@
+Removed Pin From Net: NetName=+12Vin Pin=S1-4
+Added Pin To Net: NetName=+12Vin Pin=S1-2
+Change Net Color : Old Net Color=RGB(255, 156, 0) New Net Color=Default
+Change Net Color : Old Net Color=Red New Net Color=Default
+Change Net Color : Old Net Color=Fuchsia New Net Color=Default
+Change Net Color : Old Net Color=RGB(0, 191, 0) New Net Color=Default
+Change Net Color : Old Net Color=RGB(158, 161, 117) New Net Color=Default
+Added Member To Class: ClassName=uCCtrl Member=Component R10 4K7
+Added Room: Name=uCCtrl
+Added Room: Name=Voltage

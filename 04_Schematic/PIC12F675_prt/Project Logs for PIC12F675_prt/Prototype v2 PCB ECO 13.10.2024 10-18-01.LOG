@@ -1,0 +1,25 @@
+Change Component Designator: OldDesignator=C20 NewDesignator=C21
+Change Component Designator: OldDesignator=C21 NewDesignator=C22
+Change Component Designator: OldDesignator=R15 NewDesignator=R17
+Change Component Designator: OldDesignator=R16 NewDesignator=R15
+Change Component Designator: OldDesignator=R17 NewDesignator=R16
+Change Component Designator: OldDesignator=R18 NewDesignator=R20
+Change Component Designator: OldDesignator=R19 NewDesignator=R21
+Change Component Designator: OldDesignator=R20 NewDesignator=R18
+Change Component Designator: OldDesignator=R21 NewDesignator=R19
+Added Component: Designator=C20(CAPC2013X145X48NL20T23)
+Add component (AddParameter): Name = "Manufacturer"; Value = "Vitramon"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Part Number"; Value = "VJ0805Y104KNAAT"; VariantName = "[No Variations]"
+Added Component: Designator=C23(CAPC2013X145X48NL20T23)
+Add component (AddParameter): Name = "Manufacturer"; Value = "Vitramon"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Part Number"; Value = "VJ0805Y104KNAAT"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=GNDdev Pin=C20-1
+Added Pin To Net: NetName=ICSPCLK Pin=C20-2
+Added Pin To Net: NetName=GNDdev Pin=C23-1
+Added Pin To Net: NetName=ICSPDAT Pin=C23-2
+Change Net Name : Old Net Name=NetC20_1 New Net Name=NetC21_1
+Change Net Name : Old Net Name=NetC20_2 New Net Name=NetC21_2
+Change Net Name : Old Net Name=NetC21_1 New Net Name=NetC22_1
+Change Net Name : Old Net Name=NetR16_1 New Net Name=NetR15_1
+Added Member To Class: ClassName=Filter Member=Component C22 680nF/25V
+Added Member To Class: ClassName=Filter Member=Component C23 100nF/50V
