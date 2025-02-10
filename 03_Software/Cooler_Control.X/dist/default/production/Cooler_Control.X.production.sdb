@@ -19,6 +19,8 @@
 [v _Init_uC Init_uC `(v  1 e 1 0 ]
 "18 C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\interrupt.c
 [v _MuxVoltage MuxVoltage `(v  1 e 1 0 ]
+"31
+[v _MuxTemp MuxTemp `(v  1 e 1 0 ]
 "43
 [v _ISR ISR `II(v  1 e 1 0 ]
 "69
@@ -181,6 +183,11 @@
 [v _MuxVoltage MuxVoltage `(v  1 e 1 0 ]
 {
 "28
+} 0
+"31
+[v _MuxTemp MuxTemp `(v  1 e 1 0 ]
+{
+"41
 } 0
 "43
 [v _ISR ISR `II(v  1 e 1 0 ]

@@ -71,8 +71,8 @@ void ADCProcessing(void){
     if (ADIF == 1){     
      adcValue = (uint16_t) ((ADRESH << 8) + ADRESL); /* ADC result */    
      
- //    switch (measureType){
- //      case VOLTAGE_MEASURE: 
+     switch (measureType){
+       case VOLTAGE_MEASURE: 
           
   
 	if ((adcValue > 184) && (adcValue < 288)){
@@ -101,12 +101,12 @@ void ADCProcessing(void){
            GP5 = 1;
 	       errorType = ERROR_OVER_VOLTAGE; 
            }      
-     MuxVoltage(); //Nur Debug
-//          MuxTemp();
-//        break;
+ 
+          MuxTemp();
+        break;
 	
 	
-/*	case TEMPERATURE_MEASURE:
+	case TEMPERATURE_MEASURE:
         
 	     if (adcValue < 200){
 		      GP5       = 1;  
@@ -134,7 +134,7 @@ void ADCProcessing(void){
 	
 	default:
 	break;
-	}  */
+	}
   } 
 }
 

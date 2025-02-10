@@ -1234,8 +1234,8 @@ void ADCProcessing(void){
     if (ADIF == 1){
      adcValue = (uint16_t) ((ADRESH << 8) + ADRESL);
 
-
-
+     switch (measureType){
+       case 1:
 
 
  if ((adcValue > 184) && (adcValue < 288)){
@@ -1264,7 +1264,39 @@ void ADCProcessing(void){
            GP5 = 1;
         errorType = 3;
            }
+
+          MuxTemp();
+        break;
+
+
+ case 2:
+
+      if (adcValue < 200){
+        GP5 = 1;
+        GP4 = 0;
+              errorType = 1;
+    }
+
+             else if ((adcValue >= 200) && (adcValue < 930)){
+          GP4 = 0;
+       errorType = 1;
+                       }
+
+      else if ((adcValue >= 930) && (adcValue < 970)){
+          GP4 = 1;
+       errorType = 1;
+                       }
+             else {
+          GP4 = 1;
+             GP5 = 1;
+                errorType = 5;
+     }
+
      MuxVoltage();
-# 138 "interrupt.c"
+ break;
+
+ default:
+ break;
+ }
   }
 }
