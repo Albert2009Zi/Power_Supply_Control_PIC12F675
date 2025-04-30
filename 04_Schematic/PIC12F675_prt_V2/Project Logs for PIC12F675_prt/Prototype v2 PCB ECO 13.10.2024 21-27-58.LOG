@@ -1,0 +1,5 @@
+Change Net Name : Old Net Name=NetR15_1 New Net Name=hlLEDs
+Added Member To Class: ClassName=Filter Member=Component C20 100nF/50V
+Added Member To Class: ClassName=uCCtrl Member=Component R17 10K
+Added Member To Class: ClassName=uCCtrl Member=Component R18 360R
+Added Member To Class: ClassName=uCCtrl Member=Component R21 4K7

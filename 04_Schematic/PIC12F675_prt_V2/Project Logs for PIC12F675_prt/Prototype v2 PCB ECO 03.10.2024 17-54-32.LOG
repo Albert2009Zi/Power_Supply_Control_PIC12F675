@@ -1,0 +1,13 @@
+Added Pin To Net: NetName=pwrOut Pin=Q10-2
+Added Pin To Net: NetName=GNDdev Pin=Q11-2
+Added Pin To Net: NetName=pwrOut Pin=R29-1
+Added Pin To Net: NetName=pwrOut Pin=R30-1
+Added Pin To Net: NetName=VddPrg Pin=J4 PICKit Conn.-2
+Added Pin To Net: NetName=VddPrg Pin=J5 MCU Conn.-1
+Added Pin To Net: NetName=VddPrg Pin=Q10-3
+Added Net: Name=VddPrg
+Added Member To Class: ClassName=Filter Member=Component Q10 TP0610K-T1-E3
+Added Member To Class: ClassName=Filter Member=Component Q11 BC847
+Added Member To Class: ClassName=Filter Member=Component R29 220R
+Added Member To Class: ClassName=Filter Member=Component R30 100K
+Added Member To Class: ClassName=Filter Member=Component R31 10K
