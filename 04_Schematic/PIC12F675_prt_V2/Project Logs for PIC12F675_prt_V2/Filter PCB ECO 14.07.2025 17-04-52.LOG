@@ -1,0 +1,43 @@
+Removed Pin From Net: NetName=V_Check Pin=P2-2
+Removed Pin From Net: NetName=Tmp_Check Pin=P2-3
+Change Component Comment : Designator=R25 Old Comment=1K New Comment=0R
+Change Component Comment : Designator=R26 Old Comment=1K New Comment=0R
+Change Component Comment : Designator=R27 Old Comment=1K New Comment=0R
+Change Component Comment : Designator=R22 Old Comment=2K New Comment=100K
+Change Component Comment : Designator=R23 Old Comment=2K New Comment=100K
+Change Component Comment : Designator=R24 Old Comment=2K New Comment=100K
+Change Component Comment : Designator=R28 Old Comment=22K New Comment=0R
+Change Component Comment : Designator=R29 Old Comment=22K New Comment=0R
+Change Component Comment : Designator=R30 Old Comment=22K New Comment=0R
+Change Component Comment : Designator=R31 Old Comment=22K New Comment=0R
+Added Pin To Net: NetName=Tmp_Check Pin=P2-2
+Added Pin To Net: NetName=V_Check Pin=P2-3
+Added Net: Name=+5V
+Added Net: Name=+Vin
+Added Net: Name=debugSW
+Added Net: Name=GND
+Added Net: Name=hlLEDs
+Added Net: Name=NetC6_2
+Added Net: Name=NetD1_1
+Added Net: Name=NetD1_2
+Added Net: Name=NetD2_2
+Added Net: Name=NetD4_2
+Added Net: Name=NetD5_2
+Added Net: Name=NetD6_2
+Added Net: Name=NetLS1_2
+Added Net: Name=NetQ1_1
+Added Net: Name=NetQ1_3
+Added Net: Name=NetQ2_1
+Added Net: Name=NetQ2_3
+Added Net: Name=NetQ3_1
+Added Net: Name=NetQ3_3
+Added Net: Name=NetQ4_1
+Added Net: Name=NetQ5_1
+Added Net: Name=NetQ5_3
+Added Net: Name=sound
+Added Net: Name=tempMeas/ICSPDAT
+Added Net: Name=voltMeas/ICSPCLK
+Added Net: Name=Vpp/MCLR
+Added Class: Name=power
+Added Member To Class: ClassName=Filter Member=Component C16 1nF
+Added Member To Class: ClassName=Filter Member=Component P4 22-28-4033

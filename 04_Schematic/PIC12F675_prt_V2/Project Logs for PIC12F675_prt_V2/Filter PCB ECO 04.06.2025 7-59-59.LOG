@@ -1,0 +1,9 @@
+Change Component Designator: OldDesignator= NewDesignator=P3
+Change Component Designator: OldDesignator= NewDesignator=P4
+Added Component: Designator=C16(CAPC2013X145X48ML20T23)
+Add component (AddParameter): Name = "Manufacturer"; Value = "Vitramon"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Part Number"; Value = "VJ0805Y102KXAMC"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=GND_Device Pin=C16-1
+Added Pin To Net: NetName=Tmp_Check_P Pin=C16-2
+Added Member To Class: ClassName=Filter Member=Component C16 1nF
+Added Member To Class: ClassName=Filter Member=Component P3 22-28-4033

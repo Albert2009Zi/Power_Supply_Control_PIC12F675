@@ -1,0 +1,4 @@
+Added Pin To Net: NetName=GND_Device Pin=D11-1
+Added Pin To Net: NetName=NetD11_2 Pin=D11-2
+Added Pin To Net: NetName=NetD11_2 Pin=R36-1
+Added Net: Name=NetD11_2

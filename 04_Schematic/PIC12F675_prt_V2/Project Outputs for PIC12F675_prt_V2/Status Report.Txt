@@ -1,0 +1,12 @@
+Output: NC Drill Files
+Type  : NC Drill
+From  : Project [PIC12F675_prt_V2.PrjPcb]
+   Generated File[Emulator.TXT]
+   Generated File[Emulator.LDP]
+   Generated File[Emulator.DRR]
+
+
+Files Generated   : 3
+Documents Printed : 0
+
+Finished Output Generation At 14:54:01 On 18.06.2025

@@ -1,11 +1,12 @@
 #include <xc.h>
 #include "sounds.h"
+#include "interrupts.h"
 
 #define _XTAL_FREQ   4000000
 
 extern uint16_t cnt1;
 
-void ShortSound(){
+void ShortSound(){    
     GP2 = 1;
     __delay_ms(120);
     GP2 = 0;
@@ -13,10 +14,10 @@ void ShortSound(){
 }
 
 void LongSound(){
-       GP2 = 1;
-    __delay_ms(200);
-       GP2 = 0;
-    __delay_ms(80);    
+   GP2 = 1;
+   __delay_ms(200);
+   GP2 = 0;
+   __delay_ms(80);    
 }
 
 void TimeOut(){

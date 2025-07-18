@@ -38,8 +38,8 @@
 
 #include <xc.h>
 #include <stdint.h>
-#include "interrupt.h"
-#include "init_periphery.h"
+#include "interrupts.h"
+#include "initPeriphery.h"
 #include "sounds.h"
 
 #define _XTAL_FREQ   4000000 
@@ -67,12 +67,12 @@ uint8_t errorType = 0;
 void DataProcessing(void);
 
 // Main function
-void main()          //its app whichmakes on uc alone and not needs return somthing in OS
+void main()          
 {	
+    __delay_ms(100);
+    Init_uC();
     InitTimer0();
     InitTimer1();
-    Init_uC();
-    __delay_ms(2500);
     errorType   = ERROR_OK;
     
     while(1){ 
