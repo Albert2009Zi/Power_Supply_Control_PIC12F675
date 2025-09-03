@@ -1,268 +1,571 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"1595 C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc/pic12f675.h
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc/pic12f675.h: 1595: extern volatile __bit GP2 __attribute__((address(0x2A)));
+"14 sounds.c
+[; ;sounds.c: 14: typedef struct{
+[s S82 `ui 1 `uc 1 ]
+[n S82 . duration allowTimeout ]
+"1595 C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 1595: extern volatile __bit GP2 __attribute__((address(0x2A)));
 [v _GP2 `Vb ~T0 @X0 0 e@42 ]
-[v F164 `(v ~T0 @X0 1 tf1`ul ]
-"20 C:\Program Files\Microchip\xc8\v3.00\pic\include/builtins.h
-[v __delay `JF164 ~T0 @X0 0 e ]
-[p i __delay ]
-"7 sounds.c
-[; ;sounds.c: 7: extern uint16_t cnt1;
-[v _cnt1 `us ~T0 @X0 0 e ]
-"54 C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc/pic12f675.h
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc/pic12f675.h: 54: __asm("INDF equ 00h");
+"22 ./interrupt.h
+[; ;./interrupt.h: 22: typedef struct {
+[s S81 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S81 . usPause errorUnderVoltage errorOverVoltage errorHighTemperature alarmState playLong ]
+"31
+[; ;./interrupt.h: 31: extern volatile ParameterFlags prmFlags;
+[v _prmFlags `VS81 ~T0 @X0 0 e ]
+"54 C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 54: __asm("INDF equ 00h");
 [; <" INDF equ 00h ;# ">
 "74
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc/pic12f675.h: 74: __asm("TMR0 equ 01h");
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 74: __asm("TMR0 equ 01h");
 [; <" TMR0 equ 01h ;# ">
 "94
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc/pic12f675.h: 94: __asm("PCL equ 02h");
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 94: __asm("PCL equ 02h");
 [; <" PCL equ 02h ;# ">
 "114
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc/pic12f675.h: 114: __asm("STATUS equ 03h");
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 114: __asm("STATUS equ 03h");
 [; <" STATUS equ 03h ;# ">
 "200
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc/pic12f675.h: 200: __asm("FSR equ 04h");
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 200: __asm("FSR equ 04h");
 [; <" FSR equ 04h ;# ">
 "220
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc/pic12f675.h: 220: __asm("GPIO equ 05h");
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 220: __asm("GPIO equ 05h");
 [; <" GPIO equ 05h ;# ">
 "308
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc/pic12f675.h: 308: __asm("PCLATH equ 0Ah");
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 308: __asm("PCLATH equ 0Ah");
 [; <" PCLATH equ 0Ah ;# ">
 "328
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc/pic12f675.h: 328: __asm("INTCON equ 0Bh");
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 328: __asm("INTCON equ 0Bh");
 [; <" INTCON equ 0Bh ;# ">
 "406
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc/pic12f675.h: 406: __asm("PIR1 equ 0Ch");
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 406: __asm("PIR1 equ 0Ch");
 [; <" PIR1 equ 0Ch ;# ">
 "454
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc/pic12f675.h: 454: __asm("TMR1 equ 0Eh");
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 454: __asm("TMR1 equ 0Eh");
 [; <" TMR1 equ 0Eh ;# ">
 "461
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc/pic12f675.h: 461: __asm("TMR1L equ 0Eh");
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 461: __asm("TMR1L equ 0Eh");
 [; <" TMR1L equ 0Eh ;# ">
 "481
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc/pic12f675.h: 481: __asm("TMR1H equ 0Fh");
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 481: __asm("TMR1H equ 0Fh");
 [; <" TMR1H equ 0Fh ;# ">
 "501
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc/pic12f675.h: 501: __asm("T1CON equ 010h");
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 501: __asm("T1CON equ 010h");
 [; <" T1CON equ 010h ;# ">
 "566
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc/pic12f675.h: 566: __asm("CMCON equ 019h");
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 566: __asm("CMCON equ 019h");
 [; <" CMCON equ 019h ;# ">
 "625
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc/pic12f675.h: 625: __asm("ADRESH equ 01Eh");
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 625: __asm("ADRESH equ 01Eh");
 [; <" ADRESH equ 01Eh ;# ">
 "645
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc/pic12f675.h: 645: __asm("ADCON0 equ 01Fh");
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 645: __asm("ADCON0 equ 01Fh");
 [; <" ADCON0 equ 01Fh ;# ">
 "729
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc/pic12f675.h: 729: __asm("OPTION_REG equ 081h");
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 729: __asm("OPTION_REG equ 081h");
 [; <" OPTION_REG equ 081h ;# ">
 "799
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc/pic12f675.h: 799: __asm("TRISIO equ 085h");
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 799: __asm("TRISIO equ 085h");
 [; <" TRISIO equ 085h ;# ">
 "849
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc/pic12f675.h: 849: __asm("PIE1 equ 08Ch");
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 849: __asm("PIE1 equ 08Ch");
 [; <" PIE1 equ 08Ch ;# ">
 "897
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc/pic12f675.h: 897: __asm("PCON equ 08Eh");
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 897: __asm("PCON equ 08Eh");
 [; <" PCON equ 08Eh ;# ">
 "931
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc/pic12f675.h: 931: __asm("OSCCAL equ 090h");
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 931: __asm("OSCCAL equ 090h");
 [; <" OSCCAL equ 090h ;# ">
 "991
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc/pic12f675.h: 991: __asm("WPU equ 095h");
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 991: __asm("WPU equ 095h");
 [; <" WPU equ 095h ;# ">
 "1036
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc/pic12f675.h: 1036: __asm("IOC equ 096h");
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 1036: __asm("IOC equ 096h");
 [; <" IOC equ 096h ;# ">
 "1041
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc/pic12f675.h: 1041: __asm("IOCB equ 096h");
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 1041: __asm("IOCB equ 096h");
 [; <" IOCB equ 096h ;# ">
 "1210
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc/pic12f675.h: 1210: __asm("VRCON equ 099h");
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 1210: __asm("VRCON equ 099h");
 [; <" VRCON equ 099h ;# ">
 "1270
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc/pic12f675.h: 1270: __asm("EEDATA equ 09Ah");
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 1270: __asm("EEDATA equ 09Ah");
 [; <" EEDATA equ 09Ah ;# ">
 "1275
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc/pic12f675.h: 1275: __asm("EEDAT equ 09Ah");
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 1275: __asm("EEDAT equ 09Ah");
 [; <" EEDAT equ 09Ah ;# ">
 "1308
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc/pic12f675.h: 1308: __asm("EEADR equ 09Bh");
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 1308: __asm("EEADR equ 09Bh");
 [; <" EEADR equ 09Bh ;# ">
 "1328
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc/pic12f675.h: 1328: __asm("EECON1 equ 09Ch");
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 1328: __asm("EECON1 equ 09Ch");
 [; <" EECON1 equ 09Ch ;# ">
 "1366
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc/pic12f675.h: 1366: __asm("EECON2 equ 09Dh");
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 1366: __asm("EECON2 equ 09Dh");
 [; <" EECON2 equ 09Dh ;# ">
 "1386
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc/pic12f675.h: 1386: __asm("ADRESL equ 09Eh");
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 1386: __asm("ADRESL equ 09Eh");
 [; <" ADRESL equ 09Eh ;# ">
 "1406
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc/pic12f675.h: 1406: __asm("ANSEL equ 09Fh");
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 1406: __asm("ANSEL equ 09Fh");
 [; <" ANSEL equ 09Fh ;# ">
-"9 sounds.c
-[; ;sounds.c: 9: void ShortSound(){
-[v _ShortSound `(v ~T0 @X0 1 ef ]
-{
-[e :U _ShortSound ]
-[f ]
-"11
-[; ;sounds.c: 11:    if (!1) {
-[e $ ! ! != -> 1 `i -> 0 `i 86  ]
-{
-"12
-[; ;sounds.c: 12:    }
-}
-[e :U 86 ]
-"16
-[; ;sounds.c: 16:     GP2 = 1;
-[e = _GP2 -> -> 1 `i `b ]
-"17
-[; ;sounds.c: 17:     _delay((unsigned long)((120)*(4000000/4000.0)));
-[e ( __delay (1 -> * -> -> 120 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"18
-[; ;sounds.c: 18:     GP2 = 0;
-[e = _GP2 -> -> 0 `i `b ]
-"19
-[; ;sounds.c: 19:     _delay((unsigned long)((80)*(4000000/4000.0)));
-[e ( __delay (1 -> * -> -> 80 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"10 sounds.c
+[; ;sounds.c: 10: volatile uint16_t cnt0 = 0;
+[v _cnt0 `Vui ~T0 @X0 1 e ]
+[i _cnt0
+-> -> 0 `i `ui
+]
 "20
-[; ;sounds.c: 20: }
+[; ;sounds.c: 20: SoundParameters beepsQueue[5];
+[v _beepsQueue `S82 ~T0 @X0 -> 5 `i e ]
+"21
+[; ;sounds.c: 21: uint8_t queueHead = 0;
+[v _queueHead `uc ~T0 @X0 1 e ]
+[i _queueHead
+-> -> 0 `i `uc
+]
+"22
+[; ;sounds.c: 22: uint8_t queueTail = 0;
+[v _queueTail `uc ~T0 @X0 1 e ]
+[i _queueTail
+-> -> 0 `i `uc
+]
+"25
+[; ;sounds.c: 25: void EnqueueBeeps(uint16_t duration, uint8_t allowTimeout) {
+[v _EnqueueBeeps `(v ~T0 @X0 1 ef2`ui`uc ]
+{
+[e :U _EnqueueBeeps ]
+[v _duration `ui ~T0 @X0 1 r1 ]
+[v _allowTimeout `uc ~T0 @X0 1 r2 ]
+[f ]
+"27
+[; ;sounds.c: 27:     if ((queueTail + 1) % 5 != queueHead) {
+[e $ ! != % + -> _queueTail `i -> 1 `i -> 5 `i -> _queueHead `i 84  ]
+{
+"29
+[; ;sounds.c: 29:         beepsQueue[queueTail].duration = duration;
+[e = . *U + &U _beepsQueue * -> _queueTail `ux -> -> # *U &U _beepsQueue `ui `ux 0 _duration ]
+"30
+[; ;sounds.c: 30:         beepsQueue[queueTail].allowTimeout = allowTimeout;
+[e = . *U + &U _beepsQueue * -> _queueTail `ux -> -> # *U &U _beepsQueue `ui `ux 1 _allowTimeout ]
+"31
+[; ;sounds.c: 31:         queueTail = (queueTail + 1) % 5;
+[e = _queueTail -> % + -> _queueTail `i -> 1 `i -> 5 `i `uc ]
+"32
+[; ;sounds.c: 32:     }
+}
+[e :U 84 ]
+"33
+[; ;sounds.c: 33: }
+[e :UE 83 ]
+}
+"38
+[; ;sounds.c: 38: void BeepsStateMachine(void){
+[v _BeepsStateMachine `(v ~T0 @X0 1 ef ]
+{
+[e :U _BeepsStateMachine ]
+[f ]
+"40
+[; ;sounds.c: 40:     static uint8_t state = 0;
+[v F605 `uc ~T0 @X0 1 s state ]
+[i F605
+-> -> 0 `i `uc
+]
+"41
+[; ;sounds.c: 41:     static uint16_t stateMachineDuration = 0;
+[v F606 `ui ~T0 @X0 1 s stateMachineDuration ]
+[i F606
+-> -> 0 `i `ui
+]
+"42
+[; ;sounds.c: 42:     static uint8_t stateMachineAllowTimeout = 0;
+[v F607 `uc ~T0 @X0 1 s stateMachineAllowTimeout ]
+[i F607
+-> -> 0 `i `uc
+]
+"44
+[; ;sounds.c: 44:     switch(state){
+[e $U 87  ]
+{
+"45
+[; ;sounds.c: 45:        case 0:
+[e :U 88 ]
+"46
+[; ;sounds.c: 46:         if (queueHead != queueTail) {
+[e $ ! != -> _queueHead `i -> _queueTail `i 89  ]
+{
+"47
+[; ;sounds.c: 47:                 stateMachineDuration = beepsQueue[queueHead].duration;
+[e = F606 . *U + &U _beepsQueue * -> _queueHead `ux -> -> # *U &U _beepsQueue `ui `ux 0 ]
+"48
+[; ;sounds.c: 48:                 stateMachineAllowTimeout = beepsQueue[queueHead].allowTimeout;
+[e = F607 . *U + &U _beepsQueue * -> _queueHead `ux -> -> # *U &U _beepsQueue `ui `ux 1 ]
+"49
+[; ;sounds.c: 49:                 queueHead = (queueHead + 1) % 5;
+[e = _queueHead -> % + -> _queueHead `i -> 1 `i -> 5 `i `uc ]
+"50
+[; ;sounds.c: 50:                 GP2 = 1;
+[e = _GP2 -> -> 1 `i `b ]
+"51
+[; ;sounds.c: 51:                 cnt0 = 0;
+[e = _cnt0 -> -> 0 `i `ui ]
+"52
+[; ;sounds.c: 52:                 state = 1;
+[e = F605 -> -> 1 `i `uc ]
+"53
+[; ;sounds.c: 53:           prmFlags.alarmState = 1;
+[e = . _prmFlags 4 -> -> 1 `i `uc ]
+"54
+[; ;sounds.c: 54:             }
+}
+[e :U 89 ]
+"55
+[; ;sounds.c: 55:  break;
+[e $U 86  ]
+"57
+[; ;sounds.c: 57:         case 1:
+[e :U 90 ]
+"58
+[; ;sounds.c: 58:    if (cnt0 >= stateMachineDuration){
+[e $ ! >= _cnt0 F606 91  ]
+{
+"59
+[; ;sounds.c: 59:              cnt0 = 0;
+[e = _cnt0 -> -> 0 `i `ui ]
+"60
+[; ;sounds.c: 60:              state = 2;
+[e = F605 -> -> 2 `i `uc ]
+"61
+[; ;sounds.c: 61:              GP2 = 0;
+[e = _GP2 -> -> 0 `i `b ]
+"62
+[; ;sounds.c: 62:           }
+}
+[e :U 91 ]
+"63
+[; ;sounds.c: 63:  break;
+[e $U 86  ]
+"65
+[; ;sounds.c: 65:  case 2:
+[e :U 92 ]
+"66
+[; ;sounds.c: 66:           if (cnt0 >= 80){
+[e $ ! >= _cnt0 -> -> 80 `i `ui 93  ]
+{
+"67
+[; ;sounds.c: 67:              cnt0 = 0;
+[e = _cnt0 -> -> 0 `i `ui ]
+"68
+[; ;sounds.c: 68:              if (stateMachineAllowTimeout == 0){
+[e $ ! == -> F607 `i -> 0 `i 94  ]
+{
+"69
+[; ;sounds.c: 69:                  state = 0;
+[e = F605 -> -> 0 `i `uc ]
+"70
+[; ;sounds.c: 70:          }
+}
+[e $U 95  ]
+"71
+[; ;sounds.c: 71:             else if (stateMachineAllowTimeout == 1){
+[e :U 94 ]
+[e $ ! == -> F607 `i -> 1 `i 96  ]
+{
+"72
+[; ;sounds.c: 72:          state = 3;
+[e = F605 -> -> 3 `i `uc ]
+"73
+[; ;sounds.c: 73:          }
+}
+[e :U 96 ]
+[e :U 95 ]
+"74
+[; ;sounds.c: 74:            }
+}
+[e :U 93 ]
+"75
+[; ;sounds.c: 75:         break;
+[e $U 86  ]
+"77
+[; ;sounds.c: 77:         case 3:
+[e :U 97 ]
+"78
+[; ;sounds.c: 78:          if (cnt0 >= 1300){
+[e $ ! >= _cnt0 -> -> 1300 `i `ui 98  ]
+{
+"79
+[; ;sounds.c: 79:            cnt0 = 0;
+[e = _cnt0 -> -> 0 `i `ui ]
+"80
+[; ;sounds.c: 80:            queueHead = 0;
+[e = _queueHead -> -> 0 `i `uc ]
+"81
+[; ;sounds.c: 81:            queueTail = 0;
+[e = _queueTail -> -> 0 `i `uc ]
+"82
+[; ;sounds.c: 82:         state = 0;
+[e = F605 -> -> 0 `i `uc ]
+"83
+[; ;sounds.c: 83:         prmFlags.alarmState = 0;
+[e = . _prmFlags 4 -> -> 0 `i `uc ]
+"84
+[; ;sounds.c: 84:          }
+}
+[e :U 98 ]
+"85
+[; ;sounds.c: 85:  break;
+[e $U 86  ]
+"87
+[; ;sounds.c: 87:         default:
+[e :U 99 ]
+"88
+[; ;sounds.c: 88:         break;
+[e $U 86  ]
+"89
+[; ;sounds.c: 89:    }
+}
+[e $U 86  ]
+[e :U 87 ]
+[e [\ -> F605 `i , $ -> 0 `i 88
+ , $ -> 1 `i 90
+ , $ -> 2 `i 92
+ , $ -> 3 `i 97
+ 99 ]
+[e :U 86 ]
+"90
+[; ;sounds.c: 90: }
 [e :UE 85 ]
 }
-"22
-[; ;sounds.c: 22: void LongSound(){
-[v _LongSound `(v ~T0 @X0 1 ef ]
+"94
+[; ;sounds.c: 94: void playAlert() {
+[v _playAlert `(v ~T0 @X0 1 ef ]
 {
-[e :U _LongSound ]
+[e :U _playAlert ]
 [f ]
-"23
-[; ;sounds.c: 23:    cnt1 = 0;
-[e = _cnt1 -> -> 0 `i `us ]
-"24
-[; ;sounds.c: 24:    while (cnt1 <= 200) GP2 = 1;
-[e $U 88  ]
-[e :U 89 ]
-[e = _GP2 -> -> 1 `i `b ]
-[e :U 88 ]
-[e $ <= -> _cnt1 `ui -> -> 200 `i `ui 89  ]
-[e :U 90 ]
-"26
-[; ;sounds.c: 26:    cnt1 = 0;
-[e = _cnt1 -> -> 0 `i `us ]
-"27
-[; ;sounds.c: 27:    while (cnt1 <= 80) GP2 = 0;
-[e $U 91  ]
-[e :U 92 ]
-[e = _GP2 -> -> 0 `i `b ]
-[e :U 91 ]
-[e $ <= -> _cnt1 `ui -> -> 80 `i `ui 92  ]
-[e :U 93 ]
-"29
-[; ;sounds.c: 29: }
-[e :UE 87 ]
+"96
+[; ;sounds.c: 96:    uint8_t howMuchTimesPlayShort = 0;
+[v _howMuchTimesPlayShort `uc ~T0 @X0 1 a ]
+[e = _howMuchTimesPlayShort -> -> 0 `i `uc ]
+"97
+[; ;sounds.c: 97:    uint8_t howMuchTimesPlayLong = 0;
+[v _howMuchTimesPlayLong `uc ~T0 @X0 1 a ]
+[e = _howMuchTimesPlayLong -> -> 0 `i `uc ]
+"98
+[; ;sounds.c: 98:    uint8_t totalBeeps = 0;
+[v _totalBeeps `uc ~T0 @X0 1 a ]
+[e = _totalBeeps -> -> 0 `i `uc ]
+"99
+[; ;sounds.c: 99:    static uint8_t soundState = 0;
+[v F612 `uc ~T0 @X0 1 s soundState ]
+[i F612
+-> -> 0 `i `uc
+]
+"101
+[; ;sounds.c: 101:    switch (soundState){
+[e $U 102  ]
+{
+"102
+[; ;sounds.c: 102:      case 0:
+[e :U 103 ]
+"103
+[; ;sounds.c: 103:       if (prmFlags.errorUnderVoltage){
+[e $ ! != -> . _prmFlags 1 `i -> 0 `i 104  ]
+{
+"104
+[; ;sounds.c: 104:         howMuchTimesPlayShort = 2;
+[e = _howMuchTimesPlayShort -> -> 2 `i `uc ]
+"105
+[; ;sounds.c: 105:         howMuchTimesPlayLong = 1;
+[e = _howMuchTimesPlayLong -> -> 1 `i `uc ]
+"106
+[; ;sounds.c: 106:         }
 }
-"31
-[; ;sounds.c: 31: void TimeOut(){
-[v _TimeOut `(v ~T0 @X0 1 ef ]
+[e :U 104 ]
+"107
+[; ;sounds.c: 107:       if (!prmFlags.alarmState) soundState = 1;
+[e $ ! ! != -> . _prmFlags 4 `i -> 0 `i 105  ]
+[e = F612 -> -> 1 `i `uc ]
+[e :U 105 ]
+"108
+[; ;sounds.c: 108:      break;
+[e $U 101  ]
+"110
+[; ;sounds.c: 110:      case 1:
+[e :U 106 ]
+"111
+[; ;sounds.c: 111:      if (prmFlags.errorOverVoltage) {
+[e $ ! != -> . _prmFlags 2 `i -> 0 `i 107  ]
 {
-[e :U _TimeOut ]
-[f ]
-"32
-[; ;sounds.c: 32:    while (cnt1 <= 1000) GP2 = 0;
-[e $U 95  ]
-[e :U 96 ]
-[e = _GP2 -> -> 0 `i `b ]
-[e :U 95 ]
-[e $ <= -> _cnt1 `ui -> -> 1000 `i `ui 96  ]
-[e :U 97 ]
-"33
-[; ;sounds.c: 33:     cnt1 = 0;
-[e = _cnt1 -> -> 0 `i `us ]
-"34
-[; ;sounds.c: 34: }
-[e :UE 94 ]
+"112
+[; ;sounds.c: 112:          howMuchTimesPlayShort = 2;
+[e = _howMuchTimesPlayShort -> -> 2 `i `uc ]
+"113
+[; ;sounds.c: 113:          howMuchTimesPlayLong = 2;
+[e = _howMuchTimesPlayLong -> -> 2 `i `uc ]
+"114
+[; ;sounds.c: 114:   }
 }
-"37
-[; ;sounds.c: 37: void TwoShortOneLong(){
-[v _TwoShortOneLong `(v ~T0 @X0 1 ef ]
+[e :U 107 ]
+"115
+[; ;sounds.c: 115:       if (!prmFlags.alarmState) soundState = 2;
+[e $ ! ! != -> . _prmFlags 4 `i -> 0 `i 108  ]
+[e = F612 -> -> 2 `i `uc ]
+[e :U 108 ]
+"116
+[; ;sounds.c: 116:      break;
+[e $U 101  ]
+"118
+[; ;sounds.c: 118:      case 2:
+[e :U 109 ]
+"119
+[; ;sounds.c: 119:      if (prmFlags.errorHighTemperature){
+[e $ ! != -> . _prmFlags 3 `i -> 0 `i 110  ]
 {
-[e :U _TwoShortOneLong ]
-[f ]
-"38
-[; ;sounds.c: 38:    ShortSound();
-[e ( _ShortSound ..  ]
-"39
-[; ;sounds.c: 39:    ShortSound();
-[e ( _ShortSound ..  ]
-"40
-[; ;sounds.c: 40:    LongSound();
-[e ( _LongSound ..  ]
-"41
-[; ;sounds.c: 41:    cnt1 = 0;
-[e = _cnt1 -> -> 0 `i `us ]
-"42
-[; ;sounds.c: 42:    TimeOut();
-[e ( _TimeOut ..  ]
-"43
-[; ;sounds.c: 43: }
-[e :UE 98 ]
+"120
+[; ;sounds.c: 120:        howMuchTimesPlayShort = 3;
+[e = _howMuchTimesPlayShort -> -> 3 `i `uc ]
+"121
+[; ;sounds.c: 121:        howMuchTimesPlayLong = 0;
+[e = _howMuchTimesPlayLong -> -> 0 `i `uc ]
+"122
+[; ;sounds.c: 122:        }
 }
-"45
-[; ;sounds.c: 45: void TwoShortTwoLong(){
-[v _TwoShortTwoLong `(v ~T0 @X0 1 ef ]
+[e :U 110 ]
+"123
+[; ;sounds.c: 123:       if (!prmFlags.alarmState) soundState = 3;
+[e $ ! ! != -> . _prmFlags 4 `i -> 0 `i 111  ]
+[e = F612 -> -> 3 `i `uc ]
+[e :U 111 ]
+"124
+[; ;sounds.c: 124:      break;
+[e $U 101  ]
+"126
+[; ;sounds.c: 126:      case 3:
+[e :U 112 ]
+"127
+[; ;sounds.c: 127:       if (prmFlags.playLong){
+[e $ ! != -> . _prmFlags 5 `i -> 0 `i 113  ]
 {
-[e :U _TwoShortTwoLong ]
-[f ]
-"47
-[; ;sounds.c: 47:    ShortSound();
-[e ( _ShortSound ..  ]
-"48
-[; ;sounds.c: 48:    ShortSound();
-[e ( _ShortSound ..  ]
-"49
-[; ;sounds.c: 49:    LongSound();
-[e ( _LongSound ..  ]
-"50
-[; ;sounds.c: 50:    LongSound();
-[e ( _LongSound ..  ]
-"51
-[; ;sounds.c: 51:    cnt1 = 0;
-[e = _cnt1 -> -> 0 `i `us ]
-"52
-[; ;sounds.c: 52:    TimeOut();
-[e ( _TimeOut ..  ]
-"53
-[; ;sounds.c: 53: }
-[e :UE 99 ]
+"128
+[; ;sounds.c: 128:        howMuchTimesPlayShort = 0;
+[e = _howMuchTimesPlayShort -> -> 0 `i `uc ]
+"129
+[; ;sounds.c: 129:        howMuchTimesPlayLong = 1;
+[e = _howMuchTimesPlayLong -> -> 1 `i `uc ]
+"130
+[; ;sounds.c: 130:        }
 }
-"55
-[; ;sounds.c: 55: void ThreeShort(){
-[v _ThreeShort `(v ~T0 @X0 1 ef ]
+[e :U 113 ]
+"131
+[; ;sounds.c: 131:       if (!prmFlags.alarmState) {
+[e $ ! ! != -> . _prmFlags 4 `i -> 0 `i 114  ]
 {
-[e :U _ThreeShort ]
-[f ]
-"56
-[; ;sounds.c: 56:    ShortSound();
-[e ( _ShortSound ..  ]
-"57
-[; ;sounds.c: 57:    ShortSound();
-[e ( _ShortSound ..  ]
-"58
-[; ;sounds.c: 58:    ShortSound();
-[e ( _ShortSound ..  ]
-"59
-[; ;sounds.c: 59:    cnt1 = 0;
-[e = _cnt1 -> -> 0 `i `us ]
-"60
-[; ;sounds.c: 60:    TimeOut();
-[e ( _TimeOut ..  ]
-"61
-[; ;sounds.c: 61: }
+"132
+[; ;sounds.c: 132:        soundState = 0;
+[e = F612 -> -> 0 `i `uc ]
+"133
+[; ;sounds.c: 133:        prmFlags.playLong = 0;
+[e = . _prmFlags 5 -> -> 0 `i `uc ]
+"134
+[; ;sounds.c: 134:        }
+}
+[e :U 114 ]
+"135
+[; ;sounds.c: 135:      break;
+[e $U 101  ]
+"137
+[; ;sounds.c: 137:      default:
+[e :U 115 ]
+"138
+[; ;sounds.c: 138:      break;
+[e $U 101  ]
+"139
+[; ;sounds.c: 139: }
+}
+[e $U 101  ]
+[e :U 102 ]
+[e [\ -> F612 `i , $ -> 0 `i 103
+ , $ -> 1 `i 106
+ , $ -> 2 `i 109
+ , $ -> 3 `i 112
+ 115 ]
+[e :U 101 ]
+"141
+[; ;sounds.c: 141:     totalBeeps = howMuchTimesPlayShort + howMuchTimesPlayLong;
+[e = _totalBeeps -> + -> _howMuchTimesPlayShort `i -> _howMuchTimesPlayLong `i `uc ]
+"144
+[; ;sounds.c: 144:     for (uint8_t i = 0; i < howMuchTimesPlayShort; i++) {
+{
+[v _i `uc ~T0 @X0 1 a ]
+[e = _i -> -> 0 `i `uc ]
+[e $U 119  ]
+[e :U 116 ]
+{
+"145
+[; ;sounds.c: 145:         if (i == (totalBeeps - 1)) {
+[e $ ! == -> _i `i - -> _totalBeeps `i -> 1 `i 120  ]
+{
+"146
+[; ;sounds.c: 146:             EnqueueBeeps(120, 1);
+[e ( _EnqueueBeeps (2 , -> -> 120 `i `ui -> -> 1 `i `uc ]
+"147
+[; ;sounds.c: 147:         } else {
+}
+[e $U 121  ]
+[e :U 120 ]
+{
+"148
+[; ;sounds.c: 148:             EnqueueBeeps(120, 0);
+[e ( _EnqueueBeeps (2 , -> -> 120 `i `ui -> -> 0 `i `uc ]
+"149
+[; ;sounds.c: 149:         }
+}
+[e :U 121 ]
+"150
+[; ;sounds.c: 150:     }
+}
+[e ++ _i -> -> 1 `i `uc ]
+[e :U 119 ]
+[e $ < -> _i `i -> _howMuchTimesPlayShort `i 116  ]
+[e :U 117 ]
+}
+"153
+[; ;sounds.c: 153:     for (uint8_t i = 0; i < howMuchTimesPlayLong; i++) {
+{
+[v _i `uc ~T0 @X0 1 a ]
+[e = _i -> -> 0 `i `uc ]
+[e $U 125  ]
+[e :U 122 ]
+{
+"154
+[; ;sounds.c: 154:         if ((howMuchTimesPlayShort + i) == totalBeeps - 1) {
+[e $ ! == + -> _howMuchTimesPlayShort `i -> _i `i - -> _totalBeeps `i -> 1 `i 126  ]
+{
+"155
+[; ;sounds.c: 155:             EnqueueBeeps(300, 1);
+[e ( _EnqueueBeeps (2 , -> -> 300 `i `ui -> -> 1 `i `uc ]
+"156
+[; ;sounds.c: 156:         } else {
+}
+[e $U 127  ]
+[e :U 126 ]
+{
+"157
+[; ;sounds.c: 157:             EnqueueBeeps(300, 0);
+[e ( _EnqueueBeeps (2 , -> -> 300 `i `ui -> -> 0 `i `uc ]
+"158
+[; ;sounds.c: 158:         }
+}
+[e :U 127 ]
+"159
+[; ;sounds.c: 159:     }
+}
+[e ++ _i -> -> 1 `i `uc ]
+[e :U 125 ]
+[e $ < -> _i `i -> _howMuchTimesPlayLong `i 122  ]
+[e :U 123 ]
+}
+"160
+[; ;sounds.c: 160: }
 [e :UE 100 ]
 }

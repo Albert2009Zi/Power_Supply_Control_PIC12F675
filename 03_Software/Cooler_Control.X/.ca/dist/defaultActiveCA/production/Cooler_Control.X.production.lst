@@ -1,0 +1,2740 @@
+
+
+Microchip MPLAB XC8 Assembler V2.41 build 20230208172133 
+                                                                                               Sat Aug 16 22:56:32 2025
+
+Microchip MPLAB XC8 C Compiler v2.41 (Free license) build 20230208172133 Og1 
+     1                           	processor	12F675
+     2                           	pagewidth 120
+     3                           	opt	flic
+     4                           	psect	cinit,global,class=CODE,merge=1,delta=2
+     5                           	psect	bssBANK0,global,class=BANK0,space=1,delta=1,noexec
+     6                           	psect	clrtext,global,class=CODE,delta=2
+     7                           	psect	cstackCOMMON,global,class=COMMON,space=1,delta=1,noexec
+     8                           	psect	cstackBANK0,global,class=BANK0,space=1,delta=1,noexec
+     9                           	psect	maintext,global,class=CODE,split=1,delta=2
+    10                           	psect	text1,local,class=CODE,merge=1,delta=2
+    11                           	psect	text2,local,class=CODE,merge=1,delta=2
+    12                           	psect	text3,local,class=CODE,merge=1,delta=2
+    13                           	psect	text4,local,class=CODE,merge=1,delta=2
+    14                           	psect	text5,local,class=CODE,merge=1,delta=2
+    15                           	psect	text6,local,class=CODE,merge=1,delta=2,group=1
+    16                           	psect	text7,local,class=CODE,merge=1,delta=2,group=1
+    17                           	psect	text8,local,class=CODE,merge=1,delta=2
+    18                           	psect	text9,local,class=CODE,merge=1,delta=2
+    19                           	psect	text10,local,class=CODE,merge=1,delta=2
+    20                           	psect	text11,local,class=CODE,merge=1,delta=2
+    21                           	psect	intentry,global,class=CODE,delta=2
+    22                           	psect	idloc,global,abs,ovrld,class=IDLOC,space=5,delta=2,noexec
+    23                           	psect	config,global,abs,ovrld,class=CONFIG,space=4,delta=2,noexec
+    24                           	dabs	1,0x5E,2
+    25     0000                     
+    26                           ; Generated 17/08/2023 GMT
+    27                           ; 
+    28                           ; Copyright © 2023, Microchip Technology Inc. and its subsidiaries ("Microchip")
+    29                           ; All rights reserved.
+    30                           ; 
+    31                           ; This software is developed by Microchip Technology Inc. and its subsidiaries ("Microch
+      +                          ip").
+    32                           ; 
+    33                           ; Redistribution and use in source and binary forms, with or without modification, are
+    34                           ; permitted provided that the following conditions are met:
+    35                           ; 
+    36                           ;     1. Redistributions of source code must retain the above copyright notice, this lis
+      +                          t of
+    37                           ;        conditions and the following disclaimer.
+    38                           ; 
+    39                           ;     2. Redistributions in binary form must reproduce the above copyright notice, this 
+      +                          list
+    40                           ;        of conditions and the following disclaimer in the documentation and/or other
+    41                           ;        materials provided with the distribution. Publication is not required when
+    42                           ;        this file is used in an embedded application.
+    43                           ; 
+    44                           ;     3. Microchip's name may not be used to endorse or promote products derived from th
+      +                          is
+    45                           ;        software without specific prior written permission.
+    46                           ; 
+    47                           ; THIS SOFTWARE IS PROVIDED BY MICROCHIP "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
+    48                           ; INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS F
+      +                          OR
+    49                           ; PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL MICROCHIP BE LIABLE FOR ANY DIRECT, INDIREC
+      +                          T,
+    50                           ; INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING BUT NOT LIMITED TO
+    51                           ; PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA OR PROFITS; OR BUSINESS
+    52                           ; INTERRUPTION) HOWSOEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, ST
+      +                          RICT
+    53                           ; LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE U
+      +                          SE OF
+    54                           ; THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+    55                           ; 
+    56                           ; 
+    57                           ; Code-generator required, PIC12F675 Definitions
+    58                           ; 
+    59                           ; SFR Addresses
+    60     0000                     	;# 
+    61     0001                     	;# 
+    62     0002                     	;# 
+    63     0003                     	;# 
+    64     0004                     	;# 
+    65     0005                     	;# 
+    66     000A                     	;# 
+    67     000B                     	;# 
+    68     000C                     	;# 
+    69     000E                     	;# 
+    70     000E                     	;# 
+    71     000F                     	;# 
+    72     0010                     	;# 
+    73     0019                     	;# 
+    74     001E                     	;# 
+    75     001F                     	;# 
+    76     0081                     	;# 
+    77     0085                     	;# 
+    78     008C                     	;# 
+    79     008E                     	;# 
+    80     0090                     	;# 
+    81     0095                     	;# 
+    82     0096                     	;# 
+    83     0096                     	;# 
+    84     0099                     	;# 
+    85     009A                     	;# 
+    86     009A                     	;# 
+    87     009B                     	;# 
+    88     009C                     	;# 
+    89     009D                     	;# 
+    90     009E                     	;# 
+    91     009F                     	;# 
+    92     0000                     	;# 
+    93     0001                     	;# 
+    94     0002                     	;# 
+    95     0003                     	;# 
+    96     0004                     	;# 
+    97     0005                     	;# 
+    98     000A                     	;# 
+    99     000B                     	;# 
+   100     000C                     	;# 
+   101     000E                     	;# 
+   102     000E                     	;# 
+   103     000F                     	;# 
+   104     0010                     	;# 
+   105     0019                     	;# 
+   106     001E                     	;# 
+   107     001F                     	;# 
+   108     0081                     	;# 
+   109     0085                     	;# 
+   110     008C                     	;# 
+   111     008E                     	;# 
+   112     0090                     	;# 
+   113     0095                     	;# 
+   114     0096                     	;# 
+   115     0096                     	;# 
+   116     0099                     	;# 
+   117     009A                     	;# 
+   118     009A                     	;# 
+   119     009B                     	;# 
+   120     009C                     	;# 
+   121     009D                     	;# 
+   122     009E                     	;# 
+   123     009F                     	;# 
+   124     0000                     	;# 
+   125     0001                     	;# 
+   126     0002                     	;# 
+   127     0003                     	;# 
+   128     0004                     	;# 
+   129     0005                     	;# 
+   130     000A                     	;# 
+   131     000B                     	;# 
+   132     000C                     	;# 
+   133     000E                     	;# 
+   134     000E                     	;# 
+   135     000F                     	;# 
+   136     0010                     	;# 
+   137     0019                     	;# 
+   138     001E                     	;# 
+   139     001F                     	;# 
+   140     0081                     	;# 
+   141     0085                     	;# 
+   142     008C                     	;# 
+   143     008E                     	;# 
+   144     0090                     	;# 
+   145     0095                     	;# 
+   146     0096                     	;# 
+   147     0096                     	;# 
+   148     0099                     	;# 
+   149     009A                     	;# 
+   150     009A                     	;# 
+   151     009B                     	;# 
+   152     009C                     	;# 
+   153     009D                     	;# 
+   154     009E                     	;# 
+   155     009F                     	;# 
+   156     0000                     	;# 
+   157     0001                     	;# 
+   158     0002                     	;# 
+   159     0003                     	;# 
+   160     0004                     	;# 
+   161     0005                     	;# 
+   162     000A                     	;# 
+   163     000B                     	;# 
+   164     000C                     	;# 
+   165     000E                     	;# 
+   166     000E                     	;# 
+   167     000F                     	;# 
+   168     0010                     	;# 
+   169     0019                     	;# 
+   170     001E                     	;# 
+   171     001F                     	;# 
+   172     0081                     	;# 
+   173     0085                     	;# 
+   174     008C                     	;# 
+   175     008E                     	;# 
+   176     0090                     	;# 
+   177     0095                     	;# 
+   178     0096                     	;# 
+   179     0096                     	;# 
+   180     0099                     	;# 
+   181     009A                     	;# 
+   182     009A                     	;# 
+   183     009B                     	;# 
+   184     009C                     	;# 
+   185     009D                     	;# 
+   186     009E                     	;# 
+   187     009F                     	;# 
+   188     0000                     	;# 
+   189     0001                     	;# 
+   190     0002                     	;# 
+   191     0003                     	;# 
+   192     0004                     	;# 
+   193     0005                     	;# 
+   194     000A                     	;# 
+   195     000B                     	;# 
+   196     000C                     	;# 
+   197     000E                     	;# 
+   198     000E                     	;# 
+   199     000F                     	;# 
+   200     0010                     	;# 
+   201     0019                     	;# 
+   202     001E                     	;# 
+   203     001F                     	;# 
+   204     0081                     	;# 
+   205     0085                     	;# 
+   206     008C                     	;# 
+   207     008E                     	;# 
+   208     0090                     	;# 
+   209     0095                     	;# 
+   210     0096                     	;# 
+   211     0096                     	;# 
+   212     0099                     	;# 
+   213     009A                     	;# 
+   214     009A                     	;# 
+   215     009B                     	;# 
+   216     009C                     	;# 
+   217     009D                     	;# 
+   218     009E                     	;# 
+   219     009F                     	;# 
+   220     001E                     _ADRESH	set	30
+   221     001F                     _ADCON0	set	31
+   222     0005                     _GPIO	set	5
+   223     0019                     _CMCON	set	25
+   224     0001                     _TMR0	set	1
+   225     00F9                     _GO	set	249
+   226     0066                     _ADIF	set	102
+   227     00FA                     _CHS0	set	250
+   228     00FB                     _CHS1	set	251
+   229     00FF                     _ADFM	set	255
+   230     00F8                     _ADON	set	248
+   231     005F                     _GIE	set	95
+   232     005E                     _PEIE	set	94
+   233     00FE                     _VCFG	set	254
+   234     002C                     _GP4	set	44
+   235     002D                     _GP5	set	45
+   236     005D                     _TMR0IE	set	93
+   237     005A                     _TMR0IF	set	90
+   238     002A                     _GP2	set	42
+   239     009E                     _ADRESL	set	158
+   240     009F                     _ANSEL	set	159
+   241     0085                     _TRISIO	set	133
+   242     0099                     _VRCON	set	153
+   243     0081                     _OPTION_REG	set	129
+   244     0429                     _TRISIO1	set	1065
+   245     0428                     _TRISIO0	set	1064
+   246     042C                     _TRISIO4	set	1068
+   247     042D                     _TRISIO5	set	1069
+   248     042A                     _TRISIO2	set	1066
+   249                           
+   250                           	psect	cinit
+   251     000C                     start_initialization:	
+   252                           ; #config settings
+   253                           
+   254     000C                     __initialization:
+   255                           
+   256                           ; Clear objects allocated to BANK0
+   257     000C  1383               	bcf	3,7	;select IRP bank0
+   258     000D  3020               	movlw	low __pbssBANK0
+   259     000E  0084               	movwf	4
+   260     000F  303E               	movlw	low (__pbssBANK0+30)
+   261     0010  230B               	fcall	clear_ram0
+   262     0011                     end_of_initialization:	
+   263                           ;End of C runtime variable initialization code
+   264                           
+   265     0011                     __end_of__initialization:
+   266     0011  0183               	clrf	3
+   267     0012  2B1B               	ljmp	_main	;jump to C main() function
+   268                           
+   269                           	psect	bssBANK0
+   270     0020                     __pbssBANK0:
+   271     0020                     _beepsQueue:
+   272     0020                     	ds	15
+   273     002F                     _adcValue:
+   274     002F                     	ds	2
+   275     0031                     BeepsStateMachine@stateMachineDuration:
+   276     0031                     	ds	2
+   277     0033                     _cnt0:
+   278     0033                     	ds	2
+   279     0035                     _adcState:
+   280     0035                     	ds	1
+   281     0036                     playAlert@soundState:
+   282     0036                     	ds	1
+   283     0037                     BeepsStateMachine@stateMachineAllowTimeout:
+   284     0037                     	ds	1
+   285     0038                     BeepsStateMachine@state:
+   286     0038                     	ds	1
+   287     0039                     _queueTail:
+   288     0039                     	ds	1
+   289     003A                     _queueHead:
+   290     003A                     	ds	1
+   291     003B                     _alarmState:
+   292     003B                     	ds	1
+   293     003C                     _errorTemperature:
+   294     003C                     	ds	1
+   295     003D                     _errorVoltage:
+   296     003D                     	ds	1
+   297                           
+   298                           	psect	clrtext
+   299     030B                     clear_ram0:	
+   300                           ;	Called with FSR containing the base address, and
+   301                           ;	W with the last address+1
+   302                           
+   303     030B  0064               	clrwdt	;clear the watchdog before getting into this loop
+   304     030C                     clrloop0:
+   305     030C  0180               	clrf	0	;clear RAM location pointed to by FSR
+   306     030D  0A84               	incf	4,f	;increment pointer
+   307     030E  0604               	xorwf	4,w	;XOR with final address
+   308     030F  1903               	btfsc	3,2	;have we reached the end yet?
+   309     0310  3400               	retlw	0	;all done for this memory range, return
+   310     0311  0604               	xorwf	4,w	;XOR again to restore value
+   311     0312  2B0C               	goto	clrloop0	;do the next byte
+   312                           
+   313                           	psect	cstackCOMMON
+   314     0000                     __pcstackCOMMON:
+   315     0000                     ??_InitTimer0:
+   316     0000                     ??_main:	
+   317                           ; 1 bytes @ 0x0
+   318                           
+   319     0000                     ??_EnqueueBeeps:	
+   320                           ; 1 bytes @ 0x0
+   321                           
+   322     0000                     ??___bmul:	
+   323                           ; 1 bytes @ 0x0
+   324                           
+   325     0000                     ??___awmod:	
+   326                           ; 1 bytes @ 0x0
+   327                           
+   328                           
+   329                           	psect	cstackBANK0
+   330     003E                     __pcstackBANK0:	
+   331                           ; 1 bytes @ 0x0
+   332                           
+   333     003E                     ?_InitTimer0:
+   334     003E                     ?_Init_uC:	
+   335                           ; 1 bytes @ 0x0
+   336                           
+   337     003E                     ?_ADCProcessing:	
+   338                           ; 1 bytes @ 0x0
+   339                           
+   340     003E                     ?_playAlert:	
+   341                           ; 1 bytes @ 0x0
+   342                           
+   343     003E                     ?_BeepsStateMachine:	
+   344                           ; 1 bytes @ 0x0
+   345                           
+   346     003E                     ?_MuxVoltage:	
+   347                           ; 1 bytes @ 0x0
+   348                           
+   349     003E                     ?_MuxTemp:	
+   350                           ; 1 bytes @ 0x0
+   351                           
+   352     003E                     ?_ISR:	
+   353                           ; 1 bytes @ 0x0
+   354                           
+   355     003E                     ??_ISR:	
+   356                           ; 1 bytes @ 0x0
+   357                           
+   358     003E                     ?_main:	
+   359                           ; 1 bytes @ 0x0
+   360                           
+   361                           
+   362                           ; 2 bytes @ 0x0
+   363     003E                     	ds	2
+   364     0040                     ??_MuxVoltage:
+   365     0040                     ??_MuxTemp:	
+   366                           ; 1 bytes @ 0x2
+   367                           
+   368     0040                     ?___bmul:	
+   369                           ; 1 bytes @ 0x2
+   370                           
+   371     0040                     ?___awmod:	
+   372                           ; 1 bytes @ 0x2
+   373                           
+   374     0040                     ___bmul@multiplicand:	
+   375                           ; 2 bytes @ 0x2
+   376                           
+   377     0040                     ___awmod@divisor:	
+   378                           ; 1 bytes @ 0x2
+   379                           
+   380                           
+   381                           ; 2 bytes @ 0x2
+   382     0040                     	ds	1
+   383     0041                     ??_Init_uC:
+   384     0041                     ??_ADCProcessing:	
+   385                           ; 1 bytes @ 0x3
+   386                           
+   387     0041                     ___bmul@product:	
+   388                           ; 1 bytes @ 0x3
+   389                           
+   390                           
+   391                           ; 1 bytes @ 0x3
+   392     0041                     	ds	1
+   393     0042                     ___bmul@multiplier:
+   394     0042                     ___awmod@dividend:	
+   395                           ; 1 bytes @ 0x4
+   396                           
+   397                           
+   398                           ; 2 bytes @ 0x4
+   399     0042                     	ds	2
+   400     0044                     ___awmod@counter:
+   401                           
+   402                           ; 1 bytes @ 0x6
+   403     0044                     	ds	1
+   404     0045                     ___awmod@sign:
+   405                           
+   406                           ; 1 bytes @ 0x7
+   407     0045                     	ds	1
+   408     0046                     ??_BeepsStateMachine:
+   409     0046                     ?_EnqueueBeeps:	
+   410                           ; 1 bytes @ 0x8
+   411                           
+   412     0046                     EnqueueBeeps@duration:	
+   413                           ; 1 bytes @ 0x8
+   414                           
+   415                           
+   416                           ; 2 bytes @ 0x8
+   417     0046                     	ds	2
+   418     0048                     EnqueueBeeps@allowTimeout:
+   419                           
+   420                           ; 1 bytes @ 0xA
+   421     0048                     	ds	1
+   422     0049                     ??_playAlert:
+   423                           
+   424                           ; 1 bytes @ 0xB
+   425     0049                     	ds	4
+   426     004D                     playAlert@totalBeeps:
+   427                           
+   428                           ; 1 bytes @ 0xF
+   429     004D                     	ds	1
+   430     004E                     playAlert@i:
+   431                           
+   432                           ; 1 bytes @ 0x10
+   433     004E                     	ds	1
+   434     004F                     playAlert@i_74:
+   435                           
+   436                           ; 1 bytes @ 0x11
+   437     004F                     	ds	1
+   438     0050                     playAlert@howMuchTimesPlayLong:
+   439                           
+   440                           ; 1 bytes @ 0x12
+   441     0050                     	ds	1
+   442     0051                     playAlert@howMuchTimesPlayShort:
+   443                           
+   444                           ; 1 bytes @ 0x13
+   445     0051                     	ds	1
+   446                           
+   447                           	psect	maintext
+   448     031B                     __pmaintext:	
+   449 ;;
+   450 ;;Main: autosize = 0, tempsize = 0, incstack = 0, save=0
+   451 ;;
+   452 ;; *************** function _main *****************
+   453 ;; Defined at:
+   454 ;;		line 66 in file "main.c"
+   455 ;; Parameters:    Size  Location     Type
+   456 ;;		None
+   457 ;; Auto vars:     Size  Location     Type
+   458 ;;		None
+   459 ;; Return value:  Size  Location     Type
+   460 ;;                  2   14[None  ] int 
+   461 ;; Registers used:
+   462 ;;		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1, pclath, cstack
+   463 ;; Tracked objects:
+   464 ;;		On entry : B00/0
+   465 ;;		On exit  : 0/0
+   466 ;;		Unchanged: 0/0
+   467 ;; Data sizes:     COMMON   BANK0
+   468 ;;      Params:         0       0
+   469 ;;      Locals:         0       0
+   470 ;;      Temps:          0       0
+   471 ;;      Totals:         0       0
+   472 ;;Total ram usage:        0 bytes
+   473 ;; Hardware stack levels required when called: 4
+   474 ;; This function calls:
+   475 ;;		_ADCProcessing
+   476 ;;		_BeepsStateMachine
+   477 ;;		_InitTimer0
+   478 ;;		_Init_uC
+   479 ;;		_playAlert
+   480 ;; This function is called by:
+   481 ;;		Startup code after reset
+   482 ;; This function uses a non-reentrant model
+   483 ;;
+   484                           
+   485     031B                     _main:	
+   486                           ;psect for function _main
+   487                           
+   488     031B                     l1533:	
+   489                           ;incstack = 0
+   490                           ; Regs used in _main: [wreg-fsr0h+status,2+status,0+btemp+1+pclath+cstack]
+   491                           
+   492     031B  2313               	fcall	_InitTimer0
+   493     031C  2286               	fcall	_Init_uC
+   494     031D                     l1535:
+   495     031D  2013               	fcall	_ADCProcessing
+   496     031E                     l1537:
+   497     031E  20C1               	fcall	_playAlert
+   498     031F                     l1539:
+   499     031F  2169               	fcall	_BeepsStateMachine
+   500     0320  2B1D               	goto	l1535
+   501     0321  280B               	ljmp	start
+   502     0322                     __end_of_main:
+   503                           
+   504                           	psect	text1
+   505     00C1                     __ptext1:	
+   506 ;; *************** function _playAlert *****************
+   507 ;; Defined at:
+   508 ;;		line 98 in file "sounds.c"
+   509 ;; Parameters:    Size  Location     Type
+   510 ;;		None
+   511 ;; Auto vars:     Size  Location     Type
+   512 ;;  i               1   17[BANK0 ] unsigned char 
+   513 ;;  i               1   16[BANK0 ] unsigned char 
+   514 ;;  howMuchTimes    1   19[BANK0 ] unsigned char 
+   515 ;;  howMuchTimes    1   18[BANK0 ] unsigned char 
+   516 ;;  totalBeeps      1   15[BANK0 ] unsigned char 
+   517 ;; Return value:  Size  Location     Type
+   518 ;;                  1    wreg      void 
+   519 ;; Registers used:
+   520 ;;		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1, pclath, cstack
+   521 ;; Tracked objects:
+   522 ;;		On entry : 0/0
+   523 ;;		On exit  : 0/0
+   524 ;;		Unchanged: 0/0
+   525 ;; Data sizes:     COMMON   BANK0
+   526 ;;      Params:         0       0
+   527 ;;      Locals:         0       5
+   528 ;;      Temps:          0       4
+   529 ;;      Totals:         0       9
+   530 ;;Total ram usage:        9 bytes
+   531 ;; Hardware stack levels used: 1
+   532 ;; Hardware stack levels required when called: 3
+   533 ;; This function calls:
+   534 ;;		_EnqueueBeeps
+   535 ;; This function is called by:
+   536 ;;		_main
+   537 ;; This function uses a non-reentrant model
+   538 ;;
+   539                           
+   540     00C1                     _playAlert:	
+   541                           ;psect for function _playAlert
+   542                           
+   543     00C1                     l1421:	
+   544                           ;incstack = 0
+   545                           ; Regs used in _playAlert: [wreg-fsr0h+status,2+status,0+btemp+1+pclath+cstack]
+   546                           
+   547                           
+   548                           ;sounds.c: 100:    uint8_t howMuchTimesPlayShort = 0;
+   549     00C1  1283               	bcf	3,5	;RP0=0, select bank0
+   550     00C2  01D1               	clrf	playAlert@howMuchTimesPlayShort
+   551                           
+   552                           ;sounds.c: 101:    uint8_t howMuchTimesPlayLong = 0;
+   553     00C3  01D0               	clrf	playAlert@howMuchTimesPlayLong
+   554                           
+   555                           ;sounds.c: 103:    static uint8_t soundState = 0;;sounds.c: 105:    switch (soundState){
+   556     00C4  28F8               	goto	l1453
+   557     00C5                     l1423:
+   558                           
+   559                           ;sounds.c: 107:       if (errorVoltage == 1){
+   560     00C5  033D               	decf	_errorVoltage,w	;volatile
+   561     00C6  1D03               	btfss	3,2
+   562     00C7  28C9               	goto	u641
+   563     00C8  28CA               	goto	u640
+   564     00C9                     u641:
+   565     00C9  28CE               	goto	l1429
+   566     00CA                     u640:
+   567     00CA                     l1425:
+   568                           
+   569                           ;sounds.c: 108:         howMuchTimesPlayShort = 2;
+   570     00CA  3002               	movlw	2
+   571     00CB  00D1               	movwf	playAlert@howMuchTimesPlayShort
+   572     00CC                     l1427:
+   573                           
+   574                           ;sounds.c: 109:         howMuchTimesPlayLong = 1;
+   575     00CC  01D0               	clrf	playAlert@howMuchTimesPlayLong
+   576     00CD  0AD0               	incf	playAlert@howMuchTimesPlayLong,f
+   577     00CE                     l1429:
+   578                           
+   579                           ;sounds.c: 111:       if (!alarmState) soundState = 1;
+   580     00CE  083B               	movf	_alarmState,w
+   581     00CF  1D03               	btfss	3,2
+   582     00D0  28D2               	goto	u651
+   583     00D1  28D3               	goto	u650
+   584     00D2                     u651:
+   585     00D2  290B               	goto	l1455
+   586     00D3                     u650:
+   587     00D3                     l1431:
+   588     00D3  01B6               	clrf	playAlert@soundState
+   589     00D4  0AB6               	incf	playAlert@soundState,f
+   590     00D5  290B               	goto	l1455
+   591     00D6                     l1433:
+   592                           
+   593                           ;sounds.c: 115:      if (errorVoltage == 2) {
+   594     00D6  3002               	movlw	2
+   595     00D7  063D               	xorwf	_errorVoltage,w	;volatile
+   596     00D8  1D03               	btfss	3,2
+   597     00D9  28DB               	goto	u661
+   598     00DA  28DC               	goto	u660
+   599     00DB                     u661:
+   600     00DB  28E0               	goto	l1437
+   601     00DC                     u660:
+   602     00DC                     l1435:
+   603                           
+   604                           ;sounds.c: 116:          howMuchTimesPlayShort = 2;
+   605     00DC  3002               	movlw	2
+   606     00DD  00D1               	movwf	playAlert@howMuchTimesPlayShort
+   607                           
+   608                           ;sounds.c: 117:          howMuchTimesPlayLong = 2;
+   609     00DE  3002               	movlw	2
+   610     00DF  00D0               	movwf	playAlert@howMuchTimesPlayLong
+   611     00E0                     l1437:
+   612                           
+   613                           ;sounds.c: 119:       if (!alarmState) soundState = 2;
+   614     00E0  083B               	movf	_alarmState,w
+   615     00E1  1D03               	btfss	3,2
+   616     00E2  28E4               	goto	u671
+   617     00E3  28E5               	goto	u670
+   618     00E4                     u671:
+   619     00E4  290B               	goto	l1455
+   620     00E5                     u670:
+   621     00E5                     l1439:
+   622     00E5  3002               	movlw	2
+   623     00E6  00B6               	movwf	playAlert@soundState
+   624     00E7  290B               	goto	l1455
+   625     00E8                     l1441:
+   626                           
+   627                           ;sounds.c: 123:      if (errorTemperature == 3){
+   628     00E8  3003               	movlw	3
+   629     00E9  063C               	xorwf	_errorTemperature,w	;volatile
+   630     00EA  1D03               	btfss	3,2
+   631     00EB  28ED               	goto	u681
+   632     00EC  28EE               	goto	u680
+   633     00ED                     u681:
+   634     00ED  28F1               	goto	l1447
+   635     00EE                     u680:
+   636     00EE                     l1443:
+   637                           
+   638                           ;sounds.c: 124:        howMuchTimesPlayShort = 3;
+   639     00EE  3003               	movlw	3
+   640     00EF  00D1               	movwf	playAlert@howMuchTimesPlayShort
+   641     00F0                     l1445:
+   642                           
+   643                           ;sounds.c: 125:        howMuchTimesPlayLong = 0;
+   644     00F0  01D0               	clrf	playAlert@howMuchTimesPlayLong
+   645     00F1                     l1447:
+   646                           
+   647                           ;sounds.c: 127:       if (!alarmState) soundState = 0;
+   648     00F1  083B               	movf	_alarmState,w
+   649     00F2  1D03               	btfss	3,2
+   650     00F3  28F5               	goto	u691
+   651     00F4  28F6               	goto	u690
+   652     00F5                     u691:
+   653     00F5  290B               	goto	l1455
+   654     00F6                     u690:
+   655     00F6                     l1449:
+   656     00F6  01B6               	clrf	playAlert@soundState
+   657     00F7  290B               	goto	l1455
+   658     00F8                     l1453:
+   659     00F8  0836               	movf	playAlert@soundState,w
+   660     00F9  00C9               	movwf	??_playAlert
+   661     00FA  01CA               	clrf	??_playAlert+1
+   662                           
+   663                           ; Switch on 2 bytes has been partitioned into a top level switch of size 1, and 1 sub-sw
+      +                          itches
+   664                           ; Switch size 1, requested type "simple"
+   665                           ; Number of cases is 1, Range of values is 0 to 0
+   666                           ; switch strategies available:
+   667                           ; Name         Instructions Cycles
+   668                           ; simple_byte            4     3 (average)
+   669                           ; direct_byte            7     6 (fixed)
+   670                           ; jumptable            260     6 (fixed)
+   671                           ;	Chosen strategy is simple_byte
+   672     00FB  084A               	movf	??_playAlert+1,w
+   673     00FC  3A00               	xorlw	0	; case 0
+   674     00FD  1903               	skipnz
+   675     00FE  2900               	goto	l1609
+   676     00FF  290B               	goto	l1455
+   677     0100                     l1609:
+   678                           
+   679                           ; Switch size 1, requested type "simple"
+   680                           ; Number of cases is 3, Range of values is 0 to 2
+   681                           ; switch strategies available:
+   682                           ; Name         Instructions Cycles
+   683                           ; direct_byte            9     6 (fixed)
+   684                           ; simple_byte           10     6 (average)
+   685                           ; jumptable            260     6 (fixed)
+   686                           ;	Chosen strategy is simple_byte
+   687     0100  0849               	movf	??_playAlert,w
+   688     0101  3A00               	xorlw	0	; case 0
+   689     0102  1903               	skipnz
+   690     0103  28C5               	goto	l1423
+   691     0104  3A01               	xorlw	1	; case 1
+   692     0105  1903               	skipnz
+   693     0106  28D6               	goto	l1433
+   694     0107  3A03               	xorlw	3	; case 2
+   695     0108  1903               	skipnz
+   696     0109  28E8               	goto	l1441
+   697     010A  290B               	goto	l1455
+   698     010B                     l1455:
+   699                           
+   700                           ;sounds.c: 134:     totalBeeps = howMuchTimesPlayShort + howMuchTimesPlayLong;
+   701     010B  0850               	movf	playAlert@howMuchTimesPlayLong,w
+   702     010C  0751               	addwf	playAlert@howMuchTimesPlayShort,w
+   703     010D  00CD               	movwf	playAlert@totalBeeps
+   704     010E                     l1457:
+   705                           
+   706                           ;sounds.c: 137:     for (uint8_t i = 0; i < howMuchTimesPlayShort; i++) {
+   707     010E  01CE               	clrf	playAlert@i
+   708     010F  2931               	goto	l1467
+   709     0110                     l1459:
+   710                           
+   711                           ;sounds.c: 138:         if (i == (totalBeeps - 1)) {
+   712     0110  084D               	movf	playAlert@totalBeeps,w
+   713     0111  3EFF               	addlw	255
+   714     0112  00C9               	movwf	??_playAlert
+   715     0113  30FF               	movlw	255
+   716     0114  1803               	skipnc
+   717     0115  3000               	movlw	0
+   718     0116  00CA               	movwf	??_playAlert+1
+   719     0117  084E               	movf	playAlert@i,w
+   720     0118  0649               	xorwf	??_playAlert,w
+   721     0119  044A               	iorwf	??_playAlert+1,w
+   722     011A  1D03               	skipz
+   723     011B  291D               	goto	u701
+   724     011C  291E               	goto	u700
+   725     011D                     u701:
+   726     011D  2926               	goto	l1463
+   727     011E                     u700:
+   728     011E                     l1461:
+   729                           
+   730                           ;sounds.c: 139:             EnqueueBeeps(120, 1);
+   731     011E  3078               	movlw	120
+   732     011F  00C6               	movwf	EnqueueBeeps@duration
+   733     0120  3000               	movlw	0
+   734     0121  00C7               	movwf	EnqueueBeeps@duration+1
+   735     0122  01C8               	clrf	EnqueueBeeps@allowTimeout
+   736     0123  0AC8               	incf	EnqueueBeeps@allowTimeout,f
+   737     0124  224A               	fcall	_EnqueueBeeps
+   738                           
+   739                           ;sounds.c: 140:         } else {
+   740     0125  292C               	goto	l1465
+   741     0126                     l1463:
+   742                           
+   743                           ;sounds.c: 141:             EnqueueBeeps(120, 0);
+   744     0126  3078               	movlw	120
+   745     0127  00C6               	movwf	EnqueueBeeps@duration
+   746     0128  3000               	movlw	0
+   747     0129  00C7               	movwf	EnqueueBeeps@duration+1
+   748     012A  01C8               	clrf	EnqueueBeeps@allowTimeout
+   749     012B  224A               	fcall	_EnqueueBeeps
+   750     012C                     l1465:
+   751                           
+   752                           ;sounds.c: 143:     }
+   753     012C  3001               	movlw	1
+   754     012D  00DF               	movwf	btemp+1
+   755     012E  085F               	movf	btemp+1,w
+   756     012F  1283               	bcf	3,5	;RP0=0, select bank0
+   757     0130  07CE               	addwf	playAlert@i,f
+   758     0131                     l1467:
+   759     0131  0851               	movf	playAlert@howMuchTimesPlayShort,w
+   760     0132  024E               	subwf	playAlert@i,w
+   761     0133  1C03               	skipc
+   762     0134  2936               	goto	u711
+   763     0135  2937               	goto	u710
+   764     0136                     u711:
+   765     0136  2910               	goto	l1459
+   766     0137                     u710:
+   767     0137                     l1469:
+   768                           
+   769                           ;sounds.c: 146:     for (uint8_t i = 0; i < howMuchTimesPlayLong; i++) {
+   770     0137  01CF               	clrf	playAlert@i_74
+   771     0138  2962               	goto	l1479
+   772     0139                     l1471:
+   773                           
+   774                           ;sounds.c: 147:         if ((howMuchTimesPlayShort + i) == totalBeeps - 1) {
+   775     0139  084D               	movf	playAlert@totalBeeps,w
+   776     013A  3EFF               	addlw	255
+   777     013B  00C9               	movwf	??_playAlert
+   778     013C  30FF               	movlw	255
+   779     013D  1803               	skipnc
+   780     013E  3000               	movlw	0
+   781     013F  00CA               	movwf	??_playAlert+1
+   782     0140  0851               	movf	playAlert@howMuchTimesPlayShort,w
+   783     0141  074F               	addwf	playAlert@i_74,w
+   784     0142  00CB               	movwf	??_playAlert+2
+   785     0143  01CC               	clrf	??_playAlert+3
+   786     0144  0DCC               	rlf	??_playAlert+3,f
+   787     0145  084A               	movf	??_playAlert+1,w
+   788     0146  064C               	xorwf	??_playAlert+3,w
+   789     0147  1D03               	skipz
+   790     0148  294B               	goto	u725
+   791     0149  0849               	movf	??_playAlert,w
+   792     014A  064B               	xorwf	??_playAlert+2,w
+   793     014B                     u725:
+   794     014B  1D03               	skipz
+   795     014C  294E               	goto	u721
+   796     014D  294F               	goto	u720
+   797     014E                     u721:
+   798     014E  2957               	goto	l1475
+   799     014F                     u720:
+   800     014F                     l1473:
+   801                           
+   802                           ;sounds.c: 148:             EnqueueBeeps(200, 1);
+   803     014F  30C8               	movlw	200
+   804     0150  00C6               	movwf	EnqueueBeeps@duration
+   805     0151  3000               	movlw	0
+   806     0152  00C7               	movwf	EnqueueBeeps@duration+1
+   807     0153  01C8               	clrf	EnqueueBeeps@allowTimeout
+   808     0154  0AC8               	incf	EnqueueBeeps@allowTimeout,f
+   809     0155  224A               	fcall	_EnqueueBeeps
+   810                           
+   811                           ;sounds.c: 149:         } else {
+   812     0156  295D               	goto	l1477
+   813     0157                     l1475:
+   814                           
+   815                           ;sounds.c: 150:             EnqueueBeeps(200, 0);
+   816     0157  30C8               	movlw	200
+   817     0158  00C6               	movwf	EnqueueBeeps@duration
+   818     0159  3000               	movlw	0
+   819     015A  00C7               	movwf	EnqueueBeeps@duration+1
+   820     015B  01C8               	clrf	EnqueueBeeps@allowTimeout
+   821     015C  224A               	fcall	_EnqueueBeeps
+   822     015D                     l1477:
+   823                           
+   824                           ;sounds.c: 152:     }
+   825     015D  3001               	movlw	1
+   826     015E  00DF               	movwf	btemp+1
+   827     015F  085F               	movf	btemp+1,w
+   828     0160  1283               	bcf	3,5	;RP0=0, select bank0
+   829     0161  07CF               	addwf	playAlert@i_74,f
+   830     0162                     l1479:
+   831     0162  0850               	movf	playAlert@howMuchTimesPlayLong,w
+   832     0163  024F               	subwf	playAlert@i_74,w
+   833     0164  1C03               	skipc
+   834     0165  2967               	goto	u731
+   835     0166  2968               	goto	u730
+   836     0167                     u731:
+   837     0167  2939               	goto	l1471
+   838     0168                     u730:
+   839     0168                     l88:
+   840     0168  0008               	return
+   841     0169                     __end_of_playAlert:
+   842                           
+   843                           	psect	text2
+   844     024A                     __ptext2:	
+   845 ;; *************** function _EnqueueBeeps *****************
+   846 ;; Defined at:
+   847 ;;		line 27 in file "sounds.c"
+   848 ;; Parameters:    Size  Location     Type
+   849 ;;  duration        2    8[BANK0 ] unsigned int 
+   850 ;;  allowTimeout    1   10[BANK0 ] unsigned char 
+   851 ;; Auto vars:     Size  Location     Type
+   852 ;;		None
+   853 ;; Return value:  Size  Location     Type
+   854 ;;                  1    wreg      void 
+   855 ;; Registers used:
+   856 ;;		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1, pclath, cstack
+   857 ;; Tracked objects:
+   858 ;;		On entry : 0/0
+   859 ;;		On exit  : 0/0
+   860 ;;		Unchanged: 0/0
+   861 ;; Data sizes:     COMMON   BANK0
+   862 ;;      Params:         0       3
+   863 ;;      Locals:         0       0
+   864 ;;      Temps:          0       0
+   865 ;;      Totals:         0       3
+   866 ;;Total ram usage:        3 bytes
+   867 ;; Hardware stack levels used: 1
+   868 ;; Hardware stack levels required when called: 2
+   869 ;; This function calls:
+   870 ;;		___awmod
+   871 ;;		___bmul
+   872 ;; This function is called by:
+   873 ;;		_playAlert
+   874 ;; This function uses a non-reentrant model
+   875 ;;
+   876                           
+   877     024A                     _EnqueueBeeps:	
+   878                           ;psect for function _EnqueueBeeps
+   879                           
+   880     024A                     l1259:	
+   881                           ;incstack = 0
+   882                           ; Regs used in _EnqueueBeeps: [wreg-fsr0h+status,2+status,0+btemp+1+pclath+cstack]
+   883                           
+   884                           
+   885                           ;sounds.c: 29:     if ((queueTail + 1) % 5 != queueHead) {
+   886     024A  3005               	movlw	5
+   887     024B  1283               	bcf	3,5	;RP0=0, select bank0
+   888     024C  00C0               	movwf	___awmod@divisor
+   889     024D  3000               	movlw	0
+   890     024E  00C1               	movwf	___awmod@divisor+1
+   891     024F  0839               	movf	_queueTail,w
+   892     0250  3E01               	addlw	1
+   893     0251  00C2               	movwf	___awmod@dividend
+   894     0252  3000               	movlw	0
+   895     0253  1803               	skipnc
+   896     0254  3001               	movlw	1
+   897     0255  00C3               	movwf	___awmod@dividend+1
+   898     0256  21F0               	fcall	___awmod
+   899     0257  1283               	bcf	3,5	;RP0=0, select bank0
+   900     0258  083A               	movf	_queueHead,w
+   901     0259  0640               	xorwf	?___awmod,w
+   902     025A  0441               	iorwf	?___awmod+1,w
+   903     025B  1903               	skipnz
+   904     025C  2A5E               	goto	u491
+   905     025D  2A5F               	goto	u490
+   906     025E                     u491:
+   907     025E  2A85               	goto	l38
+   908     025F                     u490:
+   909     025F                     l1261:
+   910                           
+   911                           ;sounds.c: 31:         beepsQueue[queueTail].duration = duration;
+   912     025F  3003               	movlw	3
+   913     0260  00C0               	movwf	___bmul@multiplicand
+   914     0261  0839               	movf	_queueTail,w
+   915     0262  22C2               	fcall	___bmul
+   916     0263  3E20               	addlw	(low (_beepsQueue| 0))& (0+255)
+   917     0264  0084               	movwf	4
+   918     0265  1283               	bcf	3,5	;RP0=0, select bank0
+   919     0266  0846               	movf	EnqueueBeeps@duration,w
+   920     0267  1383               	bcf	3,7	;select IRP bank0
+   921     0268  0080               	movwf	0
+   922     0269  0A84               	incf	4,f
+   923     026A  0847               	movf	EnqueueBeeps@duration+1,w
+   924     026B  0080               	movwf	0
+   925                           
+   926                           ;sounds.c: 32:         beepsQueue[queueTail].allowTimeout = allowTimeout;
+   927     026C  3003               	movlw	3
+   928     026D  00C0               	movwf	___bmul@multiplicand
+   929     026E  0839               	movf	_queueTail,w
+   930     026F  22C2               	fcall	___bmul
+   931     0270  3E22               	addlw	(low ((_beepsQueue| 0+2)))& (0+255)
+   932     0271  0084               	movwf	4
+   933     0272  1283               	bcf	3,5	;RP0=0, select bank0
+   934     0273  0848               	movf	EnqueueBeeps@allowTimeout,w
+   935     0274  1383               	bcf	3,7	;select IRP bank0
+   936     0275  0080               	movwf	0
+   937     0276                     l1263:
+   938                           
+   939                           ;sounds.c: 33:         queueTail = (queueTail + 1) % 5;
+   940     0276  3005               	movlw	5
+   941     0277  00C0               	movwf	___awmod@divisor
+   942     0278  3000               	movlw	0
+   943     0279  00C1               	movwf	___awmod@divisor+1
+   944     027A  0839               	movf	_queueTail,w
+   945     027B  3E01               	addlw	1
+   946     027C  00C2               	movwf	___awmod@dividend
+   947     027D  3000               	movlw	0
+   948     027E  1803               	skipnc
+   949     027F  3001               	movlw	1
+   950     0280  00C3               	movwf	___awmod@dividend+1
+   951     0281  21F0               	fcall	___awmod
+   952     0282  1283               	bcf	3,5	;RP0=0, select bank0
+   953     0283  0840               	movf	?___awmod,w
+   954     0284  00B9               	movwf	_queueTail
+   955     0285                     l38:
+   956     0285  0008               	return
+   957     0286                     __end_of_EnqueueBeeps:
+   958                           
+   959                           	psect	text3
+   960     0286                     __ptext3:	
+   961 ;; *************** function _Init_uC *****************
+   962 ;; Defined at:
+   963 ;;		line 19 in file "initPeriphery.c"
+   964 ;; Parameters:    Size  Location     Type
+   965 ;;		None
+   966 ;; Auto vars:     Size  Location     Type
+   967 ;;		None
+   968 ;; Return value:  Size  Location     Type
+   969 ;;                  1    wreg      void 
+   970 ;; Registers used:
+   971 ;;		wreg, status,2, status,0, pclath, cstack
+   972 ;; Tracked objects:
+   973 ;;		On entry : 0/0
+   974 ;;		On exit  : 0/0
+   975 ;;		Unchanged: 0/0
+   976 ;; Data sizes:     COMMON   BANK0
+   977 ;;      Params:         0       0
+   978 ;;      Locals:         0       0
+   979 ;;      Temps:          0       3
+   980 ;;      Totals:         0       3
+   981 ;;Total ram usage:        3 bytes
+   982 ;; Hardware stack levels used: 1
+   983 ;; Hardware stack levels required when called: 2
+   984 ;; This function calls:
+   985 ;;		_MuxVoltage
+   986 ;; This function is called by:
+   987 ;;		_main
+   988 ;; This function uses a non-reentrant model
+   989 ;;
+   990                           
+   991     0286                     _Init_uC:	
+   992                           ;psect for function _Init_uC
+   993                           
+   994     0286                     l1305:	
+   995                           ;incstack = 0
+   996                           ; Regs used in _Init_uC: [wreg+status,2+status,0+pclath+cstack]
+   997                           
+   998                           
+   999                           ;initPeriphery.c: 20:     CMCON = 0x07;
+  1000     0286  3007               	movlw	7
+  1001     0287  1283               	bcf	3,5	;RP0=0, select bank0
+  1002     0288  0099               	movwf	25	;volatile
+  1003     0289                     l1307:
+  1004                           
+  1005                           ;initPeriphery.c: 21:     VRCON = 0x00;
+  1006     0289  1683               	bsf	3,5	;RP0=1, select bank1
+  1007     028A  0199               	clrf	25	;volatile
+  1008     028B                     l1309:
+  1009                           
+  1010                           ;initPeriphery.c: 24:     TRISIO = 0;
+  1011     028B  0185               	clrf	5	;volatile
+  1012     028C                     l1311:
+  1013                           
+  1014                           ;initPeriphery.c: 25:     GPIO = 0;
+  1015     028C  1283               	bcf	3,5	;RP0=0, select bank0
+  1016     028D  0185               	clrf	5	;volatile
+  1017     028E                     l1313:
+  1018                           
+  1019                           ;initPeriphery.c: 28:     TRISIO2 = 0;
+  1020     028E  1683               	bsf	3,5	;RP0=1, select bank1
+  1021     028F  1105               	bcf	5,2	;volatile
+  1022     0290                     l1315:
+  1023                           
+  1024                           ;initPeriphery.c: 29:     GP2 = 0;
+  1025     0290  1283               	bcf	3,5	;RP0=0, select bank0
+  1026     0291  1105               	bcf	5,2	;volatile
+  1027     0292                     l1317:
+  1028                           
+  1029                           ;initPeriphery.c: 32:     TRISIO5 = 0;
+  1030     0292  1683               	bsf	3,5	;RP0=1, select bank1
+  1031     0293  1285               	bcf	5,5	;volatile
+  1032     0294                     l1319:
+  1033                           
+  1034                           ;initPeriphery.c: 33:     GP5 = 1;
+  1035     0294  1283               	bcf	3,5	;RP0=0, select bank0
+  1036     0295  1685               	bsf	5,5	;volatile
+  1037     0296                     l1321:
+  1038                           
+  1039                           ;initPeriphery.c: 36:     TRISIO4 = 0;
+  1040     0296  1683               	bsf	3,5	;RP0=1, select bank1
+  1041     0297  1205               	bcf	5,4	;volatile
+  1042     0298                     l1323:
+  1043                           
+  1044                           ;initPeriphery.c: 37:     GP4 = 1;
+  1045     0298  1283               	bcf	3,5	;RP0=0, select bank0
+  1046     0299  1605               	bsf	5,4	;volatile
+  1047     029A                     l1325:
+  1048                           
+  1049                           ;initPeriphery.c: 40:     VCFG = 1;
+  1050     029A  171F               	bsf	31,6	;volatile
+  1051     029B                     l1327:
+  1052                           
+  1053                           ;initPeriphery.c: 41:     TRISIO0 = 1;
+  1054     029B  1683               	bsf	3,5	;RP0=1, select bank1
+  1055     029C  1405               	bsf	5,0	;volatile
+  1056     029D                     l1329:
+  1057                           
+  1058                           ;initPeriphery.c: 42:     TRISIO1 = 1;
+  1059     029D  1485               	bsf	5,1	;volatile
+  1060     029E                     l1331:
+  1061                           
+  1062                           ;initPeriphery.c: 44:     ANSEL = 0b00110011;
+  1063     029E  3033               	movlw	51
+  1064     029F  009F               	movwf	31	;volatile
+  1065     02A0                     l1333:
+  1066                           
+  1067                           ;initPeriphery.c: 46:     PEIE = 1;
+  1068     02A0  170B               	bsf	11,6	;volatile
+  1069     02A1                     l1335:
+  1070                           
+  1071                           ;initPeriphery.c: 47:     GIE = 1;
+  1072     02A1  178B               	bsf	11,7	;volatile
+  1073     02A2                     l1337:
+  1074                           
+  1075                           ;initPeriphery.c: 50:     GP2 = 1;
+  1076     02A2  1283               	bcf	3,5	;RP0=0, select bank0
+  1077     02A3  1505               	bsf	5,2	;volatile
+  1078     02A4                     l1339:
+  1079                           
+  1080                           ;initPeriphery.c: 51:     _delay((unsigned long)((200)*(4000000/4000.0)));
+  1081     02A4  3002               	movlw	2
+  1082     02A5  00C3               	movwf	??_Init_uC+2
+  1083     02A6  3004               	movlw	4
+  1084     02A7  00C2               	movwf	??_Init_uC+1
+  1085     02A8  30BA               	movlw	186
+  1086     02A9  00C1               	movwf	??_Init_uC
+  1087     02AA                     u817:
+  1088     02AA  0BC1               	decfsz	??_Init_uC,f
+  1089     02AB  2AAA               	goto	u817
+  1090     02AC  0BC2               	decfsz	??_Init_uC+1,f
+  1091     02AD  2AAA               	goto	u817
+  1092     02AE  0BC3               	decfsz	??_Init_uC+2,f
+  1093     02AF  2AAA               	goto	u817
+  1094     02B0  0000               	nop
+  1095     02B1                     l1341:
+  1096                           
+  1097                           ;initPeriphery.c: 52:     GP2 = 0;
+  1098     02B1  1283               	bcf	3,5	;RP0=0, select bank0
+  1099     02B2  1105               	bcf	5,2	;volatile
+  1100     02B3                     l1343:
+  1101                           
+  1102                           ;initPeriphery.c: 53:     _delay((unsigned long)((1000)*(4000000/4000.0)));
+  1103     02B3  3006               	movlw	6
+  1104     02B4  00C3               	movwf	??_Init_uC+2
+  1105     02B5  3013               	movlw	19
+  1106     02B6  00C2               	movwf	??_Init_uC+1
+  1107     02B7  30AD               	movlw	173
+  1108     02B8  00C1               	movwf	??_Init_uC
+  1109     02B9                     u827:
+  1110     02B9  0BC1               	decfsz	??_Init_uC,f
+  1111     02BA  2AB9               	goto	u827
+  1112     02BB  0BC2               	decfsz	??_Init_uC+1,f
+  1113     02BC  2AB9               	goto	u827
+  1114     02BD  0BC3               	decfsz	??_Init_uC+2,f
+  1115     02BE  2AB9               	goto	u827
+  1116     02BF  2AC0               	nop2
+  1117     02C0                     l1345:
+  1118                           
+  1119                           ;initPeriphery.c: 55:     MuxVoltage();
+  1120     02C0  22ED               	fcall	_MuxVoltage
+  1121     02C1                     l138:
+  1122     02C1  0008               	return
+  1123     02C2                     __end_of_Init_uC:
+  1124                           
+  1125                           	psect	text4
+  1126     0313                     __ptext4:	
+  1127 ;; *************** function _InitTimer0 *****************
+  1128 ;; Defined at:
+  1129 ;;		line 12 in file "initPeriphery.c"
+  1130 ;; Parameters:    Size  Location     Type
+  1131 ;;		None
+  1132 ;; Auto vars:     Size  Location     Type
+  1133 ;;		None
+  1134 ;; Return value:  Size  Location     Type
+  1135 ;;                  1    wreg      void 
+  1136 ;; Registers used:
+  1137 ;;		wreg, status,2
+  1138 ;; Tracked objects:
+  1139 ;;		On entry : 0/0
+  1140 ;;		On exit  : 0/0
+  1141 ;;		Unchanged: 0/0
+  1142 ;; Data sizes:     COMMON   BANK0
+  1143 ;;      Params:         0       0
+  1144 ;;      Locals:         0       0
+  1145 ;;      Temps:          0       0
+  1146 ;;      Totals:         0       0
+  1147 ;;Total ram usage:        0 bytes
+  1148 ;; Hardware stack levels used: 1
+  1149 ;; Hardware stack levels required when called: 1
+  1150 ;; This function calls:
+  1151 ;;		Nothing
+  1152 ;; This function is called by:
+  1153 ;;		_main
+  1154 ;; This function uses a non-reentrant model
+  1155 ;;
+  1156                           
+  1157     0313                     _InitTimer0:	
+  1158                           ;psect for function _InitTimer0
+  1159                           
+  1160     0313                     l1297:	
+  1161                           ;incstack = 0
+  1162                           ; Regs used in _InitTimer0: [wreg+status,2]
+  1163                           
+  1164                           
+  1165                           ;initPeriphery.c: 13:     OPTION_REG = 0b11000001;
+  1166     0313  30C1               	movlw	193
+  1167     0314  1683               	bsf	3,5	;RP0=1, select bank1
+  1168     0315  0081               	movwf	1	;volatile
+  1169     0316                     l1299:
+  1170                           
+  1171                           ;initPeriphery.c: 14:     TMR0 = 0;
+  1172     0316  1283               	bcf	3,5	;RP0=0, select bank0
+  1173     0317  0181               	clrf	1	;volatile
+  1174     0318                     l1301:
+  1175                           
+  1176                           ;initPeriphery.c: 15:     TMR0IF = 0;
+  1177     0318  110B               	bcf	11,2	;volatile
+  1178     0319                     l1303:
+  1179                           
+  1180                           ;initPeriphery.c: 16:     TMR0IE = 1;
+  1181     0319  168B               	bsf	11,5	;volatile
+  1182     031A                     l135:
+  1183     031A  0008               	return
+  1184     031B                     __end_of_InitTimer0:
+  1185                           
+  1186                           	psect	text5
+  1187     0169                     __ptext5:	
+  1188 ;; *************** function _BeepsStateMachine *****************
+  1189 ;; Defined at:
+  1190 ;;		line 40 in file "sounds.c"
+  1191 ;; Parameters:    Size  Location     Type
+  1192 ;;		None
+  1193 ;; Auto vars:     Size  Location     Type
+  1194 ;;		None
+  1195 ;; Return value:  Size  Location     Type
+  1196 ;;                  1    wreg      void 
+  1197 ;; Registers used:
+  1198 ;;		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1, pclath, cstack
+  1199 ;; Tracked objects:
+  1200 ;;		On entry : 0/0
+  1201 ;;		On exit  : 0/0
+  1202 ;;		Unchanged: 0/0
+  1203 ;; Data sizes:     COMMON   BANK0
+  1204 ;;      Params:         0       0
+  1205 ;;      Locals:         0       0
+  1206 ;;      Temps:          0       2
+  1207 ;;      Totals:         0       2
+  1208 ;;Total ram usage:        2 bytes
+  1209 ;; Hardware stack levels used: 1
+  1210 ;; Hardware stack levels required when called: 2
+  1211 ;; This function calls:
+  1212 ;;		___awmod
+  1213 ;;		___bmul
+  1214 ;; This function is called by:
+  1215 ;;		_main
+  1216 ;; This function uses a non-reentrant model
+  1217 ;;
+  1218                           
+  1219     0169                     _BeepsStateMachine:	
+  1220                           ;psect for function _BeepsStateMachine
+  1221                           
+  1222     0169                     l1485:	
+  1223                           ;incstack = 0
+  1224                           ; Regs used in _BeepsStateMachine: [wreg-fsr0h+status,2+status,0+btemp+1+pclath+cstack]
+  1225                           
+  1226                           
+  1227                           ;sounds.c: 42:     static uint8_t state = 0;;sounds.c: 43:     static uint16_t stateMach
+      +                          ineDuration = 0;;sounds.c: 44:     static uint8_t stateMachineAllowTimeout = 0;;sounds.c
+      +                          : 46:     switch(state){
+  1228     0169  29D8               	goto	l1527
+  1229     016A                     l1487:
+  1230                           
+  1231                           ;sounds.c: 48:         if (queueHead != queueTail) {
+  1232     016A  083A               	movf	_queueHead,w
+  1233     016B  0639               	xorwf	_queueTail,w
+  1234     016C  1903               	skipnz
+  1235     016D  296F               	goto	u741
+  1236     016E  2970               	goto	u740
+  1237     016F                     u741:
+  1238     016F  29EF               	goto	l61
+  1239     0170                     u740:
+  1240     0170                     l1489:
+  1241                           
+  1242                           ;sounds.c: 49:                 stateMachineDuration = beepsQueue[queueHead].duration;
+  1243     0170  3003               	movlw	3
+  1244     0171  00C0               	movwf	___bmul@multiplicand
+  1245     0172  083A               	movf	_queueHead,w
+  1246     0173  22C2               	fcall	___bmul
+  1247     0174  3E20               	addlw	(low (_beepsQueue| 0))& (0+255)
+  1248     0175  0084               	movwf	4
+  1249     0176  1383               	bcf	3,7	;select IRP bank0
+  1250     0177  0800               	movf	0,w
+  1251     0178  1283               	bcf	3,5	;RP0=0, select bank0
+  1252     0179  00B1               	movwf	BeepsStateMachine@stateMachineDuration
+  1253     017A  0A84               	incf	4,f
+  1254     017B  0800               	movf	0,w
+  1255     017C  00B2               	movwf	BeepsStateMachine@stateMachineDuration+1
+  1256                           
+  1257                           ;sounds.c: 50:                 stateMachineAllowTimeout = beepsQueue[queueHead].allowTim
+      +                          eout;
+  1258     017D  3003               	movlw	3
+  1259     017E  00C0               	movwf	___bmul@multiplicand
+  1260     017F  083A               	movf	_queueHead,w
+  1261     0180  22C2               	fcall	___bmul
+  1262     0181  3E22               	addlw	(low ((_beepsQueue| 0+2)))& (0+255)
+  1263     0182  0084               	movwf	4
+  1264     0183  1383               	bcf	3,7	;select IRP bank0
+  1265     0184  0800               	movf	0,w
+  1266     0185  1283               	bcf	3,5	;RP0=0, select bank0
+  1267     0186  00B7               	movwf	BeepsStateMachine@stateMachineAllowTimeout
+  1268     0187                     l1491:
+  1269                           
+  1270                           ;sounds.c: 51:                 queueHead = (queueHead + 1) % 5;
+  1271     0187  3005               	movlw	5
+  1272     0188  00C0               	movwf	___awmod@divisor
+  1273     0189  3000               	movlw	0
+  1274     018A  00C1               	movwf	___awmod@divisor+1
+  1275     018B  083A               	movf	_queueHead,w
+  1276     018C  3E01               	addlw	1
+  1277     018D  00C2               	movwf	___awmod@dividend
+  1278     018E  3000               	movlw	0
+  1279     018F  1803               	skipnc
+  1280     0190  3001               	movlw	1
+  1281     0191  00C3               	movwf	___awmod@dividend+1
+  1282     0192  21F0               	fcall	___awmod
+  1283     0193  1283               	bcf	3,5	;RP0=0, select bank0
+  1284     0194  0840               	movf	?___awmod,w
+  1285     0195  00BA               	movwf	_queueHead
+  1286     0196                     l1493:
+  1287                           
+  1288                           ;sounds.c: 52:                 GP2 = 1;
+  1289     0196  1505               	bsf	5,2	;volatile
+  1290     0197                     l1495:
+  1291                           
+  1292                           ;sounds.c: 53:                 cnt0 = 0;
+  1293     0197  01B3               	clrf	_cnt0	;volatile
+  1294     0198  01B4               	clrf	_cnt0+1	;volatile
+  1295     0199                     l1497:
+  1296                           
+  1297                           ;sounds.c: 54:                 state = 1;
+  1298     0199  01B8               	clrf	BeepsStateMachine@state
+  1299     019A  0AB8               	incf	BeepsStateMachine@state,f
+  1300     019B                     l1499:
+  1301                           
+  1302                           ;sounds.c: 55:   alarmState = 1;
+  1303     019B  01BB               	clrf	_alarmState
+  1304     019C  0ABB               	incf	_alarmState,f
+  1305     019D  29EF               	goto	l61
+  1306     019E                     l1501:
+  1307                           
+  1308                           ;sounds.c: 60:    if (cnt0 >= stateMachineDuration){
+  1309     019E  0832               	movf	BeepsStateMachine@stateMachineDuration+1,w
+  1310     019F  0234               	subwf	_cnt0+1,w	;volatile
+  1311     01A0  1D03               	skipz
+  1312     01A1  29A4               	goto	u755
+  1313     01A2  0831               	movf	BeepsStateMachine@stateMachineDuration,w
+  1314     01A3  0233               	subwf	_cnt0,w	;volatile
+  1315     01A4                     u755:
+  1316     01A4  1C03               	skipc
+  1317     01A5  29A7               	goto	u751
+  1318     01A6  29A8               	goto	u750
+  1319     01A7                     u751:
+  1320     01A7  29EF               	goto	l61
+  1321     01A8                     u750:
+  1322     01A8                     l1503:
+  1323                           
+  1324                           ;sounds.c: 61:              cnt0 = 0;
+  1325     01A8  01B3               	clrf	_cnt0	;volatile
+  1326     01A9  01B4               	clrf	_cnt0+1	;volatile
+  1327     01AA                     l1505:
+  1328                           
+  1329                           ;sounds.c: 62:              state = 2;
+  1330     01AA  3002               	movlw	2
+  1331     01AB  00B8               	movwf	BeepsStateMachine@state
+  1332     01AC                     l1507:
+  1333                           
+  1334                           ;sounds.c: 63:              GP2 = 0;
+  1335     01AC  1105               	bcf	5,2	;volatile
+  1336     01AD  29EF               	goto	l61
+  1337     01AE                     l1509:
+  1338                           
+  1339                           ;sounds.c: 68:           if (cnt0 >= 80){
+  1340     01AE  3000               	movlw	0
+  1341     01AF  0234               	subwf	_cnt0+1,w	;volatile
+  1342     01B0  3050               	movlw	80
+  1343     01B1  1903               	skipnz
+  1344     01B2  0233               	subwf	_cnt0,w	;volatile
+  1345     01B3  1C03               	skipc
+  1346     01B4  29B6               	goto	u761
+  1347     01B5  29B7               	goto	u760
+  1348     01B6                     u761:
+  1349     01B6  29EF               	goto	l61
+  1350     01B7                     u760:
+  1351     01B7                     l1511:
+  1352                           
+  1353                           ;sounds.c: 69:              cnt0 = 0;
+  1354     01B7  01B3               	clrf	_cnt0	;volatile
+  1355     01B8  01B4               	clrf	_cnt0+1	;volatile
+  1356     01B9                     l1513:
+  1357                           
+  1358                           ;sounds.c: 70:              if (stateMachineAllowTimeout == 0){
+  1359     01B9  0837               	movf	BeepsStateMachine@stateMachineAllowTimeout,w
+  1360     01BA  1D03               	btfss	3,2
+  1361     01BB  29BD               	goto	u771
+  1362     01BC  29BE               	goto	u770
+  1363     01BD                     u771:
+  1364     01BD  29C0               	goto	l1517
+  1365     01BE                     u770:
+  1366     01BE                     l1515:
+  1367                           
+  1368                           ;sounds.c: 71:                  state = 0;
+  1369     01BE  01B8               	clrf	BeepsStateMachine@state
+  1370                           
+  1371                           ;sounds.c: 72:          }
+  1372     01BF  29EF               	goto	l61
+  1373     01C0                     l1517:
+  1374     01C0  0337               	decf	BeepsStateMachine@stateMachineAllowTimeout,w
+  1375     01C1  1D03               	btfss	3,2
+  1376     01C2  29C4               	goto	u781
+  1377     01C3  29C5               	goto	u780
+  1378     01C4                     u781:
+  1379     01C4  29EF               	goto	l61
+  1380     01C5                     u780:
+  1381     01C5                     l1519:
+  1382                           
+  1383                           ;sounds.c: 74:          state = 3;
+  1384     01C5  3003               	movlw	3
+  1385     01C6  00B8               	movwf	BeepsStateMachine@state
+  1386     01C7  29EF               	goto	l61
+  1387     01C8                     l1521:
+  1388                           
+  1389                           ;sounds.c: 80:          if (cnt0 >= 1000){
+  1390     01C8  3003               	movlw	3
+  1391     01C9  0234               	subwf	_cnt0+1,w	;volatile
+  1392     01CA  30E8               	movlw	232
+  1393     01CB  1903               	skipnz
+  1394     01CC  0233               	subwf	_cnt0,w	;volatile
+  1395     01CD  1C03               	skipc
+  1396     01CE  29D0               	goto	u791
+  1397     01CF  29D1               	goto	u790
+  1398     01D0                     u791:
+  1399     01D0  29EF               	goto	l61
+  1400     01D1                     u790:
+  1401     01D1                     l1523:
+  1402                           
+  1403                           ;sounds.c: 81:            cnt0 = 0;
+  1404     01D1  01B3               	clrf	_cnt0	;volatile
+  1405     01D2  01B4               	clrf	_cnt0+1	;volatile
+  1406                           
+  1407                           ;sounds.c: 82:            queueHead = 0;
+  1408     01D3  01BA               	clrf	_queueHead
+  1409                           
+  1410                           ;sounds.c: 83:            queueTail = 0;
+  1411     01D4  01B9               	clrf	_queueTail
+  1412                           
+  1413                           ;sounds.c: 84:     state = 0;
+  1414     01D5  01B8               	clrf	BeepsStateMachine@state
+  1415                           
+  1416                           ;sounds.c: 85:     alarmState = 0;
+  1417     01D6  01BB               	clrf	_alarmState
+  1418     01D7  29EF               	goto	l61
+  1419     01D8                     l1527:
+  1420     01D8  1283               	bcf	3,5	;RP0=0, select bank0
+  1421     01D9  0838               	movf	BeepsStateMachine@state,w
+  1422     01DA  00C6               	movwf	??_BeepsStateMachine
+  1423     01DB  01C7               	clrf	??_BeepsStateMachine+1
+  1424                           
+  1425                           ; Switch on 2 bytes has been partitioned into a top level switch of size 1, and 1 sub-sw
+      +                          itches
+  1426                           ; Switch size 1, requested type "simple"
+  1427                           ; Number of cases is 1, Range of values is 0 to 0
+  1428                           ; switch strategies available:
+  1429                           ; Name         Instructions Cycles
+  1430                           ; simple_byte            4     3 (average)
+  1431                           ; direct_byte            7     6 (fixed)
+  1432                           ; jumptable            260     6 (fixed)
+  1433                           ;	Chosen strategy is simple_byte
+  1434     01DC  0847               	movf	??_BeepsStateMachine+1,w
+  1435     01DD  3A00               	xorlw	0	; case 0
+  1436     01DE  1903               	skipnz
+  1437     01DF  29E1               	goto	l1611
+  1438     01E0  29EF               	goto	l61
+  1439     01E1                     l1611:
+  1440                           
+  1441                           ; Switch size 1, requested type "simple"
+  1442                           ; Number of cases is 4, Range of values is 0 to 3
+  1443                           ; switch strategies available:
+  1444                           ; Name         Instructions Cycles
+  1445                           ; direct_byte           10     6 (fixed)
+  1446                           ; simple_byte           13     7 (average)
+  1447                           ; jumptable            260     6 (fixed)
+  1448                           ;	Chosen strategy is simple_byte
+  1449     01E1  0846               	movf	??_BeepsStateMachine,w
+  1450     01E2  3A00               	xorlw	0	; case 0
+  1451     01E3  1903               	skipnz
+  1452     01E4  296A               	goto	l1487
+  1453     01E5  3A01               	xorlw	1	; case 1
+  1454     01E6  1903               	skipnz
+  1455     01E7  299E               	goto	l1501
+  1456     01E8  3A03               	xorlw	3	; case 2
+  1457     01E9  1903               	skipnz
+  1458     01EA  29AE               	goto	l1509
+  1459     01EB  3A01               	xorlw	1	; case 3
+  1460     01EC  1903               	skipnz
+  1461     01ED  29C8               	goto	l1521
+  1462     01EE  29EF               	goto	l61
+  1463     01EF                     l61:
+  1464     01EF  0008               	return
+  1465     01F0                     __end_of_BeepsStateMachine:
+  1466                           
+  1467                           	psect	text6
+  1468     02C2                     __ptext6:	
+  1469 ;; *************** function ___bmul *****************
+  1470 ;; Defined at:
+  1471 ;;		line 4 in file "C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\Umul8.c"
+  1472 ;; Parameters:    Size  Location     Type
+  1473 ;;  multiplier      1    wreg     unsigned char 
+  1474 ;;  multiplicand    1    2[BANK0 ] unsigned char 
+  1475 ;; Auto vars:     Size  Location     Type
+  1476 ;;  multiplier      1    4[BANK0 ] unsigned char 
+  1477 ;;  product         1    3[BANK0 ] unsigned char 
+  1478 ;; Return value:  Size  Location     Type
+  1479 ;;                  1    wreg      unsigned char 
+  1480 ;; Registers used:
+  1481 ;;		wreg, status,2, status,0, btemp+1
+  1482 ;; Tracked objects:
+  1483 ;;		On entry : 0/0
+  1484 ;;		On exit  : 0/0
+  1485 ;;		Unchanged: 0/0
+  1486 ;; Data sizes:     COMMON   BANK0
+  1487 ;;      Params:         0       1
+  1488 ;;      Locals:         0       2
+  1489 ;;      Temps:          0       0
+  1490 ;;      Totals:         0       3
+  1491 ;;Total ram usage:        3 bytes
+  1492 ;; Hardware stack levels used: 1
+  1493 ;; Hardware stack levels required when called: 1
+  1494 ;; This function calls:
+  1495 ;;		Nothing
+  1496 ;; This function is called by:
+  1497 ;;		_EnqueueBeeps
+  1498 ;;		_BeepsStateMachine
+  1499 ;; This function uses a non-reentrant model
+  1500 ;;
+  1501                           
+  1502     02C2                     ___bmul:	
+  1503                           ;psect for function ___bmul
+  1504                           
+  1505                           
+  1506                           ;incstack = 0
+  1507                           ; Regs used in ___bmul: [wreg+status,2+status,0+btemp+1]
+  1508                           ;___bmul@multiplier stored from wreg
+  1509     02C2  1283               	bcf	3,5	;RP0=0, select bank0
+  1510     02C3  00C2               	movwf	___bmul@multiplier
+  1511     02C4                     l1205:
+  1512     02C4  01C1               	clrf	___bmul@product
+  1513     02C5                     l1207:
+  1514     02C5  1C42               	btfss	___bmul@multiplier,0
+  1515     02C6  2AC8               	goto	u381
+  1516     02C7  2AC9               	goto	u380
+  1517     02C8                     u381:
+  1518     02C8  2ACD               	goto	l1211
+  1519     02C9                     u380:
+  1520     02C9                     l1209:
+  1521     02C9  0840               	movf	___bmul@multiplicand,w
+  1522     02CA  00DF               	movwf	btemp+1
+  1523     02CB  085F               	movf	btemp+1,w
+  1524     02CC  07C1               	addwf	___bmul@product,f
+  1525     02CD                     l1211:
+  1526     02CD  1003               	clrc
+  1527     02CE  0DC0               	rlf	___bmul@multiplicand,f
+  1528     02CF                     l1213:
+  1529     02CF  1003               	clrc
+  1530     02D0  0CC2               	rrf	___bmul@multiplier,f
+  1531     02D1                     l1215:
+  1532     02D1  0842               	movf	___bmul@multiplier,w
+  1533     02D2  1D03               	btfss	3,2
+  1534     02D3  2AD5               	goto	u391
+  1535     02D4  2AD6               	goto	u390
+  1536     02D5                     u391:
+  1537     02D5  2AC5               	goto	l1207
+  1538     02D6                     u390:
+  1539     02D6                     l1217:
+  1540     02D6  0841               	movf	___bmul@product,w
+  1541     02D7                     l329:
+  1542     02D7  0008               	return
+  1543     02D8                     __end_of___bmul:
+  1544                           
+  1545                           	psect	text7
+  1546     01F0                     __ptext7:	
+  1547 ;; *************** function ___awmod *****************
+  1548 ;; Defined at:
+  1549 ;;		line 5 in file "C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\awmod.c"
+  1550 ;; Parameters:    Size  Location     Type
+  1551 ;;  divisor         2    2[BANK0 ] int 
+  1552 ;;  dividend        2    4[BANK0 ] int 
+  1553 ;; Auto vars:     Size  Location     Type
+  1554 ;;  sign            1    7[BANK0 ] unsigned char 
+  1555 ;;  counter         1    6[BANK0 ] unsigned char 
+  1556 ;; Return value:  Size  Location     Type
+  1557 ;;                  2    2[BANK0 ] int 
+  1558 ;; Registers used:
+  1559 ;;		wreg, status,2, status,0, btemp+1
+  1560 ;; Tracked objects:
+  1561 ;;		On entry : 0/0
+  1562 ;;		On exit  : 0/0
+  1563 ;;		Unchanged: 0/0
+  1564 ;; Data sizes:     COMMON   BANK0
+  1565 ;;      Params:         0       4
+  1566 ;;      Locals:         0       2
+  1567 ;;      Temps:          0       0
+  1568 ;;      Totals:         0       6
+  1569 ;;Total ram usage:        6 bytes
+  1570 ;; Hardware stack levels used: 1
+  1571 ;; Hardware stack levels required when called: 1
+  1572 ;; This function calls:
+  1573 ;;		Nothing
+  1574 ;; This function is called by:
+  1575 ;;		_EnqueueBeeps
+  1576 ;;		_BeepsStateMachine
+  1577 ;; This function uses a non-reentrant model
+  1578 ;;
+  1579                           
+  1580     01F0                     ___awmod:	
+  1581                           ;psect for function ___awmod
+  1582                           
+  1583     01F0                     l1221:	
+  1584                           ;incstack = 0
+  1585                           ; Regs used in ___awmod: [wreg+status,2+status,0+btemp+1]
+  1586                           
+  1587     01F0  1283               	bcf	3,5	;RP0=0, select bank0
+  1588     01F1  01C5               	clrf	___awmod@sign
+  1589     01F2                     l1223:
+  1590     01F2  1FC3               	btfss	___awmod@dividend+1,7
+  1591     01F3  29F5               	goto	u401
+  1592     01F4  29F6               	goto	u400
+  1593     01F5                     u401:
+  1594     01F5  29FD               	goto	l1229
+  1595     01F6                     u400:
+  1596     01F6                     l1225:
+  1597     01F6  09C2               	comf	___awmod@dividend,f
+  1598     01F7  09C3               	comf	___awmod@dividend+1,f
+  1599     01F8  0AC2               	incf	___awmod@dividend,f
+  1600     01F9  1903               	skipnz
+  1601     01FA  0AC3               	incf	___awmod@dividend+1,f
+  1602     01FB                     l1227:
+  1603     01FB  01C5               	clrf	___awmod@sign
+  1604     01FC  0AC5               	incf	___awmod@sign,f
+  1605     01FD                     l1229:
+  1606     01FD  1FC1               	btfss	___awmod@divisor+1,7
+  1607     01FE  2A00               	goto	u411
+  1608     01FF  2A01               	goto	u410
+  1609     0200                     u411:
+  1610     0200  2A06               	goto	l1233
+  1611     0201                     u410:
+  1612     0201                     l1231:
+  1613     0201  09C0               	comf	___awmod@divisor,f
+  1614     0202  09C1               	comf	___awmod@divisor+1,f
+  1615     0203  0AC0               	incf	___awmod@divisor,f
+  1616     0204  1903               	skipnz
+  1617     0205  0AC1               	incf	___awmod@divisor+1,f
+  1618     0206                     l1233:
+  1619     0206  0840               	movf	___awmod@divisor,w
+  1620     0207  0441               	iorwf	___awmod@divisor+1,w
+  1621     0208  1903               	btfsc	3,2
+  1622     0209  2A0B               	goto	u421
+  1623     020A  2A0C               	goto	u420
+  1624     020B                     u421:
+  1625     020B  2A3B               	goto	l1251
+  1626     020C                     u420:
+  1627     020C                     l1235:
+  1628     020C  01C4               	clrf	___awmod@counter
+  1629     020D  0AC4               	incf	___awmod@counter,f
+  1630     020E  2A1A               	goto	l1241
+  1631     020F                     l1237:
+  1632     020F  3001               	movlw	1
+  1633     0210                     u435:
+  1634     0210  1003               	clrc
+  1635     0211  0DC0               	rlf	___awmod@divisor,f
+  1636     0212  0DC1               	rlf	___awmod@divisor+1,f
+  1637     0213  3EFF               	addlw	-1
+  1638     0214  1D03               	skipz
+  1639     0215  2A10               	goto	u435
+  1640     0216                     l1239:
+  1641     0216  3001               	movlw	1
+  1642     0217  00DF               	movwf	btemp+1
+  1643     0218  085F               	movf	btemp+1,w
+  1644     0219  07C4               	addwf	___awmod@counter,f
+  1645     021A                     l1241:
+  1646     021A  1FC1               	btfss	___awmod@divisor+1,7
+  1647     021B  2A1D               	goto	u441
+  1648     021C  2A1E               	goto	u440
+  1649     021D                     u441:
+  1650     021D  2A0F               	goto	l1237
+  1651     021E                     u440:
+  1652     021E                     l1243:
+  1653     021E  0841               	movf	___awmod@divisor+1,w
+  1654     021F  0243               	subwf	___awmod@dividend+1,w
+  1655     0220  1D03               	skipz
+  1656     0221  2A24               	goto	u455
+  1657     0222  0840               	movf	___awmod@divisor,w
+  1658     0223  0242               	subwf	___awmod@dividend,w
+  1659     0224                     u455:
+  1660     0224  1C03               	skipc
+  1661     0225  2A27               	goto	u451
+  1662     0226  2A28               	goto	u450
+  1663     0227                     u451:
+  1664     0227  2A2E               	goto	l1247
+  1665     0228                     u450:
+  1666     0228                     l1245:
+  1667     0228  0840               	movf	___awmod@divisor,w
+  1668     0229  02C2               	subwf	___awmod@dividend,f
+  1669     022A  0841               	movf	___awmod@divisor+1,w
+  1670     022B  1C03               	skipc
+  1671     022C  03C3               	decf	___awmod@dividend+1,f
+  1672     022D  02C3               	subwf	___awmod@dividend+1,f
+  1673     022E                     l1247:
+  1674     022E  3001               	movlw	1
+  1675     022F                     u465:
+  1676     022F  1003               	clrc
+  1677     0230  0CC1               	rrf	___awmod@divisor+1,f
+  1678     0231  0CC0               	rrf	___awmod@divisor,f
+  1679     0232  3EFF               	addlw	-1
+  1680     0233  1D03               	skipz
+  1681     0234  2A2F               	goto	u465
+  1682     0235                     l1249:
+  1683     0235  3001               	movlw	1
+  1684     0236  02C4               	subwf	___awmod@counter,f
+  1685     0237  1D03               	btfss	3,2
+  1686     0238  2A3A               	goto	u471
+  1687     0239  2A3B               	goto	u470
+  1688     023A                     u471:
+  1689     023A  2A1E               	goto	l1243
+  1690     023B                     u470:
+  1691     023B                     l1251:
+  1692     023B  0845               	movf	___awmod@sign,w
+  1693     023C  1903               	btfsc	3,2
+  1694     023D  2A3F               	goto	u481
+  1695     023E  2A40               	goto	u480
+  1696     023F                     u481:
+  1697     023F  2A45               	goto	l1255
+  1698     0240                     u480:
+  1699     0240                     l1253:
+  1700     0240  09C2               	comf	___awmod@dividend,f
+  1701     0241  09C3               	comf	___awmod@dividend+1,f
+  1702     0242  0AC2               	incf	___awmod@dividend,f
+  1703     0243  1903               	skipnz
+  1704     0244  0AC3               	incf	___awmod@dividend+1,f
+  1705     0245                     l1255:
+  1706     0245  0843               	movf	___awmod@dividend+1,w
+  1707     0246  00C1               	movwf	?___awmod+1
+  1708     0247  0842               	movf	___awmod@dividend,w
+  1709     0248  00C0               	movwf	?___awmod
+  1710     0249                     l469:
+  1711     0249  0008               	return
+  1712     024A                     __end_of___awmod:
+  1713                           
+  1714                           	psect	text8
+  1715     0013                     __ptext8:	
+  1716 ;; *************** function _ADCProcessing *****************
+  1717 ;; Defined at:
+  1718 ;;		line 57 in file "interrupt.c"
+  1719 ;; Parameters:    Size  Location     Type
+  1720 ;;		None
+  1721 ;; Auto vars:     Size  Location     Type
+  1722 ;;		None
+  1723 ;; Return value:  Size  Location     Type
+  1724 ;;                  1    wreg      void 
+  1725 ;; Registers used:
+  1726 ;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+  1727 ;; Tracked objects:
+  1728 ;;		On entry : 0/0
+  1729 ;;		On exit  : 0/0
+  1730 ;;		Unchanged: 0/0
+  1731 ;; Data sizes:     COMMON   BANK0
+  1732 ;;      Params:         0       0
+  1733 ;;      Locals:         0       0
+  1734 ;;      Temps:          0       2
+  1735 ;;      Totals:         0       2
+  1736 ;;Total ram usage:        2 bytes
+  1737 ;; Hardware stack levels used: 1
+  1738 ;; Hardware stack levels required when called: 2
+  1739 ;; This function calls:
+  1740 ;;		_MuxTemp
+  1741 ;;		_MuxVoltage
+  1742 ;; This function is called by:
+  1743 ;;		_main
+  1744 ;; This function uses a non-reentrant model
+  1745 ;;
+  1746                           
+  1747     0013                     _ADCProcessing:	
+  1748                           ;psect for function _ADCProcessing
+  1749                           
+  1750     0013                     l1347:	
+  1751                           ;incstack = 0
+  1752                           ; Regs used in _ADCProcessing: [wreg-fsr0h+status,2+status,0+pclath+cstack]
+  1753                           
+  1754                           
+  1755                           ;interrupt.c: 59:     if (ADIF == 1){
+  1756     0013  1283               	bcf	3,5	;RP0=0, select bank0
+  1757     0014  1F0C               	btfss	12,6	;volatile
+  1758     0015  2817               	goto	u501
+  1759     0016  2818               	goto	u500
+  1760     0017                     u501:
+  1761     0017  28C0               	goto	l217
+  1762     0018                     u500:
+  1763     0018                     l1349:
+  1764                           
+  1765                           ;interrupt.c: 60:      adcValue = (uint16_t) ((ADRESH << 8) + ADRESL);
+  1766     0018  081E               	movf	30,w	;volatile
+  1767     0019  00B0               	movwf	_adcValue+1	;volatile
+  1768     001A  1683               	bsf	3,5	;RP0=1, select bank1
+  1769     001B  081E               	movf	30,w	;volatile
+  1770     001C  1283               	bcf	3,5	;RP0=0, select bank0
+  1771     001D  00AF               	movwf	_adcValue	;volatile
+  1772                           
+  1773                           ;interrupt.c: 62:      switch (adcState){
+  1774     001E  28B0               	goto	l1415
+  1775     001F                     l1351:
+  1776                           
+  1777                           ;interrupt.c: 68:     if ((adcValue > 96) && (adcValue < 148)){
+  1778     001F  3000               	movlw	0
+  1779     0020  0230               	subwf	_adcValue+1,w	;volatile
+  1780     0021  3061               	movlw	97
+  1781     0022  1903               	skipnz
+  1782     0023  022F               	subwf	_adcValue,w	;volatile
+  1783     0024  1C03               	skipc
+  1784     0025  2827               	goto	u511
+  1785     0026  2828               	goto	u510
+  1786     0027                     u511:
+  1787     0027  283B               	goto	l1361
+  1788     0028                     u510:
+  1789     0028                     l1353:
+  1790     0028  3000               	movlw	0
+  1791     0029  0230               	subwf	_adcValue+1,w	;volatile
+  1792     002A  3094               	movlw	148
+  1793     002B  1903               	skipnz
+  1794     002C  022F               	subwf	_adcValue,w	;volatile
+  1795     002D  1803               	skipnc
+  1796     002E  2830               	goto	u521
+  1797     002F  2831               	goto	u520
+  1798     0030                     u521:
+  1799     0030  283B               	goto	l1361
+  1800     0031                     u520:
+  1801     0031                     l1355:
+  1802                           
+  1803                           ;interrupt.c: 69:       if(errorTemperature == 0) GP5 = 0;
+  1804     0031  083C               	movf	_errorTemperature,w	;volatile
+  1805     0032  1D03               	btfss	3,2
+  1806     0033  2835               	goto	u531
+  1807     0034  2836               	goto	u530
+  1808     0035                     u531:
+  1809     0035  2838               	goto	l197
+  1810     0036                     u530:
+  1811     0036                     l1357:
+  1812     0036  1285               	bcf	5,5	;volatile
+  1813     0037  2839               	goto	l1359
+  1814     0038                     l197:	
+  1815                           ;interrupt.c: 70:        else GP5 = 1;
+  1816                           
+  1817     0038  1685               	bsf	5,5	;volatile
+  1818     0039                     l1359:
+  1819                           
+  1820                           ;interrupt.c: 71:        errorVoltage = 0;
+  1821     0039  01BD               	clrf	_errorVoltage	;volatile
+  1822                           
+  1823                           ;interrupt.c: 72:            }
+  1824     003A  2854               	goto	l1373
+  1825     003B                     l1361:
+  1826     003B  3000               	movlw	0
+  1827     003C  0230               	subwf	_adcValue+1,w	;volatile
+  1828     003D  3061               	movlw	97
+  1829     003E  1903               	skipnz
+  1830     003F  022F               	subwf	_adcValue,w	;volatile
+  1831     0040  1803               	skipnc
+  1832     0041  2843               	goto	u541
+  1833     0042  2844               	goto	u540
+  1834     0043                     u541:
+  1835     0043  2848               	goto	l1367
+  1836     0044                     u540:
+  1837     0044                     l1363:
+  1838                           
+  1839                           ;interrupt.c: 75:           GP5 = 1;
+  1840     0044  1685               	bsf	5,5	;volatile
+  1841     0045                     l1365:
+  1842                           
+  1843                           ;interrupt.c: 76:        errorVoltage = 1;
+  1844     0045  3001               	movlw	1
+  1845     0046  00BD               	movwf	_errorVoltage	;volatile
+  1846                           
+  1847                           ;interrupt.c: 77:         }
+  1848     0047  2854               	goto	l1373
+  1849     0048                     l1367:
+  1850     0048  3000               	movlw	0
+  1851     0049  0230               	subwf	_adcValue+1,w	;volatile
+  1852     004A  3094               	movlw	148
+  1853     004B  1903               	skipnz
+  1854     004C  022F               	subwf	_adcValue,w	;volatile
+  1855     004D  1C03               	skipc
+  1856     004E  2850               	goto	u551
+  1857     004F  2851               	goto	u550
+  1858     0050                     u551:
+  1859     0050  2854               	goto	l1373
+  1860     0051                     u550:
+  1861     0051                     l1369:
+  1862                           
+  1863                           ;interrupt.c: 80:           GP5 = 1;
+  1864     0051  1685               	bsf	5,5	;volatile
+  1865     0052                     l1371:
+  1866                           
+  1867                           ;interrupt.c: 81:        errorVoltage = 2;
+  1868     0052  3002               	movlw	2
+  1869     0053  00BD               	movwf	_errorVoltage	;volatile
+  1870     0054                     l1373:
+  1871                           
+  1872                           ;interrupt.c: 84:           MuxTemp();
+  1873     0054  22FC               	fcall	_MuxTemp
+  1874     0055                     l1375:
+  1875                           
+  1876                           ;interrupt.c: 85:           adcState = STATE_MEASURE_TEMPERATURE;
+  1877     0055  1283               	bcf	3,5	;RP0=0, select bank0
+  1878     0056  01B5               	clrf	_adcState
+  1879     0057  0AB5               	incf	_adcState,f
+  1880                           
+  1881                           ;interrupt.c: 86:         break;
+  1882     0058  28C0               	goto	l217
+  1883     0059                     l1377:
+  1884                           
+  1885                           ;interrupt.c: 91:       if (adcValue < 200){
+  1886     0059  3000               	movlw	0
+  1887     005A  0230               	subwf	_adcValue+1,w	;volatile
+  1888     005B  30C8               	movlw	200
+  1889     005C  1903               	skipnz
+  1890     005D  022F               	subwf	_adcValue,w	;volatile
+  1891     005E  1803               	skipnc
+  1892     005F  2861               	goto	u561
+  1893     0060  2862               	goto	u560
+  1894     0061                     u561:
+  1895     0061  2866               	goto	l1383
+  1896     0062                     u560:
+  1897     0062                     l1379:
+  1898                           
+  1899                           ;interrupt.c: 92:         GP5 = 1;
+  1900     0062  1685               	bsf	5,5	;volatile
+  1901                           
+  1902                           ;interrupt.c: 93:         GP4 = 0;
+  1903     0063  1205               	bcf	5,4	;volatile
+  1904     0064                     l1381:
+  1905                           
+  1906                           ;interrupt.c: 94:               errorTemperature = 0;
+  1907     0064  01BC               	clrf	_errorTemperature	;volatile
+  1908                           
+  1909                           ;interrupt.c: 95:     }
+  1910     0065  28AC               	goto	l1409
+  1911     0066                     l1383:
+  1912     0066  3000               	movlw	0
+  1913     0067  0230               	subwf	_adcValue+1,w	;volatile
+  1914     0068  30C9               	movlw	201
+  1915     0069  1903               	skipnz
+  1916     006A  022F               	subwf	_adcValue,w	;volatile
+  1917     006B  1C03               	skipc
+  1918     006C  286E               	goto	u571
+  1919     006D  286F               	goto	u570
+  1920     006E                     u571:
+  1921     006E  2882               	goto	l1393
+  1922     006F                     u570:
+  1923     006F                     l1385:
+  1924     006F  3003               	movlw	3
+  1925     0070  0230               	subwf	_adcValue+1,w	;volatile
+  1926     0071  30A2               	movlw	162
+  1927     0072  1903               	skipnz
+  1928     0073  022F               	subwf	_adcValue,w	;volatile
+  1929     0074  1803               	skipnc
+  1930     0075  2877               	goto	u581
+  1931     0076  2878               	goto	u580
+  1932     0077                     u581:
+  1933     0077  2882               	goto	l1393
+  1934     0078                     u580:
+  1935     0078                     l1387:
+  1936                           
+  1937                           ;interrupt.c: 98:             if(errorVoltage == 0) GP5 = 0;
+  1938     0078  083D               	movf	_errorVoltage,w	;volatile
+  1939     0079  1D03               	btfss	3,2
+  1940     007A  287C               	goto	u591
+  1941     007B  287D               	goto	u590
+  1942     007C                     u591:
+  1943     007C  287F               	goto	l208
+  1944     007D                     u590:
+  1945     007D                     l1389:
+  1946     007D  1285               	bcf	5,5	;volatile
+  1947     007E  2880               	goto	l209
+  1948     007F                     l208:	
+  1949                           ;interrupt.c: 99:          else GP5 = 1;
+  1950                           
+  1951     007F  1685               	bsf	5,5	;volatile
+  1952     0080                     l209:
+  1953                           
+  1954                           ;interrupt.c: 100:           GP4 = 0;
+  1955     0080  1205               	bcf	5,4	;volatile
+  1956     0081  2864               	goto	l1381
+  1957     0082                     l1393:
+  1958     0082  3003               	movlw	3
+  1959     0083  0230               	subwf	_adcValue+1,w	;volatile
+  1960     0084  30A3               	movlw	163
+  1961     0085  1903               	skipnz
+  1962     0086  022F               	subwf	_adcValue,w	;volatile
+  1963     0087  1C03               	skipc
+  1964     0088  288A               	goto	u601
+  1965     0089  288B               	goto	u600
+  1966     008A                     u601:
+  1967     008A  289E               	goto	l1403
+  1968     008B                     u600:
+  1969     008B                     l1395:
+  1970     008B  3003               	movlw	3
+  1971     008C  0230               	subwf	_adcValue+1,w	;volatile
+  1972     008D  30CA               	movlw	202
+  1973     008E  1903               	skipnz
+  1974     008F  022F               	subwf	_adcValue,w	;volatile
+  1975     0090  1803               	skipnc
+  1976     0091  2893               	goto	u611
+  1977     0092  2894               	goto	u610
+  1978     0093                     u611:
+  1979     0093  289E               	goto	l1403
+  1980     0094                     u610:
+  1981     0094                     l1397:
+  1982                           
+  1983                           ;interrupt.c: 105:             if(errorVoltage == 0) GP5 = 0;
+  1984     0094  083D               	movf	_errorVoltage,w	;volatile
+  1985     0095  1D03               	btfss	3,2
+  1986     0096  2898               	goto	u621
+  1987     0097  2899               	goto	u620
+  1988     0098                     u621:
+  1989     0098  289B               	goto	l212
+  1990     0099                     u620:
+  1991     0099                     l1399:
+  1992     0099  1285               	bcf	5,5	;volatile
+  1993     009A  289C               	goto	l213
+  1994     009B                     l212:	
+  1995                           ;interrupt.c: 106:           else GP5 = 1;
+  1996                           
+  1997     009B  1685               	bsf	5,5	;volatile
+  1998     009C                     l213:
+  1999                           
+  2000                           ;interrupt.c: 107:           GP4 = 1;
+  2001     009C  1605               	bsf	5,4	;volatile
+  2002     009D  2864               	goto	l1381
+  2003     009E                     l1403:
+  2004     009E  3003               	movlw	3
+  2005     009F  0230               	subwf	_adcValue+1,w	;volatile
+  2006     00A0  30CB               	movlw	203
+  2007     00A1  1903               	skipnz
+  2008     00A2  022F               	subwf	_adcValue,w	;volatile
+  2009     00A3  1C03               	skipc
+  2010     00A4  28A6               	goto	u631
+  2011     00A5  28A7               	goto	u630
+  2012     00A6                     u631:
+  2013     00A6  28AC               	goto	l210
+  2014     00A7                     u630:
+  2015     00A7                     l1405:
+  2016                           
+  2017                           ;interrupt.c: 111:           GP4 = 1;
+  2018     00A7  1605               	bsf	5,4	;volatile
+  2019                           
+  2020                           ;interrupt.c: 112:              GP5 = 1;
+  2021     00A8  1685               	bsf	5,5	;volatile
+  2022     00A9                     l1407:
+  2023                           
+  2024                           ;interrupt.c: 113:                 errorTemperature = 3;
+  2025     00A9  3003               	movlw	3
+  2026     00AA  00BC               	movwf	_errorTemperature	;volatile
+  2027     00AB  28AC               	goto	l1409
+  2028     00AC                     l210:
+  2029     00AC                     l1409:
+  2030                           
+  2031                           ;interrupt.c: 117:      MuxVoltage();
+  2032     00AC  22ED               	fcall	_MuxVoltage
+  2033     00AD                     l1411:
+  2034                           
+  2035                           ;interrupt.c: 118:         adcState = STATE_MEASURE_VOLTAGE;
+  2036     00AD  1283               	bcf	3,5	;RP0=0, select bank0
+  2037     00AE  01B5               	clrf	_adcState
+  2038                           
+  2039                           ;interrupt.c: 119:  break;
+  2040     00AF  28C0               	goto	l217
+  2041     00B0                     l1415:
+  2042     00B0  0835               	movf	_adcState,w
+  2043     00B1  00C1               	movwf	??_ADCProcessing
+  2044     00B2  01C2               	clrf	??_ADCProcessing+1
+  2045                           
+  2046                           ; Switch on 2 bytes has been partitioned into a top level switch of size 1, and 1 sub-sw
+      +                          itches
+  2047                           ; Switch size 1, requested type "simple"
+  2048                           ; Number of cases is 1, Range of values is 0 to 0
+  2049                           ; switch strategies available:
+  2050                           ; Name         Instructions Cycles
+  2051                           ; simple_byte            4     3 (average)
+  2052                           ; direct_byte            7     6 (fixed)
+  2053                           ; jumptable            260     6 (fixed)
+  2054                           ;	Chosen strategy is simple_byte
+  2055     00B3  0842               	movf	??_ADCProcessing+1,w
+  2056     00B4  3A00               	xorlw	0	; case 0
+  2057     00B5  1903               	skipnz
+  2058     00B6  28B8               	goto	l1613
+  2059     00B7  28C0               	goto	l217
+  2060     00B8                     l1613:
+  2061                           
+  2062                           ; Switch size 1, requested type "simple"
+  2063                           ; Number of cases is 2, Range of values is 0 to 1
+  2064                           ; switch strategies available:
+  2065                           ; Name         Instructions Cycles
+  2066                           ; simple_byte            7     4 (average)
+  2067                           ; direct_byte            8     6 (fixed)
+  2068                           ; jumptable            260     6 (fixed)
+  2069                           ;	Chosen strategy is simple_byte
+  2070     00B8  0841               	movf	??_ADCProcessing,w
+  2071     00B9  3A00               	xorlw	0	; case 0
+  2072     00BA  1903               	skipnz
+  2073     00BB  281F               	goto	l1351
+  2074     00BC  3A01               	xorlw	1	; case 1
+  2075     00BD  1903               	skipnz
+  2076     00BE  2859               	goto	l1377
+  2077     00BF  28C0               	goto	l217
+  2078     00C0                     l217:
+  2079     00C0  0008               	return
+  2080     00C1                     __end_of_ADCProcessing:
+  2081                           
+  2082                           	psect	text9
+  2083     02ED                     __ptext9:	
+  2084 ;; *************** function _MuxVoltage *****************
+  2085 ;; Defined at:
+  2086 ;;		line 21 in file "interrupt.c"
+  2087 ;; Parameters:    Size  Location     Type
+  2088 ;;		None
+  2089 ;; Auto vars:     Size  Location     Type
+  2090 ;;		None
+  2091 ;; Return value:  Size  Location     Type
+  2092 ;;                  1    wreg      void 
+  2093 ;; Registers used:
+  2094 ;;		wreg, status,2
+  2095 ;; Tracked objects:
+  2096 ;;		On entry : 0/0
+  2097 ;;		On exit  : 0/0
+  2098 ;;		Unchanged: 0/0
+  2099 ;; Data sizes:     COMMON   BANK0
+  2100 ;;      Params:         0       0
+  2101 ;;      Locals:         0       0
+  2102 ;;      Temps:          0       1
+  2103 ;;      Totals:         0       1
+  2104 ;;Total ram usage:        1 bytes
+  2105 ;; Hardware stack levels used: 1
+  2106 ;; Hardware stack levels required when called: 1
+  2107 ;; This function calls:
+  2108 ;;		Nothing
+  2109 ;; This function is called by:
+  2110 ;;		_Init_uC
+  2111 ;;		_ADCProcessing
+  2112 ;; This function uses a non-reentrant model
+  2113 ;;
+  2114                           
+  2115     02ED                     _MuxVoltage:	
+  2116                           ;psect for function _MuxVoltage
+  2117                           
+  2118     02ED                     l1265:	
+  2119                           ;incstack = 0
+  2120                           ; Regs used in _MuxVoltage: [wreg+status,2]
+  2121                           
+  2122                           
+  2123                           ;interrupt.c: 22:        ADCON0 = 0;
+  2124     02ED  1283               	bcf	3,5	;RP0=0, select bank0
+  2125     02EE  019F               	clrf	31	;volatile
+  2126     02EF                     l1267:
+  2127                           
+  2128                           ;interrupt.c: 23:        ADON = 1;
+  2129     02EF  141F               	bsf	31,0	;volatile
+  2130     02F0                     l1269:
+  2131                           
+  2132                           ;interrupt.c: 24:        ADFM = 1;
+  2133     02F0  179F               	bsf	31,7	;volatile
+  2134     02F1                     l1271:
+  2135                           
+  2136                           ;interrupt.c: 25:        CHS1 = 0;
+  2137     02F1  119F               	bcf	31,3	;volatile
+  2138     02F2                     l1273:
+  2139                           
+  2140                           ;interrupt.c: 26:        CHS0 = 1;
+  2141     02F2  151F               	bsf	31,2	;volatile
+  2142     02F3                     l1275:
+  2143                           
+  2144                           ;interrupt.c: 27:        ADIF = 0;
+  2145     02F3  130C               	bcf	12,6	;volatile
+  2146     02F4                     l1277:
+  2147                           
+  2148                           ;interrupt.c: 28:        _delay((unsigned long)((50)*(4000000/4000000.0)));
+  2149     02F4  3010               	movlw	16
+  2150     02F5  00C0               	movwf	??_MuxVoltage
+  2151     02F6                     u837:
+  2152     02F6  0BC0               	decfsz	??_MuxVoltage,f
+  2153     02F7  2AF6               	goto	u837
+  2154     02F8  0000               	nop
+  2155     02F9                     l1279:
+  2156                           
+  2157                           ;interrupt.c: 29:        GO = 1;
+  2158     02F9  1283               	bcf	3,5	;RP0=0, select bank0
+  2159     02FA  149F               	bsf	31,1	;volatile
+  2160     02FB                     l181:
+  2161     02FB  0008               	return
+  2162     02FC                     __end_of_MuxVoltage:
+  2163                           
+  2164                           	psect	text10
+  2165     02FC                     __ptext10:	
+  2166 ;; *************** function _MuxTemp *****************
+  2167 ;; Defined at:
+  2168 ;;		line 33 in file "interrupt.c"
+  2169 ;; Parameters:    Size  Location     Type
+  2170 ;;		None
+  2171 ;; Auto vars:     Size  Location     Type
+  2172 ;;		None
+  2173 ;; Return value:  Size  Location     Type
+  2174 ;;                  1    wreg      void 
+  2175 ;; Registers used:
+  2176 ;;		wreg, status,2
+  2177 ;; Tracked objects:
+  2178 ;;		On entry : 0/0
+  2179 ;;		On exit  : 0/0
+  2180 ;;		Unchanged: 0/0
+  2181 ;; Data sizes:     COMMON   BANK0
+  2182 ;;      Params:         0       0
+  2183 ;;      Locals:         0       0
+  2184 ;;      Temps:          0       1
+  2185 ;;      Totals:         0       1
+  2186 ;;Total ram usage:        1 bytes
+  2187 ;; Hardware stack levels used: 1
+  2188 ;; Hardware stack levels required when called: 1
+  2189 ;; This function calls:
+  2190 ;;		Nothing
+  2191 ;; This function is called by:
+  2192 ;;		_ADCProcessing
+  2193 ;; This function uses a non-reentrant model
+  2194 ;;
+  2195                           
+  2196     02FC                     _MuxTemp:	
+  2197                           ;psect for function _MuxTemp
+  2198                           
+  2199     02FC                     l1281:	
+  2200                           ;incstack = 0
+  2201                           ; Regs used in _MuxTemp: [wreg+status,2]
+  2202                           
+  2203                           
+  2204                           ;interrupt.c: 34:        ADCON0 = 0;
+  2205     02FC  1283               	bcf	3,5	;RP0=0, select bank0
+  2206     02FD  019F               	clrf	31	;volatile
+  2207     02FE                     l1283:
+  2208                           
+  2209                           ;interrupt.c: 35:        ADON = 1;
+  2210     02FE  141F               	bsf	31,0	;volatile
+  2211     02FF                     l1285:
+  2212                           
+  2213                           ;interrupt.c: 36:        ADFM = 1;
+  2214     02FF  179F               	bsf	31,7	;volatile
+  2215     0300                     l1287:
+  2216                           
+  2217                           ;interrupt.c: 37:        CHS1 = 0;
+  2218     0300  119F               	bcf	31,3	;volatile
+  2219     0301                     l1289:
+  2220                           
+  2221                           ;interrupt.c: 38:        CHS0 = 0;
+  2222     0301  111F               	bcf	31,2	;volatile
+  2223     0302                     l1291:
+  2224                           
+  2225                           ;interrupt.c: 39:        ADIF = 0;
+  2226     0302  130C               	bcf	12,6	;volatile
+  2227     0303                     l1293:
+  2228                           
+  2229                           ;interrupt.c: 40:        _delay((unsigned long)((50)*(4000000/4000000.0)));
+  2230     0303  3010               	movlw	16
+  2231     0304  00C0               	movwf	??_MuxTemp
+  2232     0305                     u847:
+  2233     0305  0BC0               	decfsz	??_MuxTemp,f
+  2234     0306  2B05               	goto	u847
+  2235     0307  0000               	nop
+  2236     0308                     l1295:
+  2237                           
+  2238                           ;interrupt.c: 41:        GO = 1;
+  2239     0308  1283               	bcf	3,5	;RP0=0, select bank0
+  2240     0309  149F               	bsf	31,1	;volatile
+  2241     030A                     l184:
+  2242     030A  0008               	return
+  2243     030B                     __end_of_MuxTemp:
+  2244                           
+  2245                           	psect	text11
+  2246     02D8                     __ptext11:	
+  2247 ;; *************** function _ISR *****************
+  2248 ;; Defined at:
+  2249 ;;		line 44 in file "interrupt.c"
+  2250 ;; Parameters:    Size  Location     Type
+  2251 ;;		None
+  2252 ;; Auto vars:     Size  Location     Type
+  2253 ;;		None
+  2254 ;; Return value:  Size  Location     Type
+  2255 ;;                  1    wreg      void 
+  2256 ;; Registers used:
+  2257 ;;		wreg
+  2258 ;; Tracked objects:
+  2259 ;;		On entry : 0/0
+  2260 ;;		On exit  : 0/0
+  2261 ;;		Unchanged: 0/0
+  2262 ;; Data sizes:     COMMON   BANK0
+  2263 ;;      Params:         0       0
+  2264 ;;      Locals:         0       0
+  2265 ;;      Temps:          0       2
+  2266 ;;      Totals:         0       2
+  2267 ;;Total ram usage:        2 bytes
+  2268 ;; Hardware stack levels used: 1
+  2269 ;; This function calls:
+  2270 ;;		Nothing
+  2271 ;; This function is called by:
+  2272 ;;		Interrupt level 1
+  2273 ;; This function uses a non-reentrant model
+  2274 ;;
+  2275                           
+  2276     02D8                     _ISR:	
+  2277                           ;psect for function _ISR
+  2278                           
+  2279     02D8                     i1l1541:
+  2280                           
+  2281                           ;interrupt.c: 47:     if (TMR0IF == 1){
+  2282     02D8  1D0B               	btfss	11,2	;volatile
+  2283     02D9  2ADB               	goto	u80_21
+  2284     02DA  2ADC               	goto	u80_20
+  2285     02DB                     u80_21:
+  2286     02DB  2AE6               	goto	i1l190
+  2287     02DC                     u80_20:
+  2288     02DC                     i1l1543:
+  2289                           
+  2290                           ;interrupt.c: 48:             TMR0 = 5;
+  2291     02DC  3005               	movlw	5
+  2292     02DD  0081               	movwf	1	;volatile
+  2293                           
+  2294                           ;interrupt.c: 49:          ++cnt0;
+  2295     02DE  3001               	movlw	1
+  2296     02DF  07B3               	addwf	_cnt0,f	;volatile
+  2297     02E0  1803               	skipnc
+  2298     02E1  0AB4               	incf	_cnt0+1,f	;volatile
+  2299     02E2  3000               	movlw	0
+  2300     02E3  07B4               	addwf	_cnt0+1,f	;volatile
+  2301     02E4                     i1l1545:
+  2302                           
+  2303                           ;interrupt.c: 50:          TMR0IF = 0;
+  2304     02E4  110B               	bcf	11,2	;volatile
+  2305     02E5                     i1l1547:
+  2306                           
+  2307                           ;interrupt.c: 51:             TMR0IE = 1;
+  2308     02E5  168B               	bsf	11,5	;volatile
+  2309     02E6                     i1l190:
+  2310     02E6  083F               	movf	??_ISR+1,w
+  2311     02E7  008A               	movwf	10
+  2312     02E8  0E3E               	swapf	??_ISR,w
+  2313     02E9  0083               	movwf	3
+  2314     02EA  0EDE               	swapf	btemp,f
+  2315     02EB  0E5E               	swapf	btemp,w
+  2316     02EC  0009               	retfie
+  2317     02ED                     __end_of_ISR:
+  2318     005E                     btemp	set	94	;btemp
+  2319     005E                     wtemp0	set	94
+  2320                           
+  2321                           	psect	intentry
+  2322     0004                     __pintentry:	
+  2323                           ;incstack = 0
+  2324                           ; Regs used in _ISR: [wreg]
+  2325                           
+  2326     0004                     interrupt_function:
+  2327     005E                     saved_w	set	btemp
+  2328     0004  00DE               	movwf	btemp
+  2329     0005  0E03               	swapf	3,w
+  2330     0006  1283               	bcf	3,5	;RP0=0, select bank0
+  2331     0007  00BE               	movwf	??_ISR
+  2332     0008  080A               	movf	10,w
+  2333     0009  00BF               	movwf	??_ISR+1
+  2334     000A  2AD8               	ljmp	_ISR
+  2335                           
+  2336                           	psect	idloc
+  2337                           
+  2338                           ;Config register IDLOC0 @ 0x2000
+  2339                           ;	unspecified, using default values
+  2340     2000                     	org	8192
+  2341     2000  3FFF               	dw	16383
+  2342                           
+  2343                           ;Config register IDLOC1 @ 0x2001
+  2344                           ;	unspecified, using default values
+  2345     2001                     	org	8193
+  2346     2001  3FFF               	dw	16383
+  2347                           
+  2348                           ;Config register IDLOC2 @ 0x2002
+  2349                           ;	unspecified, using default values
+  2350     2002                     	org	8194
+  2351     2002  3FFF               	dw	16383
+  2352                           
+  2353                           ;Config register IDLOC3 @ 0x2003
+  2354                           ;	unspecified, using default values
+  2355     2003                     	org	8195
+  2356     2003  3FFF               	dw	16383
+  2357                           
+  2358                           	psect	config
+  2359                           
+  2360                           ;Config register CONFIG @ 0x2007
+  2361                           ;	Oscillator Selection bits
+  2362                           ;	FOSC = INTRCIO, INTOSC oscillator: I/O function on GP4/OSC2/CLKOUT pin, I/O function o
+      +                          n GP5/OSC1/CLKIN
+  2363                           ;	Watchdog Timer Enable bit
+  2364                           ;	WDTE = OFF, WDT disabled
+  2365                           ;	Power-Up Timer Enable bit
+  2366                           ;	PWRTE = OFF, PWRT disabled
+  2367                           ;	GP3/MCLR pin function select
+  2368                           ;	MCLRE = ON, GP3/MCLR pin function is MCLR
+  2369                           ;	Brown-out Detect Enable bit
+  2370                           ;	BOREN = ON, BOD enabled
+  2371                           ;	Code Protection bit
+  2372                           ;	CP = OFF, Program Memory code protection is disabled
+  2373                           ;	Data Code Protection bit
+  2374                           ;	CPD = OFF, Data memory code protection is disabled
+  2375     2007                     	org	8199
+  2376     2007  31F4               	dw	12788
+
+Data Sizes:
+    Strings     0
+    Constant    0
+    Data        0
+    BSS         30
+    Persistent  0
+    Stack       0
+
+Auto Spaces:
+    Space          Size  Autos    Used
+    COMMON            0      0       0
+    BANK0            62     20      50
+
+Pointer List with Targets:
+
+    None.
+
+Critical Paths under _main in COMMON
+
+    None.
+
+Critical Paths under _ISR in COMMON
+
+    None.
+
+Critical Paths under _main in BANK0
+
+    _main->_playAlert
+    _playAlert->_EnqueueBeeps
+    _EnqueueBeeps->___awmod
+    _Init_uC->_MuxVoltage
+    _BeepsStateMachine->___awmod
+    _ADCProcessing->_MuxTemp
+    _ADCProcessing->_MuxVoltage
+
+Critical Paths under _ISR in BANK0
+
+    None.
+
+Call Graph Tables:
+
+ ---------------------------------------------------------------------------------
+ (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+ ---------------------------------------------------------------------------------
+ (0) _main                                                 0     0      0    2804
+                      _ADCProcessing
+                  _BeepsStateMachine
+                         _InitTimer0
+                            _Init_uC
+                          _playAlert
+ ---------------------------------------------------------------------------------
+ (1) _playAlert                                            9     9      0    1856
+                                             11 BANK0      9     9      0
+                       _EnqueueBeeps
+ ---------------------------------------------------------------------------------
+ (2) _EnqueueBeeps                                         3     0      3    1600
+                                              8 BANK0      3     0      3
+                            ___awmod
+                             ___bmul
+ ---------------------------------------------------------------------------------
+ (1) _Init_uC                                              3     3      0       0
+                                              3 BANK0      3     3      0
+                         _MuxVoltage
+ ---------------------------------------------------------------------------------
+ (1) _InitTimer0                                           0     0      0       0
+ ---------------------------------------------------------------------------------
+ (1) _BeepsStateMachine                                    2     2      0     948
+                                              8 BANK0      2     2      0
+                            ___awmod
+                             ___bmul
+ ---------------------------------------------------------------------------------
+ (3) ___bmul                                               3     2      1     196
+                                              2 BANK0      3     2      1
+ ---------------------------------------------------------------------------------
+ (3) ___awmod                                              6     2      4     752
+                                              2 BANK0      6     2      4
+ ---------------------------------------------------------------------------------
+ (1) _ADCProcessing                                        2     2      0       0
+                                              3 BANK0      2     2      0
+                            _MuxTemp
+                         _MuxVoltage
+ ---------------------------------------------------------------------------------
+ (2) _MuxVoltage                                           1     1      0       0
+                                              2 BANK0      1     1      0
+ ---------------------------------------------------------------------------------
+ (2) _MuxTemp                                              1     1      0       0
+                                              2 BANK0      1     1      0
+ ---------------------------------------------------------------------------------
+ Estimated maximum stack depth 3
+ ---------------------------------------------------------------------------------
+ (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+ ---------------------------------------------------------------------------------
+ (4) _ISR                                                  2     2      0       0
+                                              0 BANK0      2     2      0
+ ---------------------------------------------------------------------------------
+ Estimated maximum stack depth 4
+ ---------------------------------------------------------------------------------
+
+ Call Graph Graphs:
+
+ _main (ROOT)
+   _ADCProcessing
+     _MuxTemp
+     _MuxVoltage
+   _BeepsStateMachine
+     ___awmod
+     ___bmul
+   _InitTimer0
+   _Init_uC
+     _MuxVoltage
+   _playAlert
+     _EnqueueBeeps
+       ___awmod
+       ___bmul
+
+ _ISR (ROOT)
+
+ Address spaces:
+Name               Size   Autos  Total    Cost      Usage
+BITCOMMON            0      0       0       0        0.0%
+EEDATA              80      0       0       0        0.0%
+NULL                 0      0       0       0        0.0%
+CODE                 0      0       0       0        0.0%
+BITSFR0              0      0       0       1        0.0%
+SFR0                 0      0       0       1        0.0%
+COMMON               0      0       0       1        0.0%
+BITSFR1              0      0       0       2        0.0%
+SFR1                 0      0       0       2        0.0%
+STACK                0      0       0       2        0.0%
+BITBANK0            3E      0       0       3        0.0%
+BANK0               3E     14      32       4       80.6%
+ABS                  0      0      32       5        0.0%
+DATA                 0      0      32       6        0.0%
+
+
+Microchip Technology PIC Macro Assembler V2.41 build 20230208172133 
+Symbol Table                                                                                   Sat Aug 16 22:56:32 2025
+
+                           ___bmul@product 0041                                         l61 01EF  
+                                       l38 0285                                         l88 0168  
+                                       _GO 00F9                                         fsr 0004  
+                                      l210 00AC                                        l212 009B  
+                                      l213 009C                                        l135 031A  
+                                      l208 007F                                        l209 0080  
+                                      l217 00C0                                        l138 02C1  
+                                      l181 02FB                                        l184 030A  
+                                      l329 02D7                                        l197 0038  
+                                      l469 0249                                        _GP2 002A  
+                                      _GP4 002C                                        _GP5 002D  
+                                      _GIE 005F                                        u400 01F6  
+                                      u401 01F5                                        u410 0201  
+                                      u411 0200                                        u500 0018  
+                                      u420 020C                                        u501 0017  
+                                      u421 020B                                        u510 0028  
+                                      u511 0027                                        u600 008B  
+                                      u520 0031                                        u440 021E  
+                                      u601 008A                                        u521 0030  
+                                      u441 021D                                        u610 0094  
+                                      u530 0036                                        u450 0228  
+                                      u611 0093                                        u531 0035  
+                                      u451 0227                                        u435 0210  
+                                      u620 0099                                        u540 0044  
+                                      u380 02C9                                        u700 011E  
+                                      _ISR 02D8                                        u621 0098  
+                                      u541 0043                                        u381 02C8  
+                                      u701 011D                                        u630 00A7  
+                                      u550 0051                                        u470 023B  
+                                      u390 02D6                                        u710 0137  
+                                      u631 00A6                                        u551 0050  
+                                      u471 023A                                        u455 0224  
+                                      u391 02D5                                        u711 0136  
+                                      u560 0062                                        u480 0240  
+                                      u720 014F                                        u640 00CA  
+                                      u561 0061                                        u481 023F  
+                                      u465 022F                                        u721 014E  
+                                      u641 00C9                                        u570 006F  
+                                      u490 025F                                        u730 0168  
+                                      u650 00D3                                        u571 006E  
+                                      u491 025E                                        u731 0167  
+                                      u651 00D2                                        u580 0078  
+                                      u740 0170                                        u660 00DC  
+                                      u581 0077                                        u741 016F  
+                                      u725 014B                                        u661 00DB  
+                                      u590 007D                                        u750 01A8  
+                                      u670 00E5                                        u591 007C  
+                                      u751 01A7                                        u671 00E4  
+                                      u760 01B7                                        u680 00EE  
+                                      u761 01B6                                        u817 02AA  
+                                      u681 00ED                                        u770 01BE  
+                                      u690 00F6                                        u771 01BD  
+                                      u755 01A4                                        u827 02B9  
+                                      u691 00F5                                        u780 01C5  
+                                      u837 02F6                                        u781 01C4  
+                                      u790 01D1                                        u847 0305  
+                                      u791 01D0                                        fsr0 0004  
+                                      indf 0000                               ___awmod@sign 0045  
+                                     ?_ISR 003E                                       l1211 02CD  
+                                     l1221 01F0                                       l1213 02CF  
+                                     l1205 02C4                                       l1301 0318  
+                                     l1231 0201                                       l1223 01F2  
+                                     l1215 02D1                                       l1207 02C5  
+                                     l1303 0319                                       l1311 028C  
+                                     l1241 021A                                       l1233 0206  
+                                     l1225 01F6                                       l1217 02D6  
+                                     l1209 02C9                                       l1321 0296  
+                                     l1313 028E                                       l1305 0286  
+                                     l1411 00AD                                       l1403 009E  
+                                     l1243 021E                                       l1235 020C  
+                                     l1251 023B                                       l1227 01FB  
+                                     l1331 029E                                       l1323 0298  
+                                     l1315 0290                                       l1307 0289  
+                                     l1405 00A7                                       l1253 0240  
+                                     l1245 0228                                       l1237 020F  
+                                     l1229 01FD                                       l1501 019E  
+                                     l1341 02B1                                       l1333 02A0  
+                                     l1325 029A                                       l1317 0292  
+                                     l1309 028B                                       l1261 025F  
+                                     l1421 00C1                                       l1271 02F1  
+                                     l1407 00A9                                       l1351 001F  
+                                     l1415 00B0                                       l1255 0245  
+                                     l1247 022E                                       l1239 0216  
+                                     l1511 01B7                                       l1503 01A8  
+                                     l1343 02B3                                       l1335 02A1  
+                                     l1327 029B                                       l1319 0294  
+                                     l1263 0276                                       l1431 00D3  
+                                     l1423 00C5                                       l1281 02FC  
+                                     l1273 02F2                                       l1265 02ED  
+                                     l1409 00AC                                       l1353 0028  
+                                     l1361 003B                                       l1249 0235  
+                                     l1521 01C8                                       l1513 01B9  
+                                     l1505 01AA                                       l1345 02C0  
+                                     l1337 02A2                                       l1329 029D  
+                                     l1441 00E8                                       l1433 00D6  
+                                     l1425 00CA                                       l1291 0302  
+                                     l1283 02FE                                       l1275 02F3  
+                                     l1267 02EF                                       l1371 0052  
+                                     l1363 0044                                       l1355 0031  
+                                     l1347 0013                                       l1611 01E1  
+                                     l1523 01D1                                       l1515 01BE  
+                                     l1507 01AC                                       l1339 02A4  
+                                     l1259 024A                                       l1443 00EE  
+                                     l1435 00DC                                       l1427 00CC  
+                                     l1293 0303                                       l1285 02FF  
+                                     l1277 02F4                                       l1269 02F0  
+                                     l1613 00B8                                       l1381 0064  
+                                     l1365 0045                                       l1373 0054  
+                                     l1357 0036                                       l1349 0018  
+                                     l1517 01C0                                       l1509 01AE  
+                                     l1461 011E                                       l1445 00F0  
+                                     l1437 00E0                                       l1429 00CE  
+                                     l1453 00F8                                       l1533 031B  
+                                     l1295 0308                                       l1287 0300  
+                                     l1279 02F9                                       l1383 0066  
+                                     l1375 0055                                       l1367 0048  
+                                     l1359 0039                                       l1519 01C5  
+                                     l1527 01D8                                       l1471 0139  
+                                     l1463 0126                                       l1447 00F1  
+                                     l1439 00E5                                       l1455 010B  
+                                     l1535 031D                                       l1289 0301  
+                                     l1385 006F                                       l1393 0082  
+                                     l1377 0059                                       l1369 0051  
+                                     l1297 0313                                       l1473 014F  
+                                     l1465 012C                                       l1457 010E  
+                                     l1609 0100                                       l1449 00F6  
+                                     l1537 031E                                       l1395 008B  
+                                     l1387 0078                                       l1379 0062  
+                                     l1491 0187                                       l1299 0316  
+                                     l1475 0157                                       l1459 0110  
+                                     l1467 0131                                       l1539 031F  
+                                     l1397 0094                                       l1389 007D  
+                                     l1493 0196                                       l1485 0169  
+                                     l1477 015D                                       l1469 0137  
+                                     l1399 0099                                       l1495 0197  
+                                     l1487 016A                                       l1479 0162  
+                                     l1497 0199                                       l1489 0170  
+                                     l1499 019B                                       _ADIF 0066  
+                                     _ADFM 00FF                                       _ADON 00F8  
+                                     _CHS0 00FA                                       _CHS1 00FB  
+                                     _GPIO 0005                                       _PEIE 005E  
+                                     _VCFG 00FE                                       _TMR0 0001  
+                            ?_EnqueueBeeps 0046                                       _cnt0 0033  
+                                     _main 031B                                       btemp 005E  
+                                     start 000B                          ___bmul@multiplier 0042  
+                          __end_of_Init_uC 02C2                                      ??_ISR 003E  
+                          __end_of_MuxTemp 030B                                      ?_main 003E  
+                          __end_of___awmod 024A                                      _CMCON 0019  
+                                    _ANSEL 009F                                      i1l190 02E6  
+                                    u80_20 02DC                                      u80_21 02DB  
+                                    _VRCON 0099                   EnqueueBeeps@allowTimeout 0048  
+                           ??_EnqueueBeeps 0000                                      pclath 000A  
+                                    status 0003                                      wtemp0 005E  
+    BeepsStateMachine@stateMachineDuration 0031                            __initialization 000C  
+                               _InitTimer0 0313                               __end_of_main 0322  
+                                   ??_main 0000                                     _ADCON0 001F  
+                                   _ADRESH 001E                                     _ADRESL 009E  
+                                   i1l1541 02D8                                     i1l1543 02DC  
+                                   i1l1545 02E4                                     i1l1547 02E5  
+                                   _TMR0IE 005D                                     _TMR0IF 005A  
+                                   _TRISIO 0085                                  ??_Init_uC 0041  
+                                ??_MuxTemp 0040                                     ___bmul 02C2  
+                                ??___awmod 0000                                 _MuxVoltage 02ED  
+                          ___awmod@divisor 0040                            ___awmod@counter 0044  
+                                   saved_w 005E                    __end_of__initialization 0011  
+                            playAlert@i_74 004F                        ___bmul@multiplicand 0040  
+                              ?_InitTimer0 003E                             __pcstackCOMMON 0000  
+                     __end_of_EnqueueBeeps 0286                                 _beepsQueue 0020  
+                               __pbssBANK0 0020                              _ADCProcessing 0013  
+                               _alarmState 003B                                 __pmaintext 031B  
+                                  ?___bmul 0040                                 __pintentry 0004  
+                              ?_MuxVoltage 003E                                    _TRISIO0 0428  
+                                  _TRISIO1 0429                                    _TRISIO2 042A  
+                                  _TRISIO4 042C                                    _TRISIO5 042D  
+                           ?_ADCProcessing 003E             playAlert@howMuchTimesPlayShort 0051  
+                                  _Init_uC 0286                                    _MuxTemp 02FC  
+                                  ___awmod 01F0                     BeepsStateMachine@state 0038  
+                                  __ptext1 00C1                                    __ptext2 024A  
+                                  __ptext3 0286                                    __ptext4 0313  
+                                  __ptext5 0169                                    __ptext6 02C2  
+                                  __ptext7 01F0                                    __ptext8 0013  
+                                  __ptext9 02ED                           ___awmod@dividend 0042  
+                        __end_of_playAlert 0169                                    clrloop0 030C  
+                     end_of_initialization 0011                            ??_ADCProcessing 0041  
+                         _errorTemperature 003C                               _EnqueueBeeps 024A  
+                     EnqueueBeeps@duration 0046                               ??_InitTimer0 0000  
+                           __end_of___bmul 02D8                        start_initialization 000C  
+                              __end_of_ISR 02ED                         __end_of_InitTimer0 031B  
+                                 ??___bmul 0000                               ??_MuxVoltage 0040  
+                                ___latbits 0000                              __pcstackBANK0 003E  
+                       __end_of_MuxVoltage 02FC                                 playAlert@i 004E  
+                                 ?_Init_uC 003E                               _errorVoltage 003D  
+                                 ?_MuxTemp 003E                                   ?___awmod 0040  
+            playAlert@howMuchTimesPlayLong 0050                          interrupt_function 0004  
+                                _playAlert 00C1                                  clear_ram0 030B  
+                      playAlert@totalBeeps 004D                        playAlert@soundState 0036  
+                                _queueHead 003A                                  _queueTail 0039  
+                               ?_playAlert 003E                                   _adcValue 002F  
+                                 _adcState 0035                                   __ptext10 02FC  
+                                 __ptext11 02D8                      __end_of_ADCProcessing 00C1  
+                        _BeepsStateMachine 0169                         ?_BeepsStateMachine 003E  
+                      ??_BeepsStateMachine 0046                  __end_of_BeepsStateMachine 01F0  
+                                 intlevel1 0000                                ??_playAlert 0049  
+                               _OPTION_REG 0081  BeepsStateMachine@stateMachineAllowTimeout 0037  

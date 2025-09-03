@@ -38,7 +38,7 @@
 
 #include <xc.h>
 #include <stdint.h>
-#include "interrupts.h"
+#include "interrupt.h"
 #include "initPeriphery.h"
 #include "sounds.h"
 
@@ -62,45 +62,18 @@ __CONFIG(FOSC_INTRCIO & WDTE_OFF & PWRTE_ON & MCLRE_OFF & BOREN_ON & CP_OFF & CP
 
 #endif
 
-uint8_t errorType = 0;
-
-void DataProcessing(void);
-
 // Main function
-void main()          
-{	
-    __delay_ms(100);
-    Init_uC();
+int main()          //its app whichmakes on uc alone and not needs return somthing in OS
+{
+    	
     InitTimer0();
-    InitTimer1();
-    errorType   = ERROR_OK;
+    Init_uC();
     
-    while(1){ 
-     ADCProcessing();    
-     DataProcessing(); 
-    }  
-}
-
-void DataProcessing(void){
+    while(1){  
+     ADCProcessing();  
+     playAlert();
+     BeepsStateMachine();
+    }
     
-    switch(errorType){
-	 
-	 case ERROR_OK:
-	   break;
-	 
-	 case ERROR_UNDER_VOLTAGE:	 
-	   TwoShortOneLong();
-	   break;
-	    
-	 case ERROR_OVER_VOLTAGE:
-       TwoShortTwoLong();
-	   break;
-	 
-	 case ERROR_TMP_HIGH:
-       ThreeShort();
-	   break;      
-	    
-	 default:
-       break;	 
-	}
+  return 0;  
 }

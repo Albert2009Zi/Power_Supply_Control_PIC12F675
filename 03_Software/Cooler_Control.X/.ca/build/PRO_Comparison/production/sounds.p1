@@ -1,0 +1,541 @@
+Version 4.0 HI-TECH Software Intermediate Code
+"16 sounds.c
+[; ;sounds.c: 16: typedef struct{
+[s S81 `ui 1 `uc 1 ]
+[n S81 . duration allowTimeout ]
+"1595 C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 1595: extern volatile __bit GP2 __attribute__((address(0x2A)));
+[v _GP2 `Vb ~T0 @X0 0 e@42 ]
+"10 sounds.c
+[; ;sounds.c: 10: extern volatile uint8_t errorVoltage;
+[v _errorVoltage `Vuc ~T0 @X0 0 e ]
+"11
+[; ;sounds.c: 11: extern volatile uint8_t errorTemperature;
+[v _errorTemperature `Vuc ~T0 @X0 0 e ]
+"54 C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 54: __asm("INDF equ 00h");
+[; <" INDF equ 00h ;# ">
+"74
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 74: __asm("TMR0 equ 01h");
+[; <" TMR0 equ 01h ;# ">
+"94
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 94: __asm("PCL equ 02h");
+[; <" PCL equ 02h ;# ">
+"114
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 114: __asm("STATUS equ 03h");
+[; <" STATUS equ 03h ;# ">
+"200
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 200: __asm("FSR equ 04h");
+[; <" FSR equ 04h ;# ">
+"220
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 220: __asm("GPIO equ 05h");
+[; <" GPIO equ 05h ;# ">
+"308
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 308: __asm("PCLATH equ 0Ah");
+[; <" PCLATH equ 0Ah ;# ">
+"328
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 328: __asm("INTCON equ 0Bh");
+[; <" INTCON equ 0Bh ;# ">
+"406
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 406: __asm("PIR1 equ 0Ch");
+[; <" PIR1 equ 0Ch ;# ">
+"454
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 454: __asm("TMR1 equ 0Eh");
+[; <" TMR1 equ 0Eh ;# ">
+"461
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 461: __asm("TMR1L equ 0Eh");
+[; <" TMR1L equ 0Eh ;# ">
+"481
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 481: __asm("TMR1H equ 0Fh");
+[; <" TMR1H equ 0Fh ;# ">
+"501
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 501: __asm("T1CON equ 010h");
+[; <" T1CON equ 010h ;# ">
+"566
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 566: __asm("CMCON equ 019h");
+[; <" CMCON equ 019h ;# ">
+"625
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 625: __asm("ADRESH equ 01Eh");
+[; <" ADRESH equ 01Eh ;# ">
+"645
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 645: __asm("ADCON0 equ 01Fh");
+[; <" ADCON0 equ 01Fh ;# ">
+"729
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 729: __asm("OPTION_REG equ 081h");
+[; <" OPTION_REG equ 081h ;# ">
+"799
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 799: __asm("TRISIO equ 085h");
+[; <" TRISIO equ 085h ;# ">
+"849
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 849: __asm("PIE1 equ 08Ch");
+[; <" PIE1 equ 08Ch ;# ">
+"897
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 897: __asm("PCON equ 08Eh");
+[; <" PCON equ 08Eh ;# ">
+"931
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 931: __asm("OSCCAL equ 090h");
+[; <" OSCCAL equ 090h ;# ">
+"991
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 991: __asm("WPU equ 095h");
+[; <" WPU equ 095h ;# ">
+"1036
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 1036: __asm("IOC equ 096h");
+[; <" IOC equ 096h ;# ">
+"1041
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 1041: __asm("IOCB equ 096h");
+[; <" IOCB equ 096h ;# ">
+"1210
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 1210: __asm("VRCON equ 099h");
+[; <" VRCON equ 099h ;# ">
+"1270
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 1270: __asm("EEDATA equ 09Ah");
+[; <" EEDATA equ 09Ah ;# ">
+"1275
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 1275: __asm("EEDAT equ 09Ah");
+[; <" EEDAT equ 09Ah ;# ">
+"1308
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 1308: __asm("EEADR equ 09Bh");
+[; <" EEADR equ 09Bh ;# ">
+"1328
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 1328: __asm("EECON1 equ 09Ch");
+[; <" EECON1 equ 09Ch ;# ">
+"1366
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 1366: __asm("EECON2 equ 09Dh");
+[; <" EECON2 equ 09Dh ;# ">
+"1386
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 1386: __asm("ADRESL equ 09Eh");
+[; <" ADRESL equ 09Eh ;# ">
+"1406
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 1406: __asm("ANSEL equ 09Fh");
+[; <" ANSEL equ 09Fh ;# ">
+"12 sounds.c
+[; ;sounds.c: 12: volatile uint16_t cnt0 = 0;
+[v _cnt0 `Vui ~T0 @X0 1 e ]
+[i _cnt0
+-> -> 0 `i `ui
+]
+"13
+[; ;sounds.c: 13: uint8_t alarmState = 0;
+[v _alarmState `uc ~T0 @X0 1 e ]
+[i _alarmState
+-> -> 0 `i `uc
+]
+"22
+[; ;sounds.c: 22: SoundParameters beepsQueue[5];
+[v _beepsQueue `S81 ~T0 @X0 -> 5 `i e ]
+"23
+[; ;sounds.c: 23: uint8_t queueHead = 0;
+[v _queueHead `uc ~T0 @X0 1 e ]
+[i _queueHead
+-> -> 0 `i `uc
+]
+"24
+[; ;sounds.c: 24: uint8_t queueTail = 0;
+[v _queueTail `uc ~T0 @X0 1 e ]
+[i _queueTail
+-> -> 0 `i `uc
+]
+"27
+[; ;sounds.c: 27: void EnqueueBeeps(uint16_t duration, uint8_t allowTimeout) {
+[v _EnqueueBeeps `(v ~T0 @X0 1 ef2`ui`uc ]
+{
+[e :U _EnqueueBeeps ]
+[v _duration `ui ~T0 @X0 1 r1 ]
+[v _allowTimeout `uc ~T0 @X0 1 r2 ]
+[f ]
+"29
+[; ;sounds.c: 29:     if ((queueTail + 1) % 5 != queueHead) {
+[e $ ! != % + -> _queueTail `i -> 1 `i -> 5 `i -> _queueHead `i 83  ]
+{
+"31
+[; ;sounds.c: 31:         beepsQueue[queueTail].duration = duration;
+[e = . *U + &U _beepsQueue * -> _queueTail `ux -> -> # *U &U _beepsQueue `ui `ux 0 _duration ]
+"32
+[; ;sounds.c: 32:         beepsQueue[queueTail].allowTimeout = allowTimeout;
+[e = . *U + &U _beepsQueue * -> _queueTail `ux -> -> # *U &U _beepsQueue `ui `ux 1 _allowTimeout ]
+"33
+[; ;sounds.c: 33:         queueTail = (queueTail + 1) % 5;
+[e = _queueTail -> % + -> _queueTail `i -> 1 `i -> 5 `i `uc ]
+"34
+[; ;sounds.c: 34:     }
+}
+[e :U 83 ]
+"35
+[; ;sounds.c: 35: }
+[e :UE 82 ]
+}
+"40
+[; ;sounds.c: 40: void BeepsStateMachine(void){
+[v _BeepsStateMachine `(v ~T0 @X0 1 ef ]
+{
+[e :U _BeepsStateMachine ]
+[f ]
+"42
+[; ;sounds.c: 42:     static uint8_t state = 0;
+[v F599 `uc ~T0 @X0 1 s state ]
+[i F599
+-> -> 0 `i `uc
+]
+"43
+[; ;sounds.c: 43:     static uint16_t stateMachineDuration = 0;
+[v F600 `ui ~T0 @X0 1 s stateMachineDuration ]
+[i F600
+-> -> 0 `i `ui
+]
+"44
+[; ;sounds.c: 44:     static uint8_t stateMachineAllowTimeout = 0;
+[v F601 `uc ~T0 @X0 1 s stateMachineAllowTimeout ]
+[i F601
+-> -> 0 `i `uc
+]
+"46
+[; ;sounds.c: 46:     switch(state){
+[e $U 86  ]
+{
+"47
+[; ;sounds.c: 47:        case 0:
+[e :U 87 ]
+"48
+[; ;sounds.c: 48:         if (queueHead != queueTail) {
+[e $ ! != -> _queueHead `i -> _queueTail `i 88  ]
+{
+"49
+[; ;sounds.c: 49:                 stateMachineDuration = beepsQueue[queueHead].duration;
+[e = F600 . *U + &U _beepsQueue * -> _queueHead `ux -> -> # *U &U _beepsQueue `ui `ux 0 ]
+"50
+[; ;sounds.c: 50:                 stateMachineAllowTimeout = beepsQueue[queueHead].allowTimeout;
+[e = F601 . *U + &U _beepsQueue * -> _queueHead `ux -> -> # *U &U _beepsQueue `ui `ux 1 ]
+"51
+[; ;sounds.c: 51:                 queueHead = (queueHead + 1) % 5;
+[e = _queueHead -> % + -> _queueHead `i -> 1 `i -> 5 `i `uc ]
+"52
+[; ;sounds.c: 52:                 GP2 = 1;
+[e = _GP2 -> -> 1 `i `b ]
+"53
+[; ;sounds.c: 53:                 cnt0 = 0;
+[e = _cnt0 -> -> 0 `i `ui ]
+"54
+[; ;sounds.c: 54:                 state = 1;
+[e = F599 -> -> 1 `i `uc ]
+"55
+[; ;sounds.c: 55:   alarmState = 1;
+[e = _alarmState -> -> 1 `i `uc ]
+"56
+[; ;sounds.c: 56:             }
+}
+[e :U 88 ]
+"57
+[; ;sounds.c: 57:  break;
+[e $U 85  ]
+"59
+[; ;sounds.c: 59:         case 1:
+[e :U 89 ]
+"60
+[; ;sounds.c: 60:    if (cnt0 >= stateMachineDuration){
+[e $ ! >= _cnt0 F600 90  ]
+{
+"61
+[; ;sounds.c: 61:              cnt0 = 0;
+[e = _cnt0 -> -> 0 `i `ui ]
+"62
+[; ;sounds.c: 62:              state = 2;
+[e = F599 -> -> 2 `i `uc ]
+"63
+[; ;sounds.c: 63:              GP2 = 0;
+[e = _GP2 -> -> 0 `i `b ]
+"64
+[; ;sounds.c: 64:           }
+}
+[e :U 90 ]
+"65
+[; ;sounds.c: 65:  break;
+[e $U 85  ]
+"67
+[; ;sounds.c: 67:  case 2:
+[e :U 91 ]
+"68
+[; ;sounds.c: 68:           if (cnt0 >= 80){
+[e $ ! >= _cnt0 -> -> 80 `i `ui 92  ]
+{
+"69
+[; ;sounds.c: 69:              cnt0 = 0;
+[e = _cnt0 -> -> 0 `i `ui ]
+"70
+[; ;sounds.c: 70:              if (stateMachineAllowTimeout == 0){
+[e $ ! == -> F601 `i -> 0 `i 93  ]
+{
+"71
+[; ;sounds.c: 71:                  state = 0;
+[e = F599 -> -> 0 `i `uc ]
+"72
+[; ;sounds.c: 72:          }
+}
+[e $U 94  ]
+"73
+[; ;sounds.c: 73:             else if (stateMachineAllowTimeout == 1){
+[e :U 93 ]
+[e $ ! == -> F601 `i -> 1 `i 95  ]
+{
+"74
+[; ;sounds.c: 74:          state = 3;
+[e = F599 -> -> 3 `i `uc ]
+"75
+[; ;sounds.c: 75:          }
+}
+[e :U 95 ]
+[e :U 94 ]
+"76
+[; ;sounds.c: 76:            }
+}
+[e :U 92 ]
+"77
+[; ;sounds.c: 77:         break;
+[e $U 85  ]
+"79
+[; ;sounds.c: 79:         case 3:
+[e :U 96 ]
+"80
+[; ;sounds.c: 80:          if (cnt0 >= 1000){
+[e $ ! >= _cnt0 -> -> 1000 `i `ui 97  ]
+{
+"81
+[; ;sounds.c: 81:            cnt0 = 0;
+[e = _cnt0 -> -> 0 `i `ui ]
+"82
+[; ;sounds.c: 82:            queueHead = 0;
+[e = _queueHead -> -> 0 `i `uc ]
+"83
+[; ;sounds.c: 83:            queueTail = 0;
+[e = _queueTail -> -> 0 `i `uc ]
+"84
+[; ;sounds.c: 84:     state = 0;
+[e = F599 -> -> 0 `i `uc ]
+"85
+[; ;sounds.c: 85:     alarmState = 0;
+[e = _alarmState -> -> 0 `i `uc ]
+"86
+[; ;sounds.c: 86:          }
+}
+[e :U 97 ]
+"87
+[; ;sounds.c: 87:  break;
+[e $U 85  ]
+"89
+[; ;sounds.c: 89:         default:
+[e :U 98 ]
+"90
+[; ;sounds.c: 90:         break;
+[e $U 85  ]
+"91
+[; ;sounds.c: 91:    }
+}
+[e $U 85  ]
+[e :U 86 ]
+[e [\ -> F599 `i , $ -> 0 `i 87
+ , $ -> 1 `i 89
+ , $ -> 2 `i 91
+ , $ -> 3 `i 96
+ 98 ]
+[e :U 85 ]
+"92
+[; ;sounds.c: 92: }
+[e :UE 84 ]
+}
+"98
+[; ;sounds.c: 98: void playAlert() {
+[v _playAlert `(v ~T0 @X0 1 ef ]
+{
+[e :U _playAlert ]
+[f ]
+"100
+[; ;sounds.c: 100:    uint8_t howMuchTimesPlayShort = 0;
+[v _howMuchTimesPlayShort `uc ~T0 @X0 1 a ]
+[e = _howMuchTimesPlayShort -> -> 0 `i `uc ]
+"101
+[; ;sounds.c: 101:    uint8_t howMuchTimesPlayLong = 0;
+[v _howMuchTimesPlayLong `uc ~T0 @X0 1 a ]
+[e = _howMuchTimesPlayLong -> -> 0 `i `uc ]
+"102
+[; ;sounds.c: 102:    uint8_t totalBeeps = 0;
+[v _totalBeeps `uc ~T0 @X0 1 a ]
+[e = _totalBeeps -> -> 0 `i `uc ]
+"103
+[; ;sounds.c: 103:    static uint8_t soundState = 0;
+[v F606 `uc ~T0 @X0 1 s soundState ]
+[i F606
+-> -> 0 `i `uc
+]
+"105
+[; ;sounds.c: 105:    switch (soundState){
+[e $U 101  ]
+{
+"106
+[; ;sounds.c: 106:      case 0:
+[e :U 102 ]
+"107
+[; ;sounds.c: 107:       if (errorVoltage == 1){
+[e $ ! == -> _errorVoltage `i -> 1 `i 103  ]
+{
+"108
+[; ;sounds.c: 108:         howMuchTimesPlayShort = 2;
+[e = _howMuchTimesPlayShort -> -> 2 `i `uc ]
+"109
+[; ;sounds.c: 109:         howMuchTimesPlayLong = 1;
+[e = _howMuchTimesPlayLong -> -> 1 `i `uc ]
+"110
+[; ;sounds.c: 110:         }
+}
+[e :U 103 ]
+"111
+[; ;sounds.c: 111:       if (!alarmState) soundState = 1;
+[e $ ! ! != -> _alarmState `i -> 0 `i 104  ]
+[e = F606 -> -> 1 `i `uc ]
+[e :U 104 ]
+"112
+[; ;sounds.c: 112:      break;
+[e $U 100  ]
+"114
+[; ;sounds.c: 114:      case 1:
+[e :U 105 ]
+"115
+[; ;sounds.c: 115:      if (errorVoltage == 2) {
+[e $ ! == -> _errorVoltage `i -> 2 `i 106  ]
+{
+"116
+[; ;sounds.c: 116:          howMuchTimesPlayShort = 2;
+[e = _howMuchTimesPlayShort -> -> 2 `i `uc ]
+"117
+[; ;sounds.c: 117:          howMuchTimesPlayLong = 2;
+[e = _howMuchTimesPlayLong -> -> 2 `i `uc ]
+"118
+[; ;sounds.c: 118:   }
+}
+[e :U 106 ]
+"119
+[; ;sounds.c: 119:       if (!alarmState) soundState = 2;
+[e $ ! ! != -> _alarmState `i -> 0 `i 107  ]
+[e = F606 -> -> 2 `i `uc ]
+[e :U 107 ]
+"120
+[; ;sounds.c: 120:      break;
+[e $U 100  ]
+"122
+[; ;sounds.c: 122:      case 2:
+[e :U 108 ]
+"123
+[; ;sounds.c: 123:      if (errorTemperature == 3){
+[e $ ! == -> _errorTemperature `i -> 3 `i 109  ]
+{
+"124
+[; ;sounds.c: 124:        howMuchTimesPlayShort = 3;
+[e = _howMuchTimesPlayShort -> -> 3 `i `uc ]
+"125
+[; ;sounds.c: 125:        howMuchTimesPlayLong = 0;
+[e = _howMuchTimesPlayLong -> -> 0 `i `uc ]
+"126
+[; ;sounds.c: 126:        }
+}
+[e :U 109 ]
+"127
+[; ;sounds.c: 127:       if (!alarmState) soundState = 0;
+[e $ ! ! != -> _alarmState `i -> 0 `i 110  ]
+[e = F606 -> -> 0 `i `uc ]
+[e :U 110 ]
+"128
+[; ;sounds.c: 128:      break;
+[e $U 100  ]
+"130
+[; ;sounds.c: 130:      default:
+[e :U 111 ]
+"131
+[; ;sounds.c: 131:      break;
+[e $U 100  ]
+"132
+[; ;sounds.c: 132: }
+}
+[e $U 100  ]
+[e :U 101 ]
+[e [\ -> F606 `i , $ -> 0 `i 102
+ , $ -> 1 `i 105
+ , $ -> 2 `i 108
+ 111 ]
+[e :U 100 ]
+"134
+[; ;sounds.c: 134:     totalBeeps = howMuchTimesPlayShort + howMuchTimesPlayLong;
+[e = _totalBeeps -> + -> _howMuchTimesPlayShort `i -> _howMuchTimesPlayLong `i `uc ]
+"137
+[; ;sounds.c: 137:     for (uint8_t i = 0; i < howMuchTimesPlayShort; i++) {
+{
+[v _i `uc ~T0 @X0 1 a ]
+[e = _i -> -> 0 `i `uc ]
+[e $U 115  ]
+[e :U 112 ]
+{
+"138
+[; ;sounds.c: 138:         if (i == (totalBeeps - 1)) {
+[e $ ! == -> _i `i - -> _totalBeeps `i -> 1 `i 116  ]
+{
+"139
+[; ;sounds.c: 139:             EnqueueBeeps(120, 1);
+[e ( _EnqueueBeeps (2 , -> -> 120 `i `ui -> -> 1 `i `uc ]
+"140
+[; ;sounds.c: 140:         } else {
+}
+[e $U 117  ]
+[e :U 116 ]
+{
+"141
+[; ;sounds.c: 141:             EnqueueBeeps(120, 0);
+[e ( _EnqueueBeeps (2 , -> -> 120 `i `ui -> -> 0 `i `uc ]
+"142
+[; ;sounds.c: 142:         }
+}
+[e :U 117 ]
+"143
+[; ;sounds.c: 143:     }
+}
+[e ++ _i -> -> 1 `i `uc ]
+[e :U 115 ]
+[e $ < -> _i `i -> _howMuchTimesPlayShort `i 112  ]
+[e :U 113 ]
+}
+"146
+[; ;sounds.c: 146:     for (uint8_t i = 0; i < howMuchTimesPlayLong; i++) {
+{
+[v _i `uc ~T0 @X0 1 a ]
+[e = _i -> -> 0 `i `uc ]
+[e $U 121  ]
+[e :U 118 ]
+{
+"147
+[; ;sounds.c: 147:         if ((howMuchTimesPlayShort + i) == totalBeeps - 1) {
+[e $ ! == + -> _howMuchTimesPlayShort `i -> _i `i - -> _totalBeeps `i -> 1 `i 122  ]
+{
+"148
+[; ;sounds.c: 148:             EnqueueBeeps(200, 1);
+[e ( _EnqueueBeeps (2 , -> -> 200 `i `ui -> -> 1 `i `uc ]
+"149
+[; ;sounds.c: 149:         } else {
+}
+[e $U 123  ]
+[e :U 122 ]
+{
+"150
+[; ;sounds.c: 150:             EnqueueBeeps(200, 0);
+[e ( _EnqueueBeeps (2 , -> -> 200 `i `ui -> -> 0 `i `uc ]
+"151
+[; ;sounds.c: 151:         }
+}
+[e :U 123 ]
+"152
+[; ;sounds.c: 152:     }
+}
+[e ++ _i -> -> 1 `i `uc ]
+[e :U 121 ]
+[e $ < -> _i `i -> _howMuchTimesPlayLong `i 118  ]
+[e :U 119 ]
+}
+"153
+[; ;sounds.c: 153: }
+[e :UE 99 ]
+}

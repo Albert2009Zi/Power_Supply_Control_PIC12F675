@@ -1,32 +1,16 @@
 #include <xc.h>
 #include <stdint.h>
 #include "initPeriphery.h"
-#include "interrupts.h"
+#include "interrupt.h"
 #include "sounds.h"
 
 #define _XTAL_FREQ   4000000 
 
-extern uint8_t  measureType;
-
 void InitTimer0(void){
-
-    OPTION_REG = 0b11000001;  // Configure timer TIMER0 (1:4 prescaler)
+    OPTION_REG = 0b11000001;  // Configure timer TIMER0 (1:4 prescaler) 1000000/4 = 250000Hz
     TMR0 = 0;                 // Timer advance enable (for interval 1ms)
     TMR0IF = 0;               // Drop the flag of timer0 interrupt
-    TMR0IE = 1;               // ????????? ?????????? ?? ??????? 0
-         
-}
-
-void InitTimer1(void){
-
-     TMR1H = 0xFC;
-	 TMR1L = 0x17;         // Interrupt after 1ms 0x03E8 = 1000, 1000000/1000 = 1000Hz, 1/1000Hz = 1ms
-	 
-	 T1CON = 0x01;         //Enable Timer 1
-	 
-	 TMR1IF = 0;
-	 TMR1IE = 1;
-	 
+    TMR0IE = 1;               // Timer0 Interuupt is enabled        
 }
 
 void Init_uC(void){    
@@ -50,7 +34,7 @@ void Init_uC(void){
     GP4     = 1;           /* High level on GP4 (Pin 3)                       */
     
     
-    VCFG    = 1;           /* Sets Vref = Vpin6                                 */
+    VCFG    = 0;           /* Sets Vref = Vdd                              */
     TRISIO0 = 1;           /* Sets GP0 (Pin 7) as input. Temperature control  */
     TRISIO1 = 1;           /* Sets GP1 (Pin 6) as input. Button control       */
     
@@ -59,16 +43,8 @@ void Init_uC(void){
     PEIE = 1;            
     GIE  = 1;			   /* Enable global interrupts                        */
     
-    LongSound();
-    
-//    ADCON0 = 0;
-//    ADON   = 1;                     /* ADC is ON                                               */
-//    ADFM   = 1;                     /* ADC results is right justified                          */
-//    CHS1   = 0;   
-//    CHS0   = 1;                     /* Enable ADC channel 1 (AN1) "Power ON button", ADC is ON */    
-//    measureType = VOLTAGE_MEASURE; 
-//    ADIF   = 0;
-//    GO     = 1;
-    
+        /**************Long Beep*****************************/
+    prmFlags.playLong = 1;
+        
     MuxVoltage();
 }

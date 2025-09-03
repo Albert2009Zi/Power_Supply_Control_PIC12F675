@@ -1,5 +1,5 @@
 build/default/debug/main.p1:  \
 main.c  \
-interrupts.h  \
+interrupt.h  \
 initPeriphery.h  \
 sounds.h 
