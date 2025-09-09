@@ -1,4 +1,4 @@
-build/default/debug/initPeriphery.p1:  \
+build/default/production/initPeriphery.p1:  \
 initPeriphery.c  \
 initPeriphery.h  \
 interrupt.h  \

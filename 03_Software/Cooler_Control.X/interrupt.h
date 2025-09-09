@@ -30,6 +30,11 @@ typedef struct {
 
 extern volatile ParameterFlags prmFlags;
 
+typedef enum {
+    ADC_CHANNEL0 = 0,
+    ADC_CHANNEL1 = 1
+} adc_channel_t;
+
 void MuxVoltage(void);
 
 void MuxTemp(void);

@@ -1,0 +1,253 @@
+Version 4.0 HI-TECH Software Intermediate Code
+"727 C:/Users/ziatd/.mchp_packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h
+[; ;C:/Users/ziatd/.mchp_packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 727: extern volatile unsigned char OPTION_REG __attribute__((address(0x081)));
+[v _OPTION_REG `Vuc ~T0 @X0 0 e@129 ]
+"72
+[; ;C:/Users/ziatd/.mchp_packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 72: extern volatile unsigned char TMR0 __attribute__((address(0x001)));
+[v _TMR0 `Vuc ~T0 @X0 0 e@1 ]
+"1733
+[; ;C:/Users/ziatd/.mchp_packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 1733: extern volatile __bit TMR0IF __attribute__((address(0x5A)));
+[v _TMR0IF `Vb ~T0 @X0 0 e@90 ]
+"1730
+[; ;C:/Users/ziatd/.mchp_packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 1730: extern volatile __bit TMR0IE __attribute__((address(0x5D)));
+[v _TMR0IE `Vb ~T0 @X0 0 e@93 ]
+"564
+[; ;C:/Users/ziatd/.mchp_packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 564: extern volatile unsigned char CMCON __attribute__((address(0x019)));
+[v _CMCON `Vuc ~T0 @X0 0 e@25 ]
+"1208
+[; ;C:/Users/ziatd/.mchp_packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 1208: extern volatile unsigned char VRCON __attribute__((address(0x099)));
+[v _VRCON `Vuc ~T0 @X0 0 e@153 ]
+"797
+[; ;C:/Users/ziatd/.mchp_packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 797: extern volatile unsigned char TRISIO __attribute__((address(0x085)));
+[v _TRISIO `Vuc ~T0 @X0 0 e@133 ]
+"218
+[; ;C:/Users/ziatd/.mchp_packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 218: extern volatile unsigned char GPIO __attribute__((address(0x005)));
+[v _GPIO `Vuc ~T0 @X0 0 e@5 ]
+"1757
+[; ;C:/Users/ziatd/.mchp_packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 1757: extern volatile __bit TRISIO2 __attribute__((address(0x42A)));
+[v _TRISIO2 `Vb ~T0 @X0 0 e@1066 ]
+"1595
+[; ;C:/Users/ziatd/.mchp_packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 1595: extern volatile __bit GP2 __attribute__((address(0x2A)));
+[v _GP2 `Vb ~T0 @X0 0 e@42 ]
+"1766
+[; ;C:/Users/ziatd/.mchp_packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 1766: extern volatile __bit TRISIO5 __attribute__((address(0x42D)));
+[v _TRISIO5 `Vb ~T0 @X0 0 e@1069 ]
+"1604
+[; ;C:/Users/ziatd/.mchp_packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 1604: extern volatile __bit GP5 __attribute__((address(0x2D)));
+[v _GP5 `Vb ~T0 @X0 0 e@45 ]
+"1763
+[; ;C:/Users/ziatd/.mchp_packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 1763: extern volatile __bit TRISIO4 __attribute__((address(0x42C)));
+[v _TRISIO4 `Vb ~T0 @X0 0 e@1068 ]
+"1601
+[; ;C:/Users/ziatd/.mchp_packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 1601: extern volatile __bit GP4 __attribute__((address(0x2C)));
+[v _GP4 `Vb ~T0 @X0 0 e@44 ]
+"1769
+[; ;C:/Users/ziatd/.mchp_packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 1769: extern volatile __bit VCFG __attribute__((address(0xFE)));
+[v _VCFG `Vb ~T0 @X0 0 e@254 ]
+"1751
+[; ;C:/Users/ziatd/.mchp_packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 1751: extern volatile __bit TRISIO0 __attribute__((address(0x428)));
+[v _TRISIO0 `Vb ~T0 @X0 0 e@1064 ]
+"1754
+[; ;C:/Users/ziatd/.mchp_packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 1754: extern volatile __bit TRISIO1 __attribute__((address(0x429)));
+[v _TRISIO1 `Vb ~T0 @X0 0 e@1065 ]
+"1404
+[; ;C:/Users/ziatd/.mchp_packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 1404: extern volatile unsigned char ANSEL __attribute__((address(0x09F)));
+[v _ANSEL `Vuc ~T0 @X0 0 e@159 ]
+"1679
+[; ;C:/Users/ziatd/.mchp_packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 1679: extern volatile __bit PEIE __attribute__((address(0x5E)));
+[v _PEIE `Vb ~T0 @X0 0 e@94 ]
+"1577
+[; ;C:/Users/ziatd/.mchp_packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 1577: extern volatile __bit GIE __attribute__((address(0x5F)));
+[v _GIE `Vb ~T0 @X0 0 e@95 ]
+"22 ./interrupt.h
+[; ;./interrupt.h: 22: typedef struct {
+[s S81 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S81 . usPause errorUnderVoltage errorOverVoltage errorHighTemperature alarmState playLong ]
+"31
+[; ;./interrupt.h: 31: extern volatile ParameterFlags prmFlags;
+[v _prmFlags `VS81 ~T0 @X0 0 e ]
+"33
+[; ;./interrupt.h: 33: void MuxVoltage(void);
+[v _MuxVoltage `(v ~T0 @X0 0 ef ]
+"54 C:/Users/ziatd/.mchp_packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h
+[; ;C:/Users/ziatd/.mchp_packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 54: __asm("INDF equ 00h");
+[; <" INDF equ 00h ;# ">
+"74
+[; ;C:/Users/ziatd/.mchp_packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 74: __asm("TMR0 equ 01h");
+[; <" TMR0 equ 01h ;# ">
+"94
+[; ;C:/Users/ziatd/.mchp_packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 94: __asm("PCL equ 02h");
+[; <" PCL equ 02h ;# ">
+"114
+[; ;C:/Users/ziatd/.mchp_packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 114: __asm("STATUS equ 03h");
+[; <" STATUS equ 03h ;# ">
+"200
+[; ;C:/Users/ziatd/.mchp_packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 200: __asm("FSR equ 04h");
+[; <" FSR equ 04h ;# ">
+"220
+[; ;C:/Users/ziatd/.mchp_packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 220: __asm("GPIO equ 05h");
+[; <" GPIO equ 05h ;# ">
+"308
+[; ;C:/Users/ziatd/.mchp_packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 308: __asm("PCLATH equ 0Ah");
+[; <" PCLATH equ 0Ah ;# ">
+"328
+[; ;C:/Users/ziatd/.mchp_packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 328: __asm("INTCON equ 0Bh");
+[; <" INTCON equ 0Bh ;# ">
+"406
+[; ;C:/Users/ziatd/.mchp_packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 406: __asm("PIR1 equ 0Ch");
+[; <" PIR1 equ 0Ch ;# ">
+"454
+[; ;C:/Users/ziatd/.mchp_packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 454: __asm("TMR1 equ 0Eh");
+[; <" TMR1 equ 0Eh ;# ">
+"461
+[; ;C:/Users/ziatd/.mchp_packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 461: __asm("TMR1L equ 0Eh");
+[; <" TMR1L equ 0Eh ;# ">
+"481
+[; ;C:/Users/ziatd/.mchp_packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 481: __asm("TMR1H equ 0Fh");
+[; <" TMR1H equ 0Fh ;# ">
+"501
+[; ;C:/Users/ziatd/.mchp_packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 501: __asm("T1CON equ 010h");
+[; <" T1CON equ 010h ;# ">
+"566
+[; ;C:/Users/ziatd/.mchp_packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 566: __asm("CMCON equ 019h");
+[; <" CMCON equ 019h ;# ">
+"625
+[; ;C:/Users/ziatd/.mchp_packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 625: __asm("ADRESH equ 01Eh");
+[; <" ADRESH equ 01Eh ;# ">
+"645
+[; ;C:/Users/ziatd/.mchp_packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 645: __asm("ADCON0 equ 01Fh");
+[; <" ADCON0 equ 01Fh ;# ">
+"729
+[; ;C:/Users/ziatd/.mchp_packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 729: __asm("OPTION_REG equ 081h");
+[; <" OPTION_REG equ 081h ;# ">
+"799
+[; ;C:/Users/ziatd/.mchp_packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 799: __asm("TRISIO equ 085h");
+[; <" TRISIO equ 085h ;# ">
+"849
+[; ;C:/Users/ziatd/.mchp_packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 849: __asm("PIE1 equ 08Ch");
+[; <" PIE1 equ 08Ch ;# ">
+"897
+[; ;C:/Users/ziatd/.mchp_packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 897: __asm("PCON equ 08Eh");
+[; <" PCON equ 08Eh ;# ">
+"931
+[; ;C:/Users/ziatd/.mchp_packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 931: __asm("OSCCAL equ 090h");
+[; <" OSCCAL equ 090h ;# ">
+"991
+[; ;C:/Users/ziatd/.mchp_packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 991: __asm("WPU equ 095h");
+[; <" WPU equ 095h ;# ">
+"1036
+[; ;C:/Users/ziatd/.mchp_packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 1036: __asm("IOC equ 096h");
+[; <" IOC equ 096h ;# ">
+"1041
+[; ;C:/Users/ziatd/.mchp_packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 1041: __asm("IOCB equ 096h");
+[; <" IOCB equ 096h ;# ">
+"1210
+[; ;C:/Users/ziatd/.mchp_packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 1210: __asm("VRCON equ 099h");
+[; <" VRCON equ 099h ;# ">
+"1270
+[; ;C:/Users/ziatd/.mchp_packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 1270: __asm("EEDATA equ 09Ah");
+[; <" EEDATA equ 09Ah ;# ">
+"1275
+[; ;C:/Users/ziatd/.mchp_packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 1275: __asm("EEDAT equ 09Ah");
+[; <" EEDAT equ 09Ah ;# ">
+"1308
+[; ;C:/Users/ziatd/.mchp_packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 1308: __asm("EEADR equ 09Bh");
+[; <" EEADR equ 09Bh ;# ">
+"1328
+[; ;C:/Users/ziatd/.mchp_packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 1328: __asm("EECON1 equ 09Ch");
+[; <" EECON1 equ 09Ch ;# ">
+"1366
+[; ;C:/Users/ziatd/.mchp_packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 1366: __asm("EECON2 equ 09Dh");
+[; <" EECON2 equ 09Dh ;# ">
+"1386
+[; ;C:/Users/ziatd/.mchp_packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 1386: __asm("ADRESL equ 09Eh");
+[; <" ADRESL equ 09Eh ;# ">
+"1406
+[; ;C:/Users/ziatd/.mchp_packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h: 1406: __asm("ANSEL equ 09Fh");
+[; <" ANSEL equ 09Fh ;# ">
+"9 initPeriphery.c
+[; ;initPeriphery.c: 9: void InitTimer0(void){
+[v _InitTimer0 `(v ~T0 @X0 1 ef ]
+{
+[e :U _InitTimer0 ]
+[f ]
+"10
+[; ;initPeriphery.c: 10:     OPTION_REG = 0b11000001;
+[e = _OPTION_REG -> -> 193 `i `uc ]
+"11
+[; ;initPeriphery.c: 11:     TMR0 = 0;
+[e = _TMR0 -> -> 0 `i `uc ]
+"12
+[; ;initPeriphery.c: 12:     TMR0IF = 0;
+[e = _TMR0IF -> -> 0 `i `b ]
+"13
+[; ;initPeriphery.c: 13:     TMR0IE = 1;
+[e = _TMR0IE -> -> 1 `i `b ]
+"14
+[; ;initPeriphery.c: 14: }
+[e :UE 82 ]
+}
+"16
+[; ;initPeriphery.c: 16: void Init_uC(void){
+[v _Init_uC `(v ~T0 @X0 1 ef ]
+{
+[e :U _Init_uC ]
+[f ]
+"17
+[; ;initPeriphery.c: 17:     CMCON = 0x07;
+[e = _CMCON -> -> 7 `i `uc ]
+"18
+[; ;initPeriphery.c: 18:     VRCON = 0x00;
+[e = _VRCON -> -> 0 `i `uc ]
+"21
+[; ;initPeriphery.c: 21:     TRISIO = 0;
+[e = _TRISIO -> -> 0 `i `uc ]
+"22
+[; ;initPeriphery.c: 22:     GPIO = 0;
+[e = _GPIO -> -> 0 `i `uc ]
+"25
+[; ;initPeriphery.c: 25:     TRISIO2 = 0;
+[e = _TRISIO2 -> -> 0 `i `b ]
+"26
+[; ;initPeriphery.c: 26:     GP2 = 0;
+[e = _GP2 -> -> 0 `i `b ]
+"29
+[; ;initPeriphery.c: 29:     TRISIO5 = 0;
+[e = _TRISIO5 -> -> 0 `i `b ]
+"30
+[; ;initPeriphery.c: 30:     GP5 = 1;
+[e = _GP5 -> -> 1 `i `b ]
+"33
+[; ;initPeriphery.c: 33:     TRISIO4 = 0;
+[e = _TRISIO4 -> -> 0 `i `b ]
+"34
+[; ;initPeriphery.c: 34:     GP4 = 1;
+[e = _GP4 -> -> 1 `i `b ]
+"37
+[; ;initPeriphery.c: 37:     VCFG = 0;
+[e = _VCFG -> -> 0 `i `b ]
+"38
+[; ;initPeriphery.c: 38:     TRISIO0 = 1;
+[e = _TRISIO0 -> -> 1 `i `b ]
+"39
+[; ;initPeriphery.c: 39:     TRISIO1 = 1;
+[e = _TRISIO1 -> -> 1 `i `b ]
+"41
+[; ;initPeriphery.c: 41:     ANSEL = 0b00110011;
+[e = _ANSEL -> -> 51 `i `uc ]
+"43
+[; ;initPeriphery.c: 43:     PEIE = 1;
+[e = _PEIE -> -> 1 `i `b ]
+"44
+[; ;initPeriphery.c: 44:     GIE = 1;
+[e = _GIE -> -> 1 `i `b ]
+"47
+[; ;initPeriphery.c: 47:     prmFlags.playLong = 1;
+[e = . _prmFlags 5 -> -> 1 `i `uc ]
+"49
+[; ;initPeriphery.c: 49:     MuxVoltage();
+[e ( _MuxVoltage ..  ]
+"50
+[; ;initPeriphery.c: 50: }
+[e :UE 83 ]
+}

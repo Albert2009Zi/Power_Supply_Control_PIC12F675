@@ -1,4 +1,4 @@
-# 1 "initPeriphery.c"
+# 1 "sounds.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,7 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "initPeriphery.c" 2
+# 1 "sounds.c" 2
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\xc.h" 1 3
 # 18 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -175,7 +175,7 @@ extern __attribute__((nonreentrant)) void _delaywdt(uint32_t);
 
 
 
-# 1 "C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\\pic\\include\\pic.h" 1 3
+# 1 "C:/Users/ziatd/.mchp_packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\\pic\\include\\pic.h" 1 3
 
 
 
@@ -186,7 +186,7 @@ extern __attribute__((nonreentrant)) void _delaywdt(uint32_t);
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\xc.h" 1 3
 # 4 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\htc.h" 2 3
-# 6 "C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\\pic\\include\\pic.h" 2 3
+# 6 "C:/Users/ziatd/.mchp_packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\\pic\\include\\pic.h" 2 3
 
 
 
@@ -195,12 +195,12 @@ extern unsigned char __osccal_val(void);
 
 
 
-# 1 "C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\\pic\\include\\pic_chip_select.h" 1 3
-# 223 "C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\\pic\\include\\pic_chip_select.h" 3
-# 1 "C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\\pic\\include\\proc\\pic12f675.h" 1 3
-# 44 "C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\\pic\\include\\proc\\pic12f675.h" 3
+# 1 "C:/Users/ziatd/.mchp_packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\\pic\\include\\pic_chip_select.h" 1 3
+# 223 "C:/Users/ziatd/.mchp_packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\\pic\\include\\pic_chip_select.h" 3
+# 1 "C:/Users/ziatd/.mchp_packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\\pic\\include\\proc\\pic12f675.h" 1 3
+# 44 "C:/Users/ziatd/.mchp_packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\\pic\\include\\proc\\pic12f675.h" 3
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\__at.h" 1 3
-# 45 "C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\\pic\\include\\proc\\pic12f675.h" 2 3
+# 45 "C:/Users/ziatd/.mchp_packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\\pic\\include\\proc\\pic12f675.h" 2 3
 
 
 
@@ -219,7 +219,7 @@ typedef union {
     };
 } INDFbits_t;
 extern volatile INDFbits_t INDFbits __attribute__((address(0x000)));
-# 72 "C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\\pic\\include\\proc\\pic12f675.h" 3
+# 72 "C:/Users/ziatd/.mchp_packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\\pic\\include\\proc\\pic12f675.h" 3
 extern volatile unsigned char TMR0 __attribute__((address(0x001)));
 
 __asm("TMR0 equ 01h");
@@ -231,7 +231,7 @@ typedef union {
     };
 } TMR0bits_t;
 extern volatile TMR0bits_t TMR0bits __attribute__((address(0x001)));
-# 92 "C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\\pic\\include\\proc\\pic12f675.h" 3
+# 92 "C:/Users/ziatd/.mchp_packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\\pic\\include\\proc\\pic12f675.h" 3
 extern volatile unsigned char PCL __attribute__((address(0x002)));
 
 __asm("PCL equ 02h");
@@ -243,7 +243,7 @@ typedef union {
     };
 } PCLbits_t;
 extern volatile PCLbits_t PCLbits __attribute__((address(0x002)));
-# 112 "C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\\pic\\include\\proc\\pic12f675.h" 3
+# 112 "C:/Users/ziatd/.mchp_packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\\pic\\include\\proc\\pic12f675.h" 3
 extern volatile unsigned char STATUS __attribute__((address(0x003)));
 
 __asm("STATUS equ 03h");
@@ -271,7 +271,7 @@ typedef union {
     };
 } STATUSbits_t;
 extern volatile STATUSbits_t STATUSbits __attribute__((address(0x003)));
-# 198 "C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\\pic\\include\\proc\\pic12f675.h" 3
+# 198 "C:/Users/ziatd/.mchp_packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\\pic\\include\\proc\\pic12f675.h" 3
 extern volatile unsigned char FSR __attribute__((address(0x004)));
 
 __asm("FSR equ 04h");
@@ -283,7 +283,7 @@ typedef union {
     };
 } FSRbits_t;
 extern volatile FSRbits_t FSRbits __attribute__((address(0x004)));
-# 218 "C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\\pic\\include\\proc\\pic12f675.h" 3
+# 218 "C:/Users/ziatd/.mchp_packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\\pic\\include\\proc\\pic12f675.h" 3
 extern volatile unsigned char GPIO __attribute__((address(0x005)));
 
 __asm("GPIO equ 05h");
@@ -308,7 +308,7 @@ typedef union {
     };
 } GPIObits_t;
 extern volatile GPIObits_t GPIObits __attribute__((address(0x005)));
-# 306 "C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\\pic\\include\\proc\\pic12f675.h" 3
+# 306 "C:/Users/ziatd/.mchp_packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\\pic\\include\\proc\\pic12f675.h" 3
 extern volatile unsigned char PCLATH __attribute__((address(0x00A)));
 
 __asm("PCLATH equ 0Ah");
@@ -320,7 +320,7 @@ typedef union {
     };
 } PCLATHbits_t;
 extern volatile PCLATHbits_t PCLATHbits __attribute__((address(0x00A)));
-# 326 "C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\\pic\\include\\proc\\pic12f675.h" 3
+# 326 "C:/Users/ziatd/.mchp_packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\\pic\\include\\proc\\pic12f675.h" 3
 extern volatile unsigned char INTCON __attribute__((address(0x00B)));
 
 __asm("INTCON equ 0Bh");
@@ -345,7 +345,7 @@ typedef union {
     };
 } INTCONbits_t;
 extern volatile INTCONbits_t INTCONbits __attribute__((address(0x00B)));
-# 404 "C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\\pic\\include\\proc\\pic12f675.h" 3
+# 404 "C:/Users/ziatd/.mchp_packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\\pic\\include\\proc\\pic12f675.h" 3
 extern volatile unsigned char PIR1 __attribute__((address(0x00C)));
 
 __asm("PIR1 equ 0Ch");
@@ -365,7 +365,7 @@ typedef union {
     };
 } PIR1bits_t;
 extern volatile PIR1bits_t PIR1bits __attribute__((address(0x00C)));
-# 452 "C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\\pic\\include\\proc\\pic12f675.h" 3
+# 452 "C:/Users/ziatd/.mchp_packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\\pic\\include\\proc\\pic12f675.h" 3
 extern volatile unsigned short TMR1 __attribute__((address(0x00E)));
 
 __asm("TMR1 equ 0Eh");
@@ -384,7 +384,7 @@ typedef union {
     };
 } TMR1Lbits_t;
 extern volatile TMR1Lbits_t TMR1Lbits __attribute__((address(0x00E)));
-# 479 "C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\\pic\\include\\proc\\pic12f675.h" 3
+# 479 "C:/Users/ziatd/.mchp_packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\\pic\\include\\proc\\pic12f675.h" 3
 extern volatile unsigned char TMR1H __attribute__((address(0x00F)));
 
 __asm("TMR1H equ 0Fh");
@@ -396,7 +396,7 @@ typedef union {
     };
 } TMR1Hbits_t;
 extern volatile TMR1Hbits_t TMR1Hbits __attribute__((address(0x00F)));
-# 499 "C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\\pic\\include\\proc\\pic12f675.h" 3
+# 499 "C:/Users/ziatd/.mchp_packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\\pic\\include\\proc\\pic12f675.h" 3
 extern volatile unsigned char T1CON __attribute__((address(0x010)));
 
 __asm("T1CON equ 010h");
@@ -418,7 +418,7 @@ typedef union {
     };
 } T1CONbits_t;
 extern volatile T1CONbits_t T1CONbits __attribute__((address(0x010)));
-# 564 "C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\\pic\\include\\proc\\pic12f675.h" 3
+# 564 "C:/Users/ziatd/.mchp_packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\\pic\\include\\proc\\pic12f675.h" 3
 extern volatile unsigned char CMCON __attribute__((address(0x019)));
 
 __asm("CMCON equ 019h");
@@ -439,7 +439,7 @@ typedef union {
     };
 } CMCONbits_t;
 extern volatile CMCONbits_t CMCONbits __attribute__((address(0x019)));
-# 623 "C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\\pic\\include\\proc\\pic12f675.h" 3
+# 623 "C:/Users/ziatd/.mchp_packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\\pic\\include\\proc\\pic12f675.h" 3
 extern volatile unsigned char ADRESH __attribute__((address(0x01E)));
 
 __asm("ADRESH equ 01Eh");
@@ -451,7 +451,7 @@ typedef union {
     };
 } ADRESHbits_t;
 extern volatile ADRESHbits_t ADRESHbits __attribute__((address(0x01E)));
-# 643 "C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\\pic\\include\\proc\\pic12f675.h" 3
+# 643 "C:/Users/ziatd/.mchp_packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\\pic\\include\\proc\\pic12f675.h" 3
 extern volatile unsigned char ADCON0 __attribute__((address(0x01F)));
 
 __asm("ADCON0 equ 01Fh");
@@ -482,7 +482,7 @@ typedef union {
     };
 } ADCON0bits_t;
 extern volatile ADCON0bits_t ADCON0bits __attribute__((address(0x01F)));
-# 727 "C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\\pic\\include\\proc\\pic12f675.h" 3
+# 727 "C:/Users/ziatd/.mchp_packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\\pic\\include\\proc\\pic12f675.h" 3
 extern volatile unsigned char OPTION_REG __attribute__((address(0x081)));
 
 __asm("OPTION_REG equ 081h");
@@ -504,7 +504,7 @@ typedef union {
     };
 } OPTION_REGbits_t;
 extern volatile OPTION_REGbits_t OPTION_REGbits __attribute__((address(0x081)));
-# 797 "C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\\pic\\include\\proc\\pic12f675.h" 3
+# 797 "C:/Users/ziatd/.mchp_packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\\pic\\include\\proc\\pic12f675.h" 3
 extern volatile unsigned char TRISIO __attribute__((address(0x085)));
 
 __asm("TRISIO equ 085h");
@@ -521,7 +521,7 @@ typedef union {
     };
 } TRISIObits_t;
 extern volatile TRISIObits_t TRISIObits __attribute__((address(0x085)));
-# 847 "C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\\pic\\include\\proc\\pic12f675.h" 3
+# 847 "C:/Users/ziatd/.mchp_packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\\pic\\include\\proc\\pic12f675.h" 3
 extern volatile unsigned char PIE1 __attribute__((address(0x08C)));
 
 __asm("PIE1 equ 08Ch");
@@ -541,7 +541,7 @@ typedef union {
     };
 } PIE1bits_t;
 extern volatile PIE1bits_t PIE1bits __attribute__((address(0x08C)));
-# 895 "C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\\pic\\include\\proc\\pic12f675.h" 3
+# 895 "C:/Users/ziatd/.mchp_packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\\pic\\include\\proc\\pic12f675.h" 3
 extern volatile unsigned char PCON __attribute__((address(0x08E)));
 
 __asm("PCON equ 08Eh");
@@ -557,7 +557,7 @@ typedef union {
     };
 } PCONbits_t;
 extern volatile PCONbits_t PCONbits __attribute__((address(0x08E)));
-# 929 "C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\\pic\\include\\proc\\pic12f675.h" 3
+# 929 "C:/Users/ziatd/.mchp_packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\\pic\\include\\proc\\pic12f675.h" 3
 extern volatile unsigned char OSCCAL __attribute__((address(0x090)));
 
 __asm("OSCCAL equ 090h");
@@ -579,7 +579,7 @@ typedef union {
     };
 } OSCCALbits_t;
 extern volatile OSCCALbits_t OSCCALbits __attribute__((address(0x090)));
-# 989 "C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\\pic\\include\\proc\\pic12f675.h" 3
+# 989 "C:/Users/ziatd/.mchp_packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\\pic\\include\\proc\\pic12f675.h" 3
 extern volatile unsigned char WPU __attribute__((address(0x095)));
 
 __asm("WPU equ 095h");
@@ -596,7 +596,7 @@ typedef union {
     };
 } WPUbits_t;
 extern volatile WPUbits_t WPUbits __attribute__((address(0x095)));
-# 1034 "C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\\pic\\include\\proc\\pic12f675.h" 3
+# 1034 "C:/Users/ziatd/.mchp_packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\\pic\\include\\proc\\pic12f675.h" 3
 extern volatile unsigned char IOC __attribute__((address(0x096)));
 
 __asm("IOC equ 096h");
@@ -626,7 +626,7 @@ typedef union {
     };
 } IOCbits_t;
 extern volatile IOCbits_t IOCbits __attribute__((address(0x096)));
-# 1125 "C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\\pic\\include\\proc\\pic12f675.h" 3
+# 1125 "C:/Users/ziatd/.mchp_packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\\pic\\include\\proc\\pic12f675.h" 3
 typedef union {
     struct {
         unsigned IOC0 :1;
@@ -646,7 +646,7 @@ typedef union {
     };
 } IOCBbits_t;
 extern volatile IOCBbits_t IOCBbits __attribute__((address(0x096)));
-# 1208 "C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\\pic\\include\\proc\\pic12f675.h" 3
+# 1208 "C:/Users/ziatd/.mchp_packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\\pic\\include\\proc\\pic12f675.h" 3
 extern volatile unsigned char VRCON __attribute__((address(0x099)));
 
 __asm("VRCON equ 099h");
@@ -668,7 +668,7 @@ typedef union {
     };
 } VRCONbits_t;
 extern volatile VRCONbits_t VRCONbits __attribute__((address(0x099)));
-# 1268 "C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\\pic\\include\\proc\\pic12f675.h" 3
+# 1268 "C:/Users/ziatd/.mchp_packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\\pic\\include\\proc\\pic12f675.h" 3
 extern volatile unsigned char EEDATA __attribute__((address(0x09A)));
 
 __asm("EEDATA equ 09Ah");
@@ -698,7 +698,7 @@ typedef union {
     };
 } EEDATbits_t;
 extern volatile EEDATbits_t EEDATbits __attribute__((address(0x09A)));
-# 1306 "C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\\pic\\include\\proc\\pic12f675.h" 3
+# 1306 "C:/Users/ziatd/.mchp_packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\\pic\\include\\proc\\pic12f675.h" 3
 extern volatile unsigned char EEADR __attribute__((address(0x09B)));
 
 __asm("EEADR equ 09Bh");
@@ -710,7 +710,7 @@ typedef union {
     };
 } EEADRbits_t;
 extern volatile EEADRbits_t EEADRbits __attribute__((address(0x09B)));
-# 1326 "C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\\pic\\include\\proc\\pic12f675.h" 3
+# 1326 "C:/Users/ziatd/.mchp_packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\\pic\\include\\proc\\pic12f675.h" 3
 extern volatile unsigned char EECON1 __attribute__((address(0x09C)));
 
 __asm("EECON1 equ 09Ch");
@@ -725,7 +725,7 @@ typedef union {
     };
 } EECON1bits_t;
 extern volatile EECON1bits_t EECON1bits __attribute__((address(0x09C)));
-# 1364 "C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\\pic\\include\\proc\\pic12f675.h" 3
+# 1364 "C:/Users/ziatd/.mchp_packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\\pic\\include\\proc\\pic12f675.h" 3
 extern volatile unsigned char EECON2 __attribute__((address(0x09D)));
 
 __asm("EECON2 equ 09Dh");
@@ -737,7 +737,7 @@ typedef union {
     };
 } EECON2bits_t;
 extern volatile EECON2bits_t EECON2bits __attribute__((address(0x09D)));
-# 1384 "C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\\pic\\include\\proc\\pic12f675.h" 3
+# 1384 "C:/Users/ziatd/.mchp_packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\\pic\\include\\proc\\pic12f675.h" 3
 extern volatile unsigned char ADRESL __attribute__((address(0x09E)));
 
 __asm("ADRESL equ 09Eh");
@@ -749,7 +749,7 @@ typedef union {
     };
 } ADRESLbits_t;
 extern volatile ADRESLbits_t ADRESLbits __attribute__((address(0x09E)));
-# 1404 "C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\\pic\\include\\proc\\pic12f675.h" 3
+# 1404 "C:/Users/ziatd/.mchp_packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\\pic\\include\\proc\\pic12f675.h" 3
 extern volatile unsigned char ANSEL __attribute__((address(0x09F)));
 
 __asm("ANSEL equ 09Fh");
@@ -771,7 +771,7 @@ typedef union {
     };
 } ANSELbits_t;
 extern volatile ANSELbits_t ANSELbits __attribute__((address(0x09F)));
-# 1484 "C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\\pic\\include\\proc\\pic12f675.h" 3
+# 1484 "C:/Users/ziatd/.mchp_packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\\pic\\include\\proc\\pic12f675.h" 3
 extern volatile __bit ADCS0 __attribute__((address(0x4FC)));
 
 
@@ -1127,9 +1127,9 @@ extern volatile __bit nT1SYNC __attribute__((address(0x82)));
 
 
 extern volatile __bit nTO __attribute__((address(0x1C)));
-# 224 "C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\\pic\\include\\pic_chip_select.h" 2 3
-# 14 "C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\\pic\\include\\pic.h" 2 3
-# 76 "C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\\pic\\include\\pic.h" 3
+# 224 "C:/Users/ziatd/.mchp_packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\\pic\\include\\pic_chip_select.h" 2 3
+# 14 "C:/Users/ziatd/.mchp_packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\\pic\\include\\pic.h" 2 3
+# 76 "C:/Users/ziatd/.mchp_packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\\pic\\include\\pic.h" 3
 __attribute__((__unsupported__("The " "FLASH_READ" " macro function is no longer supported. Please use the MPLAB X MCC."))) unsigned char __flash_read(unsigned short addr);
 
 __attribute__((__unsupported__("The " "FLASH_WRITE" " macro function is no longer supported. Please use the MPLAB X MCC."))) void __flash_write(unsigned short addr, unsigned short data);
@@ -1142,23 +1142,23 @@ __attribute__((__unsupported__("The " "FLASH_ERASE" " macro function is no longe
 # 114 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\eeprom_routines.h" 3
 extern void eeprom_write(unsigned char addr, unsigned char value);
 extern unsigned char eeprom_read(unsigned char addr);
-# 84 "C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\\pic\\include\\pic.h" 2 3
-# 118 "C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\\pic\\include\\pic.h" 3
+# 84 "C:/Users/ziatd/.mchp_packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\\pic\\include\\pic.h" 2 3
+# 118 "C:/Users/ziatd/.mchp_packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\\pic\\include\\pic.h" 3
 extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 28 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\xc.h" 2 3
-# 1 "initPeriphery.c" 2
+# 1 "sounds.c" 2
 
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\stdint.h" 1 3
-# 2 "initPeriphery.c" 2
+# 1 "./sounds.h" 1
+# 27 "./sounds.h"
+void EnqueueBeeps(uint16_t duration, uint8_t allowTimeout);
 
-# 1 "./initPeriphery.h" 1
-# 11 "./initPeriphery.h"
-void InitTimer0(void);
+void BeepsStateMachine(void);
 
-void Init_uC(void);
-# 3 "initPeriphery.c" 2
+
+void playAlert(void);
+# 2 "sounds.c" 2
 
 # 1 "./interrupt.h" 1
 # 11 "./interrupt.h"
@@ -1183,60 +1183,168 @@ void MuxTemp(void);
 void __attribute__((picinterrupt(("")))) ISR(void);
 
 void ADCProcessing(void);
-# 4 "initPeriphery.c" 2
+# 3 "sounds.c" 2
 
-# 1 "./sounds.h" 1
-# 27 "./sounds.h"
-void EnqueueBeeps(uint16_t duration, uint8_t allowTimeout);
+# 1 "./initPeriphery.h" 1
+# 11 "./initPeriphery.h"
+void InitTimer0(void);
 
-void BeepsStateMachine(void);
-
-
-void playAlert(void);
-# 5 "initPeriphery.c" 2
+void Init_uC(void);
+# 4 "sounds.c" 2
 
 
 
 
-void InitTimer0(void){
-    OPTION_REG = 0b11000001;
-    TMR0 = 0;
-    TMR0IF = 0;
-    TMR0IE = 1;
+
+
+volatile uint16_t cnt0 = 0;
+
+
+
+typedef struct{
+      uint16_t duration;
+      uint8_t allowTimeout;
+} SoundParameters;
+
+
+SoundParameters beepsQueue[5];
+uint8_t queueHead = 0;
+uint8_t queueTail = 0;
+
+
+void EnqueueBeeps(uint16_t duration, uint8_t allowTimeout) {
+
+    if ((queueTail + 1) % 5 != queueHead) {
+
+        beepsQueue[queueTail].duration = duration;
+        beepsQueue[queueTail].allowTimeout = allowTimeout;
+        queueTail = (queueTail + 1) % 5;
+    }
 }
 
-void Init_uC(void){
-    CMCON = 0x07;
-    VRCON = 0x00;
 
 
-    TRISIO = 0;
-    GPIO = 0;
+
+void BeepsStateMachine(void){
+
+    static uint8_t state = 0;
+    static uint16_t stateMachineDuration = 0;
+    static uint8_t stateMachineAllowTimeout = 0;
+
+    switch(state){
+       case 0:
+        if (queueHead != queueTail) {
+                stateMachineDuration = beepsQueue[queueHead].duration;
+                stateMachineAllowTimeout = beepsQueue[queueHead].allowTimeout;
+                queueHead = (queueHead + 1) % 5;
+                GP2 = 1;
+                cnt0 = 0;
+                state = 1;
+          prmFlags.alarmState = 1;
+            }
+ break;
+
+        case 1:
+   if (cnt0 >= stateMachineDuration){
+             cnt0 = 0;
+             state = 2;
+             GP2 = 0;
+          }
+ break;
+
+ case 2:
+          if (cnt0 >= 80){
+             cnt0 = 0;
+             if (stateMachineAllowTimeout == 0){
+                 state = 0;
+         }
+            else if (stateMachineAllowTimeout == 1){
+         state = 3;
+         }
+           }
+        break;
+
+        case 3:
+         if (cnt0 >= 1300){
+           cnt0 = 0;
+           queueHead = 0;
+           queueTail = 0;
+        state = 0;
+        prmFlags.alarmState = 0;
+         }
+ break;
+
+        default:
+        break;
+   }
+}
 
 
-    TRISIO2 = 0;
-    GP2 = 0;
+
+void playAlert() {
+
+   uint8_t howMuchTimesPlayShort = 0;
+   uint8_t howMuchTimesPlayLong = 0;
+   uint8_t totalBeeps = 0;
+   static uint8_t soundState = 0;
+
+   switch (soundState){
+     case 0:
+      if (prmFlags.errorUnderVoltage){
+        howMuchTimesPlayShort = 2;
+        howMuchTimesPlayLong = 1;
+        }
+      if (!prmFlags.alarmState) soundState = 1;
+     break;
+
+     case 1:
+     if (prmFlags.errorOverVoltage) {
+         howMuchTimesPlayShort = 2;
+         howMuchTimesPlayLong = 2;
+  }
+      if (!prmFlags.alarmState) soundState = 2;
+     break;
+
+     case 2:
+     if (prmFlags.errorHighTemperature){
+       howMuchTimesPlayShort = 3;
+       howMuchTimesPlayLong = 0;
+       }
+      if (!prmFlags.alarmState) soundState = 3;
+     break;
+
+     case 3:
+      if (prmFlags.playLong){
+       howMuchTimesPlayShort = 0;
+       howMuchTimesPlayLong = 1;
+       }
+      if (!prmFlags.alarmState) {
+       soundState = 0;
+       prmFlags.playLong = 0;
+       }
+     break;
+
+     default:
+     break;
+}
+
+    totalBeeps = howMuchTimesPlayShort + howMuchTimesPlayLong;
 
 
-    TRISIO5 = 0;
-    GP5 = 1;
+    for (uint8_t i = 0; i < howMuchTimesPlayShort; i++) {
+        if (i == (totalBeeps - 1)) {
+            EnqueueBeeps(120, 1);
+        } else {
+            EnqueueBeeps(120, 0);
+        }
+    }
 
 
-    TRISIO4 = 0;
-    GP4 = 1;
-
-
-    VCFG = 0;
-    TRISIO0 = 1;
-    TRISIO1 = 1;
-
-    ANSEL = 0b00110011;
-
-    PEIE = 1;
-    GIE = 1;
-
-
-    prmFlags.playLong = 1;
-
-    MuxVoltage();
+    for (uint8_t i = 0; i < howMuchTimesPlayLong; i++) {
+        if ((howMuchTimesPlayShort + i) == totalBeeps - 1) {
+            EnqueueBeeps(300, 1);
+        } else {
+            EnqueueBeeps(300, 0);
+        }
+    }
 }
