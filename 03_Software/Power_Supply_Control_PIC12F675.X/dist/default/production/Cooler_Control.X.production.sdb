@@ -1,0 +1,211 @@
+[p GLOBOPT AUTOSTATIC IEEE_DBL IEEE_FLT PIC14 PICREGULAR PICMID ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 12F675 ]
+[d frameptr 0 ]
+"5 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\awmod.c
+[v ___awmod __awmod `(i  1 e 2 0 ]
+"10 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\sprcadd.c
+[v ___fladd __fladd `(d  1 e 4 0 ]
+"4 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\Umul8.c
+[v ___bmul __bmul `(uc  1 e 1 0 ]
+"4 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\Umul8_16.c
+[v __Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
+"6 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\pic\__eeprom.c
+[v ___eecpymem __eecpymem `(v  1 e 1 0 ]
+"39
+[v ___memcpyee __memcpyee `(v  1 e 1 0 ]
+"9 C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\initPeriphery.c
+[v _InitTimer0 InitTimer0 `(v  1 e 1 0 ]
+"16
+[v _Init_uC Init_uC `(v  1 e 1 0 ]
+"12 C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\interrupt.c
+[v _MuxVoltage MuxVoltage `(v  1 e 1 0 ]
+"24
+[v _MuxTemp MuxTemp `(v  1 e 1 0 ]
+"35
+[v _ISR ISR `II(v  1 e 1 0 ]
+"48
+[v _ADCProcessing ADCProcessing `(v  1 e 1 0 ]
+"66 C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\main.c
+[v _main main `(i  1 e 2 0 ]
+"25 C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\sounds.c
+[v _EnqueueBeeps EnqueueBeeps `(v  1 e 1 0 ]
+"38
+[v _BeepsStateMachine BeepsStateMachine `(v  1 e 1 0 ]
+"94
+[v _playAlert playAlert `(v  1 e 1 0 ]
+"72 C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC10-12Fxxx_DFP/1.7.178/xc8\pic\include\proc\pic12f675.h
+[v _TMR0 TMR0 `VEuc  1 e 1 @1 ]
+"218
+[v _GPIO GPIO `VEuc  1 e 1 @5 ]
+"564
+[v _CMCON CMCON `VEuc  1 e 1 @25 ]
+"623
+[v _ADRESH ADRESH `VEuc  1 e 1 @30 ]
+"643
+[v _ADCON0 ADCON0 `VEuc  1 e 1 @31 ]
+"727
+[v _OPTION_REG OPTION_REG `VEuc  1 e 1 @129 ]
+"797
+[v _TRISIO TRISIO `VEuc  1 e 1 @133 ]
+"1208
+[v _VRCON VRCON `VEuc  1 e 1 @153 ]
+"1384
+[v _ADRESL ADRESL `VEuc  1 e 1 @158 ]
+"1404
+[v _ANSEL ANSEL `VEuc  1 e 1 @159 ]
+"1493
+[v _ADFM ADFM `VEb  1 e 0 @255 ]
+"1499
+[v _ADIF ADIF `VEb  1 e 0 @102 ]
+"1502
+[v _ADON ADON `VEb  1 e 0 @248 ]
+"1538
+[v _CHS0 CHS0 `VEb  1 e 0 @250 ]
+"1541
+[v _CHS1 CHS1 `VEb  1 e 0 @251 ]
+"1577
+[v _GIE GIE `VEb  1 e 0 @95 ]
+"1580
+[v _GO GO `VEb  1 e 0 @249 ]
+"1595
+[v _GP2 GP2 `VEb  1 e 0 @42 ]
+"1601
+[v _GP4 GP4 `VEb  1 e 0 @44 ]
+"1604
+[v _GP5 GP5 `VEb  1 e 0 @45 ]
+"1679
+[v _PEIE PEIE `VEb  1 e 0 @94 ]
+"1730
+[v _TMR0IE TMR0IE `VEb  1 e 0 @93 ]
+"1733
+[v _TMR0IF TMR0IF `VEb  1 e 0 @90 ]
+"1751
+[v _TRISIO0 TRISIO0 `VEb  1 e 0 @1064 ]
+"1754
+[v _TRISIO1 TRISIO1 `VEb  1 e 0 @1065 ]
+"1757
+[v _TRISIO2 TRISIO2 `VEb  1 e 0 @1066 ]
+"1763
+[v _TRISIO4 TRISIO4 `VEb  1 e 0 @1068 ]
+"1766
+[v _TRISIO5 TRISIO5 `VEb  1 e 0 @1069 ]
+"1769
+[v _VCFG VCFG `VEb  1 e 0 @254 ]
+[s S51 . 1 `uc 1 usPause 1 0 :1:0 
+`uc 1 errorUnderVoltage 1 0 :1:1 
+`uc 1 errorOverVoltage 1 0 :1:2 
+`uc 1 errorHighTemperature 1 0 :1:3 
+`uc 1 alarmState 1 0 :1:4 
+`uc 1 playLong 1 0 :1:5 
+]
+"10 C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\interrupt.c
+[v _prmFlags prmFlags `VES51  1 e 1 0 ]
+"10 C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\sounds.c
+[v _cnt0 cnt0 `VEui  1 e 2 0 ]
+[s S47 . 3 `ui 1 duration 2 0 `uc 1 allowTimeout 1 2 ]
+"20
+[v _beepsQueue beepsQueue `[5]S47  1 e 15 0 ]
+"21
+[v _queueHead queueHead `uc  1 e 1 0 ]
+"22
+[v _queueTail queueTail `uc  1 e 1 0 ]
+"66 C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\main.c
+[v _main main `(i  1 e 2 0 ]
+{
+"79
+} 0
+"94 C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\sounds.c
+[v _playAlert playAlert `(v  1 e 1 0 ]
+{
+"153
+[v playAlert@i_85 i `uc  1 a 1 17 ]
+"144
+[v playAlert@i i `uc  1 a 1 16 ]
+"96
+[v playAlert@howMuchTimesPlayShort howMuchTimesPlayShort `uc  1 a 1 19 ]
+"97
+[v playAlert@howMuchTimesPlayLong howMuchTimesPlayLong `uc  1 a 1 18 ]
+"98
+[v playAlert@totalBeeps totalBeeps `uc  1 a 1 15 ]
+"99
+[v playAlert@soundState soundState `uc  1 s 1 soundState ]
+"160
+} 0
+"25
+[v _EnqueueBeeps EnqueueBeeps `(v  1 e 1 0 ]
+{
+[v EnqueueBeeps@duration duration `ui  1 p 2 8 ]
+[v EnqueueBeeps@allowTimeout allowTimeout `uc  1 p 1 10 ]
+"33
+} 0
+"16 C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\initPeriphery.c
+[v _Init_uC Init_uC `(v  1 e 1 0 ]
+{
+"50
+} 0
+"9
+[v _InitTimer0 InitTimer0 `(v  1 e 1 0 ]
+{
+"14
+} 0
+"38 C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\sounds.c
+[v _BeepsStateMachine BeepsStateMachine `(v  1 e 1 0 ]
+{
+"40
+[v BeepsStateMachine@state state `uc  1 s 1 state ]
+"41
+[v BeepsStateMachine@stateMachineDuration stateMachineDuration `ui  1 s 2 stateMachineDuration ]
+"42
+[v BeepsStateMachine@stateMachineAllowTimeout stateMachineAllowTimeout `uc  1 s 1 stateMachineAllowTimeout ]
+"90
+} 0
+"4 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\Umul8.c
+[v ___bmul __bmul `(uc  1 e 1 0 ]
+{
+[v ___bmul@multiplier multiplier `uc  1 a 1 wreg ]
+"6
+[v ___bmul@product product `uc  1 a 1 3 ]
+"4
+[v ___bmul@multiplier multiplier `uc  1 a 1 wreg ]
+[v ___bmul@multiplicand multiplicand `uc  1 p 1 2 ]
+"6
+[v ___bmul@multiplier multiplier `uc  1 a 1 4 ]
+"51
+} 0
+"5 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\awmod.c
+[v ___awmod __awmod `(i  1 e 2 0 ]
+{
+"10
+[v ___awmod@sign sign `uc  1 a 1 7 ]
+[v ___awmod@counter counter `uc  1 a 1 6 ]
+"5
+[v ___awmod@divisor divisor `i  1 p 2 2 ]
+[v ___awmod@dividend dividend `i  1 p 2 4 ]
+"34
+} 0
+"48 C:\dev\uC\PIC\TalkoS\Cooler_Control\03_Software\Cooler_Control.X\interrupt.c
+[v _ADCProcessing ADCProcessing `(v  1 e 1 0 ]
+{
+"50
+[v ADCProcessing@adcValue adcValue `ui  1 a 2 5 ]
+"51
+[v ADCProcessing@adcState adcState `uc  1 s 1 adcState ]
+"117
+} 0
+"12
+[v _MuxVoltage MuxVoltage `(v  1 e 1 0 ]
+{
+"21
+} 0
+"24
+[v _MuxTemp MuxTemp `(v  1 e 1 0 ]
+{
+"33
+} 0
+"35
+[v _ISR ISR `II(v  1 e 1 0 ]
+{
+"44
+} 0
