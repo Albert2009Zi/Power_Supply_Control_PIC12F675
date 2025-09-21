@@ -80,13 +80,15 @@ void ADCProcessing(void){
 	
 	case STATE_MEASURE_TEMPERATURE:
 	//Warning!!! GP4 on real device (not simulation) controls a fun
-	     if (adcValue < 200){
+	/*     if (adcValue < 200){
 		      GP5       = 1;  
 		    //  GP4       = 0;
            	 prmFlags.errorHighTemperature = ERROR_OK;
 		  }
                 
-             else if ((adcValue > 200) && (adcValue < 930)){ 
+             else if ((adcValue > 200) && 
+     * */
+        if (adcValue <= 930){ 
 	             if((prmFlags.errorUnderVoltage == ERROR_OK) && (prmFlags.errorOverVoltage == ERROR_OK)) GP5 = 0;
 		        else GP5 = 1; 
 		    //    GP4 = 0;
@@ -99,7 +101,7 @@ void ADCProcessing(void){
 		    //    GP4 = 1;
 			    prmFlags.errorHighTemperature = ERROR_OK;
                        }	
-             else if (adcValue > 970) {
+             else if (adcValue >= 970) {
 		      //  GP4       = 1;
 	            GP5       = 1;
                 prmFlags.errorHighTemperature = ERROR_NOK; 

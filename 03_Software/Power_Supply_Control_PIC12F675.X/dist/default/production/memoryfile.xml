@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
-  <executable name="dist/default/production\Cooler_Control.X.production.hex">
+  <executable name="dist/default/production\Power_Supply_Control_PIC12F675.X.production.hex">
     <memory name="program">
       <units>words</units>
       <length>1024</length>
-      <used>781</used>
-      <free>243</free>
+      <used>759</used>
+      <free>265</free>
     </memory>
     <memory name="data">
       <units>bytes</units>
